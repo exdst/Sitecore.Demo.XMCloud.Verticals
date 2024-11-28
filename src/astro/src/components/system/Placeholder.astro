@@ -49,7 +49,7 @@ export function convertToDynamicComponents(
   );
 }
 
-const { rendering } = Astro.props;
+const { rendering }: Props = Astro.props;
 
 const components = convertToDynamicComponents(
   rendering.placeholders && rendering.placeholders[Astro.props.name]

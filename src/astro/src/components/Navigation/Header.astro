@@ -1,0 +1,25 @@
+---
+import { Image, ImageField } from '@sitecore-jss/sitecore-jss-react';
+import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+import Placeholder from '../system/Placeholder.astro';
+import { undefined } from 'astro:schema';
+
+const props : ComponentRendering = Astro.props.route;
+
+const id = props.uid;
+
+const widthClass = props.params?.ContainerWidth?.toLowerCase() ?? "";
+const stylesClass = props.params?.styles?.trimEnd() ?? "";
+---
+<div class={`component header ${stylesClass}`} id={id ? id : undefined}>
+  <div class={`container container-${widthClass}-fluid`}>
+    <div class="row align-items-center">
+      <div class="col-auto">
+        <Placeholder name="header-left" rendering={props} />
+      </div>
+      <div class="col">
+        <Placeholder name="header-right" rendering={props} />
+      </div>
+    </div>
+  </div>
+</div>

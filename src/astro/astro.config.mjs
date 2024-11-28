@@ -45,6 +45,7 @@ export default defineConfig({
     checkOrigin: false,
   },
   redirects: {
+    '/-/media/[...slug]': `${config.sitecoreApiHost}/-/media/[...slug]`,
     '/-/jssmedia/[...slug]': `${config.sitecoreApiHost}/-/jssmedia/[...slug]`
   }
 });

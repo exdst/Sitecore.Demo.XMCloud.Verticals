@@ -45,21 +45,21 @@ const contextSiteClass = `site-${theme?.toLowerCase()}`;
         ))} -->
 	</head>
 	<body>
-		<ParallaxProvider>
+		<!-- <ParallaxProvider> -->
 			<div class={`${mainClassPageEditing} ${contextSiteClass} body`}>
 				<header>
 					<div id="header">
-						{route && <Placeholder name="headless-header" rendering={route} />}
+						{route && <Placeholder name="headless-header" rendering={route} layoutData={Astro.props.layoutData}/>}
 					</div>
 				</header>
 				<main>
 					<div id="content">
-						{route && <Placeholder name="headless-main" rendering={route} />}
+						{route && <Placeholder name="headless-main" rendering={route} layoutData={Astro.props.layoutData}/>}
 					</div>
 				</main>
 				<footer>
 					<div id="footer">
-						{route && <Placeholder name="headless-footer" rendering={route} />}
+						{route && <Placeholder name="headless-footer" rendering={route} layoutData={Astro.props.layoutData}/>}
 					</div>
 				</footer>
 			</div>
@@ -67,6 +67,6 @@ const contextSiteClass = `site-${theme?.toLowerCase()}`;
 			<!-- <div class="container">
 				<Placeholder name="jss-main" rendering={route}/>
 			</div> -->
-		</ParallaxProvider>
+		<!-- </ParallaxProvider> -->
 	</body>
 </html>

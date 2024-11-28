@@ -1,0 +1,93 @@
+---
+import React, { useState } from 'react';
+import {
+  Link,
+  LinkField,
+  Text,
+  TextField,
+  useSitecoreContext,
+} from '@sitecore-jss/sitecore-jss-react';
+
+import NavigationList from './Navigation/NavigationList.astro'
+
+interface Fields {
+  Id: string;
+  DisplayName: string;
+  Title: TextField;
+  NavigationTitle: TextField;
+  Href: string;
+  Querystring: string;
+  Children: Array<Fields>;
+  Styles: string[];
+}
+
+type NavigationProps = {
+  params?: { [key: string]: string };
+  fields: Fields;
+  handleClick: (event?: React.MouseEvent<HTMLElement>) => void;
+  relativeLevel: number;
+};
+
+const props: NavigationProps = Astro.props.route;
+
+//const [isOpenMenu, openMenu] = useState(false);
+//const { sitecoreContext } = useSitecoreContext();
+// const styles =
+//     props.params != null
+//       ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
+//       : '';
+const styles = "";
+const id = "navigationid";
+
+const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, flag?: boolean): void => {
+    if (event && sitecoreContext?.pageEditing) {
+      event.preventDefault();
+    }
+
+    if (flag !== undefined) {
+      return openMenu(flag);
+    }
+
+    //openMenu(!isOpenMenu);
+  };
+
+//   const list = Object.values(props.fields)
+//     .filter((element) => element)
+//     .map((element: Fields, key: number) => {
+//       <NavigationList
+//         key={`${key}${element.Id}`}
+//         fields={element}
+//         handleClick={(event: React.MouseEvent<HTMLElement>) => handleToggleMenu(event, false)}
+//         relativeLevel={1}
+//       />}
+//     );
+---
+<div class={`component navigation ${styles}`} id={id ? id : undefined}>
+    <label class="menu-mobile-navigate-wrapper">
+      <input
+        type="checkbox"
+        class="menu-mobile-navigate"
+        checked={}
+        onChange={() => handleToggleMenu()}
+      />
+      {/* DEMO TEAM CUSTOMIZATION */}
+      <div class="menu-humburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="component-content">
+        <nav>
+          {/* DEMO TEAM CUSTOMIZATION */}
+          <ul>{props.fields.map((element: Fields, index: number) => (
+                <NavigationList
+                    key={index}
+                    fields={element}
+                    handleClick={(event: React.MouseEvent<HTMLElement>) => handleToggleMenu(event, false)}
+                    relativeLevel={1}
+                />
+            ))}</ul>
+        </nav>
+      </div>
+    </label>
+  </div>
