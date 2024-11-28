@@ -51,6 +51,8 @@ import StyleguideSitecoreContext from '../../src/components/styleguide/Styleguid
 import StyleguideSpecimen from '../../src/components/styleguide/Styleguide-Specimen.astro'
 import StyleguideTracking from '../../src/components/styleguide/Styleguide-Tracking.astro'
 import Placeholder from '../../src/components/system/Placeholder.astro'
+import FooterDefault from '../../src/components/Variants/FooterDefault.astro'
+import FooterWithSocials from '../../src/components/Variants/FooterWithSocials.astro'
 
 export interface Props  {
   name: string;
@@ -110,5 +112,7 @@ export interface Props  {
 {Astro.props.name === 'Styleguide-Specimen' && <StyleguideSpecimen route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-Tracking' && <StyleguideTracking route={Astro.props.route}/>}
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
+{Astro.props.name === 'FooterDefault' && <FooterDefault route={Astro.props.route}/>}
+{Astro.props.name === 'FooterWithSocials' && <FooterWithSocials route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>

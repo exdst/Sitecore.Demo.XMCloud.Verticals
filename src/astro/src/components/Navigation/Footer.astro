@@ -5,12 +5,8 @@ import {
   LinkField,
   RichTextField,
 } from "@sitecore-jss/sitecore-jss-react";
-import {
-  Image,
-  Link,
-  RichText,
-  Text,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import FooterDefault from "../Variants/FooterDefault.astro";
+import FooterWithSocials from "../Variants/FooterWithSocials.astro";
 
 interface Fields {
   Image1: ImageField;
@@ -43,57 +39,7 @@ const props: FooterProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 ---
 
-<div
-  class={`component component-spaced footer ${props.params.styles.trimEnd()}`} 
-  id={id ? id : undefined}
->
-  <div class="container">
-    <div class="content">
-      <div class="logo">
-        <Image field={props.fields?.Image1} height={" "} class="img-fluid" />
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 row-gap-5 gx-5">
-        <div class="col">
-          <div class="title">
-            <Text field={props.fields?.Title1} />
-          </div>
-          <div class="links">
-            <RichText field={props.fields?.Text1} />
-          </div>
-        </div>
-        <div class="col">
-          <div class="title">
-            <Text field={props.fields?.Title2} />
-          </div>
-          <div class="links">
-            <RichText field={props.fields?.Text2} />
-          </div>
-        </div>
-        <div class="col">
-          <div class="title">
-            <Text field={props.fields?.Title3} />
-          </div>
-          <div class="links">
-            <RichText field={props.fields?.Text3} />
-          </div>
-        </div>
-        <div class="col">
-          <div class="title">
-            <Text field={props.fields?.Title4} />
-          </div>
-          <div class="links">
-            <RichText field={props.fields?.Text4} />
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr />
-    <div class="footnote">
-      <Text field={props.fields?.Copyright} />
-      <div class="privacy-links">
-        <Link field={props.fields?.Link1} />
-        <Link field={props.fields?.Link2} />
-      </div>
-    </div>
-  </div>
-</div>
+<>
+  {props.params.FieldNames === 'Default' && <FooterDefault id={id} route={props} />}
+  {props.params.FieldNames === 'WithSocials' && <FooterWithSocials id={id} route={props}/>}
+</>
