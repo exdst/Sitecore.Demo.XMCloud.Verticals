@@ -1,0 +1,31 @@
+---
+import { Field } from "@sitecore-jss/sitecore-jss-react";
+import { RichText as JssRichText } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Text: Field<string>;
+}
+
+export type RichTextProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: RichTextProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<div
+  class={`component rich-text ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="component-content">
+    {
+      props.fields ? (
+        <JssRichText field={props.fields.Text} />
+      ) : (
+        <span class="is-empty-hint">Rich text</span>
+      )
+    }
+  </div>
+</div>

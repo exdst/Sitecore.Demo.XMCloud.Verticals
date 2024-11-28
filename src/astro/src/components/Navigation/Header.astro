@@ -1,24 +1,20 @@
 ---
-import { Image, ImageField } from '@sitecore-jss/sitecore-jss-react';
-import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
-import Placeholder from '../system/Placeholder.astro';
-import { undefined } from 'astro:schema';
+import Placeholder from '../../components/system/Placeholder.astro';
+import { ComponentProps } from 'lib/component-props';
 
-const props : ComponentRendering = Astro.props.route;
+const props: ComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
 
-const id = props.uid;
-
-const widthClass = props.params?.ContainerWidth?.toLowerCase() ?? "";
-const stylesClass = props.params?.styles?.trimEnd() ?? "";
 ---
-<div class={`component header ${stylesClass}`} id={id ? id : undefined}>
-  <div class={`container container-${widthClass}-fluid`}>
+
+<div class={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+  <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row align-items-center">
       <div class="col-auto">
-        <Placeholder name="header-left" rendering={props} />
+        <Placeholder name="header-left" rendering={props.rendering} />
       </div>
       <div class="col">
-        <Placeholder name="header-right" rendering={props} />
+        <Placeholder name="header-right" rendering={props.rendering} />
       </div>
     </div>
   </div>

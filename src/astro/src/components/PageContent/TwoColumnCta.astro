@@ -1,5 +1,4 @@
 ---
-import React from 'react';
 import {
   Field,
   ImageField,
@@ -31,8 +30,6 @@ export type TwoColumnCtaProps = ComponentRendering & {
 };
 
 const props: TwoColumnCtaProps = Astro.props.route;
-//WORKAROUND
-props.params.styles = props.params.styles ?? props.params.GridParameters ?? '';
 const id = props.uid;
 ---
 

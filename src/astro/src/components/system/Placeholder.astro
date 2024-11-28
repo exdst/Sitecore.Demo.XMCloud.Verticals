@@ -61,12 +61,28 @@ const isEditor =
   );
 const hasChildren = await Astro.slots.has('default');
 const children = await Astro.slots.render('default', [components, isEditor]);
----
 
+//WORKAROUND (REMOVE IT AFTER IMPLEMENTING IN JSS ASTRO)
+const componentsExtended =
+  components &&
+  components.map((component) => {
+    component.params.styles = `${component.params.GridParameters || ''} ${component.params.Styles || ''}`
+
+    const componentProps = {
+      ...component,
+      rendering: component,
+      params: component.params,
+    };
+
+    return componentProps;
+  });
+//WORKAROUND END
+
+---
 {
   (hasChildren && <Fragment set:html={children} />) ||
-    (components &&
-      components.map((component) => (
-        <ComponentFactory name={component.componentName} route={component} />
+    (componentsExtended &&
+    componentsExtended.map((componentExtended) => (
+        <ComponentFactory name={componentExtended.rendering.componentName} route={componentExtended} />
       )))
 }

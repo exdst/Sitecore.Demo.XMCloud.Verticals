@@ -41,9 +41,6 @@ export type FooterProps = {
 
 const props: FooterProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-
-//WORKAROUND
-props.params.styles = props.params.styles ?? props.params.GridParameters ?? '';
 ---
 
 <div

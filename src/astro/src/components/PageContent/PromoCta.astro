@@ -1,5 +1,4 @@
 ---
-import React from 'react';
 import {
   Field,
   ImageField,
@@ -31,7 +30,6 @@ export type PromoCtaProps = ComponentRendering & {
 
 const props: PromoCtaProps = Astro.props.route;
 //WORKAROUND
-props.params.styles = props.params.styles ?? props.params.GridParameters ?? '';
 const id = props.uid;
 const isPageEditing = false;
 const isVisible = true;
