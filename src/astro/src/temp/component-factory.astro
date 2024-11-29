@@ -32,7 +32,12 @@ import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
 import Header from '../../src/components/Navigation/Header.astro'
 import NavigationList from '../../src/components/Navigation/NavigationList.astro'
+import FooterDefault from '../../src/components/Navigation/FooterVariants/FooterDefault.astro'
+import FooterWithSocials from '../../src/components/Navigation/FooterVariants/FooterWithSocials.astro'
+import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
+import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
+import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
@@ -51,8 +56,6 @@ import StyleguideSitecoreContext from '../../src/components/styleguide/Styleguid
 import StyleguideSpecimen from '../../src/components/styleguide/Styleguide-Specimen.astro'
 import StyleguideTracking from '../../src/components/styleguide/Styleguide-Tracking.astro'
 import Placeholder from '../../src/components/system/Placeholder.astro'
-import FooterDefault from '../../src/components/Variants/FooterDefault.astro'
-import FooterWithSocials from '../../src/components/Variants/FooterWithSocials.astro'
 
 export interface Props  {
   name: string;
@@ -93,7 +96,12 @@ export interface Props  {
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
 {Astro.props.name === 'Header' && <Header route={Astro.props.route}/>}
 {Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
+{Astro.props.name === 'FooterDefault' && <FooterDefault route={Astro.props.route}/>}
+{Astro.props.name === 'FooterWithSocials' && <FooterWithSocials route={Astro.props.route}/>}
+{Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
+{Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
+{Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
@@ -112,7 +120,5 @@ export interface Props  {
 {Astro.props.name === 'Styleguide-Specimen' && <StyleguideSpecimen route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-Tracking' && <StyleguideTracking route={Astro.props.route}/>}
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
-{Astro.props.name === 'FooterDefault' && <FooterDefault route={Astro.props.route}/>}
-{Astro.props.name === 'FooterWithSocials' && <FooterWithSocials route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>

@@ -1,21 +1,13 @@
 ---
-import Placeholder from '../../components/system/Placeholder.astro';
-import { ComponentProps } from 'lib/component-props';
+import { ComponentProps } from '../../lib/component-props';
+import HeaderDefault from './HeaderVariants/HeaderDefault.astro';
+import HeaderWithLogoImage from './HeaderVariants/HeaderWithLogoImage.astro';
 
 const props: ComponentProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-
 ---
 
-<div class={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
-  <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
-    <div class="row align-items-center">
-      <div class="col-auto">
-        <Placeholder name="header-left" rendering={props.rendering} />
-      </div>
-      <div class="col">
-        <Placeholder name="header-right" rendering={props.rendering} />
-      </div>
-    </div>
-  </div>
-</div>
+<>
+  {props.params.FieldNames === 'Default' && <HeaderDefault id={id} route={props} />}
+  {props.params.FieldNames === 'WithLogoImage' && <HeaderWithLogoImage id={id} route={props}/>}
+</>
