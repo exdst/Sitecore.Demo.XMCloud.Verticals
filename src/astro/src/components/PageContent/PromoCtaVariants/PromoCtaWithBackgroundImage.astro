@@ -1,0 +1,64 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  Image,
+  Text,
+  Link,
+  RichText,
+  RichTextField,
+} from '@sitecore-jss/sitecore-jss-react';
+import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+import Placeholder from 'components/system/Placeholder.astro';
+import DottedAccent from 'components/NonSitecore/DottedAccent.astro'
+import ParallaxBackgroundImage from 'components/NonSitecore/ParallaxBackgroundImage.astro';
+import { map } from "nanostores";
+
+export const SitecoreContextMap: any = map({});
+
+interface Fields {
+  Eyebrow: Field<string>;
+  Title: Field<string>;
+  Subtitle: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+  Link: LinkField;
+  Link2: LinkField;
+}
+
+export type PromoCtaProps = ComponentRendering & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: PromoCtaProps = Astro.props.route;
+
+//const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const isPageEditing = false;//sitecoreContext.pageEditing;
+const id = props.uid;
+//Workaround
+const isVisible = true;
+---
+<div
+      class={`component promo-cta with-background-image ${props.params.styles.trimEnd()}`}
+      id={id ? id : undefined}
+    >
+      <ParallaxBackgroundImage BackgroundImage={props.fields.Image} />
+      <div class="container">
+        <div class="row justify-content-center main-content">
+          <div class="col-12 mx-auto">
+            <h1 class="display-3 fw-bold text-center mb-3">
+              <Text field={props.fields.Title} />
+            </h1>
+            <div class="fs-3 text-center">
+              <RichText field={props.fields.Text} />
+
+              {(isPageEditing || props.fields?.Link?.value?.href) && (
+                <Link field={props.fields.Link} class="button button-main mt-3" />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

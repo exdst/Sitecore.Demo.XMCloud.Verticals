@@ -4,8 +4,6 @@ import ArticleListThreeColumn from  './ArticleListVariants/ArticleListThreeColum
 import ArticleListSimplified from  './ArticleListVariants/ArticleListSimplified.astro'
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
-
-console.log(Astro.props.route.params.FieldNames);
 ---
 <>
   {Astro.props.route.params.FieldNames === 'Default' && <ArticleListDefault route={Astro.props.route} />}

@@ -1,83 +1,15 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-  Image,
-  Text,
-  Link,
-  RichText,
-  RichTextField,
-} from '@sitecore-jss/sitecore-jss-react';
-import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
-import Placeholder from '../system/Placeholder.astro';
-import DottedAccent from '../NonSitecore/DottedAccent.astro'
+import PromoCtaDefault from  './PromoCtaVariants/PromoCtaDefault.astro'
+import PromoCtaWithPlaceholderColumn from  './PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
+import PromoCtaWithBackgroundImage from  './PromoCtaVariants/PromoCtaWithBackgroundImage.astro'
 
-interface Fields {
-  Eyebrow: Field<string>;
-  Title: Field<string>;
-  Subtitle: Field<string>;
-  Text: RichTextField;
-  Image: ImageField;
-  Link: LinkField;
-  Link2: LinkField;
-}
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 
-export type PromoCtaProps = ComponentRendering & {
-  params: { [key: string]: string };
-  fields: Fields;
-};
-
-const props: PromoCtaProps = Astro.props.route;
-//WORKAROUND
-const id = props.uid;
-const isPageEditing = false;
-const isVisible = true;
+console.log(Astro.props.route.params.FieldNames);
 ---
-<div
-class={`component promo-cta ${props.params.styles.trimEnd()}`}
-id={id ? id : undefined}
->
-<div class="container">
-  <div class="row row-gap-4 main-content align-items-center">
-    <div class="col-lg-5 text-center text-lg-start">
-      <h6 class="eyebrow-accent">
-        <Text field={props.fields.Eyebrow} />
-      </h6>
-      <h1 class="display-6 fw-bold mb-3">
-        <Text field={props.fields.Title} />
-      </h1>
-      <div class="promo-cta-text">
-        <p class="fs-5">
-          <Text field={props.fields.Subtitle} />
-        </p>
 
-        <RichText field={props.fields.Text} class="text-content" />
-
-        <div class="row mt-2">
-          <Placeholder name="promo-cta" rendering={props} />
-        </div>
-
-        {(isPageEditing || props.fields?.Link?.value?.href) && (
-          <Link field={props.fields.Link} class="button button-main mt-3 me-4" />
-        )}
-        {(isPageEditing || props.fields?.Link2?.value?.href) && (
-          <Link field={props.fields.Link2} class="button button-simple mt-3 " />
-        )}
-      </div>
-    </div>
-    <div class="col-md-10 mx-auto col-lg-7 mx-lg-0">
-      <div class="image-wrapper">
-        <DottedAccent class="dotted-accent-top" />
-        <Image
-          field={props.fields.Image}
-          class={`d-block mx-lg-auto img-fluid ${
-            !isPageEditing ? `fade-section ${isVisible ? 'is-visible' : ''}` : ''
-          }`}
-        ></Image>
-        <DottedAccent class="dotted-accent-bottom" />
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+<>
+  {Astro.props.route.params.FieldNames === 'Default' && <PromoCtaDefault route={Astro.props.route} />}
+  {Astro.props.route.params.FieldNames === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route} />}
+  {Astro.props.route.params.FieldNames === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage route={Astro.props.route} />}
+</>
