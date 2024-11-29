@@ -37,6 +37,7 @@ import FooterWithSocials from '../../src/components/Navigation/FooterVariants/Fo
 import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
 import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
+import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
@@ -101,6 +102,7 @@ export interface Props  {
 {Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
 {Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
+{Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
