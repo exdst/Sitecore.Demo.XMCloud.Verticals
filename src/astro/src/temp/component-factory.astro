@@ -37,11 +37,18 @@ import FooterWithSocials from '../../src/components/Navigation/FooterVariants/Fo
 import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
 import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
+import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
+import ArticleListDefault from '../../src/components/PageContent/ArticleListVariants/ArticleListDefault.astro'
+import ArticleListSimplified from '../../src/components/PageContent/ArticleListVariants/ArticleListSimplified.astro'
+import ArticleListThreeColumn from '../../src/components/PageContent/ArticleListVariants/ArticleListThreeColumn.astro'
+import PromoCtaDefault from '../../src/components/PageContent/PromoCtaVariants/PromoCtaDefault.astro'
+import PromoCtaWithBackgroundImage from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithBackgroundImage.astro'
+import PromoCtaWithPlaceholderColumn from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
 import StyleguideComponentParams from '../../src/components/styleguide/Styleguide-ComponentParams.astro'
 import StyleguideCustomRouteType from '../../src/components/styleguide/Styleguide-CustomRouteType.astro'
 import StyleguideEditFrame from '../../src/components/styleguide/Styleguide-EditFrame.astro'
@@ -102,11 +109,18 @@ export interface Props  {
 {Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
 {Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
+{Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
+{Astro.props.name === 'ArticleListDefault' && <ArticleListDefault route={Astro.props.route}/>}
+{Astro.props.name === 'ArticleListSimplified' && <ArticleListSimplified route={Astro.props.route}/>}
+{Astro.props.name === 'ArticleListThreeColumn' && <ArticleListThreeColumn route={Astro.props.route}/>}
+{Astro.props.name === 'PromoCtaDefault' && <PromoCtaDefault route={Astro.props.route}/>}
+{Astro.props.name === 'PromoCtaWithBackgroundImage' && <PromoCtaWithBackgroundImage route={Astro.props.route}/>}
+{Astro.props.name === 'PromoCtaWithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ComponentParams' && <StyleguideComponentParams route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-CustomRouteType' && <StyleguideCustomRouteType route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-EditFrame' && <StyleguideEditFrame route={Astro.props.route}/>}
