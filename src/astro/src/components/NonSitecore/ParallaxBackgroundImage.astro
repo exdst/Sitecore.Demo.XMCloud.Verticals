@@ -1,8 +1,10 @@
 ---
 import { Image } from '@sitecore-jss/sitecore-jss-react';
 import { ParallaxBanner } from 'react-scroll-parallax';
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-const isPageEditing = false;
+const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const isPageEditing = sitecoreContext.pageEditing;
 const props = Astro.props;
 ---
 {isPageEditing ? (

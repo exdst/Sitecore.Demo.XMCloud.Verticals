@@ -10,12 +10,8 @@ import {
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
 import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
-import Placeholder from 'components/system/Placeholder.astro';
-import DottedAccent from 'components/NonSitecore/DottedAccent.astro'
 import ParallaxBackgroundImage from 'components/NonSitecore/ParallaxBackgroundImage.astro';
-import { map } from "nanostores";
-
-export const SitecoreContextMap: any = map({});
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 interface Fields {
   Eyebrow: Field<string>;
@@ -33,10 +29,10 @@ export type PromoCtaProps = ComponentRendering & {
 };
 
 const props: PromoCtaProps = Astro.props.route;
-
-//const sitecoreContext = SitecoreContextMap.get()['scContext'];
-const isPageEditing = false;//sitecoreContext.pageEditing;
 const id = props.uid;
+
+const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const isPageEditing = sitecoreContext.pageEditing;
 //Workaround
 const isVisible = true;
 ---

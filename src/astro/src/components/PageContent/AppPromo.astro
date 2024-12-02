@@ -11,7 +11,9 @@ import {
   RichText,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { useParallax } from "react-scroll-parallax";
+
 
 interface Fields {
   Title: Field<string>;
@@ -26,9 +28,10 @@ export type AppPromoProps = {
 
 const props: AppPromoProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-//const { sitecoreContext } = useSitecoreContext();
-//const isPageEditing = sitecoreContext.pageEditing;
-const isPageEditing = false;
+
+const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const isPageEditing = sitecoreContext.pageEditing;
+
 
 // const parallaxImg = useParallax<HTMLImageElement>({
 //   scale: [0.8, 1.2],

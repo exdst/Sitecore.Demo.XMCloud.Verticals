@@ -10,7 +10,10 @@ import {
   ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-react';
 import Placeholder from '../system/Placeholder.astro';
-const isPageEditing = false;
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const isPageEditing = sitecoreContext.pageEditing;
 const isVisible = true;
 
 export type ColumnProps = ComponentRendering & {
