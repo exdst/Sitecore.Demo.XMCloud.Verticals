@@ -28,6 +28,7 @@ import StyleguideReactUsageSitecore from '../../src/components/integrations/Styl
 import StyleguideVueUsageSimple from '../../src/components/integrations/Styleguide-VueUsage-Simple.astro'
 import StyleguideVueUsageSitecorePlaceholder from '../../src/components/integrations/Styleguide-VueUsage-Sitecore-Placeholder.astro'
 import StyleguideVueUsageSitecore from '../../src/components/integrations/Styleguide-VueUsage-Sitecore.astro'
+import Breadcrumb from '../../src/components/Navigation/Breadcrumb.astro'
 import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
 import Header from '../../src/components/Navigation/Header.astro'
@@ -41,6 +42,7 @@ import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBa
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
+import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
 import ArticleListDefault from '../../src/components/PageContent/ArticleListVariants/ArticleListDefault.astro'
@@ -100,6 +102,7 @@ export interface Props  {
 {Astro.props.name === 'Styleguide-VueUsage-Simple' && <StyleguideVueUsageSimple route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-VueUsage-Sitecore-Placeholder' && <StyleguideVueUsageSitecorePlaceholder route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-VueUsage-Sitecore' && <StyleguideVueUsageSitecore route={Astro.props.route}/>}
+{Astro.props.name === 'Breadcrumb' && <Breadcrumb route={Astro.props.route}/>}
 {Astro.props.name === 'Eyebrow' && <Eyebrow route={Astro.props.route}/>}
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
 {Astro.props.name === 'Header' && <Header route={Astro.props.route}/>}
@@ -113,6 +116,7 @@ export interface Props  {
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
+{Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleListDefault' && <ArticleListDefault route={Astro.props.route}/>}
