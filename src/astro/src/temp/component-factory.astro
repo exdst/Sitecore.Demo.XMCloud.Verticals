@@ -44,6 +44,10 @@ import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import AuthorList from '../../src/components/PageContent/AuthorList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
+import FiveColumn from '../../src/components/PageContent/FiveColumn.astro'
+import FiveColumnCta from '../../src/components/PageContent/FiveColumnCta.astro'
+import FourColumn from '../../src/components/PageContent/FourColumn.astro'
+import FourColumnCta from '../../src/components/PageContent/FourColumnCta.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
@@ -78,6 +82,7 @@ import StyleguideSitecoreContext from '../../src/components/styleguide/Styleguid
 import StyleguideSpecimen from '../../src/components/styleguide/Styleguide-Specimen.astro'
 import StyleguideTracking from '../../src/components/styleguide/Styleguide-Tracking.astro'
 import Placeholder from '../../src/components/system/Placeholder.astro'
+import ThemeSwitcher from '../../src/components/Utilities/ThemeSwitcher.astro'
 
 export interface Props  {
   name: string;
@@ -130,6 +135,10 @@ export interface Props  {
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'AuthorList' && <AuthorList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
+{Astro.props.name === 'FiveColumn' && <FiveColumn route={Astro.props.route}/>}
+{Astro.props.name === 'FiveColumnCta' && <FiveColumnCta route={Astro.props.route}/>}
+{Astro.props.name === 'FourColumn' && <FourColumn route={Astro.props.route}/>}
+{Astro.props.name === 'FourColumnCta' && <FourColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'Questions' && <Questions route={Astro.props.route}/>}
@@ -164,5 +173,6 @@ export interface Props  {
 {Astro.props.name === 'Styleguide-Specimen' && <StyleguideSpecimen route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-Tracking' && <StyleguideTracking route={Astro.props.route}/>}
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
+{Astro.props.name === 'ThemeSwitcher' && <ThemeSwitcher route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>
