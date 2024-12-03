@@ -1,0 +1,63 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  Image,
+  Text,
+  Link,
+  } from "@sitecore-jss/sitecore-jss-react";
+  import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Title1: Field<string>;
+  Text1: Field<string>;
+  Image1: ImageField;
+  Link1: LinkField;
+  Title2: Field<string>;
+  Text2: Field<string>;
+  Image2: ImageField;
+  Link2: LinkField;
+  Title3: Field<string>;
+  Text3: Field<string>;
+  Image3: ImageField;
+  Link3: LinkField;
+  Title4: Field<string>;
+  Text4: Field<string>;
+  Image4: ImageField;
+  Link4: LinkField;
+}
+
+export type ColumnProps = ComponentRendering & {
+  image: ImageField;
+  text: Field<string>;
+  subText: Field<string>;
+  link: LinkField;
+  delay?: number;
+};
+
+const props: ColumnProps = Astro.props;
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`col-sm-12 col-lg-3 ${
+    !isPageEditing ? `fade-section is-visible` : ""
+  }`}
+>
+  <Link field={props.link}>
+    <div class="content-wrapper">
+      <Image field={props.image} height={" "} />
+      <div class="text-wrapper">
+        <h2>
+          <Text field={props.title} />
+        </h2>
+        <p>
+          <Text field={props.text} />
+        </p>
+      </div>
+    </div>
+  </Link>
+</div>
