@@ -1,0 +1,49 @@
+---
+import {
+  Field,
+  ImageField,
+  Image,
+  Text,
+  LinkField,
+  Link,
+} from "@sitecore-jss/sitecore-jss-react";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+export type ColumnProps = ComponentRendering & {
+  image: ImageField;
+  text: Field<string>;
+  subText: Field<string>;
+  link: LinkField;
+  delay?: number;
+};
+
+const props: ColumnProps = Astro.props;
+const buttonStyle = props.params?.ButtonStyle
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+//Workaround
+const isVisible = true;
+---
+
+<div
+  class={`col-sm-12 col-lg-4 ${
+    !isPageEditing ? `fade-section ${isVisible ? "is-visible" : ""}` : ""
+  } `}
+>
+  <div class="content-wrapper">
+    <Image field={props.image} height={" "} />
+    <h2>
+      <Text field={props.text} />
+    </h2>
+    <p>
+      <Text field={props.subText} />
+    </p>
+    {
+      (isPageEditing || props.link?.value?.href) && (
+        <Link field={props.link} class={`button ${buttonStyle}`} />
+      )
+    }
+  </div>
+</div>

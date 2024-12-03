@@ -1,0 +1,12 @@
+---
+import ThreeColumnCtaDefault from  './ThreeColumnCtaVariants/ThreeColumnCtaDefault.astro'
+import ThreeColumnCtaWithIcons from  './ThreeColumnCtaVariants/ThreeColumnCtaWithIcons.astro'
+import ThreeColumnCtaWithIconsCompact from  './ThreeColumnCtaVariants/ThreeColumnCtaWithIconsCompact.astro'
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+<>
+  {Astro.props.route.params.FieldNames === 'Default' && <ThreeColumnCtaDefault route={Astro.props.route} />}
+  {Astro.props.route.params.FieldNames === 'WithIcons' && <ThreeColumnCtaWithIcons route={Astro.props.route} />}
+  {Astro.props.route.params.FieldNames === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact route={Astro.props.route} />}
+</>
