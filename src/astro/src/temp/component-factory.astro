@@ -38,16 +38,20 @@ import FooterWithSocials from '../../src/components/Navigation/FooterVariants/Fo
 import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
 import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
+import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
 import Question from '../../src/components/NonSitecore/Question.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import AuthorList from '../../src/components/PageContent/AuthorList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
+import DocumentItem from '../../src/components/PageContent/DocumentItem.astro'
+import DocumentsList from '../../src/components/PageContent/DocumentsList.astro'
 import FiveColumn from '../../src/components/PageContent/FiveColumn.astro'
 import FiveColumnCta from '../../src/components/PageContent/FiveColumnCta.astro'
 import FourColumn from '../../src/components/PageContent/FourColumn.astro'
 import FourColumnCta from '../../src/components/PageContent/FourColumnCta.astro'
+import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
@@ -129,16 +133,20 @@ export interface Props  {
 {Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
 {Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
+{Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'Question' && <Question route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'AuthorList' && <AuthorList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
+{Astro.props.name === 'DocumentItem' && <DocumentItem route={Astro.props.route}/>}
+{Astro.props.name === 'DocumentsList' && <DocumentsList route={Astro.props.route}/>}
 {Astro.props.name === 'FiveColumn' && <FiveColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FiveColumnCta' && <FiveColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumn' && <FourColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumnCta' && <FourColumnCta route={Astro.props.route}/>}
+{Astro.props.name === 'HeroBanner' && <HeroBanner route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'Questions' && <Questions route={Astro.props.route}/>}

@@ -1,7 +1,7 @@
 ---
 import { Parallax } from 'react-scroll-parallax';
 
-const { className }: {string} = Astro.props;
+const className : string = Astro.props.class;
 ---
 <Parallax speed={8}>
     <div class={`dotted-accent ${className}`} style={{ opacity: 0.25 }}>

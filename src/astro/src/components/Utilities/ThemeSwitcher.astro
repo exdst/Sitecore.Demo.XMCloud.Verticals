@@ -1,19 +1,13 @@
 <label class="theme-switcher">
-<label for="theme-switcher" class="d-none">
-    Switch theme
-  </label>
-  <input
-    name="theme-switcher"
-    id="theme-switcher"
-    type="checkbox"
-  />
+  <label for="theme-switcher" class="d-none"> Switch theme </label>
+  <input name="theme-switcher" id="theme-switcher" type="checkbox" />
   <span class="theme-switcher-slider"></span>
 </label>
 
 <script>
-	let isSystemDark = false;
+  let isSystemDark = false;
 
-	const mq = window.matchMedia("(prefers-color-scheme: dark)");
+  const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
   if (mq.matches) {
     isSystemDark = true;
@@ -25,15 +19,15 @@
     document.body.classList.toggle("dark", isSystemDark);
   });
 
-	function setIsSystemDark(event: any){
-		isSystemDark = !isSystemDark;
+  function setIsSystemDark(event: any) {
+    isSystemDark = !isSystemDark;
 
-		const themeSwitcher = event.currentTarget as HTMLInputElement;
-		themeSwitcher.checked = isSystemDark;
+    const themeSwitcher = event.currentTarget as HTMLInputElement;
+    themeSwitcher.checked = isSystemDark;
 
-		document.body.classList.toggle("dark", isSystemDark);
-	}
+    document.body.classList.toggle("dark", isSystemDark);
+  }
 
-	const themeSwitcher = document.getElementById("theme-switcher");
+  const themeSwitcher = document.getElementById("theme-switcher");
   themeSwitcher?.addEventListener("change", setIsSystemDark);
 </script>
