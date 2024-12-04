@@ -1,0 +1,59 @@
+---
+const props = Astro.props;
+---
+<script>
+
+const easeOutExpo = (t: number) => {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+};
+
+const useScrollTriggeredCountUp = (
+  ref: Element,
+  end: number,
+  duration = 2000
+) => {
+  let count = 0;
+  let isCounting = false;
+  const frameRate = 1000 / 60;
+  const totalFrames = Math.round(duration / frameRate);
+
+  const handle = ((entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !isCounting) {
+        isCounting = true;
+        let frame = 0;
+
+        const counter = setInterval(() => {
+          frame++;
+          const progress = easeOutExpo(frame / totalFrames);
+          count = setCount(entry, (Math.round(end * progress)));
+
+          if (frame === totalFrames) {
+            clearInterval(counter);
+            isCounting = false;
+          }
+        }, frameRate);
+      } else {
+        isCounting = false;
+        count = setCount(entry, 0);
+      }
+    });
+  });
+
+  const observer = new IntersectionObserver(handle, { threshold: 0.7 });
+  if (ref) {
+    observer.observe(ref);
+  }
+
+  return count;
+};
+const setCount = (entry: IntersectionObserverEntry, x) => {
+  entry.target.textContent = x;
+  return x;
+};
+  const refs: NodeListOf<Element> = document.querySelectorAll('span.countup');
+  refs.forEach((ref)=>{
+    let count = useScrollTriggeredCountUp(ref, ref?.textContent);
+  })
+</script>
+<span class="countup">{props.value}</span>
