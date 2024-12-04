@@ -47,6 +47,7 @@ import AuthorList from '../../src/components/PageContent/AuthorList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
 import DocumentItem from '../../src/components/PageContent/DocumentItem.astro'
 import DocumentsList from '../../src/components/PageContent/DocumentsList.astro'
+import Features from '../../src/components/PageContent/Features.astro'
 import FiveColumn from '../../src/components/PageContent/FiveColumn.astro'
 import FiveColumnCta from '../../src/components/PageContent/FiveColumnCta.astro'
 import FourColumn from '../../src/components/PageContent/FourColumn.astro'
@@ -55,6 +56,7 @@ import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
+import Quote from '../../src/components/PageContent/Quote.astro'
 import ThreeColumnCta from '../../src/components/PageContent/ThreeColumnCta.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
 import ArticleListDefault from '../../src/components/PageContent/ArticleListVariants/ArticleListDefault.astro'
@@ -65,6 +67,8 @@ import PromoCtaWithBackgroundImage from '../../src/components/PageContent/PromoC
 import PromoCtaWithPlaceholderColumn from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
 import QuestionsDefault from '../../src/components/PageContent/QuestionsVariants/QuestionsDefault.astro'
 import QuestionsSingleColumn from '../../src/components/PageContent/QuestionsVariants/QuestionsSingleColumn.astro'
+import QuoteDefault from '../../src/components/PageContent/QuoteVariants/QuoteDefault.astro'
+import QuoteSimple from '../../src/components/PageContent/QuoteVariants/QuoteSimple.astro'
 import Column_Default from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_Default.astro'
 import Column_WithIcons from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_WithIcons.astro'
 import Column_WithIconsCompact from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_WithIconsCompact.astro'
@@ -142,6 +146,7 @@ export interface Props  {
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
 {Astro.props.name === 'DocumentItem' && <DocumentItem route={Astro.props.route}/>}
 {Astro.props.name === 'DocumentsList' && <DocumentsList route={Astro.props.route}/>}
+{Astro.props.name === 'Features' && <Features route={Astro.props.route}/>}
 {Astro.props.name === 'FiveColumn' && <FiveColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FiveColumnCta' && <FiveColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumn' && <FourColumn route={Astro.props.route}/>}
