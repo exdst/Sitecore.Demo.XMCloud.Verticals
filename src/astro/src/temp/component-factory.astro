@@ -37,6 +37,7 @@ import FooterDefault from '../../src/components/Navigation/FooterVariants/Footer
 import FooterWithSocials from '../../src/components/Navigation/FooterVariants/FooterWithSocials.astro'
 import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
 import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
+import CountUp from '../../src/components/NonSitecore/CountUp.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
 import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
@@ -45,6 +46,7 @@ import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import AuthorList from '../../src/components/PageContent/AuthorList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
+import Comparison from '../../src/components/PageContent/Comparison.astro'
 import DocumentItem from '../../src/components/PageContent/DocumentItem.astro'
 import DocumentsList from '../../src/components/PageContent/DocumentsList.astro'
 import Features from '../../src/components/PageContent/Features.astro'
@@ -52,6 +54,7 @@ import FiveColumn from '../../src/components/PageContent/FiveColumn.astro'
 import FiveColumnCta from '../../src/components/PageContent/FiveColumnCta.astro'
 import FourColumn from '../../src/components/PageContent/FourColumn.astro'
 import FourColumnCta from '../../src/components/PageContent/FourColumnCta.astro'
+import HeadingCta from '../../src/components/PageContent/HeadingCta.astro'
 import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
@@ -62,6 +65,10 @@ import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
 import ArticleListDefault from '../../src/components/PageContent/ArticleListVariants/ArticleListDefault.astro'
 import ArticleListSimplified from '../../src/components/PageContent/ArticleListVariants/ArticleListSimplified.astro'
 import ArticleListThreeColumn from '../../src/components/PageContent/ArticleListVariants/ArticleListThreeColumn.astro'
+import HeadingCtaCentered from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaCentered.astro'
+import HeadingCtaCompact from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaCompact.astro'
+import HeadingCtaDefault from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaDefault.astro'
+import HeadingCtaPageHeading from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaPageHeading.astro'
 import PromoCtaDefault from '../../src/components/PageContent/PromoCtaVariants/PromoCtaDefault.astro'
 import PromoCtaWithBackgroundImage from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithBackgroundImage.astro'
 import PromoCtaWithPlaceholderColumn from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
@@ -136,6 +143,7 @@ export interface Props  {
 {Astro.props.name === 'FooterWithSocials' && <FooterWithSocials route={Astro.props.route}/>}
 {Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
 {Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
+{Astro.props.name === 'CountUp' && <CountUp route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
 {Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
@@ -144,6 +152,7 @@ export interface Props  {
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'AuthorList' && <AuthorList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
+{Astro.props.name === 'Comparison' && <Comparison route={Astro.props.route}/>}
 {Astro.props.name === 'DocumentItem' && <DocumentItem route={Astro.props.route}/>}
 {Astro.props.name === 'DocumentsList' && <DocumentsList route={Astro.props.route}/>}
 {Astro.props.name === 'Features' && <Features route={Astro.props.route}/>}
@@ -151,6 +160,7 @@ export interface Props  {
 {Astro.props.name === 'FiveColumnCta' && <FiveColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumn' && <FourColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumnCta' && <FourColumnCta route={Astro.props.route}/>}
+{Astro.props.name === 'HeadingCta' && <HeadingCta route={Astro.props.route}/>}
 {Astro.props.name === 'HeroBanner' && <HeroBanner route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
@@ -161,6 +171,10 @@ export interface Props  {
 {Astro.props.name === 'ArticleListDefault' && <ArticleListDefault route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleListSimplified' && <ArticleListSimplified route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleListThreeColumn' && <ArticleListThreeColumn route={Astro.props.route}/>}
+{Astro.props.name === 'HeadingCtaCentered' && <HeadingCtaCentered route={Astro.props.route}/>}
+{Astro.props.name === 'HeadingCtaCompact' && <HeadingCtaCompact route={Astro.props.route}/>}
+{Astro.props.name === 'HeadingCtaDefault' && <HeadingCtaDefault route={Astro.props.route}/>}
+{Astro.props.name === 'HeadingCtaPageHeading' && <HeadingCtaPageHeading route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCtaDefault' && <PromoCtaDefault route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCtaWithBackgroundImage' && <PromoCtaWithBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCtaWithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route}/>}

@@ -1,0 +1,48 @@
+---
+import { Field, LinkField } from "@sitecore-jss/sitecore-jss-react";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import HeadingCtaDefault from "./HeadingCtaVariants/HeadingCtaDefault.astro";
+import HeadingCtaCompact from "./HeadingCtaVariants/HeadingCtaCompact.astro";
+import HeadingCtaPageHeading from "./HeadingCtaVariants/HeadingCtaPageHeading.astro";
+import HeadingCtaCentered from "./HeadingCtaVariants/HeadingCtaCentered.astro";
+
+interface Fields {
+  Eyebrow: Field<string>;
+  Heading: Field<string>;
+  Text: Field<string>;
+  Link: LinkField;
+}
+
+export type HeadingCtaProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: HeadingCtaProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<>
+  {
+    props.params.FieldNames === "Default" && (
+      <HeadingCtaDefault id={id} isPageEditing={isPageEditing} route={props} />
+    )
+  }
+  {
+    props.params.FieldNames === "Compact" && (
+      <HeadingCtaCompact id={id} isPageEditing={isPageEditing} route={props} />
+    )
+  }
+  {
+    props.params.FieldNames === "PageHeading" && (
+      <HeadingCtaPageHeading id={id} isPageEditing={isPageEditing} route={props} />
+    )
+  }
+  {
+    props.params.FieldNames === "Centered" && (
+      <HeadingCtaCentered id={id} isPageEditing={isPageEditing} route={props} />
+    )
+  }
+</>
