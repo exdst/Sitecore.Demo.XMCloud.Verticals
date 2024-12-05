@@ -32,6 +32,7 @@ function getComponentList(path: string): (ComponentFile)[] {
       moduleName: name.replace(/[^\w]+/g, ''),
     }),
     cb: (name) => console.debug(`Registering JSS component ${name}`),
+    excludeFolders: new RegExp(/\w*Variants\b/)
   });
 
   return components;

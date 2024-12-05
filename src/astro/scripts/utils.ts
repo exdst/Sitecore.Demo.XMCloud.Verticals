@@ -13,8 +13,9 @@ export function getItems<Item>(settings: {
   resolveItem: (path: string, name: string) => Item;
   cb?: (name: string) => void;
   fileFormat?: RegExp;
+  excludeFolders?: RegExp;
 }): Item[] {
-  const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.astro?$/) } = settings;
+  const { path, resolveItem, cb, fileFormat = new RegExp(/(.+)(?<!\.d)\.astro?$/), excludeFolders } = settings;
   const items: Item[] = [];
   const folders: fs.Dirent[] = [];
 
@@ -22,6 +23,10 @@ export function getItems<Item>(settings: {
 
   fs.readdirSync(path, { withFileTypes: true }).forEach((item) => {
     if (item.isDirectory()) {
+
+      if (excludeFolders && excludeFolders.test(item.name)){
+        return;
+      }
       folders.push(item);
     }
 
@@ -40,6 +45,7 @@ export function getItems<Item>(settings: {
         resolveItem,
         cb,
         fileFormat,
+        excludeFolders
       })
     );
   }

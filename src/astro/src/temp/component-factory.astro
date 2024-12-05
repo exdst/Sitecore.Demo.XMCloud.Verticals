@@ -33,10 +33,6 @@ import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
 import Header from '../../src/components/Navigation/Header.astro'
 import NavigationList from '../../src/components/Navigation/NavigationList.astro'
-import FooterDefault from '../../src/components/Navigation/FooterVariants/FooterDefault.astro'
-import FooterWithSocials from '../../src/components/Navigation/FooterVariants/FooterWithSocials.astro'
-import HeaderDefault from '../../src/components/Navigation/HeaderVariants/HeaderDefault.astro'
-import HeaderWithLogoImage from '../../src/components/Navigation/HeaderVariants/HeaderWithLogoImage.astro'
 import CountUp from '../../src/components/NonSitecore/CountUp.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
 import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
@@ -62,26 +58,6 @@ import Questions from '../../src/components/PageContent/Questions.astro'
 import Quote from '../../src/components/PageContent/Quote.astro'
 import ThreeColumnCta from '../../src/components/PageContent/ThreeColumnCta.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
-import ArticleListDefault from '../../src/components/PageContent/ArticleListVariants/ArticleListDefault.astro'
-import ArticleListSimplified from '../../src/components/PageContent/ArticleListVariants/ArticleListSimplified.astro'
-import ArticleListThreeColumn from '../../src/components/PageContent/ArticleListVariants/ArticleListThreeColumn.astro'
-import HeadingCtaCentered from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaCentered.astro'
-import HeadingCtaCompact from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaCompact.astro'
-import HeadingCtaDefault from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaDefault.astro'
-import HeadingCtaPageHeading from '../../src/components/PageContent/HeadingCtaVariants/HeadingCtaPageHeading.astro'
-import PromoCtaDefault from '../../src/components/PageContent/PromoCtaVariants/PromoCtaDefault.astro'
-import PromoCtaWithBackgroundImage from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithBackgroundImage.astro'
-import PromoCtaWithPlaceholderColumn from '../../src/components/PageContent/PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
-import QuestionsDefault from '../../src/components/PageContent/QuestionsVariants/QuestionsDefault.astro'
-import QuestionsSingleColumn from '../../src/components/PageContent/QuestionsVariants/QuestionsSingleColumn.astro'
-import QuoteDefault from '../../src/components/PageContent/QuoteVariants/QuoteDefault.astro'
-import QuoteSimple from '../../src/components/PageContent/QuoteVariants/QuoteSimple.astro'
-import Column_Default from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_Default.astro'
-import Column_WithIcons from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_WithIcons.astro'
-import Column_WithIconsCompact from '../../src/components/PageContent/ThreeColumnCtaVariants/Column_WithIconsCompact.astro'
-import ThreeColumnCtaDefault from '../../src/components/PageContent/ThreeColumnCtaVariants/ThreeColumnCtaDefault.astro'
-import ThreeColumnCtaWithIcons from '../../src/components/PageContent/ThreeColumnCtaVariants/ThreeColumnCtaWithIcons.astro'
-import ThreeColumnCtaWithIconsCompact from '../../src/components/PageContent/ThreeColumnCtaVariants/ThreeColumnCtaWithIconsCompact.astro'
 import StyleguideComponentParams from '../../src/components/styleguide/Styleguide-ComponentParams.astro'
 import StyleguideCustomRouteType from '../../src/components/styleguide/Styleguide-CustomRouteType.astro'
 import StyleguideEditFrame from '../../src/components/styleguide/Styleguide-EditFrame.astro'
@@ -139,10 +115,6 @@ export interface Props  {
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
 {Astro.props.name === 'Header' && <Header route={Astro.props.route}/>}
 {Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
-{Astro.props.name === 'FooterDefault' && <FooterDefault route={Astro.props.route}/>}
-{Astro.props.name === 'FooterWithSocials' && <FooterWithSocials route={Astro.props.route}/>}
-{Astro.props.name === 'HeaderDefault' && <HeaderDefault route={Astro.props.route}/>}
-{Astro.props.name === 'HeaderWithLogoImage' && <HeaderWithLogoImage route={Astro.props.route}/>}
 {Astro.props.name === 'CountUp' && <CountUp route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
 {Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
@@ -168,26 +140,6 @@ export interface Props  {
 {Astro.props.name === 'Quote' && <Quote route={Astro.props.route}/>}
 {Astro.props.name === 'ThreeColumnCta' && <ThreeColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
-{Astro.props.name === 'ArticleListDefault' && <ArticleListDefault route={Astro.props.route}/>}
-{Astro.props.name === 'ArticleListSimplified' && <ArticleListSimplified route={Astro.props.route}/>}
-{Astro.props.name === 'ArticleListThreeColumn' && <ArticleListThreeColumn route={Astro.props.route}/>}
-{Astro.props.name === 'HeadingCtaCentered' && <HeadingCtaCentered route={Astro.props.route}/>}
-{Astro.props.name === 'HeadingCtaCompact' && <HeadingCtaCompact route={Astro.props.route}/>}
-{Astro.props.name === 'HeadingCtaDefault' && <HeadingCtaDefault route={Astro.props.route}/>}
-{Astro.props.name === 'HeadingCtaPageHeading' && <HeadingCtaPageHeading route={Astro.props.route}/>}
-{Astro.props.name === 'PromoCtaDefault' && <PromoCtaDefault route={Astro.props.route}/>}
-{Astro.props.name === 'PromoCtaWithBackgroundImage' && <PromoCtaWithBackgroundImage route={Astro.props.route}/>}
-{Astro.props.name === 'PromoCtaWithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route}/>}
-{Astro.props.name === 'QuestionsDefault' && <QuestionsDefault route={Astro.props.route}/>}
-{Astro.props.name === 'QuestionsSingleColumn' && <QuestionsSingleColumn route={Astro.props.route}/>}
-{Astro.props.name === 'QuoteDefault' && <QuoteDefault route={Astro.props.route}/>}
-{Astro.props.name === 'QuoteSimple' && <QuoteSimple route={Astro.props.route}/>}
-{Astro.props.name === 'Column_Default' && <Column_Default route={Astro.props.route}/>}
-{Astro.props.name === 'Column_WithIcons' && <Column_WithIcons route={Astro.props.route}/>}
-{Astro.props.name === 'Column_WithIconsCompact' && <Column_WithIconsCompact route={Astro.props.route}/>}
-{Astro.props.name === 'ThreeColumnCtaDefault' && <ThreeColumnCtaDefault route={Astro.props.route}/>}
-{Astro.props.name === 'ThreeColumnCtaWithIcons' && <ThreeColumnCtaWithIcons route={Astro.props.route}/>}
-{Astro.props.name === 'ThreeColumnCtaWithIconsCompact' && <ThreeColumnCtaWithIconsCompact route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ComponentParams' && <StyleguideComponentParams route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-CustomRouteType' && <StyleguideCustomRouteType route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-EditFrame' && <StyleguideEditFrame route={Astro.props.route}/>}
