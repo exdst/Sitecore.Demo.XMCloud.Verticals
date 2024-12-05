@@ -73,6 +73,7 @@ import StyleguideSitecoreContext from '../../src/components/styleguide/Styleguid
 import StyleguideSpecimen from '../../src/components/styleguide/Styleguide-Specimen.astro'
 import StyleguideTracking from '../../src/components/styleguide/Styleguide-Tracking.astro'
 import Placeholder from '../../src/components/system/Placeholder.astro'
+import ContactForm from '../../src/components/Utilities/ContactForm.astro'
 import ThemeSwitcher from '../../src/components/Utilities/ThemeSwitcher.astro'
 
 export interface Props  {
@@ -155,6 +156,7 @@ export interface Props  {
 {Astro.props.name === 'Styleguide-Specimen' && <StyleguideSpecimen route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-Tracking' && <StyleguideTracking route={Astro.props.route}/>}
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
+{Astro.props.name === 'ContactForm' && <ContactForm route={Astro.props.route}/>}
 {Astro.props.name === 'ThemeSwitcher' && <ThemeSwitcher route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>
