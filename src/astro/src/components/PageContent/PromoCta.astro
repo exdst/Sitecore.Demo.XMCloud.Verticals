@@ -5,7 +5,23 @@ import PromoCtaWithBackgroundImage from  './PromoCtaVariants/PromoCtaWithBackgro
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
+<script>
+  import useVisibility from "lib/useVisibility";
 
+  const refs: NodeListOf<Element> = document.querySelectorAll(".promo-cta");
+    const setVisible = (x: boolean, dom: Element) => {
+      if (x) {
+        dom.querySelector("img.fade-section")?.classList.add("is-visible");
+      } else {
+        dom.querySelector("img.fade-section")?.classList.remove("is-visible");
+      }
+      return x;
+    };
+
+  refs.forEach((ref) => {
+    let isVisible = useVisibility(ref, setVisible);
+  });
+</script>
 <>
   {Astro.props.route.params.FieldNames === 'Default' && <PromoCtaDefault route={Astro.props.route} />}
   {Astro.props.route.params.FieldNames === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route} />}

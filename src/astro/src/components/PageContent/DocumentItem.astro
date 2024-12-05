@@ -6,14 +6,14 @@ import {
   Image,
   Text,
   Link,
-  } from "@sitecore-jss/sitecore-jss-react";
-  import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@sitecore-jss/sitecore-jss-react";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 export type ColumnProps = ComponentRendering & {
-    image: ImageField;
-    subtitle: Field<string>;
-    link: LinkField;
-    delay?: number;
+  image: ImageField;
+  subtitle: Field<string>;
+  link: LinkField;
+  delay?: number;
 };
 
 const props: ColumnProps = Astro.props;
@@ -21,16 +21,34 @@ const props: ColumnProps = Astro.props;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 ---
-<div
-        class={`col  ${!isPageEditing ? `fade-section is-visible` : ''}`}
-      >
-        <div class="item">
-          <Image field={props.image} />
-          <div class="text-container">
-            <Link field={props.link} />
-            <span class="subtitle">
-              <Text field={props.subtitle} />
-            </span>
-          </div>
-        </div>
-      </div>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom.querySelector("div.col.fade-section")?.classList.add("is-visible");
+    } else {
+      dom.querySelector("div.col.fade-section")?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  const refs: NodeListOf<Element> =
+    document.querySelectorAll(".documents-list");
+  refs.forEach((ref) => {
+    const delay = ref.querySelector("div.col.fade-section").dataset.delay;
+    let isVisible = useVisibility(ref, setVisible, delay);
+  });
+</script>
+<div class={`col  ${!isPageEditing ? "fade-section is-visible" : ""}`} data-delay={props.delay}>
+  <div class="item">
+    <Image field={props.image} />
+    <div class="text-container">
+      <Link field={props.link} />
+      <span class="subtitle">
+        <Text field={props.subtitle} />
+      </span>
+    </div>
+  </div>
+</div>

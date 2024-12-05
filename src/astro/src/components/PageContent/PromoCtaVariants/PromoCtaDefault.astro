@@ -3,17 +3,18 @@ import {
   Field,
   ImageField,
   LinkField,
-  Image,
-  Text,
+  RichTextField,
+} from "@sitecore-jss/sitecore-jss-react";
+import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+import {
   Link,
   RichText,
-  RichTextField,
-} from '@sitecore-jss/sitecore-jss-react';
-import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
-import Placeholder from 'components/system/Placeholder.astro';
-import DottedAccent from 'components/NonSitecore/DottedAccent.astro'
-
+  Text,
+  Image,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Placeholder from "components/system/Placeholder.astro";
+import DottedAccent from "components/NonSitecore/DottedAccent.astro";
 
 interface Fields {
   Eyebrow: Field<string>;
@@ -32,13 +33,10 @@ export type PromoCtaProps = ComponentRendering & {
 
 const props: PromoCtaProps = Astro.props.route;
 
-const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 const id = props.uid;
-//Workaround
-const isVisible = true;
 ---
-
 <div
   class={`component promo-cta ${props.params.styles.trimEnd()}`}
   id={id ? id : undefined}
@@ -87,9 +85,7 @@ const isVisible = true;
           <Image
             field={props.fields.Image}
             class={`d-block mx-lg-auto img-fluid ${
-              !isPageEditing
-                ? `fade-section ${isVisible ? "is-visible" : ""}`
-                : ""
+              !isPageEditing ? "fade-section is-visible" : ""
             }`}
           />
           <DottedAccent class="dotted-accent-bottom" />
