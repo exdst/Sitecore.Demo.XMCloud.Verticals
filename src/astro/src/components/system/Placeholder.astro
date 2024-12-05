@@ -4,14 +4,16 @@
 //We can't call component as function: https://docs.astro.build/en/reference/errors/invalid-component-args/
 //It causes dependency between Placeholder.astro and ComponentFactory.astro
 //And as ComponentFactory is dynamic and could not be moved out of application, we need to keep Placeholder.astro here as well.
-import ComponentFactory from '../../temp/component-factory.astro';
-import type {
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import ComponentFactory from "../../temp/component-factory.astro";
+import {
   ComponentRendering,
   RouteData,
   HtmlElementRendering,
   Field,
   Item,
-} from '@sitecore-jss/sitecore-jss/layout';
+} from "@sitecore-jss/sitecore-jss/layout";
+import { placeholderService } from "src/lib/placeholder-service";
 export type JssDynamicComponent = ComponentRendering & {
   isxEditorComponent?: boolean;
 };
@@ -51,9 +53,17 @@ export function convertToDynamicComponents(
 
 const { rendering }: Props = Astro.props;
 
-const components = convertToDynamicComponents(
-  rendering.placeholders && rendering.placeholders[Astro.props.name]
-);
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+
+const placeholderData =
+  await placeholderService.getPlaceholderDataFromRenderingData(
+    rendering,
+    Astro.props.name,
+    sitecoreContext?.editMode,
+  );
+
+const components = convertToDynamicComponents(placeholderData);
+
 const isEditor =
   components &&
   components.every((component) =>
