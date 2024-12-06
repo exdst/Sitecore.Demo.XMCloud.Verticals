@@ -34,11 +34,11 @@ import Breadcrumb from '../../src/components/Navigation/Breadcrumb.astro'
 import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
 import Header from '../../src/components/Navigation/Header.astro'
-import NavigationList from '../../src/components/Navigation/NavigationList.astro'
 import CountUp from '../../src/components/NonSitecore/CountUp.astro'
 import DefaultContainer from '../../src/components/NonSitecore/DefaultContainer.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
 import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
+import NavigationList from '../../src/components/NonSitecore/NavigationList.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
 import Question from '../../src/components/NonSitecore/Question.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
@@ -120,11 +120,11 @@ export interface Props  {
 {Astro.props.name === 'Eyebrow' && <Eyebrow route={Astro.props.route}/>}
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
 {Astro.props.name === 'Header' && <Header route={Astro.props.route}/>}
-{Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
 {Astro.props.name === 'CountUp' && <CountUp route={Astro.props.route}/>}
 {Astro.props.name === 'DefaultContainer' && <DefaultContainer route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
 {Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
+{Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'Question' && <Question route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}

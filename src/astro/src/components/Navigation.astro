@@ -1,16 +1,10 @@
 ---
-import React, { useState } from 'react';
-import {
-  Link,
-  LinkField,
-  Text,
-  TextField,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-react';
+import { TextField } from "@sitecore-jss/sitecore-jss-react";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-import NavigationList from './Navigation/NavigationList.astro'
+import NavigationList from "./NonSitecore/NavigationList.astro";
 
-interface Fields {
+export interface Fields {
   Id: string;
   DisplayName: string;
   Title: TextField;
@@ -21,7 +15,7 @@ interface Fields {
   Styles: string[];
 }
 
-type NavigationProps = {
+export type NavigationProps = {
   params?: { [key: string]: string };
   fields: Fields;
   handleClick: (event?: React.MouseEvent<HTMLElement>) => void;
@@ -29,65 +23,89 @@ type NavigationProps = {
 };
 
 const props: NavigationProps = Astro.props.route;
+const styles =
+  props.params != null
+    ? `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd()
+    : "";
+const id = props.params?.RenderingIdentifier;
 
-//const [isOpenMenu, openMenu] = useState(false);
-//const { sitecoreContext } = useSitecoreContext();
-// const styles =
-//     props.params != null
-//       ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
-//       : '';
-const styles = "";
-const id = "navigationid";
+const isEmpty = !Object.values(props.fields).length;
 
-const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, flag?: boolean): void => {
-    if (event && sitecoreContext?.pageEditing) {
-      event.preventDefault();
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<>{
+    isEmpty && (
+      <div class={`component navigation ${styles}`} id={id ? id : undefined}>
+        <div class="component-content">[Navigation]</div>
+      </div>
+    )
+  }
+</>
+
+<>{
+  !isEmpty && <div class={`component navigation ${styles}`} id={id ? id : undefined}>
+      <label class="menu-mobile-navigate-wrapper">
+        <input
+          type="checkbox"
+          class="menu-mobile-navigate"
+          data-isPageEditing={isPageEditing}
+        />
+        {/* DEMO TEAM CUSTOMIZATION */}
+        <div class="menu-humburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="component-content">
+          <nav>
+            {/* DEMO TEAM CUSTOMIZATION */}
+            <ul>{
+              Object.values(props.fields)
+                .filter((element) => element)
+                .map((element: Fields, key: number) => (
+                  <NavigationList
+                    key={`${key}${element.Id}`}
+                    fields={element}
+                    relativeLevel={1}
+                  />
+                ))
+              }</ul>
+          </nav>
+        </div>
+      </label>
+    </div>
+  }
+</>
+
+<script>
+  let isOpenMenu = false;
+
+  function openMenu(event: any){
+    isOpenMenu = !isOpenMenu;
+
+    const menuMobileNavigate = event.currentTarget as HTMLInputElement;
+    menuMobileNavigate.checked = isOpenMenu;
+  }
+
+  function handleToggleMenu (event: any, flag?: boolean): void {
+    if (event) {
+      const currentTarget = event.currentTarget as HTMLInputElement;
+      if(currentTarget.dataset.isPageEditing){
+        event.preventDefault();
+      }
     }
 
     if (flag !== undefined) {
       return openMenu(flag);
     }
 
-    //openMenu(!isOpenMenu);
+    openMenu(!isOpenMenu);
   };
 
-//   const list = Object.values(props.fields)
-//     .filter((element) => element)
-//     .map((element: Fields, key: number) => {
-//       <NavigationList
-//         key={`${key}${element.Id}`}
-//         fields={element}
-//         handleClick={(event: React.MouseEvent<HTMLElement>) => handleToggleMenu(event, false)}
-//         relativeLevel={1}
-//       />}
-//     );
----
-<div class={`component navigation ${styles}`} id={id ? id : undefined}>
-    <label class="menu-mobile-navigate-wrapper">
-      <input
-        type="checkbox"
-        class="menu-mobile-navigate"
-        checked={}
-        onChange={() => handleToggleMenu()}
-      />
-      {/* DEMO TEAM CUSTOMIZATION */}
-      <div class="menu-humburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="component-content">
-        <nav>
-          {/* DEMO TEAM CUSTOMIZATION */}
-          <ul>{props.fields.map((element: Fields, index: number) => (
-                <NavigationList
-                    key={index}
-                    fields={element}
-                    handleClick={(event: React.MouseEvent<HTMLElement>) => handleToggleMenu(event, false)}
-                    relativeLevel={1}
-                />
-            ))}</ul>
-        </nav>
-      </div>
-    </label>
-  </div>
+  const menuMobileNavigate = document.getElementsByClassName("menu-mobile-navigate")[0];
+  menuMobileNavigate?.addEventListener("change", (event) => {
+    handleToggleMenu(event);
+  });
+</script>
