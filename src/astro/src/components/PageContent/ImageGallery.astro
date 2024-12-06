@@ -1,0 +1,43 @@
+---
+import { ImageField } from "@sitecore-jss/sitecore-jss-react";
+import { Image } from "@astro-sitecore-jss/astro-sitecore-jss";
+import DottedAccent from "components/NonSitecore/DottedAccent.astro";
+
+export type ImageItemProps = {
+  fields: {
+    Image: ImageField;
+  };
+  name: string;
+  url: string;
+};
+
+export type ImageGalleryProps = {
+  params: { [key: string]: string };
+  fields: {
+    items: ImageItemProps[];
+  };
+};
+
+const props: ImageGalleryProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const images = props.fields?.items;
+---
+
+<div
+  class={`component image-gallery ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <DottedAccent class="dotted-accent-top" />
+    <div class="image-gallery-grid">
+      {
+        images?.map((image) => (
+          <div class="image-gallery-item">
+            <Image field={image.fields.Image} />
+          </div>
+        ))
+      }
+    </div>
+    <DottedAccent class="dotted-accent-bottom" />
+  </div>
+</div>

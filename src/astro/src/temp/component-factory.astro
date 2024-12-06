@@ -55,6 +55,7 @@ import FourColumn from '../../src/components/PageContent/FourColumn.astro'
 import FourColumnCta from '../../src/components/PageContent/FourColumnCta.astro'
 import HeadingCta from '../../src/components/PageContent/HeadingCta.astro'
 import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
+import ImageGallery from '../../src/components/PageContent/ImageGallery.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
@@ -141,6 +142,7 @@ export interface Props  {
 {Astro.props.name === 'FourColumnCta' && <FourColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'HeadingCta' && <HeadingCta route={Astro.props.route}/>}
 {Astro.props.name === 'HeroBanner' && <HeroBanner route={Astro.props.route}/>}
+{Astro.props.name === 'ImageGallery' && <ImageGallery route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'Questions' && <Questions route={Astro.props.route}/>}
