@@ -1,0 +1,63 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+  LinkField,
+} from "@sitecore-jss/sitecore-jss-react";
+
+import {
+  Image,
+  Text,
+  RichText,
+  Link,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Title: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+  Link: LinkField;
+}
+
+export type AppPromoProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: AppPromoProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3`;
+---
+
+<div
+  class={`component hero ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <picture>
+    <Image field={props.fields.Image} class="" />
+  </picture>
+  <div class="container content-container">
+    <div class="top-layout">
+      <div class="title">
+        <Text field={props.fields.Title} />
+      </div>
+      <div class="subtitle">
+        <RichText field={props.fields.Text} />
+      </div>
+    </div>
+    <div class="bottom-layout">
+      <div class="btn-array">
+        {
+          (isPageEditing || props.fields?.Link?.value?.href) && (
+            <Link field={props.fields.Link} />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</div>
