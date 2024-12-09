@@ -1,42 +1,20 @@
 ---
 import {
-  Field,
-  ImageField,
-  LinkField,
-  RichTextField,
-} from "@sitecore-jss/sitecore-jss-react";
-import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
-import {
   Link,
   RichText,
   Text,
   Image,
-  SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Placeholder from "components/system/Placeholder.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
-
-interface Fields {
-  Eyebrow: Field<string>;
-  Title: Field<string>;
-  Subtitle: Field<string>;
-  Text: RichTextField;
-  Image: ImageField;
-  Link: LinkField;
-  Link2: LinkField;
-}
-
-export type PromoCtaProps = ComponentRendering & {
-  params: { [key: string]: string };
-  fields: Fields;
-};
+import { PromoCtaProps } from "../PromoCta.astro";
 
 const props: PromoCtaProps = Astro.props.route;
+const id = Astro.props.id;
+const isPageEditing = Astro.props.isPageEditing;
 
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
-const id = props.uid;
-
+props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3`;
+props.fields.Link2.value.class = `${props.fields.Link2.value.class} button button-simple mt-3 mx-4`;
 ---
 
 <div
@@ -61,18 +39,12 @@ const id = props.uid;
 
           {
             (isPageEditing || props.fields?.Link?.value?.href) && (
-              <Link
-                field={props.fields.Link}
-                class="button button-main mt-3"
-              />
+              <Link field={props.fields.Link} />
             )
           }
           {
             (isPageEditing || props.fields?.Link2?.value?.href) && (
-              <Link
-                field={props.fields.Link2}
-                class="button button-simple mt-3 mx-4"
-              />
+              <Link field={props.fields.Link2} />
             )
           }
         </div>
@@ -93,9 +65,7 @@ const id = props.uid;
             <Image
               field={props.fields.Image}
               class={`d-block mx-lg-auto img-fluid ${
-                !isPageEditing
-                  ? "fade-section is-visible"
-                  : ""
+                !isPageEditing ? "fade-section" : ""
               }`}
             />
             <DottedAccent class="dotted-accent-bottom" />

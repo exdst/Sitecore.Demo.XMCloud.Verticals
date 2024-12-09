@@ -1,10 +1,43 @@
 ---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  RichTextField,
+} from "@sitecore-jss/sitecore-jss-react";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 import PromoCtaDefault from  './PromoCtaVariants/PromoCtaDefault.astro'
 import PromoCtaWithPlaceholderColumn from  './PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro'
 import PromoCtaWithBackgroundImage from  './PromoCtaVariants/PromoCtaWithBackgroundImage.astro'
+import { ComponentProps } from "lib/component-props";
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+interface Fields {
+  Eyebrow: Field<string>;
+  Title: Field<string>;
+  Subtitle: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+  Link: LinkField;
+  Link2: LinkField;
+}
+
+export type PromoCtaProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: PromoCtaProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
 ---
+
+<>
+  {Astro.props.route.params.FieldNames === 'Default' && <PromoCtaDefault id={id} route={props} isPageEditing={isPageEditing} />}
+  {Astro.props.route.params.FieldNames === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn id={id} route={props} isPageEditing={isPageEditing} />}
+  {Astro.props.route.params.FieldNames === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage id={id} route={props} isPageEditing={isPageEditing} />}
+</>
+
 <script>
   import useVisibility from "lib/useVisibility";
 
@@ -18,12 +51,5 @@ const variantName = Astro.props.route.params.FieldNames ?? 'Default';
       return x;
     };
 
-  refs.forEach((ref) => {
-    let isVisible = useVisibility(ref, setVisible);
-  });
+  refs.forEach((ref) => useVisibility(ref, setVisible));
 </script>
-<>
-  {Astro.props.route.params.FieldNames === 'Default' && <PromoCtaDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage route={Astro.props.route} />}
-</>
