@@ -1,22 +1,99 @@
 ---
-import { Image } from '@sitecore-jss/sitecore-jss-react';
-import { ParallaxBanner } from 'react-scroll-parallax';
+import { Image } from "@sitecore-jss/sitecore-jss-react";
 import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-const sitecoreContext = SitecoreContextMap.get()['scContext'];
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 const props = Astro.props;
 ---
-{isPageEditing ? (
-    <Image field={props.BackgroundImage} className="background-image"></Image>
+
+{
+  isPageEditing ? (
+    <Image field={props.BackgroundImage} className="background-image" />
   ) : (
-    <ParallaxBanner
-      layers={[
-        {
-          image: `${props.BackgroundImage.value?.src}`,
-          speed: -15,
-        },
-      ]}
-      className="parallax-background-image"
-    />
-  )}
+    <div class="parallax-background-image">
+      <div
+        class="parallax-image"
+        style={`background-image: url(${props.BackgroundImage?.value?.src});`}
+      />
+    </div>
+  )
+}
+
+<style>
+  .parallax-background-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .parallax-image {
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    inset: -150px 0px;
+    will-change: transform;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const baseSpeed = -15;
+    const parallaxLayer = document.querySelector(".parallax-background-image");
+    if (!parallaxLayer) return;
+
+    const parallaxImage = parallaxLayer.querySelector(
+      ".parallax-image",
+    ) as HTMLElement;
+
+    let isImageInView = false;
+
+    function updateParallax(speed: number) {
+      const minTranslateY = 10 * speed;
+      const maxTranslateY = -10 * speed;
+      const scrollPosition = window.scrollY;
+      const diffTranslateY = maxTranslateY - minTranslateY;
+
+      const imageTop =
+        parallaxLayer!.getBoundingClientRect().top + scrollPosition;
+      const imageHeight = parallaxLayer!.clientHeight; // Height of the image
+
+      // Calculate how much the image has moved into view (from the top of the document to the scroll position)
+      const imageVisibleProgress = Math.min(
+        1,
+        Math.max(
+          0,
+          (scrollPosition + window.innerHeight - imageTop) /
+            (window.innerHeight + imageHeight),
+        ),
+      );
+
+      const translateY = minTranslateY + imageVisibleProgress * diffTranslateY;
+
+      parallaxImage.style.transform = `translateY(${translateY}px)`;
+    }
+
+    const updateParallaxCallback = () => updateParallax(baseSpeed);
+
+    // Intersection Observer to check if the parallax image is in the viewport
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            isImageInView = true;
+            window.addEventListener("scroll", updateParallaxCallback);
+            updateParallaxCallback(); // Run once to set the initial position when it comes into view
+          } else {
+            isImageInView = false;
+            window.removeEventListener("scroll", updateParallaxCallback);
+          }
+        });
+      },
+      {
+        root: null,
+        //threshold: 0.1, // Trigger when at least 10% of the image is visible
+      },
+    );
+
+    observer.observe(parallaxImage);
+  });
+</script>
