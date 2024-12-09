@@ -6,6 +6,7 @@ import ContentBlock from '../../src/components/ContentBlock.astro'
 import Navigation from '../../src/components/Navigation.astro'
 import PartialDesignDynamicPlaceholder from '../../src/components/PartialDesignDynamicPlaceholder.astro'
 import RichText from '../../src/components/RichText.astro'
+import RowSplitter from '../../src/components/RowSplitter.astro'
 import StyleguideFieldUsageAstroImage from '../../src/components/fields/Styleguide-FieldUsage-AstroImage.astro'
 import StyleguideFieldUsageCheckbox from '../../src/components/fields/Styleguide-FieldUsage-Checkbox.astro'
 import StyleguideFieldUsageContentList from '../../src/components/fields/Styleguide-FieldUsage-ContentList.astro'
@@ -41,7 +42,9 @@ import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
 import NavigationList from '../../src/components/NonSitecore/NavigationList.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
 import Question from '../../src/components/NonSitecore/Question.astro'
+import Accordion from '../../src/components/PageContent/Accordion.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
+import ArticleDetails from '../../src/components/PageContent/ArticleDetails.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
 import AuthorList from '../../src/components/PageContent/AuthorList.astro'
 import Column from '../../src/components/PageContent/Column.astro'
@@ -93,6 +96,7 @@ export interface Props  {
 {Astro.props.name === 'Navigation' && <Navigation route={Astro.props.route}/>}
 {Astro.props.name === 'PartialDesignDynamicPlaceholder' && <PartialDesignDynamicPlaceholder route={Astro.props.route}/>}
 {Astro.props.name === 'RichText' && <RichText route={Astro.props.route}/>}
+{Astro.props.name === 'RowSplitter' && <RowSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-AstroImage' && <StyleguideFieldUsageAstroImage route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-Checkbox' && <StyleguideFieldUsageCheckbox route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-ContentList' && <StyleguideFieldUsageContentList route={Astro.props.route}/>}
@@ -128,7 +132,9 @@ export interface Props  {
 {Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'Question' && <Question route={Astro.props.route}/>}
+{Astro.props.name === 'Accordion' && <Accordion route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
+{Astro.props.name === 'ArticleDetails' && <ArticleDetails route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
 {Astro.props.name === 'AuthorList' && <AuthorList route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
