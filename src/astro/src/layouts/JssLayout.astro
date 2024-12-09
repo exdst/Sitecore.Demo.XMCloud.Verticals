@@ -27,6 +27,8 @@ const isPageEditing = layoutData.sitecore.context.pageEditing;
 const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
 const theme = layoutData.sitecore.context.theme as string;
 const contextSiteClass = `site-${theme?.toLowerCase()}`;
+
+const title = fields.hasOwnProperty('Title') ? fields.Title.value.toString() : fields.NavigationTitle.value.toString();
 ---
 
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ const contextSiteClass = `site-${theme?.toLowerCase()}`;
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>{fields.Title.value.toString() || 'Page'}</title>
+		<title>{title || 'Page'}</title>
 		<link rel="icon" href={`${publicUrl}/favicon.ico`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />
