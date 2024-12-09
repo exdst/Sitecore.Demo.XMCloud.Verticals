@@ -1,0 +1,72 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+  LinkField,
+} from "@sitecore-jss/sitecore-jss-react";
+
+import {
+  Image,
+  Text,
+  RichText,
+  Link,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import { ComponentProps } from "lib/component-props";
+import CtaBannerDefault from "./CtaBannerVariants/CtaBannerDefault.astro";
+import CtaBannerLargeImage from "./CtaBannerVariants/CtaBannerLargeImage.astro";
+
+interface Fields {
+  Eyebrow: Field<string>;
+  Title: Field<string>;
+  Text: RichTextField;
+  Link: LinkField;
+  Image: ImageField;
+  Icon: ImageField;
+}
+
+export type CtaBannerProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: CtaBannerProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<>
+  {
+    props.params.FieldNames === "Default" && (
+      <CtaBannerDefault id={id} route={props} isPageEditing={isPageEditing} />
+    )
+  }
+  {
+    props.params.FieldNames === "LargeImage" && (
+      <CtaBannerLargeImage
+        id={id}
+        route={props}
+        isPageEditing={isPageEditing}
+      />
+    )
+  }
+</>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(".cta-banner");
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom.querySelector("img.fade-section")?.classList.add("is-visible");
+    } else {
+      dom.querySelector("img.fade-section")?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => useVisibility(ref, setVisible));
+</script>
