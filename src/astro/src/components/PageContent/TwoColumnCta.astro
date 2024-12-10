@@ -1,17 +1,7 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-  Image,
-  Text,
-  Link,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-react';
-//import { ComponentProps } from 'lib/component-props';
-//import useVisibility from 'src/hooks/useVisibility';
-import Column from './Column.astro';
-import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
+import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
+import { ComponentProps } from "lib/component-props";
+import TwoColumn from "./TwoColumn.astro";
 
 interface Fields {
   Title1: Field<string>;
@@ -24,13 +14,13 @@ interface Fields {
   Link2: LinkField;
 }
 
-export type TwoColumnCtaProps = ComponentRendering & {
+export type TwoColumnCtaProps = ComponentProps & {
   params: { [key: string]: string };
   fields: Fields;
 };
 
 const props: TwoColumnCtaProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 ---
 
 <div
@@ -39,23 +29,23 @@ const id = props.uid;
 >
   <div class="container">
     <div class="row">
-      <Column
+      <TwoColumn
         image={props.fields.Image1}
         title={props.fields.Title1}
         text={props.fields.Text1}
         link={props.fields.Link1}
         placeholder="two-col-placeholder-left"
-        delay={0},
-        rendering={props}
+        delay={0}
+        route={props}
       />
-      <Column
+      <TwoColumn
         image={props.fields.Image2}
         title={props.fields.Title2}
         text={props.fields.Text2}
         link={props.fields.Link2}
         placeholder="two-col-placeholder-right"
-        delay={500},
-        rendering={props}
+        delay={500}
+        route={props}
       />
     </div>
   </div>

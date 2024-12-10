@@ -1,50 +1,58 @@
 ---
 import {
-  Field,
-  ImageField,
   Image,
-  LinkField,
-  Link,
   Text,
-  } from '@sitecore-jss/sitecore-jss-react';
-  import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+  Link,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 
-interface Fields {
-  Text1: Field<string>;
-  Image1: ImageField;
-  Link1: LinkField;
-  Text2: Field<string>;
-  Image2: ImageField;
-  Link2: LinkField;
-  Text3: Field<string>;
-  Image3: ImageField;
-  Link3: LinkField;
-  Text4: Field<string>;
-  Image4: ImageField;
-  Link4: LinkField;
-  Text5: Field<string>;
-  Image5: ImageField;
-  Link5: LinkField;
-}
-export type ColumnProps = ComponentRendering & {
-    image: ImageField;
-    text: Field<string>;
-    link: LinkField;
-    delay?: number;
+import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
+
+export type ColumnProps = {
+  image: ImageField;
+  text: Field<string>;
+  link: LinkField;
+  delay?: number;
 };
+
+const props: ColumnProps = Astro.props as ColumnProps;
+
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
-const props: ColumnProps = Astro.props;
 ---
+
 <div
-        class={`col ${!isPageEditing ? `fade-section is-visible` : ''} `}
-      >
-        <Link field={props.link}>
-          <div class="image-container">
-            <Image field={props.image} class="d-block w-100 h-100" />
-          </div>
-        </Link>
-        <div class="text-container">
-          <Text field={props.text} />
-        </div>
-      </div>
+  class={`column col ${!isPageEditing ? "fade-section" : ""} `}
+  data-delay=`${props.delay}`
+>
+  <Link field={props.link}>
+    <div class="image-container">
+      <Image field={props.image} class="d-block w-100 h-100" />
+    </div>
+  </Link>
+  <div class="text-container">
+    <Text field={props.text} />
+  </div>
+</div>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(
+    ".five-column-cta .column",
+  );
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom?.classList.add("is-visible");
+    } else {
+      dom?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => {
+    const el = ref as HTMLElement;
+    const delay: number = parseInt(el.dataset.delay ?? "0");
+    useVisibility(ref as Element, setVisible, delay);
+  });
+</script>

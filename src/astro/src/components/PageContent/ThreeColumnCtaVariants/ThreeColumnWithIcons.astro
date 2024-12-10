@@ -1,38 +1,35 @@
 ---
 import {
-  Field,
-  ImageField,
   Image,
   Text,
-  LinkField,
   Link,
-} from "@sitecore-jss/sitecore-jss-react";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 
-export type ColumnProps = ComponentRendering & {
+import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
+import { ComponentProps } from "lib/component-props";
+
+export type ColumnProps = {
   image: ImageField;
   text: Field<string>;
   subText: Field<string>;
   link: LinkField;
   delay?: number;
+  route: ComponentProps;
 };
 
-const props: ColumnProps = Astro.props;
-const buttonStyle = props.params?.ButtonStyle
-
+const props: ColumnProps = Astro.props as ColumnProps;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 
-//Workaround
-const isVisible = true;
+props.link.value.class = `${props.link.value.class} wrapper-link`;
 ---
 
 <div
-  class={`col-sm-12 col-lg-4 ${
-    !isPageEditing ? `fade-section ${isVisible ? "is-visible" : ""}` : ""
-  } `}
+  class={`column col-sm-12 col-lg-4 ${!isPageEditing ? "fade-section" : ""} `}
+  data-delay=`${props.delay}`
 >
-  <Link field={props.link} class="wrapper-link">
+  <Link field={props.link}>
     <div class="content-wrapper">
       <div class="image-wrapper mb-5">
         <Image field={props.image} height={32} />

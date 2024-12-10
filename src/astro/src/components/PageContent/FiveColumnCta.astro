@@ -30,7 +30,7 @@ export type FiveColumnCtaProps = {
 };
 
 const props: FiveColumnCtaProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 ---
 
 <div
@@ -45,6 +45,7 @@ const id = props.uid;
         image={props.fields.Image1}
         text={props.fields.Text1}
         link={props.fields.Link1}
+        delay={0}
       />
       <FiveColumn
         image={props.fields.Image2}

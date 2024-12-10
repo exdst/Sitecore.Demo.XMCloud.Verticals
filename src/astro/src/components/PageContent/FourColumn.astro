@@ -1,51 +1,30 @@
 ---
 import {
-  Field,
-  ImageField,
-  LinkField,
   Image,
   Text,
   Link,
-  } from "@sitecore-jss/sitecore-jss-react";
-  import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 
-interface Fields {
-  Title1: Field<string>;
-  Text1: Field<string>;
-  Image1: ImageField;
-  Link1: LinkField;
-  Title2: Field<string>;
-  Text2: Field<string>;
-  Image2: ImageField;
-  Link2: LinkField;
-  Title3: Field<string>;
-  Text3: Field<string>;
-  Image3: ImageField;
-  Link3: LinkField;
-  Title4: Field<string>;
-  Text4: Field<string>;
-  Image4: ImageField;
-  Link4: LinkField;
-}
+import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
 
-export type ColumnProps = ComponentRendering & {
+export type ColumnProps = {
   image: ImageField;
+  title: Field<string>;
   text: Field<string>;
-  subText: Field<string>;
   link: LinkField;
   delay?: number;
 };
 
-const props: ColumnProps = Astro.props;
+const props: ColumnProps = Astro.props as ColumnProps;
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 ---
 
 <div
-  class={`col-sm-12 col-lg-3 ${
-    !isPageEditing ? `fade-section is-visible` : ""
-  }`}
+  class={`column col-sm-12 col-lg-3 ${!isPageEditing ? "fade-section" : ""}`}
+  data-delay=`${props.delay}`
 >
   <Link field={props.link}>
     <div class="content-wrapper">
@@ -61,3 +40,23 @@ const isPageEditing = sitecoreContext.pageEditing;
     </div>
   </Link>
 </div>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(".four-column-cta .column");
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom?.classList.add("is-visible");
+    } else {
+      dom?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => {
+    const el = ref as HTMLElement;
+    const delay: number = parseInt(el.dataset.delay ?? "0");
+    useVisibility(ref as Element, setVisible, delay);
+  });
+</script>

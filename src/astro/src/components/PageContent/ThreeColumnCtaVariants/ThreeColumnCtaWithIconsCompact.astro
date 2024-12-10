@@ -1,32 +1,9 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-react';
-import ColumnWithIconsCompact from "./Column_WithIconsCompact.astro"
+import { ThreeColumnCtaProps } from "../ThreeColumnCta.astro";
+import ThreeColumnWithIconsCompact from "./ThreeColumnWithIconsCompact.astro";
 
-interface Fields {
-  Text1: Field<string>;
-  SubText1: Field<string>;
-  Image1: ImageField;
-  Link1: LinkField;
-  Text2: Field<string>;
-  SubText2: Field<string>;
-  Image2: ImageField;
-  Link2: LinkField;
-  Text3: Field<string>;
-  SubText3: Field<string>;
-  Image3: ImageField;
-  Link3: LinkField;
-}
-
-export type ThreeColumnCtaProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
 const props: ThreeColumnCtaProps = Astro.props.route;
-const id = props.uid;
+const id = Astro.props.id;
 ---
 
 <div
@@ -35,25 +12,29 @@ const id = props.uid;
 >
   <div class="container">
     <div class="row gx-0">
-      <ColumnWithIconsCompact
+      <ThreeColumnWithIconsCompact
         image={props.fields.Image1}
         text={props.fields.Text1}
         subText={props.fields.SubText1}
         link={props.fields.Link1}
+        delay={0}
+        route={props}
       />
-      <ColumnWithIconsCompact
+      <ThreeColumnWithIconsCompact
         image={props.fields.Image2}
         text={props.fields.Text2}
         subText={props.fields.SubText2}
         link={props.fields.Link2}
         delay={500}
+        route={props}
       />
-      <ColumnWithIconsCompact
+      <ThreeColumnWithIconsCompact
         image={props.fields.Image3}
         text={props.fields.Text3}
         subText={props.fields.SubText3}
         link={props.fields.Link3}
         delay={1000}
+        route={props}
       />
     </div>
   </div>

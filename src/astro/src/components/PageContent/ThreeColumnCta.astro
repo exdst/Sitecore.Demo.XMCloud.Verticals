@@ -1,12 +1,60 @@
 ---
+import {
+  Field,
+  ImageField,
+  LinkField,
+} from '@sitecore-jss/sitecore-jss-react';
+
 import ThreeColumnCtaDefault from  './ThreeColumnCtaVariants/ThreeColumnCtaDefault.astro'
 import ThreeColumnCtaWithIcons from  './ThreeColumnCtaVariants/ThreeColumnCtaWithIcons.astro'
 import ThreeColumnCtaWithIconsCompact from  './ThreeColumnCtaVariants/ThreeColumnCtaWithIconsCompact.astro'
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+interface Fields {
+  Text1: Field<string>;
+  SubText1: Field<string>;
+  Image1: ImageField;
+  Link1: LinkField;
+  Text2: Field<string>;
+  SubText2: Field<string>;
+  Image2: ImageField;
+  Link2: LinkField;
+  Text3: Field<string>;
+  SubText3: Field<string>;
+  Image3: ImageField;
+  Link3: LinkField;
+}
+
+export type ThreeColumnCtaProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ThreeColumnCtaProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
 ---
+
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <ThreeColumnCtaDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'WithIcons' && <ThreeColumnCtaWithIcons route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact route={Astro.props.route} />}
+  {Astro.props.route.params.FieldNames === 'Default' && <ThreeColumnCtaDefault id={id} route={props} />}
+  {Astro.props.route.params.FieldNames === 'WithIcons' && <ThreeColumnCtaWithIcons id={id} route={props} />}
+  {Astro.props.route.params.FieldNames === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact id={id} route={props} />}
 </>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(".three-column-cta .column");
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom?.classList.add("is-visible");
+    } else {
+      dom?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => {
+    const el = ref as HTMLElement;
+    const delay: number = parseInt(el.dataset.delay ?? "0");
+    useVisibility(ref as Element, setVisible, delay);
+  });
+</script>

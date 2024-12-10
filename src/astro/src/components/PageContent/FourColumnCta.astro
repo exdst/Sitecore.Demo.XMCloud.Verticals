@@ -31,7 +31,7 @@ export type FourColumnCtaProps = {
 };
 
 const props: FourColumnCtaProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 ---
 
 <div
@@ -45,6 +45,7 @@ const id = props.uid;
         title={props.fields.Title1}
         text={props.fields.Text1}
         link={props.fields.Link1}
+        delay={0}
       />
       <FourColumn
         image={props.fields.Image2}
@@ -66,6 +67,7 @@ const id = props.uid;
         text={props.fields.Text4}
         link={props.fields.Link4}
         delay={1500}
+        route={props}
       />
     </div>
   </div>
