@@ -46,7 +46,10 @@ import Accordion from '../../src/components/PageContent/Accordion.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleDetails from '../../src/components/PageContent/ArticleDetails.astro'
 import ArticleList from '../../src/components/PageContent/ArticleList.astro'
+import AuthorDetails from '../../src/components/PageContent/AuthorDetails.astro'
 import AuthorList from '../../src/components/PageContent/AuthorList.astro'
+import AuthorWidget from '../../src/components/PageContent/AuthorWidget.astro'
+import Carousel from '../../src/components/PageContent/Carousel.astro'
 import Column from '../../src/components/PageContent/Column.astro'
 import Comparison from '../../src/components/PageContent/Comparison.astro'
 import CtaBanner from '../../src/components/PageContent/CtaBanner.astro'
@@ -138,7 +141,10 @@ export interface Props  {
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleDetails' && <ArticleDetails route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleList' && <ArticleList route={Astro.props.route}/>}
+{Astro.props.name === 'AuthorDetails' && <AuthorDetails route={Astro.props.route}/>}
 {Astro.props.name === 'AuthorList' && <AuthorList route={Astro.props.route}/>}
+{Astro.props.name === 'AuthorWidget' && <AuthorWidget route={Astro.props.route}/>}
+{Astro.props.name === 'Carousel' && <Carousel route={Astro.props.route}/>}
 {Astro.props.name === 'Column' && <Column route={Astro.props.route}/>}
 {Astro.props.name === 'Comparison' && <Comparison route={Astro.props.route}/>}
 {Astro.props.name === 'CtaBanner' && <CtaBanner route={Astro.props.route}/>}

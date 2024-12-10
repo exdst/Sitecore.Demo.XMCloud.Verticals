@@ -45,8 +45,6 @@ const props = Astro.props;
       ".parallax-image",
     ) as HTMLElement;
 
-    let isImageInView = false;
-
     function updateParallax(speed: number) {
       const minTranslateY = 10 * speed;
       const maxTranslateY = -10 * speed;
@@ -55,7 +53,7 @@ const props = Astro.props;
 
       const imageTop =
         parallaxLayer!.getBoundingClientRect().top + scrollPosition;
-      const imageHeight = parallaxLayer!.clientHeight; // Height of the image
+      const imageHeight = parallaxLayer!.clientHeight;
 
       // Calculate how much the image has moved into view (from the top of the document to the scroll position)
       const imageVisibleProgress = Math.min(
@@ -79,18 +77,16 @@ const props = Astro.props;
       (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            isImageInView = true;
             window.addEventListener("scroll", updateParallaxCallback);
             updateParallaxCallback(); // Run once to set the initial position when it comes into view
           } else {
-            isImageInView = false;
             window.removeEventListener("scroll", updateParallaxCallback);
           }
         });
       },
       {
         root: null,
-        //threshold: 0.1, // Trigger when at least 10% of the image is visible
+        threshold: 0, // Trigger when at least 0% of the image is visible
       },
     );
 
