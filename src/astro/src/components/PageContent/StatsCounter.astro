@@ -31,7 +31,6 @@ export type StatsCounterProps = ComponentProps & {
 
 const props: StatsCounterProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-console.log(id)
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 ---
