@@ -1,0 +1,110 @@
+---
+import {
+  Field,
+  Image,
+  ImageField,
+  Text,
+} from '@sitecore-jss/sitecore-jss-react';
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import CountUp from 'components/NonSitecore/CountUp.astro';
+import DottedAccent from 'components/NonSitecore/DottedAccent.astro';
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  Image1: ImageField;
+  Image2: ImageField;
+  Value1: Field<string>;
+  Symbol1: Field<string>;
+  Caption1: Field<string>;
+  Value2: Field<string>;
+  Symbol2: Field<string>;
+  Caption2: Field<string>;
+  Value3: Field<string>;
+  Symbol3: Field<string>;
+  Caption3: Field<string>;
+}
+
+export type StatsCounterProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: StatsCounterProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+console.log(id)
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`component stats-counter component-spaced ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide-fluid">
+    <Image field={props.fields?.Image1} class="image-left" />
+    <div class="container">
+      <DottedAccent class="dotted-accent-top" />
+      <div class="row gx-0">
+        <div class="col-lg-4">
+          <p class="display-6 fw-bold">
+            <span>
+              {
+                isPageEditing ? (
+                  <Text field={props.fields?.Value1} />
+                ) : (
+                  <CountUp value={parseInt(props.fields?.Value1.value)} />
+                )
+              }
+            </span>
+            <span>
+              <Text field={props.fields?.Symbol1} />
+            </span>
+          </p>
+          <p class="fs-5 mb-0">
+            <Text field={props.fields?.Caption1} />
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <p class="display-6 fw-bold">
+            <span>
+              {
+                isPageEditing ? (
+                  <Text field={props.fields?.Value2} />
+                ) : (
+                  <CountUp value={parseInt(props.fields?.Value2.value)} />
+                )
+              }
+            </span>
+            <span>
+              <Text field={props.fields?.Symbol2} />
+            </span>
+          </p>
+          <p class="fs-5 mb-0">
+            <Text field={props.fields?.Caption2} />
+          </p>
+        </div>
+        <div class="col-lg-4">
+          <p class="display-6 fw-bold">
+            <span>
+              {
+                isPageEditing ? (
+                  <Text field={props.fields?.Value3} />
+                ) : (
+                  <CountUp value={parseInt(props.fields?.Value3.value)} />
+                )
+              }
+            </span>
+            <span>
+              <Text field={props.fields?.Symbol3} />
+            </span>
+          </p>
+          <p class="fs-5 mb-0">
+            <Text field={props.fields?.Caption3} />
+          </p>
+        </div>
+      </div>
+      <DottedAccent class="dotted-accent-bottom" />
+    </div>
+    <Image field={props.fields?.Image2} class="image-right" />
+  </div>
+</div>
