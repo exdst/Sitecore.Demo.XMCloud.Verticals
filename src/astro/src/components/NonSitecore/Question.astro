@@ -44,7 +44,7 @@ const item: QuestionItemProps = Astro.props.item;
     answer?.classList.toggle("d-none");
   }
 
-  const toggleButtons = document.querySelectorAll('.button-clear-appearance');
+  const toggleButtons = document.querySelectorAll('.questions .button-clear-appearance');
   toggleButtons.forEach((el) => {
     el.addEventListener('click', setIsExpanded);
   });
