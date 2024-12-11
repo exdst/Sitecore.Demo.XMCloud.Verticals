@@ -1,0 +1,62 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@sitecore-jss/sitecore-jss-react";
+
+interface Fields {
+  Title: Field<string>;
+  Category: Field<string>;
+  Abstract: Field<string>;
+  Problem: RichTextField;
+  Solution: RichTextField;
+  Thumbnail: ImageField;
+  Client: ImageField;
+}
+
+export type ProjectListItemProps = {
+  fields: Fields;
+  name: string;
+  url: string;
+};
+
+type ProjectFiltersProp = {
+  projectItems: ProjectListItemProps[];
+  selectedCategory: string | null;
+};
+
+const getProjectsCategories = (items: ProjectListItemProps[]) => {
+  return items.reduce((acc: Record<string, number>, item) => {
+    const category = item.fields.Category.value;
+    if (acc[category]) {
+      acc[category]++;
+    } else {
+      acc[category] = 1;
+    }
+    return acc;
+  }, {});
+};
+
+const props: ProjectFiltersProp = Astro.props;
+const categories = getProjectsCategories(props.projectItems);
+---
+<div class="project-filters">
+  <button
+    class={`button-clear-appearance ${!props.selectedCategory ? "active" : ""}`}
+  >
+    <span>Show all</span>
+    <sup>{props.projectItems.length}</sup>
+  </button>
+  {
+    Object.entries(categories).map(([category, count]) => (
+      <button
+        class={`button-clear-appearance ${props.selectedCategory === category ? "active" : ""}`}
+        key={category}
+      >
+        <span>{category}</span>
+        <sup>{count}</sup>
+      </button>
+    ))
+  }
+</div>
