@@ -41,7 +41,6 @@ import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
 import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
 import NavigationList from '../../src/components/NonSitecore/NavigationList.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
-import Question from '../../src/components/NonSitecore/Question.astro'
 import Accordion from '../../src/components/PageContent/Accordion.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
 import ArticleDetails from '../../src/components/PageContent/ArticleDetails.astro'
@@ -67,6 +66,8 @@ import PageBackground from '../../src/components/PageContent/PageBackground.astr
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
 import Quote from '../../src/components/PageContent/Quote.astro'
+import StatsCounter from '../../src/components/PageContent/StatsCounter.astro'
+import Testimonials from '../../src/components/PageContent/Testimonials.astro'
 import ThreeColumnCta from '../../src/components/PageContent/ThreeColumnCta.astro'
 import TwoColumn from '../../src/components/PageContent/TwoColumn.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
@@ -137,7 +138,6 @@ export interface Props  {
 {Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
 {Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
-{Astro.props.name === 'Question' && <Question route={Astro.props.route}/>}
 {Astro.props.name === 'Accordion' && <Accordion route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
 {Astro.props.name === 'ArticleDetails' && <ArticleDetails route={Astro.props.route}/>}
@@ -163,6 +163,8 @@ export interface Props  {
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'Questions' && <Questions route={Astro.props.route}/>}
 {Astro.props.name === 'Quote' && <Quote route={Astro.props.route}/>}
+{Astro.props.name === 'StatsCounter' && <StatsCounter route={Astro.props.route}/>}
+{Astro.props.name === 'Testimonials' && <Testimonials route={Astro.props.route}/>}
 {Astro.props.name === 'ThreeColumnCta' && <ThreeColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumn' && <TwoColumn route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
