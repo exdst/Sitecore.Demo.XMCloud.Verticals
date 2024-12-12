@@ -63,6 +63,8 @@ import Hero from '../../src/components/PageContent/Hero.astro'
 import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
 import ImageGallery from '../../src/components/PageContent/ImageGallery.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
+import ProjectDetails from '../../src/components/PageContent/ProjectDetails.astro'
+import ProjectList from '../../src/components/PageContent/ProjectList.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
 import Questions from '../../src/components/PageContent/Questions.astro'
 import Quote from '../../src/components/PageContent/Quote.astro'
@@ -88,6 +90,7 @@ import StyleguideTracking from '../../src/components/styleguide/Styleguide-Track
 import Placeholder from '../../src/components/system/Placeholder.astro'
 import ApplicationForm from '../../src/components/Utilities/ApplicationForm.astro'
 import ContactForm from '../../src/components/Utilities/ContactForm.astro'
+import LoanCalculator from '../../src/components/Utilities/LoanCalculator.astro'
 import ThemeSwitcher from '../../src/components/Utilities/ThemeSwitcher.astro'
 
 export interface Props  {
@@ -160,6 +163,8 @@ export interface Props  {
 {Astro.props.name === 'HeroBanner' && <HeroBanner route={Astro.props.route}/>}
 {Astro.props.name === 'ImageGallery' && <ImageGallery route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
+{Astro.props.name === 'ProjectDetails' && <ProjectDetails route={Astro.props.route}/>}
+{Astro.props.name === 'ProjectList' && <ProjectList route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
 {Astro.props.name === 'Questions' && <Questions route={Astro.props.route}/>}
 {Astro.props.name === 'Quote' && <Quote route={Astro.props.route}/>}
@@ -185,6 +190,7 @@ export interface Props  {
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
 {Astro.props.name === 'ApplicationForm' && <ApplicationForm route={Astro.props.route}/>}
 {Astro.props.name === 'ContactForm' && <ContactForm route={Astro.props.route}/>}
+{Astro.props.name === 'LoanCalculator' && <LoanCalculator route={Astro.props.route}/>}
 {Astro.props.name === 'ThemeSwitcher' && <ThemeSwitcher route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>
