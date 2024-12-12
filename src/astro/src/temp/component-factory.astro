@@ -3,6 +3,7 @@
 import ColumnSplitter from '../../src/components/ColumnSplitter.astro'
 import Container from '../../src/components/Container.astro'
 import ContentBlock from '../../src/components/ContentBlock.astro'
+import LinkList from '../../src/components/LinkList.astro'
 import Navigation from '../../src/components/Navigation.astro'
 import PartialDesignDynamicPlaceholder from '../../src/components/PartialDesignDynamicPlaceholder.astro'
 import RichText from '../../src/components/RichText.astro'
@@ -36,10 +37,8 @@ import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
 import Header from '../../src/components/Navigation/Header.astro'
 import CountUp from '../../src/components/NonSitecore/CountUp.astro'
-import DefaultContainer from '../../src/components/NonSitecore/DefaultContainer.astro'
 import DottedAccent from '../../src/components/NonSitecore/DottedAccent.astro'
 import IconAccent from '../../src/components/NonSitecore/IconAccent.astro'
-import NavigationList from '../../src/components/NonSitecore/NavigationList.astro'
 import ParallaxBackgroundImage from '../../src/components/NonSitecore/ParallaxBackgroundImage.astro'
 import Accordion from '../../src/components/PageContent/Accordion.astro'
 import AppPromo from '../../src/components/PageContent/AppPromo.astro'
@@ -103,6 +102,7 @@ export interface Props  {
 {Astro.props.name === 'ColumnSplitter' && <ColumnSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Container' && <Container route={Astro.props.route}/>}
 {Astro.props.name === 'ContentBlock' && <ContentBlock route={Astro.props.route}/>}
+{Astro.props.name === 'LinkList' && <LinkList route={Astro.props.route}/>}
 {Astro.props.name === 'Navigation' && <Navigation route={Astro.props.route}/>}
 {Astro.props.name === 'PartialDesignDynamicPlaceholder' && <PartialDesignDynamicPlaceholder route={Astro.props.route}/>}
 {Astro.props.name === 'RichText' && <RichText route={Astro.props.route}/>}
@@ -136,10 +136,8 @@ export interface Props  {
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
 {Astro.props.name === 'Header' && <Header route={Astro.props.route}/>}
 {Astro.props.name === 'CountUp' && <CountUp route={Astro.props.route}/>}
-{Astro.props.name === 'DefaultContainer' && <DefaultContainer route={Astro.props.route}/>}
 {Astro.props.name === 'DottedAccent' && <DottedAccent route={Astro.props.route}/>}
 {Astro.props.name === 'IconAccent' && <IconAccent route={Astro.props.route}/>}
-{Astro.props.name === 'NavigationList' && <NavigationList route={Astro.props.route}/>}
 {Astro.props.name === 'ParallaxBackgroundImage' && <ParallaxBackgroundImage route={Astro.props.route}/>}
 {Astro.props.name === 'Accordion' && <Accordion route={Astro.props.route}/>}
 {Astro.props.name === 'AppPromo' && <AppPromo route={Astro.props.route}/>}
