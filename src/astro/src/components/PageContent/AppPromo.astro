@@ -51,7 +51,7 @@ const isPageEditing = sitecoreContext.pageEditing;
         <img
           src={props.fields.Image.value?.src}
           alt={props.fields.Image.value?.alt as string}
-          class={`${isPageEditing ? "d-none" : "d-block"} mx-lg-auto img-fluid parallax-image`}
+          class={`${isPageEditing ? "d-none" : "d-block"} mx-lg-auto img-fluid parallax`}
           style={{ transformOrigin: "bottom" }}
         />
       </div>
@@ -60,50 +60,21 @@ const isPageEditing = sitecoreContext.pageEditing;
 </div>
 
 <script>
-  const promos = document.querySelectorAll(".app-promo");
+  import { useParallax, ParallaxElementOptions } from "lib/useParallax";
 
-  promos.forEach((promo) => {
-    setPromo(promo);
-  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const appPromos = document.querySelectorAll(
+      ".app-promo",
+    );
 
-  function setPromo(promo: Element) {
-    const image = promo.querySelector(".parallax-image") as HTMLElement;
-
-    function isElementInView(element: Element) {
-      const rect = element.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom >= 0; // Element is in view (even partially)
+    const options: ParallaxElementOptions = {
+        scale: { from: 0.8, to: 1.2 }
     }
 
-    function scaleImageOnScroll(minScale: number, maxScale: number) {
-      if (image && isElementInView(image)) {
-        const scrollPosition = window.scrollY;
-        const imageTop = image.getBoundingClientRect().top + scrollPosition;
-        const imageHeight = image.clientHeight; // Height of the image
-
-        // Calculate how much the image has moved into view (from the top of the document to the scroll position)
-        const scaleRange = maxScale - minScale;
-        const imageVisibleProgress = Math.min(
-          1,
-          Math.max(
-            0,
-            (scrollPosition + window.innerHeight - imageTop) /
-              (window.innerHeight + imageHeight),
-          ),
-        );
-
-        // Calculate scale based on how much of the image is visible
-        const scale = minScale + imageVisibleProgress * scaleRange;
-
-        image.style.transform = `scale(${scale})`;
-      }
-    }
-
-    window.addEventListener("scroll", () => {
-      scaleImageOnScroll(0.8, 1.2);
+    appPromos.forEach((appPromo) => {
+      useParallax(appPromo, options);
     });
-
-    scaleImageOnScroll(0.8, 1.2);
-  }
+  });
 </script>
 
 <style>

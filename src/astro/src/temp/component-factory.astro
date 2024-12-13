@@ -89,6 +89,7 @@ import StyleguideTracking from '../../src/components/styleguide/Styleguide-Track
 import Placeholder from '../../src/components/system/Placeholder.astro'
 import ApplicationForm from '../../src/components/Utilities/ApplicationForm.astro'
 import ContactForm from '../../src/components/Utilities/ContactForm.astro'
+import LanguageSwitcher from '../../src/components/Utilities/LanguageSwitcher.astro'
 import LoanCalculator from '../../src/components/Utilities/LoanCalculator.astro'
 import ThemeSwitcher from '../../src/components/Utilities/ThemeSwitcher.astro'
 
@@ -188,6 +189,7 @@ export interface Props  {
 {Astro.props.name === 'Placeholder' && <Placeholder route={Astro.props.route}/>}
 {Astro.props.name === 'ApplicationForm' && <ApplicationForm route={Astro.props.route}/>}
 {Astro.props.name === 'ContactForm' && <ContactForm route={Astro.props.route}/>}
+{Astro.props.name === 'LanguageSwitcher' && <LanguageSwitcher route={Astro.props.route}/>}
 {Astro.props.name === 'LoanCalculator' && <LoanCalculator route={Astro.props.route}/>}
 {Astro.props.name === 'ThemeSwitcher' && <ThemeSwitcher route={Astro.props.route}/>}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
