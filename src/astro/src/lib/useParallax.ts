@@ -4,11 +4,11 @@ export type ParallaxElementOptions = {
   opacity?: { from: number, to: number };
 }
 
-export function useParallax(parallaxLayer: Element, options: ParallaxElementOptions) {
+export function useParallax(parallaxLayer: Element, options: ParallaxElementOptions, targetQuery?: string) {
   if (!parallaxLayer || !options) return;
 
   const parallaxContent = parallaxLayer.querySelector(
-    ".parallax",
+    targetQuery ?? ".parallax",
   ) as HTMLElement;
 
   function updateParallax() {
@@ -111,11 +111,11 @@ function getOpacityTransformation(options: { minValue: number, maxValue: number 
   return opacity.toString();
 }
 
-function getInset(parallaxContent: HTMLElement, options: { minValue: number, maxValue: number, units: "px" | "%" }){
+function getInset(parallaxContent: HTMLElement, options: { minValue: number, maxValue: number, units: "px" | "%" }) {
   const parentHeight = parallaxContent.parentElement?.clientHeight ?? 0;
-  
+
   let inset = 0;
-  if (options.units === "px"){
+  if (options.units === "px") {
     inset = (options.maxValue - options.minValue) / 2;
     return `${-1 * inset}px 0px ${-1 * inset}px 0px`;
   } else {

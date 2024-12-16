@@ -1,0 +1,125 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+  LinkField,
+} from "@sitecore-jss/sitecore-jss-react";
+
+import {
+  Image,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import BannerContentBlock from "components/NestedComponents/BannerContentBlock.astro";
+
+interface Fields {
+  Title: Field<string>;
+  Text: RichTextField;
+  BackgroundImage: ImageField;
+  ForegroundImage: ImageField;
+  Link: LinkField;
+}
+
+export type ParallaxBannerProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ParallaxBannerProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`component parallax-banner ${
+    isPageEditing ? "edit-mode" : ""
+  } ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  {
+    isPageEditing ? (
+      <div class="parallax-banner-inner">
+        <Image
+          field={props.fields.BackgroundImage}
+          class="parallax-banner-background"
+        />
+        <div class="parallax-banner-content">
+          {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
+        </div>
+        <Image
+          field={props.fields.ForegroundImage}
+          class="parallax-banner-foreground"
+        />
+      </div>
+    ) : (
+      <div class="parallax-banner-inner">
+        <div
+          style={`background-image: url(${props.fields.BackgroundImage?.value?.src});`}
+          class="parallax-banner-background"
+        />
+        <div class="parallax-banner-content">
+          {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
+        </div>
+        <div
+          style={`background-image: url(${props.fields.ForegroundImage?.value?.src});`}
+          class="parallax-banner-foreground"
+        />
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .parallax-banner-background {
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    will-change: transform, opacity;
+  }
+
+  .parallax-banner-foreground {
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    will-change: transform;
+  }
+
+  .parallax-banner-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+</style>
+
+<script>
+  import { useParallax, ParallaxElementOptions } from "lib/useParallax";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const backgroundImages = document.querySelectorAll(
+      ".parallax-banner-inner",
+    );
+
+    const backgroundImageOptions: ParallaxElementOptions = {
+      translateY: { from: 0, to: 50, units: "%" },
+      scale: { from: 1.05, to: 1 },
+      opacity: { from: 1, to: 0.3 },
+    };
+
+    const bannerContentOptions: ParallaxElementOptions = {
+      translateY: { from: -30, to: 20, units: "%" },
+      scale: { from: 1, to: 1.1 },
+    };
+
+    const foregroundImageOptions: ParallaxElementOptions = {
+      translateY: { from: 0, to: 10, units: "%" },
+      scale: { from: 1, to: 1.1 },
+    };
+
+    backgroundImages.forEach((el) => {
+      useParallax(el, backgroundImageOptions, ".parallax-banner-background");
+      useParallax(el, bannerContentOptions, ".parallax-banner-content");
+      useParallax(el, foregroundImageOptions, ".parallax-banner-foreground");
+    });
+  });
+</script>

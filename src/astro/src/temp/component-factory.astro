@@ -6,6 +6,7 @@ import ContentBlock from '../../src/components/ContentBlock.astro'
 import LinkList from '../../src/components/LinkList.astro'
 import Navigation from '../../src/components/Navigation.astro'
 import PartialDesignDynamicPlaceholder from '../../src/components/PartialDesignDynamicPlaceholder.astro'
+import Promo from '../../src/components/Promo.astro'
 import RichText from '../../src/components/RichText.astro'
 import RowSplitter from '../../src/components/RowSplitter.astro'
 import StyleguideFieldUsageAstroImage from '../../src/components/fields/Styleguide-FieldUsage-AstroImage.astro'
@@ -62,6 +63,7 @@ import Hero from '../../src/components/PageContent/Hero.astro'
 import HeroBanner from '../../src/components/PageContent/HeroBanner.astro'
 import ImageGallery from '../../src/components/PageContent/ImageGallery.astro'
 import PageBackground from '../../src/components/PageContent/PageBackground.astro'
+import ParallaxBanner from '../../src/components/PageContent/ParallaxBanner.astro'
 import ProjectDetails from '../../src/components/PageContent/ProjectDetails.astro'
 import ProjectList from '../../src/components/PageContent/ProjectList.astro'
 import PromoCta from '../../src/components/PageContent/PromoCta.astro'
@@ -106,6 +108,7 @@ export interface Props  {
 {Astro.props.name === 'LinkList' && <LinkList route={Astro.props.route}/>}
 {Astro.props.name === 'Navigation' && <Navigation route={Astro.props.route}/>}
 {Astro.props.name === 'PartialDesignDynamicPlaceholder' && <PartialDesignDynamicPlaceholder route={Astro.props.route}/>}
+{Astro.props.name === 'Promo' && <Promo route={Astro.props.route}/>}
 {Astro.props.name === 'RichText' && <RichText route={Astro.props.route}/>}
 {Astro.props.name === 'RowSplitter' && <RowSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-AstroImage' && <StyleguideFieldUsageAstroImage route={Astro.props.route}/>}
@@ -162,6 +165,7 @@ export interface Props  {
 {Astro.props.name === 'HeroBanner' && <HeroBanner route={Astro.props.route}/>}
 {Astro.props.name === 'ImageGallery' && <ImageGallery route={Astro.props.route}/>}
 {Astro.props.name === 'PageBackground' && <PageBackground route={Astro.props.route}/>}
+{Astro.props.name === 'ParallaxBanner' && <ParallaxBanner route={Astro.props.route}/>}
 {Astro.props.name === 'ProjectDetails' && <ProjectDetails route={Astro.props.route}/>}
 {Astro.props.name === 'ProjectList' && <ProjectList route={Astro.props.route}/>}
 {Astro.props.name === 'PromoCta' && <PromoCta route={Astro.props.route}/>}
