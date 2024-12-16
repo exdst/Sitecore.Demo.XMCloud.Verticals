@@ -5,10 +5,12 @@ import Container from '../../src/components/Container.astro'
 import ContentBlock from '../../src/components/ContentBlock.astro'
 import LinkList from '../../src/components/LinkList.astro'
 import Navigation from '../../src/components/Navigation.astro'
+import PageContent from '../../src/components/PageContent.astro'
 import PartialDesignDynamicPlaceholder from '../../src/components/PartialDesignDynamicPlaceholder.astro'
 import Promo from '../../src/components/Promo.astro'
 import RichText from '../../src/components/RichText.astro'
 import RowSplitter from '../../src/components/RowSplitter.astro'
+import Title from '../../src/components/Title.astro'
 import StyleguideFieldUsageAstroImage from '../../src/components/fields/Styleguide-FieldUsage-AstroImage.astro'
 import StyleguideFieldUsageCheckbox from '../../src/components/fields/Styleguide-FieldUsage-Checkbox.astro'
 import StyleguideFieldUsageContentList from '../../src/components/fields/Styleguide-FieldUsage-ContentList.astro'
@@ -107,10 +109,12 @@ export interface Props  {
 {Astro.props.name === 'ContentBlock' && <ContentBlock route={Astro.props.route}/>}
 {Astro.props.name === 'LinkList' && <LinkList route={Astro.props.route}/>}
 {Astro.props.name === 'Navigation' && <Navigation route={Astro.props.route}/>}
+{Astro.props.name === 'PageContent' && <PageContent route={Astro.props.route}/>}
 {Astro.props.name === 'PartialDesignDynamicPlaceholder' && <PartialDesignDynamicPlaceholder route={Astro.props.route}/>}
 {Astro.props.name === 'Promo' && <Promo route={Astro.props.route}/>}
 {Astro.props.name === 'RichText' && <RichText route={Astro.props.route}/>}
 {Astro.props.name === 'RowSplitter' && <RowSplitter route={Astro.props.route}/>}
+{Astro.props.name === 'Title' && <Title route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-AstroImage' && <StyleguideFieldUsageAstroImage route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-Checkbox' && <StyleguideFieldUsageCheckbox route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-ContentList' && <StyleguideFieldUsageContentList route={Astro.props.route}/>}
