@@ -1,0 +1,26 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
+
+interface Fields {
+  Image: ImageField & { metadata?: { [key: string]: unknown } };
+  ImageCaption: Field<string>;
+  TargetUrl: LinkField;
+}
+
+type ImageProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ImageProps = Astro.props.route;
+---
+
+<div class={`component image ${props.params.styles}`.trimEnd()}>
+  <div class="component-content">
+    <span class="is-empty-hint">Image</span>
+  </div>
+</div>

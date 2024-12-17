@@ -71,7 +71,7 @@ linkField.value.class = `${linkField.value.class} menu-link`;
     childrenLength > 0 ? (
       <ul class="clearfix">
         {props.fields.Children.map((element: Fields, index: number) => (
-          <NavigationList
+          <Astro.self
             key={`${index}${element.Id}`}
             fields={element}
             relativeLevel={props.relativeLevel + 1}
