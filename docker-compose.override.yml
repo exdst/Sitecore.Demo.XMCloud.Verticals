@@ -93,7 +93,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      RENDERING_HOST_INTERNAL_URI: "http://rendering:3000"
+      RENDERING_HOST_INTERNAL_URI: "http://host.docker.internal:4321"
       JSS_DEPLOYMENT_SECRET_xmcloudpreview: ${JSS_DEPLOYMENT_SECRET_xmcloudpreview}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"
@@ -103,4 +103,5 @@ services:
       ## Development Environment Optimizations
       SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
       Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM
+      Sitecore_GraphQL_ExposePlayground: true
     entrypoint: powershell -Command "& C:/tools/entrypoints/iis/XmCloudDevelopment.ps1"

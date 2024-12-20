@@ -7,8 +7,8 @@ import ArticleListGrid from './ArticleListVariants/ArticleListGrid.astro';
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <ArticleListDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'ThreeColumn' && <ArticleListThreeColumn route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'Simplified' && <ArticleListSimplified route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'Grid' && <ArticleListGrid route={Astro.props.route} />}
+  {variantName === 'Default' && <ArticleListDefault route={Astro.props.route} />}
+  {variantName === 'ThreeColumn' && <ArticleListThreeColumn route={Astro.props.route} />}
+  {variantName === 'Simplified' && <ArticleListSimplified route={Astro.props.route} />}
+  {variantName === 'Grid' && <ArticleListGrid route={Astro.props.route} />}
 </>

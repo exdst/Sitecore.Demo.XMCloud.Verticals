@@ -5,6 +5,6 @@ import AuthorDetailsDefault from './AuthorDetailsVariants/AuthorDetailsDefault.a
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <AuthorDetailsDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'Simple' && <AuthorDetailsSimple route={Astro.props.route} />}
+  {variantName === 'Default' && <AuthorDetailsDefault route={Astro.props.route} />}
+  {variantName === 'Simple' && <AuthorDetailsSimple route={Astro.props.route} />}
 </>

@@ -131,6 +131,13 @@ if ($ClientCredentialsLogin -ne "true") {
     Start-Process https://www.sxastarter.localhost/
 }
 
+$containerId = docker ps --filter ancestor=sxastarter-xmcloud-cm:1.0.1 --format "{{.ID}}"
+$ip = Get-NetIPAddress | Where-Object -FilterScript {$_.IPAddress.StartsWith("192")}
+$ipAddress = $ip.IPAddress
+Write-Host "Adding DNS record to container $containerId. Host: host.docker.internal. IP: $ipAddress"
+$command = "'$ipAddress host.docker.internal' | Out-File -Append -Encoding ASCII -FilePath '$($Env:windir)\\system32\\drivers\\etc\\hosts'"
+docker exec -it $containerId powershell $command
+
 Write-Host ""
 Write-Host "Use the following command to monitor your Rendering Host:" -ForegroundColor Green
 Write-Host "docker compose logs -f rendering"

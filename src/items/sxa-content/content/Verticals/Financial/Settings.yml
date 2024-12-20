@@ -11,6 +11,9 @@ SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
   Value: "{C2DC4690-AF44-48C7-BB21-90D1AD246732}"
+- ID: "1864e99d-c29a-40bf-96e0-b3e7896a013b"
+  Hint: UseLanguageSpecificLayout
+  Value: 
 - ID: "300fb7a0-b27f-44dd-9af0-b37a19723e0e"
   Hint: RouteTemplateName
   Value: Settings Route
@@ -26,9 +29,15 @@ SharedFields:
 - ID: "5ca117eb-8782-4a4f-9f2f-30de31fc2e34"
   Hint: PlaceholdersPath
   Value: "{886787BC-AFE2-43A0-BC26-38178F98AD34}"
+- ID: "5e8ed724-126a-4bb7-8106-85c2d1042c9e"
+  Hint: ServerSideRenderingEngineApplicationUrl
+  Value: "http://host.docker.internal:3000/"
 - ID: "72e83c8d-3578-4e50-b4c0-93a78a1729f2"
   Hint: FilesystemPath
   Value: /dist/Financial
+- ID: "89849738-34ee-46bc-b525-825f1153189e"
+  Hint: ServerSideRenderingEngineEndpointUrl
+  Value: "http://host.docker.internal:3000/api/editing/render"
 - ID: "9016141c-ff51-40f2-9135-40f5161b9784"
   Hint: ServerSideRenderingEngine
   Value: http
@@ -60,4 +69,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c74297be-5e61-40c9-96df-6044a8a2f90b"
+      Value: "1dc6058a-00cb-47fb-aa05-d3c985e6b1f5"

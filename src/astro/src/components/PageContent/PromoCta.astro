@@ -30,12 +30,14 @@ const props: PromoCtaProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <PromoCtaDefault id={id} route={props} isPageEditing={isPageEditing} />}
-  {Astro.props.route.params.FieldNames === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn id={id} route={props} isPageEditing={isPageEditing} />}
-  {Astro.props.route.params.FieldNames === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage id={id} route={props} isPageEditing={isPageEditing} />}
+  {variantName === 'Default' && <PromoCtaDefault id={id} route={props} isPageEditing={isPageEditing} />}
+  {variantName === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn id={id} route={props} isPageEditing={isPageEditing} />}
+  {variantName === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage id={id} route={props} isPageEditing={isPageEditing} />}
 </>
 
 <script>

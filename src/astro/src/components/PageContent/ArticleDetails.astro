@@ -6,6 +6,6 @@ const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <ArticleDetailsDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'Simple' && <ArticleDetailsSimple route={Astro.props.route} />}
+  {variantName === 'Default' && <ArticleDetailsDefault route={Astro.props.route} />}
+  {variantName === 'Simple' && <ArticleDetailsSimple route={Astro.props.route} />}
 </>

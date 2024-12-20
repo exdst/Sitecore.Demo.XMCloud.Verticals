@@ -6,6 +6,6 @@ const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <AuthorWidgetDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'WithSocials' && <AuthorWidgetWithSocials route={Astro.props.route} />}
+  {variantName === 'Default' && <AuthorWidgetDefault route={Astro.props.route} />}
+  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={Astro.props.route} />}
 </>

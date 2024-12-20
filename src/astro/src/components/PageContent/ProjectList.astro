@@ -6,6 +6,6 @@ const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <ProjectListDefault route={Astro.props.route} />}
-  {Astro.props.route.params.FieldNames === 'Mosaic' && <ProjectListMosaic route={Astro.props.route} />}
+  {variantName === 'Default' && <ProjectListDefault route={Astro.props.route} />}
+  {variantName === 'Mosaic' && <ProjectListMosaic route={Astro.props.route} />}
 </>

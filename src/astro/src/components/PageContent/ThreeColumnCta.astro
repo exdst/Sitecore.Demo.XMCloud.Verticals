@@ -31,12 +31,13 @@ export type ThreeColumnCtaProps = {
 
 const props: ThreeColumnCtaProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {Astro.props.route.params.FieldNames === 'Default' && <ThreeColumnCtaDefault id={id} route={props} />}
-  {Astro.props.route.params.FieldNames === 'WithIcons' && <ThreeColumnCtaWithIcons id={id} route={props} />}
-  {Astro.props.route.params.FieldNames === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact id={id} route={props} />}
+  {variantName === 'Default' && <ThreeColumnCtaDefault id={id} route={props} />}
+  {variantName === 'WithIcons' && <ThreeColumnCtaWithIcons id={id} route={props} />}
+  {variantName === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact id={id} route={props} />}
 </>
 
 <script>
