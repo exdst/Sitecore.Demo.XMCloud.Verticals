@@ -1,5 +1,6 @@
 ---
   
+import Bootstrap from '../../src/components/Bootstrap.astro'
 import ColumnSplitter from '../../src/components/ColumnSplitter.astro'
 import Container from '../../src/components/Container.astro'
 import ContentBlock from '../../src/components/ContentBlock.astro'
@@ -104,6 +105,7 @@ export interface Props  {
 ---
 
 <>
+{Astro.props.name === 'Bootstrap' && <Bootstrap route={Astro.props.route}/>}
 {Astro.props.name === 'ColumnSplitter' && <ColumnSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Container' && <Container route={Astro.props.route}/>}
 {Astro.props.name === 'ContentBlock' && <ContentBlock route={Astro.props.route}/>}

@@ -26,6 +26,7 @@ class ConfigPlugin implements IConfigPlugin {
 
     return Object.assign({}, config, {
       jssAppName: getValue("jssAppName"),
+      sitecoreSiteName: getValue("jssAppName"),
       sitecoreApiKey: getValue("sitecoreApiKey"),
       sitecoreApiHost: apiHost,      
       graphQLEndpointPath: graphQLEndpointPath,
