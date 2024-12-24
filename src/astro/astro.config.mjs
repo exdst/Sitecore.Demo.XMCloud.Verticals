@@ -47,9 +47,5 @@ export default defineConfig({
   i18n: {
     locales: ["en", "fr-CA", "ja-JP"],
     defaultLocale: "en",
-  },
-  redirects: {
-    '/-/media/[...slug]': `${config.sitecoreApiHost}/-/media/[...slug]`,
-    '/-/jssmedia/[...slug]': `${config.sitecoreApiHost}/-/jssmedia/[...slug]`
   }
 });
