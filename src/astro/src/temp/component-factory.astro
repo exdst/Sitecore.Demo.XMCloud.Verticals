@@ -4,6 +4,7 @@ import Bootstrap from '../../src/components/Bootstrap.astro'
 import ColumnSplitter from '../../src/components/ColumnSplitter.astro'
 import Container from '../../src/components/Container.astro'
 import ContentBlock from '../../src/components/ContentBlock.astro'
+import Image from '../../src/components/Image.astro'
 import LinkList from '../../src/components/LinkList.astro'
 import Navigation from '../../src/components/Navigation.astro'
 import PageContent from '../../src/components/PageContent.astro'
@@ -27,15 +28,9 @@ import StyleguideFieldUsageText from '../../src/components/fields/Styleguide-Fie
 import GraphQLConnectedDemo from '../../src/components/graphql/GraphQL-ConnectedDemo.astro'
 import GraphQLIntegratedDemo from '../../src/components/graphql/GraphQL-IntegratedDemo.astro'
 import GraphQLLayout from '../../src/components/graphql/GraphQL-Layout.astro'
-import StyleguideAngularUsageSimple from '../../src/components/integrations/Styleguide-AngularUsage-Simple.astro'
-import StyleguideAngularUsageSitecorePlaceholder from '../../src/components/integrations/Styleguide-AngularUsage-Sitecore-Placeholder.astro'
-import StyleguideAngularUsageSitecore from '../../src/components/integrations/Styleguide-AngularUsage-Sitecore.astro'
 import StyleguideReactUsageSimple from '../../src/components/integrations/Styleguide-ReactUsage-Simple.astro'
 import StyleguideReactUsageSitecorePlaceholder from '../../src/components/integrations/Styleguide-ReactUsage-Sitecore-Placeholder.astro'
 import StyleguideReactUsageSitecore from '../../src/components/integrations/Styleguide-ReactUsage-Sitecore.astro'
-import StyleguideVueUsageSimple from '../../src/components/integrations/Styleguide-VueUsage-Simple.astro'
-import StyleguideVueUsageSitecorePlaceholder from '../../src/components/integrations/Styleguide-VueUsage-Sitecore-Placeholder.astro'
-import StyleguideVueUsageSitecore from '../../src/components/integrations/Styleguide-VueUsage-Sitecore.astro'
 import Breadcrumb from '../../src/components/Navigation/Breadcrumb.astro'
 import Eyebrow from '../../src/components/Navigation/Eyebrow.astro'
 import Footer from '../../src/components/Navigation/Footer.astro'
@@ -109,6 +104,7 @@ export interface Props  {
 {Astro.props.name === 'ColumnSplitter' && <ColumnSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Container' && <Container route={Astro.props.route}/>}
 {Astro.props.name === 'ContentBlock' && <ContentBlock route={Astro.props.route}/>}
+{Astro.props.name === 'Image' && <Image route={Astro.props.route}/>}
 {Astro.props.name === 'LinkList' && <LinkList route={Astro.props.route}/>}
 {Astro.props.name === 'Navigation' && <Navigation route={Astro.props.route}/>}
 {Astro.props.name === 'PageContent' && <PageContent route={Astro.props.route}/>}
@@ -132,15 +128,9 @@ export interface Props  {
 {Astro.props.name === 'GraphQL-ConnectedDemo' && <GraphQLConnectedDemo route={Astro.props.route}/>}
 {Astro.props.name === 'GraphQL-IntegratedDemo' && <GraphQLIntegratedDemo route={Astro.props.route}/>}
 {Astro.props.name === 'GraphQL-Layout' && <GraphQLLayout route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-AngularUsage-Simple' && <StyleguideAngularUsageSimple route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-AngularUsage-Sitecore-Placeholder' && <StyleguideAngularUsageSitecorePlaceholder route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-AngularUsage-Sitecore' && <StyleguideAngularUsageSitecore route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ReactUsage-Simple' && <StyleguideReactUsageSimple route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ReactUsage-Sitecore-Placeholder' && <StyleguideReactUsageSitecorePlaceholder route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ReactUsage-Sitecore' && <StyleguideReactUsageSitecore route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-VueUsage-Simple' && <StyleguideVueUsageSimple route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-VueUsage-Sitecore-Placeholder' && <StyleguideVueUsageSitecorePlaceholder route={Astro.props.route}/>}
-{Astro.props.name === 'Styleguide-VueUsage-Sitecore' && <StyleguideVueUsageSitecore route={Astro.props.route}/>}
 {Astro.props.name === 'Breadcrumb' && <Breadcrumb route={Astro.props.route}/>}
 {Astro.props.name === 'Eyebrow' && <Eyebrow route={Astro.props.route}/>}
 {Astro.props.name === 'Footer' && <Footer route={Astro.props.route}/>}
