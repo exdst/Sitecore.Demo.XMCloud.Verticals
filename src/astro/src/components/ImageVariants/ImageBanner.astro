@@ -7,7 +7,7 @@ import {
 } from "@sitecore-jss/sitecore-jss-react";
 import { CSSProperties } from "react";
 import {
-  Image,
+  AstroImage,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
@@ -66,6 +66,6 @@ const modifyImageProps = !isMetadataMode
     class="component-content sc-sxa-image-hero-banner"
     style={backgroundStyle}
   >
-    {sitecoreContext.pageEditing ? <Image field={modifyImageProps} /> : ""}
+    {sitecoreContext.pageEditing ? <AstroImage field={modifyImageProps} /> : ""}
   </div>
 </div>

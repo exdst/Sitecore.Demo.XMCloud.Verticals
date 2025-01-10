@@ -18,5 +18,8 @@ export default defineConfig({
   i18n: {
     locales: ["en", "fr-CA", "ja-JP"],
     defaultLocale: "en",
-  }
+  },
+  image: {
+    domains: ['xmcloudcm.localhost'],
+  },
 });

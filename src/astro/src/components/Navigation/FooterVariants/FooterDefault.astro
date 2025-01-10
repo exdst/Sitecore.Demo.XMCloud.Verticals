@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Link,
   RichText,
   Text,
@@ -18,7 +18,7 @@ const props: FooterProps = Astro.props.route;
   <div class="container">
     <div class="content">
       <div class="logo">
-        <Image field={props.fields?.Image1} height={" "} class="img-fluid" />
+        <AstroImage field={props.fields?.Image1} class="img-fluid" />
       </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 row-gap-5 gx-5">
         <div class="col">
