@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   Link,
   SitecoreContextMap,
@@ -32,7 +32,7 @@ props.link.value.class = `${props.link.value.class} wrapper-link`;
   <Link field={props.link}>
     <div class="content-wrapper">
       <div class="image-wrapper mb-5">
-        <Image field={props.image} height={32} />
+        <AstroImage field={props.image} height={32} />
       </div>
       <h2>
         <Text field={props.text} />

@@ -4,10 +4,10 @@ import {
   ComponentRendering,
   Field,
   ImageField,
-  Image,
   Text,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
+import { AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss'
 
 interface Fields {
   Title: Field<string>;
@@ -72,7 +72,7 @@ id={id ? id : undefined}
       <>
         <div class="row gx-5 row-gap-3 align-items-center">
           <div class="col-lg-4">
-            <Image field={item.fields.Thumbnail} />
+            <AstroImage field={item.fields.Thumbnail} />
           </div>
 
           <div class="col-lg-6">

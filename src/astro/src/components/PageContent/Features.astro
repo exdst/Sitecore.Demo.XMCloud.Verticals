@@ -7,7 +7,7 @@ import {
 } from "@sitecore-jss/sitecore-jss-react";
 
 import {
-  Image,
+  AstroImage,
   Link,
   Text,
   RichText,
@@ -52,7 +52,7 @@ const id = props.params.RenderingIdentifier;
     <div class="items">
       <div class="item left">
         <div class="icon">
-          <Image field={props.fields?.Image1} />
+          <AstroImage field={props.fields?.Image1} />
         </div>
         <div class="title">
           <Text field={props.fields?.Title1} />

@@ -5,7 +5,7 @@ import {
   Text,
   RichTextField,
   } from '@sitecore-jss/sitecore-jss-react';
-  import { Image } from "@astro-sitecore-jss/astro-sitecore-jss";
+  import { AstroImage } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 interface Fields {
   Title: Field<string>;
@@ -28,7 +28,7 @@ const {item}: {item: ProjectListItemProps} = Astro.props;
 
 <div class="project-grid-item">
   <a href={item.url} class="wrapper-link">
-    <Image field={item.fields.Thumbnail} />
+    <AstroImage field={item.fields.Thumbnail} />
     <div class="project-grid-item-content">
       <span class="project-category">
         <Text field={item.fields.Category} />

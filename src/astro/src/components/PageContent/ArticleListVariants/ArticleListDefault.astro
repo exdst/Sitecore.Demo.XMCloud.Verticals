@@ -4,10 +4,10 @@ import {
   ComponentRendering,
   Field,
   ImageField,
-  Image,
   Text,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
+import { AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss'
 
 interface Fields {
   Title: Field<string>;
@@ -60,7 +60,7 @@ const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.Numbe
                 }`}
               >
                 <div class="col-lg-4">
-                  <Image field={item.fields.Thumbnail} />
+                  <AstroImage field={item.fields.Thumbnail} />
                 </div>
 
                 <div class="col-lg-8">

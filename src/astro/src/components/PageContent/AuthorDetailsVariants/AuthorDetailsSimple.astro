@@ -6,7 +6,7 @@ import {
   RichText,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
-import { Image } from '@astro-sitecore-jss/astro-sitecore-jss';
+import { AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss';
 import { ComponentProps } from 'lib/component-props';
 
 interface Fields {
@@ -40,7 +40,7 @@ const id = props.uid;
       </div>
     </div>
     <div class="img-col col-lg-4">
-      <Image field={props.fields.Photo} class="author-img img-fluid" />
+      <AstroImage field={props.fields.Photo} class="author-img img-fluid" />
     </div>
   </div>
 </div>

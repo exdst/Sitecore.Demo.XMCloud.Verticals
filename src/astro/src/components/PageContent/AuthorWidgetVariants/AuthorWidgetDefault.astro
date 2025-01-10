@@ -7,7 +7,7 @@ import {
   ComponentRendering,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-react';
-import { Image } from '@astro-sitecore-jss/astro-sitecore-jss';
+import { AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss';
 
 interface Fields {
   Name: Field<string>;
@@ -37,7 +37,7 @@ const id = props.params.RenderingIdentifier;
 >
   <div class="author-card row g-0">
     <div class="col-auto">
-      <Image field={props.fields.Photo} class="author-img" />
+      <AstroImage field={props.fields.Photo} class="author-img" />
     </div>
     <div class="col">
       <h6 class="author-name">

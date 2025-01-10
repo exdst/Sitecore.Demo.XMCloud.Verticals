@@ -3,11 +3,10 @@ import {
   ComponentParams,
   Field,
   ImageField,
-  Image,
   Text,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
-import { Link, LinkFieldValue, RichText, SitecoreContextMap, useTranslations } from '@astro-sitecore-jss/astro-sitecore-jss';
+import { Link, LinkFieldValue, RichText, SitecoreContextMap, useTranslations, AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss';
 import { ComponentRendering } from "@sitecore-jss/sitecore-jss/layout";
 
 interface Fields {
@@ -54,7 +53,7 @@ id={id ? id : undefined}
           }`}
         >
           <div class="col-lg-4">
-            <Image field={author.fields.Photo} />
+            <AstroImage field={author.fields.Photo} />
           </div>
           <div class="col-lg-8">
             <h3 class="fs-3 mb-0">

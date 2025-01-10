@@ -7,7 +7,7 @@ import {
 } from "@sitecore-jss/sitecore-jss-react";
 
 import {
-  Image,
+  AstroImage,
   Text,
   RichText,
   Link,
@@ -70,10 +70,9 @@ const isPageEditing = sitecoreContext.pageEditing;
                 <source src={item.fields.Video.value.src} type="video/webm" />
               </video>
             ) : (
-              <Image
+              <AstroImage
                 field={item.fields.Image}
                 class="object-fit-cover d-block w-100 h-100"
-                height={" "}
               />
             )}
 

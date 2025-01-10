@@ -3,10 +3,10 @@ import {
   Field,
   ImageField,
   Text,
-  Image,
   RichText,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
+import { AstroImage } from '@astro-sitecore-jss/astro-sitecore-jss'
 import Placeholder from "components/system/Placeholder.astro";
 import ParallaxBackgroundImage from 'components/NonSitecore/ParallaxBackgroundImage.astro';
 
@@ -47,7 +47,7 @@ const id = props.uid;
         <div class="article-content">
           <div class="row row-gap-4 gx-5">
             <div class="col-12 col-lg-6">
-              <Image
+              <AstroImage
                 field={props.fields.Thumbnail}
                 class="article-img img-fluid"
               />

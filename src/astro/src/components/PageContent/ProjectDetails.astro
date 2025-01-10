@@ -4,7 +4,6 @@ import {
   ImageField,
   Placeholder,
   Text,
-  Image,
   RichTextField,
 } from '@sitecore-jss/sitecore-jss-react';
 import { ComponentProps } from 'lib/component-props';
@@ -16,7 +15,7 @@ import {
   TwitterIcon,
   TwitterShareButton,
 } from 'react-share';
-import { RichText, useTranslations } from '@astro-sitecore-jss/astro-sitecore-jss';
+import { RichText, AstroImage, useTranslations } from '@astro-sitecore-jss/astro-sitecore-jss';
 
 interface Fields {
   Title: Field<string>;
@@ -57,7 +56,7 @@ const currentUrl = Astro.url.href;
         <div>
           <span class="eyebrow-accent me-2">{t("Client") || "Client"}:</span
           >
-          <Image field={props.fields.Client} class="client-logo" />
+          <AstroImage field={props.fields.Client} class="client-logo" />
         </div>
         <div>
           <span class="eyebrow-accent me-2"
@@ -70,7 +69,7 @@ const currentUrl = Astro.url.href;
   </div>
 
   <div class="container container-widest-fluid">
-    <Image field={props.fields.Thumbnail} class="project-img img-fluid" />
+    <AstroImage field={props.fields.Thumbnail} class="project-img img-fluid" />
   </div>
   <div class="container">
     <div class="article-content">

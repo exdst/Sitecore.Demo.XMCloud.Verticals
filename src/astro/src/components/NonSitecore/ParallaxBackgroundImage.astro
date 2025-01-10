@@ -1,6 +1,5 @@
 ---
-import { Image } from "@sitecore-jss/sitecore-jss-react";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { SitecoreContextMap, AstroImage } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
@@ -9,7 +8,7 @@ const props = Astro.props;
 
 {
   isPageEditing ? (
-    <Image field={props.BackgroundImage} className="background-image" />
+    <AstroImage field={props.BackgroundImage} className="background-image" />
   ) : (
     <div class="parallax-background-image">
       <div

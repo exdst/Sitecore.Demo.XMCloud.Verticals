@@ -1,11 +1,10 @@
 ---
 import {
   Field,
-  Image,
   ImageField,
   Text,
 } from '@sitecore-jss/sitecore-jss-react';
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { SitecoreContextMap, AstroImage } from "@astro-sitecore-jss/astro-sitecore-jss";
 import CountUp from 'components/NonSitecore/CountUp.astro';
 import DottedAccent from 'components/NonSitecore/DottedAccent.astro';
 import { ComponentProps } from "lib/component-props";
@@ -40,7 +39,7 @@ const isPageEditing = sitecoreContext.pageEditing;
   id={id ? id : undefined}
 >
   <div class="container container-wide-fluid">
-    <Image field={props.fields?.Image1} class="image-left" />
+    <AstroImage field={props.fields?.Image1} class="image-left" />
     <div class="container">
       <DottedAccent class="dotted-accent-top" />
       <div class="row gx-0">
@@ -104,6 +103,6 @@ const isPageEditing = sitecoreContext.pageEditing;
       </div>
       <DottedAccent class="dotted-accent-bottom" />
     </div>
-    <Image field={props.fields?.Image2} class="image-right" />
+    <AstroImage field={props.fields?.Image2} class="image-right" />
   </div>
 </div>
