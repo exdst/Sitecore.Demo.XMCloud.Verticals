@@ -1,7 +1,7 @@
 import { HTMLLink } from "@sitecore-jss/sitecore-jss";
-import { DictionaryPhrases } from "@sitecore-jss/sitecore-jss-react";
 import { LayoutServiceData } from "@sitecore-jss/sitecore-jss/layout";
 import { ComponentPropsCollection } from "./component-props";
+import { DictionaryPhrases } from "@sitecore-jss/sitecore-jss/i18n";
 
 export declare type SiteInfo = {
   /**

@@ -6,8 +6,12 @@ import {
   Image,
   Text,
   Link,
-} from "@sitecore-jss/sitecore-jss-react";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import {
+  ComponentRendering,
+} from "@sitecore-jss/sitecore-jss/layout";
 
 export type ColumnProps = ComponentRendering & {
   image: ImageField;

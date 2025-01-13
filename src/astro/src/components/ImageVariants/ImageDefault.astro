@@ -5,9 +5,10 @@ import {
   Link as JssLink,
   LinkField,
   Text,
-} from '@sitecore-jss/sitecore-jss-react';
-import { Image, SitecoreContextMap } from '@astro-sitecore-jss/astro-sitecore-jss';
-import NormalImageDefault from './NormalImageDefault.astro';
+  Image,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import NormalImageDefault from "./NormalImageDefault.astro";
 interface Fields {
   Image: ImageField & { metadata?: { [key: string]: unknown } };
   ImageCaption: Field<string>;

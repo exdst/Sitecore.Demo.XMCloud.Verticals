@@ -1,11 +1,11 @@
 ---
 import {
   Field,
+  Image,
   ImageField,
   Text,
   RichTextField,
-  } from '@sitecore-jss/sitecore-jss-react';
-  import { Image } from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 
 interface Fields {
   Title: Field<string>;
@@ -23,7 +23,7 @@ export type ProjectListItemProps = {
   url: string;
 };
 
-const {item}: {item: ProjectListItemProps} = Astro.props;
+const { item }: { item: ProjectListItemProps } = Astro.props;
 ---
 
 <div class="project-grid-item">

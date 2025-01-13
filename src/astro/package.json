@@ -18,7 +18,7 @@
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts"
   },
   "dependencies": {
-    "@astro-sitecore-jss/astro-sitecore-jss": "0.6.5",
+    "@astro-sitecore-jss/astro-sitecore-jss": "0.7.0",
     "@astrojs/node": "^9.0.0-beta.2",
     "@astrojs/react": "^3.6.2",
     "@babel/plugin-proposal-decorators": "^7.25.9",
