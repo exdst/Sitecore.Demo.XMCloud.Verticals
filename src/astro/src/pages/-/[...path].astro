@@ -1,0 +1,19 @@
+---
+
+// This is simplest proxy rewrite implementation.
+// It is used for 1 to 1 comparision with original Sitecore demo website based on Next.js.
+// Astro.rewrite could not be used for external URL
+// Astro.redirect cause round trip to client and back to server
+
+// Recommended approach for production websites:
+// If you are using DAM with optimized images, use absolute URL to fetch media from DAM.
+// Otherwise use AstroImage instead of Image.
+import config from "@/temp/config";
+
+const url = new URL(
+  `${config.sitecoreApiHost}/${Astro.url.pathname}?${Astro.url.searchParams}`
+);
+const request = new Request(url);
+const response = await fetch(request);
+return new Response(response.body, response);
+---
