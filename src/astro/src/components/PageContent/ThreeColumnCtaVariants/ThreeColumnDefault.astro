@@ -3,10 +3,12 @@ import {
   Image,
   Text,
   Link,
+  Field,
+  ImageField,
+  LinkField,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
 import { ComponentProps } from "lib/component-props";
 
 export type ColumnProps = {
@@ -20,8 +22,8 @@ export type ColumnProps = {
 
 const props: ColumnProps = Astro.props as ColumnProps;
 const buttonStyle = props.route.params?.ButtonStyle
-      ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
-      : 'button-main';
+  ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
+  : "button-main";
 props.link.value.class = `${props.link.value.class} button ${buttonStyle}`;
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];

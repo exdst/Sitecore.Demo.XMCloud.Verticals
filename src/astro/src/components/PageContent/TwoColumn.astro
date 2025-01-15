@@ -1,12 +1,13 @@
 ---
 import {
+  Field,
+  ImageField,
+  LinkField,
   Image,
   Text,
   Link,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-
-import { Field, ImageField, LinkField } from "@sitecore-jss/sitecore-jss-react";
 
 import Placeholder from "../system/Placeholder.astro";
 import { ComponentProps } from "lib/component-props";
@@ -21,7 +22,7 @@ export type ColumnProps = {
   link: LinkField;
   placeholder: string;
   delay?: number;
-  route: ComponentProps
+  route: ComponentProps;
 };
 
 const props: ColumnProps = Astro.props as ColumnProps;

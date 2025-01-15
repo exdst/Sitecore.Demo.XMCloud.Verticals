@@ -1,13 +1,16 @@
 ---
 import {
   Field,
+  Image,
   ImageField,
   Text,
+  LinkField,
+} from '@astro-sitecore-jss/astro-sitecore-jss';
+
+import {
   ComponentParams,
   ComponentRendering,
-  LinkField,
-} from '@sitecore-jss/sitecore-jss-react';
-import { Image } from '@astro-sitecore-jss/astro-sitecore-jss';
+} from "@sitecore-jss/sitecore-jss/layout";
 
 interface Fields {
   Name: Field<string>;

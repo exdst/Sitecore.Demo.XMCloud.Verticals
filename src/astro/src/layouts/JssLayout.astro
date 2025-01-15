@@ -1,35 +1,26 @@
 ---
 import '../assets/main.scss';
-
 import type { LayoutServiceData, Field } from "@sitecore-jss/sitecore-jss/layout";
 import Placeholder from '../components/system/Placeholder.astro';
 import Scripts from '@/components/Scripts.astro';
-import Navigation from './Navigation.astro';
-import config from '../temp/config';
-import { ParallaxProvider } from 'react-scroll-parallax';
-
-const publicUrl = 'http://localhost:4321';
-
-export interface Props {
-	title: string;
-	layoutData: LayoutServiceData;
-}
 
 interface RouteFields {
   [key: string]: unknown;
-  Title: Field;
+  Title?: Field;
+  NavigationTitle?: Field;
 }
 
-const { layoutData } = Astro.props;
+const layoutData: LayoutServiceData = Astro.props.layoutData;
 
 const { route } = layoutData.sitecore;
-const fields = route?.fields as RouteFields;
+
 const isPageEditing = layoutData.sitecore.context.pageEditing;
 const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
 const theme = layoutData.sitecore.context.theme as string;
 const contextSiteClass = `site-${theme?.toLowerCase()}`;
 
-const title = fields.hasOwnProperty('Title') ? fields.Title.value.toString() : fields.NavigationTitle.value.toString();
+const fields = route?.fields as RouteFields;
+const title = fields.Title?.value.toString() || fields.NavigationTitle?.value.toString() || 'Page';
 ---
 
 <!DOCTYPE html>
@@ -38,39 +29,33 @@ const title = fields.hasOwnProperty('Title') ? fields.Title.value.toString() : f
 		<Scripts/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
-		<title>{title || 'Page'}</title>
-		<link rel="icon" href={`${publicUrl}/favicon.ico`} />
+		<title>{title}</title>
+		<link rel="icon" href={`${Astro.url.origin}/favicon.ico`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={'anonymous'} />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        <meta name="description" content="A Verticals demo site."></meta>
-        <!-- {headLinks.map((headLink) => (
-          <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
-        ))} -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={'anonymous'} />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <meta name="description" content="A Verticals demo site."></meta>
+    <!-- {headLinks.map((headLink) => (
+      <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
+    ))} -->
 	</head>
 	<body>
-		<!-- <ParallaxProvider> -->
 			<div class={`${mainClassPageEditing} ${contextSiteClass} body`}>
 				<header>
 					<div id="header">
-						{route && <Placeholder name="headless-header" rendering={route} layoutData={Astro.props.layoutData}/>}
+						{route && <Placeholder name="headless-header" rendering={route} />}
 					</div>
 				</header>
 				<main>
 					<div id="content">
-						{route && <Placeholder name="headless-main" rendering={route} layoutData={Astro.props.layoutData}/>}
+						{route && <Placeholder name="headless-main" rendering={route} />}
 					</div>
 				</main>
 				<footer>
 					<div id="footer">
-						{route && <Placeholder name="headless-footer" rendering={route} layoutData={Astro.props.layoutData}/>}
+						{route && <Placeholder name="headless-footer" rendering={route} />}
 					</div>
 				</footer>
 			</div>
-			<!-- <Navigation /> -->
-			<!-- <div class="container">
-				<Placeholder name="jss-main" rendering={route}/>
-			</div> -->
-		<!-- </ParallaxProvider> -->
 	</body>
 </html>

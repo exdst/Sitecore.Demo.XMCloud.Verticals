@@ -1,6 +1,4 @@
-import chalk from 'chalk';
 import { constantCase } from 'constant-case';
-
 import type { IConfigPlugin, JssConfig } from "../config-generator";
 
 /**
@@ -13,14 +11,12 @@ class EdgePlatformPlugin implements IConfigPlugin {
     const sitecoreEdgeUrl =
       process.env[`${constantCase('sitecoreEdgeUrl')}`]?.replace(/\/$/, '') ||
       'https://edge-platform.sitecorecloud.io';
-      
+
     const sitecoreEdgeContextId = process.env[`${constantCase('sitecoreEdgeContextId')}`];
 
     if (config.sitecoreApiKey && sitecoreEdgeContextId) {
       console.log(
-        chalk.yellow(
-          "You have configured both 'sitecoreApiKey' and 'sitecoreEdgeContextId' values. The 'sitecoreEdgeContextId' is used instead."
-        )
+        "You have configured both 'sitecoreApiKey' and 'sitecoreEdgeContextId' values. The 'sitecoreEdgeContextId' is used instead."
       );
     }
 
