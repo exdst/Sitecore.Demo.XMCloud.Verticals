@@ -1,0 +1,92 @@
+---
+import {
+  Field,
+  Image,
+  ImageField,
+  RichText,
+  Text,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface AccordionItemFields {
+  Icon: ImageField;
+  Title: Field<string>;
+  Content: Field<string>;
+}
+
+export type AccordionItemProps = {
+  fields: AccordionItemFields;
+  name: string;
+  url: string;
+};
+
+export type AccordionProps = {
+  params: { [key: string]: string };
+  fields: {
+    items: AccordionItemProps[];
+  };
+};
+
+const props = Astro.props.route;
+const id = props.uid;
+const accordionItems = props.fields?.items;
+---
+
+<script>
+  const setIsExpanded = (x: Element) => {
+    x.classList.toggle("expand");
+    const el = x.parentElement?.querySelector('.content-wrapper');
+    el?.classList.toggle('d-none');
+    el?.classList.toggle('d-block');
+  };
+
+  const buttons = document.querySelectorAll(
+    ".accordion .button-clear-appearance"
+  );
+
+  // handle click on buttons
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      setIsExpanded(e.currentTarget);
+    });
+  });
+</script>
+<div
+  class={`component accordion component-spaced ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    {
+      accordionItems?.map((item) => (
+        <div class="accordion-group">
+          <button class={`button-clear-appearance`}>
+            <div class="icon-wrapper">
+              <Image field={item.fields.Icon} />
+            </div>
+            <h3 class="display-6 fw-bold mb-0">
+              <Text field={item.fields.Title} />
+            </h3>
+            <span class="button-icon-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                width={23}
+                fill="currentColor"
+              >
+                <path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z" />
+              </svg>
+            </span>
+          </button>
+          <div class={`content-wrapper d-none`}>
+            <div class="row justify-content-end">
+              <div class="col-12 col-lg-6">
+                <div class="rich-text styled-list">
+                  <RichText field={item.fields.Content} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,80 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  Image,
+  Text,
+  Link,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import Placeholder from "../system/Placeholder.astro";
+import { ComponentProps } from "lib/component-props";
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+export type ColumnProps = {
+  image: ImageField;
+  title: Field<string>;
+  text: Field<string>;
+  link: LinkField;
+  placeholder: string;
+  delay?: number;
+  route: ComponentProps;
+};
+
+const props: ColumnProps = Astro.props as ColumnProps;
+
+const buttonStyle = props.route.params?.ButtonStyle
+  ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
+  : "button-main";
+
+props.link.value.class = `${props.link.value.class} button ${buttonStyle}`;
+---
+
+<div
+  class={`column col-sm-12 col-lg-6 ${!isPageEditing ? "fade-section" : ""}`}
+  data-delay=`${props.delay}`
+>
+  <div class="content-wrapper">
+    <Image field={props.image} height={" "} />
+    {
+      (isPageEditing || props.title?.value) && (
+        <h2>
+          <Text field={props.title} />
+        </h2>
+      )
+    }
+    {
+      (isPageEditing || props.text?.value) && (
+        <p>
+          <Text field={props.text} />
+        </p>
+      )
+    }
+    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} />}
+    <Placeholder name={props.placeholder} rendering={props.route.rendering} />
+  </div>
+</div>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(".two-column-cta .column");
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom?.classList.add("is-visible");
+    } else {
+      dom?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => {
+    const el = ref as HTMLElement;
+    const delay: number = parseInt(el.dataset.delay ?? "0");
+    useVisibility(ref as Element, setVisible, delay);
+  });
+</script>

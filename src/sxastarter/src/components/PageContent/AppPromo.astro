@@ -1,0 +1,81 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+  Image,
+  Text,
+  RichText,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Title: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+}
+
+export type AppPromoProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: AppPromoProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`component app-promo ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="row row-gap-5 align-items-center g-5">
+      <div class="col-lg-6 text-center text-lg-start">
+        <h1 class="display-6 fw-bold mb-3">
+          <Text field={props.fields.Title} />
+        </h1>
+        <div class="col-lg-10 fs-5">
+          <RichText field={props.fields.Text} />
+        </div>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-6 image-wrapper">
+        <Image
+          field={props.fields.Image}
+          class={`${isPageEditing ? "d-block" : "d-none"} mx-lg-auto img-fluid`}
+        />
+        <img
+          src={props.fields.Image.value?.src}
+          alt={props.fields.Image.value?.alt as string}
+          class={`${isPageEditing ? "d-none" : "d-block"} mx-lg-auto img-fluid parallax`}
+          style={{ transformOrigin: "bottom" }}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { useParallax, ParallaxElementOptions } from "lib/useParallax";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const appPromos = document.querySelectorAll(
+      ".app-promo",
+    );
+
+    const options: ParallaxElementOptions = {
+        scale: { from: 0.8, to: 1.2 }
+    }
+
+    appPromos.forEach((appPromo) => {
+      useParallax(appPromo, options);
+    });
+  });
+</script>
+
+<style>
+  .parallax-image {
+    transition: transform 0.1s ease-out;
+  }
+</style>

@@ -1,0 +1,11 @@
+---
+import ArticleDetailsDefault from './ArticleDetailsVariants/ArticleDetailsDefault.astro';
+import ArticleDetailsSimple from './ArticleDetailsVariants/ArticleDetailsSimple.astro';
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <ArticleDetailsDefault route={Astro.props.route} />}
+  {variantName === 'Simple' && <ArticleDetailsSimple route={Astro.props.route} />}
+</>

@@ -1,0 +1,59 @@
+---
+import {
+  RichTextField,
+  RichText,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Content: RichTextField;
+}
+
+type PageContentProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: PageContentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+
+const hasContent =
+  (props.fields && props.fields.Content) ||
+  sitecoreContext?.route?.fields?.Content;
+
+const field = (
+  props.fields && props.fields.Content
+    ? props.fields.Content
+    : sitecoreContext?.route?.fields?.Content
+) as RichTextField;
+---
+
+<>
+  {
+    !hasContent && (
+      <div
+        class={`component content ${props.params.styles}`}
+        id={id ? id : undefined}
+      >
+        <div class="component-content">
+          <div class="field-content">[Content]</div>
+        </div>
+      </div>
+    )
+  }
+  {
+    hasContent && (
+      <div
+        class={`component content ${props.params.styles}`}
+        id={id ? id : undefined}
+      >
+        <div class="component-content">
+          <div class="field-content">
+            <RichText field={field} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+</>

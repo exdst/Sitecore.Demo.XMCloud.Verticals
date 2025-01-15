@@ -1,0 +1,72 @@
+---
+import {
+  Field,
+  ImageField,
+  Image,
+  Text,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import {
+  ComponentParams,
+  ComponentRendering,
+} from "@sitecore-jss/sitecore-jss/layout";
+
+interface Fields {
+  Title: Field<string>;
+  Excerpt: Field<string>;
+  Content: RichTextField;
+  Thumbnail: ImageField;
+  BackgroundImage: ImageField;
+  Name: Field<string>;
+  Photo: ImageField;
+  Position: Field<string>;
+}
+
+export type ArticleListItemProps = {
+  fields: Fields;
+  name: string;
+  url: string;
+};
+
+interface ArticleListComponentProps {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
+  fields: {
+    items: ArticleListItemProps[];
+  };
+}
+
+const props: ArticleListComponentProps = Astro.props.route;
+const id = props.uid;
+
+const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
+  return items
+    ?.filter((item) => item.name !== "Data" && item.name !== "Authors")
+    .slice(0, numOfItems || undefined);
+};
+
+const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
+---
+
+<div
+  class={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <div class="article-list-grid">
+      {
+        newsItems?.map((item) => (
+          <div class="article-grid-item" key={item.url}>
+            <a href={item.url} class="wrapper-link">
+              <Image field={item.fields.Thumbnail} />
+              <h3 class="fs-4 mt-3">
+                <Text field={item.fields.Title} />
+              </h3>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

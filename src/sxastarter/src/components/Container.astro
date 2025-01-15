@@ -1,0 +1,28 @@
+---
+import {
+  ComponentParams,
+  ComponentRendering,
+} from "@sitecore-jss/sitecore-jss/layout";
+import DefaultContainer from "components/NestedComponents/DefaultContainer.astro";
+
+export interface ComponentProps {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
+}
+
+const props: ComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+
+const splitStyles = props.params?.Styles?.split(" ");
+const isContainer = splitStyles && splitStyles.includes("container");
+---
+
+<>{
+    isContainer && (
+      <div class="container-wrapper">
+        { <DefaultContainer id={id} route={props} /> }
+      </div>
+    )
+  }
+</>
+<>{!isContainer && <DefaultContainer id={id} route={props} />}</>

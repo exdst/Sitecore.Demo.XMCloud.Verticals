@@ -1,0 +1,66 @@
+---
+import {
+  Field,
+  ImageField,
+  Text,
+  Image,
+  RichText,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Placeholder from "components/system/Placeholder.astro";
+
+interface Fields {
+  Title: Field<string>;
+  Excerpt: Field<string>;
+  Content: RichTextField;
+  Thumbnail: ImageField;
+  BackgroundImage: ImageField;
+  Name: Field<string>;
+  Photo: ImageField;
+  Position: Field<string>;
+}
+
+export type PageBackgroundProps = /*ComponentProps &*/ {
+  fields: Fields;
+};
+
+const props: PageBackgroundProps = Astro.props.route;
+const id = props.uid;
+---
+
+<div
+  class={`component simple-article-details mt-4 ${props.params?.styles?.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <h1 class="article-title display-1 fw-bold">
+      <Text field={props.fields.Title} />
+    </h1>
+  </div>
+  <div class="container container-widest-fluid">
+    <Image field={props.fields.Thumbnail} class="article-img img-fluid" />
+  </div>
+  <div class="container">
+    <div class="article-content">
+      <div class="row">
+        <div class="col-12 col-lg-6 mx-auto">
+          <p class="article-excerpt fs-5">
+            <Text field={props.fields.Excerpt} />
+          </p>
+          <div class="article-content-body rich-text mt-5">
+            <RichText field={props.fields.Content} />
+          </div>
+          <div class="row article-meta-row">
+            <Placeholder name="article-meta" rendering={props.rendering} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <Placeholder name="background-page-content" rendering={props.rendering} />
+    </div>
+  </div>
+  <div class="row">
+    <Placeholder name="page-content" rendering={props.rendering} />
+  </div>
+</div>

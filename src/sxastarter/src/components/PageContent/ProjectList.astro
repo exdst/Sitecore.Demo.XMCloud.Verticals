@@ -1,0 +1,11 @@
+---
+import ProjectListDefault from './ProjectListVariants/ProjectListDefault.astro';
+import ProjectListMosaic from './ProjectListVariants/ProjectListMosaic.astro';
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <ProjectListDefault route={Astro.props.route} />}
+  {variantName === 'Mosaic' && <ProjectListMosaic route={Astro.props.route} />}
+</>

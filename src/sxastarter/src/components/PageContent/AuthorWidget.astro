@@ -1,0 +1,11 @@
+---
+import AuthorWidgetDefault from './AuthorWidgetVariants/AuthorWidgetDefault.astro';
+import AuthorWidgetWithSocials from './AuthorWidgetVariants/AuthorWidgetWithSocials.astro';
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <AuthorWidgetDefault route={Astro.props.route} />}
+  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={Astro.props.route} />}
+</>

@@ -1,0 +1,13 @@
+---
+const left = Astro.props.left;
+const right = Astro.props.right;
+---
+
+<div class="row align-items-center justify-content-between">
+  <div class="col-auto">
+    <span><slot name="left" /></span>
+  </div>
+  <div class="col-auto">
+    <span class="fw-bold"><slot name="right" /></span>
+  </div>
+</div>

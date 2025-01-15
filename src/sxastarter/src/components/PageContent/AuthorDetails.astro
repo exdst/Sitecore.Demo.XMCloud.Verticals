@@ -1,0 +1,10 @@
+---
+import AuthorDetailsSimple from './AuthorDetailsVariants/AuthorDetailsSimple.astro';
+import AuthorDetailsDefault from './AuthorDetailsVariants/AuthorDetailsDefault.astro';
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+<>
+  {variantName === 'Default' && <AuthorDetailsDefault route={Astro.props.route} />}
+  {variantName === 'Simple' && <AuthorDetailsSimple route={Astro.props.route} />}
+</>

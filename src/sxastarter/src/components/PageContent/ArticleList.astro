@@ -1,0 +1,14 @@
+---
+import ArticleListDefault from  './ArticleListVariants/ArticleListDefault.astro'
+import ArticleListThreeColumn from  './ArticleListVariants/ArticleListThreeColumn.astro'
+import ArticleListSimplified from  './ArticleListVariants/ArticleListSimplified.astro'
+import ArticleListGrid from './ArticleListVariants/ArticleListGrid.astro';
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+<>
+  {variantName === 'Default' && <ArticleListDefault route={Astro.props.route} />}
+  {variantName === 'ThreeColumn' && <ArticleListThreeColumn route={Astro.props.route} />}
+  {variantName === 'Simplified' && <ArticleListSimplified route={Astro.props.route} />}
+  {variantName === 'Grid' && <ArticleListGrid route={Astro.props.route} />}
+</>
