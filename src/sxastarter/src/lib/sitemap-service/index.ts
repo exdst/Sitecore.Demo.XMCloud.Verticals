@@ -72,8 +72,8 @@ export class SitemapService implements ISitemapService {
     this._graphQlClient = graphQlClientFactory.create(debug.sitemap);
   }
 
-  async getStaticSitemap(language: string): Promise<StaticPath[]> {
-    const routes: RouteQueryResult[] = await this.fetchSitemap(language);
+  async getStaticSitemap(language: string, siteName?: string): Promise<StaticPath[]> {
+    const routes: RouteQueryResult[] = await this.fetchSitemap(language, siteName);
     
     return routes.filter(route => {
       if(route.path) {
@@ -95,9 +95,9 @@ export class SitemapService implements ISitemapService {
     });
   }
 
-  protected async fetchSitemap(language: string): Promise<RouteQueryResult[]> {
+  protected async fetchSitemap(language: string, siteName?: string): Promise<RouteQueryResult[]> {
     const args: SitemapQueryArgs = {
-      siteName: config.jssAppName,
+      siteName: siteName || config.jssAppName || config.sitecoreSiteName,
       language: language,
       pageSize: this._pageSize
     };

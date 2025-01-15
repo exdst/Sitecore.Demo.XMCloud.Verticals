@@ -9,9 +9,9 @@ export class SitecorePagePropsFactory {
   private layoutService: LayoutService;
   private dictionaryService: DictionaryService;
 
-  constructor() {
+  constructor(sitename?: string) {
     this.dictionaryService = dictionaryServiceFactory.create();
-    this.layoutService = layoutServiceFactory.create();
+    this.layoutService = layoutServiceFactory.create(sitename);
   }
   
   /**
@@ -24,14 +24,14 @@ export class SitecorePagePropsFactory {
     language?: string
   ): Promise<any> {
 
-    let layout: LayoutServiceData = await this.layoutService.fetchLayoutData(path, language || config.defaultLanguage);   
-    let dictionary: DictionaryPhrases = null;//await this.dictionaryService.fetchDictionaryData(language || config.defaultLanguage);
+    let layout: LayoutServiceData = await this.layoutService.fetchLayoutData(path, language || config.defaultLanguage);
+    let dictionary: DictionaryPhrases = await this.dictionaryService.fetchDictionaryData(language || config.defaultLanguage);
 
     let props = {
       layoutData: layout,
-      dictionary: dictionary, 
+      dictionary: dictionary,
     };
-    
+
     return props;
   }
 }
