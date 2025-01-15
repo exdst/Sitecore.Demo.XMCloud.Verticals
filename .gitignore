@@ -83,3 +83,4 @@ packages/
 /src/tests/**/backstop_data/*
 /src/tests/**/bitmaps_reference 
 /src/sxastarter-nextjs/.next-container
+/src/sxastarter/scjssconfig.json

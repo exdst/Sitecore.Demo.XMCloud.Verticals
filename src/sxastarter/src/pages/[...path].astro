@@ -9,23 +9,94 @@ import type {
 } from "@sitecore-jss/sitecore-jss/layout";
 import config from "../temp/config";
 import GraphQLRequestClientFactory from "../lib/graphql/graphql-request-client-factory";
-import Bootstrap from "@/components/Bootstrap.astro";
+import { sitePrefixIdentifier } from "@/lib/constants";
+import { languages } from "../lib/languages";
 
 export const prerender = false;
+/*
+
+
+export async function getStaticPaths() {
+  try {
+    const graphQlRequestSitemapFactory = new GraphQLRequestClientFactory();
+    const sitemapService = new SitemapService(graphQlRequestSitemapFactory);
+    let staticPaths: StaticPath[] = [];
+    if (config.sites) {
+      const sites = JSON.parse(config.sites);
+      for (const site of sites) {
+        const sitePrefix = `${sitePrefixIdentifier}${site.name}`;
+
+        for (const language of languages) {
+          const paths = await sitemapService
+            .getStaticSitemap(language, site.name)
+            .then((value) => {
+              return value.map((x) => {
+                x.params.path = `/${sitePrefix}/${language}/${x.params.path ?? ""}`.toLowerCase();
+                return x;
+              });
+            });
+          staticPaths.push(...paths);
+        }
+      }
+    } else {
+      const paths = await sitemapService.getStaticSitemap(
+        config.defaultLanguage
+      );
+      staticPaths.push(...paths);
+    }
+
+    return staticPaths;
+  } catch (error) {
+    console.error(error);
+  }
+
+  return [];
+}
+*/
 
 export type SitecoreContextValue = LayoutServiceContext & {
   itemId?: string;
   route?: RouteData;
 };
 
-try {
-  const { path } = Astro.params;
+let pageProps = {
+  layoutData: {},
+};
 
-  let sitecorePagePropsFactory = new SitecorePagePropsFactory();
-  const pageProps = await sitecorePagePropsFactory.create(
-    path ?? "/",
-    config.defaultLanguage
+try {
+  console.log("Config", config);
+  console.log(config.sitecoreEdgeContextId);
+  console.log(config.sitecoreEdgeUrl);
+
+  const { path } = Astro.params;
+  let site = config.sitecoreSiteName;
+  let language = config.defaultLanguage;
+  let cleanPath = path ?? "/";
+  console.log("Path", path);
+  if (path) {
+    const parts = path.split("/");
+    if (parts[0].indexOf(sitePrefixIdentifier) === 0) {
+      site = parts[0].replace(sitePrefixIdentifier, "");
+      cleanPath = path.replace(`${parts[0]}/`, "");
+    }
+
+    if (parts[1]) {
+      language = parts[1];
+      cleanPath = cleanPath.replace(`${parts[1]}`, "") ?? "/";
+    }
+  }
+
+  console.log("Site", site);
+  console.log("CleanPath", cleanPath);
+  console.log("Language", language);
+
+  Astro.locals.site = site;
+
+  let sitecorePagePropsFactory = new SitecorePagePropsFactory(
+    Astro.locals.site || config.sitecoreSiteName
   );
+  pageProps = await sitecorePagePropsFactory.create(cleanPath, language);
+  console.log("PageProps", pageProps);
 
   let scContext = pageProps.layoutData.sitecore.context as SitecoreContextValue;
   scContext.route = pageProps.layoutData.sitecore.route;
@@ -38,11 +109,4 @@ try {
 }
 ---
 
-<Bootstrap pageProps={pageProps} />
 <JssLayout title="a" layoutData={pageProps.layoutData} />
-
-<script is:inline>
-  // This is a workaround to fix the 'process is not defined' error in Bootstrap component.
-  // 'debug' library used in CloudSDK has a dependency on a variable from the node environment)
-  const process = {};
-</script>
