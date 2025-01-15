@@ -80,5 +80,5 @@ packages/
 /src/rendering/src/temp/!GraphQLIntrospectionResult.json
 
 
-/src/tests/backstop_data/*
+/src/tests/**/backstop_data/*
 /src/tests/**/bitmaps_reference 

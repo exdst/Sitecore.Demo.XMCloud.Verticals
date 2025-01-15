@@ -10,6 +10,11 @@
       "label": "tablet",
       "width": 1024,
       "height": 768
+    },
+    {
+      "label": "desktop",
+      "width": 1920,
+      "height": 1080
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -18,7 +23,7 @@
     {
       "label": "/authors/sophia-lee",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/sophia-lee",
+      "url": "http://localhost:3000/authors/sophia-lee",
       "referenceUrl": "https://services.sxastarter.localhost/authors/sophia-lee",
       "readyEvent": "",
       "readySelector": "",
@@ -37,7 +42,7 @@
     {
       "label": "/authors/olivia-patel",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/olivia-patel",
+      "url": "http://localhost:3000/authors/olivia-patel",
       "referenceUrl": "https://services.sxastarter.localhost/authors/olivia-patel",
       "readyEvent": "",
       "readySelector": "",
@@ -56,7 +61,7 @@
     {
       "label": "/authors/david-kim",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/david-kim",
+      "url": "http://localhost:3000/authors/david-kim",
       "referenceUrl": "https://services.sxastarter.localhost/authors/david-kim",
       "readyEvent": "",
       "readySelector": "",
@@ -75,7 +80,7 @@
     {
       "label": "/authors/emma-thompson",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/emma-thompson",
+      "url": "http://localhost:3000/authors/emma-thompson",
       "referenceUrl": "https://services.sxastarter.localhost/authors/emma-thompson",
       "readyEvent": "",
       "readySelector": "",
@@ -94,7 +99,7 @@
     {
       "label": "/authors/michael-oreilly",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/michael-oreilly",
+      "url": "http://localhost:3000/authors/michael-oreilly",
       "referenceUrl": "https://services.sxastarter.localhost/authors/michael-oreilly",
       "readyEvent": "",
       "readySelector": "",
@@ -113,7 +118,7 @@
     {
       "label": "/authors/lily-majors",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/lily-majors",
+      "url": "http://localhost:3000/authors/lily-majors",
       "referenceUrl": "https://services.sxastarter.localhost/authors/lily-majors",
       "readyEvent": "",
       "readySelector": "",
@@ -132,7 +137,7 @@
     {
       "label": "/authors/jack-martinez",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors/jack-martinez",
+      "url": "http://localhost:3000/authors/jack-martinez",
       "referenceUrl": "https://services.sxastarter.localhost/authors/jack-martinez",
       "readyEvent": "",
       "readySelector": "",
@@ -151,7 +156,7 @@
     {
       "label": "/portfolio/optimize-supply-chains-with-blockchain-technology",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/optimize-supply-chains-with-blockchain-technology",
+      "url": "http://localhost:3000/portfolio/optimize-supply-chains-with-blockchain-technology",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/optimize-supply-chains-with-blockchain-technology",
       "readyEvent": "",
       "readySelector": "",
@@ -170,7 +175,7 @@
     {
       "label": "/portfolio/enhancing-retail-experience-with-ar",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/enhancing-retail-experience-with-ar",
+      "url": "http://localhost:3000/portfolio/enhancing-retail-experience-with-ar",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/enhancing-retail-experience-with-ar",
       "readyEvent": "",
       "readySelector": "",
@@ -189,7 +194,7 @@
     {
       "label": "/portfolio/the-next-evolution-of-ecommerce",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/the-next-evolution-of-ecommerce",
+      "url": "http://localhost:3000/portfolio/the-next-evolution-of-ecommerce",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/the-next-evolution-of-ecommerce",
       "readyEvent": "",
       "readySelector": "",
@@ -208,7 +213,7 @@
     {
       "label": "/portfolio/innovative-strategies-for-modern-brands",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/innovative-strategies-for-modern-brands",
+      "url": "http://localhost:3000/portfolio/innovative-strategies-for-modern-brands",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/innovative-strategies-for-modern-brands",
       "readyEvent": "",
       "readySelector": "",
@@ -227,7 +232,7 @@
     {
       "label": "/portfolio/integrated-social-media-strategies",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/integrated-social-media-strategies",
+      "url": "http://localhost:3000/portfolio/integrated-social-media-strategies",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/integrated-social-media-strategies",
       "readyEvent": "",
       "readySelector": "",
@@ -246,7 +251,7 @@
     {
       "label": "/portfolio/advanced-marketing-strategies",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/advanced-marketing-strategies",
+      "url": "http://localhost:3000/portfolio/advanced-marketing-strategies",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/advanced-marketing-strategies",
       "readyEvent": "",
       "readySelector": "",
@@ -265,7 +270,7 @@
     {
       "label": "/portfolio/a-digital-transformation-story-premiere-insurance",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/a-digital-transformation-story-premiere-insurance",
+      "url": "http://localhost:3000/portfolio/a-digital-transformation-story-premiere-insurance",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/a-digital-transformation-story-premiere-insurance",
       "readyEvent": "",
       "readySelector": "",
@@ -284,7 +289,7 @@
     {
       "label": "/portfolio/increase-customer-engagement",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/increase-customer-engagement",
+      "url": "http://localhost:3000/portfolio/increase-customer-engagement",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/increase-customer-engagement",
       "readyEvent": "",
       "readySelector": "",
@@ -303,7 +308,7 @@
     {
       "label": "/portfolio/get-results-with-data-driven-decisions",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio/get-results-with-data-driven-decisions",
+      "url": "http://localhost:3000/portfolio/get-results-with-data-driven-decisions",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio/get-results-with-data-driven-decisions",
       "readyEvent": "",
       "readySelector": "",
@@ -322,7 +327,7 @@
     {
       "label": "/landing-pages/simple-landing-page",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/landing-pages/simple-landing-page",
+      "url": "http://localhost:3000/landing-pages/simple-landing-page",
       "referenceUrl": "https://services.sxastarter.localhost/landing-pages/simple-landing-page",
       "readyEvent": "",
       "readySelector": "",
@@ -341,7 +346,7 @@
     {
       "label": "/landing-pages/marketing-landing-page",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/landing-pages/marketing-landing-page",
+      "url": "http://localhost:3000/landing-pages/marketing-landing-page",
       "referenceUrl": "https://services.sxastarter.localhost/landing-pages/marketing-landing-page",
       "readyEvent": "",
       "readySelector": "",
@@ -360,7 +365,7 @@
     {
       "label": "/insights/leveraging-ai-for-digital-marketers",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/leveraging-ai-for-digital-marketers",
+      "url": "http://localhost:3000/insights/leveraging-ai-for-digital-marketers",
       "referenceUrl": "https://services.sxastarter.localhost/insights/leveraging-ai-for-digital-marketers",
       "readyEvent": "",
       "readySelector": "",
@@ -379,7 +384,7 @@
     {
       "label": "/insights/measuring-success",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/measuring-success",
+      "url": "http://localhost:3000/insights/measuring-success",
       "referenceUrl": "https://services.sxastarter.localhost/insights/measuring-success",
       "readyEvent": "",
       "readySelector": "",
@@ -398,7 +403,7 @@
     {
       "label": "/insights/the-power-of-consistency",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/the-power-of-consistency",
+      "url": "http://localhost:3000/insights/the-power-of-consistency",
       "referenceUrl": "https://services.sxastarter.localhost/insights/the-power-of-consistency",
       "readyEvent": "",
       "readySelector": "",
@@ -417,7 +422,7 @@
     {
       "label": "/insights/key-industry-trends-shaping-the-digital-landscape",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/key-industry-trends-shaping-the-digital-landscape",
+      "url": "http://localhost:3000/insights/key-industry-trends-shaping-the-digital-landscape",
       "referenceUrl": "https://services.sxastarter.localhost/insights/key-industry-trends-shaping-the-digital-landscape",
       "readyEvent": "",
       "readySelector": "",
@@ -436,7 +441,7 @@
     {
       "label": "/insights/Maximizing-roi-with-digital-ads",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/Maximizing-roi-with-digital-ads",
+      "url": "http://localhost:3000/insights/Maximizing-roi-with-digital-ads",
       "referenceUrl": "https://services.sxastarter.localhost/insights/Maximizing-roi-with-digital-ads",
       "readyEvent": "",
       "readySelector": "",
@@ -455,7 +460,7 @@
     {
       "label": "/insights/career-growth-strategies-for-remote-workers",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/career-growth-strategies-for-remote-workers",
+      "url": "http://localhost:3000/insights/career-growth-strategies-for-remote-workers",
       "referenceUrl": "https://services.sxastarter.localhost/insights/career-growth-strategies-for-remote-workers",
       "readyEvent": "",
       "readySelector": "",
@@ -474,7 +479,7 @@
     {
       "label": "/insights/building-strong-client-relationships",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/building-strong-client-relationships",
+      "url": "http://localhost:3000/insights/building-strong-client-relationships",
       "referenceUrl": "https://services.sxastarter.localhost/insights/building-strong-client-relationships",
       "readyEvent": "",
       "readySelector": "",
@@ -493,7 +498,7 @@
     {
       "label": "/insights/achieving-work-life-balance",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/achieving-work-life-balance",
+      "url": "http://localhost:3000/insights/achieving-work-life-balance",
       "referenceUrl": "https://services.sxastarter.localhost/insights/achieving-work-life-balance",
       "readyEvent": "",
       "readySelector": "",
@@ -512,7 +517,7 @@
     {
       "label": "/insights/selecting-images-that-resonate",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/selecting-images-that-resonate",
+      "url": "http://localhost:3000/insights/selecting-images-that-resonate",
       "referenceUrl": "https://services.sxastarter.localhost/insights/selecting-images-that-resonate",
       "readyEvent": "",
       "readySelector": "",
@@ -531,7 +536,7 @@
     {
       "label": "/insights/the-creative-process-dilemma",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights/the-creative-process-dilemma",
+      "url": "http://localhost:3000/insights/the-creative-process-dilemma",
       "referenceUrl": "https://services.sxastarter.localhost/insights/the-creative-process-dilemma",
       "readyEvent": "",
       "readySelector": "",
@@ -550,7 +555,7 @@
     {
       "label": "/contact",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/contact",
+      "url": "http://localhost:3000/contact",
       "referenceUrl": "https://services.sxastarter.localhost/contact",
       "readyEvent": "",
       "readySelector": "",
@@ -569,7 +574,7 @@
     {
       "label": "/landing-pages",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/landing-pages",
+      "url": "http://localhost:3000/landing-pages",
       "referenceUrl": "https://services.sxastarter.localhost/landing-pages",
       "readyEvent": "",
       "readySelector": "",
@@ -588,7 +593,7 @@
     {
       "label": "/authors",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/authors",
+      "url": "http://localhost:3000/authors",
       "referenceUrl": "https://services.sxastarter.localhost/authors",
       "readyEvent": "",
       "readySelector": "",
@@ -607,7 +612,7 @@
     {
       "label": "/services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/services",
+      "url": "http://localhost:3000/services",
       "referenceUrl": "https://services.sxastarter.localhost/services",
       "readyEvent": "",
       "readySelector": "",
@@ -626,7 +631,7 @@
     {
       "label": "/insights",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/insights",
+      "url": "http://localhost:3000/insights",
       "referenceUrl": "https://services.sxastarter.localhost/insights",
       "readyEvent": "",
       "readySelector": "",
@@ -645,7 +650,7 @@
     {
       "label": "/about",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/about",
+      "url": "http://localhost:3000/about",
       "referenceUrl": "https://services.sxastarter.localhost/about",
       "readyEvent": "",
       "readySelector": "",
@@ -664,7 +669,7 @@
     {
       "label": "/portfolio",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/portfolio",
+      "url": "http://localhost:3000/portfolio",
       "referenceUrl": "https://services.sxastarter.localhost/portfolio",
       "readyEvent": "",
       "readySelector": "",
@@ -683,7 +688,7 @@
     {
       "label": "/",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:4321/",
+      "url": "http://localhost:3000/",
       "referenceUrl": "https://services.sxastarter.localhost/",
       "readyEvent": "",
       "readySelector": "",
