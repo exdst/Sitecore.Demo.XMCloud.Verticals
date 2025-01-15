@@ -30,6 +30,7 @@
     "@sitecore-jss/sitecore-jss": "^22.0.0",
     "@sitecore-jss/sitecore-jss-react": "^22.0.0",
     "@sitecore/components": "^1.1.6",
+    "@sitecore/engage": "^1.4.3",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.16",
     "astro": "5.1.6",
