@@ -3,6 +3,7 @@ import '../assets/main.scss';
 
 import type { LayoutServiceData, Field } from "@sitecore-jss/sitecore-jss/layout";
 import Placeholder from '../components/system/Placeholder.astro';
+import Scripts from '@/components/Scripts.astro';
 import Navigation from './Navigation.astro';
 import config from '../temp/config';
 import { ParallaxProvider } from 'react-scroll-parallax';
@@ -34,6 +35,7 @@ const title = fields.hasOwnProperty('Title') ? fields.Title.value.toString() : f
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<Scripts/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>{title || 'Page'}</title>
