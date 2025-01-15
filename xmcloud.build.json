@@ -1,7 +1,7 @@
 {
   "renderingHosts": {
     "xmcloudpreview": {
-      "path": "./src/astro",
+      "path": "./src/sxastarter",
       "nodeVersion": "20.12.0",
       "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
       "enabled": true,
