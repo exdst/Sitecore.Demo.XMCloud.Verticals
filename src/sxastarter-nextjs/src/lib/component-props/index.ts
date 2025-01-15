@@ -1,4 +1,8 @@
-import { ComponentParams, ComponentRendering, LayoutServiceContext, RouteData } from '@sitecore-jss/sitecore-jss/layout';
+import {
+  ComponentParams,
+  ComponentRendering,
+  SitecoreContextValue,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Shared component props
@@ -6,11 +10,6 @@ import { ComponentParams, ComponentRendering, LayoutServiceContext, RouteData } 
 export type ComponentProps = {
   rendering: ComponentRendering;
   params: ComponentParams;
-};
-
-export type SitecoreContextValue = LayoutServiceContext & {
-    itemId?: string;
-    route?: RouteData;
 };
 
 /**
@@ -21,13 +20,4 @@ export type SitecoreContextValue = LayoutServiceContext & {
  */
 export type ComponentWithContextProps = ComponentProps & {
   sitecoreContext: SitecoreContextValue;
-};
-
-export type ComponentPropsError = {
-  error: string;
-  componentName: string;
-};
-
-export type ComponentPropsCollection = {
-  [componentUid: string]: unknown | ComponentPropsError;
 };
