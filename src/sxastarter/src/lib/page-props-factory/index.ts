@@ -1,38 +1,55 @@
-import type { LayoutService, LayoutServiceData } from "@sitecore-jss/sitecore-jss/layout";
-import { layoutServiceFactory } from "../layout-service-factory";
-import { dictionaryServiceFactory } from "../dictionary-service-factory";
-import { DictionaryService, DictionaryPhrases } from '@sitecore-jss/sitecore-jss/i18n';
-import config from "../../temp/config";
+import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
+import { debug } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SitecorePageProps } from 'lib/page-props';
+import * as plugins from 'temp/page-props-factory-plugins';
+
+/**
+ * Determines whether context is GetServerSidePropsContext (SSR) or GetStaticPropsContext (SSG)
+ * @param {GetServerSidePropsContext | GetStaticPropsContext} context
+ */
+export const isServerSidePropsContext = function (
+  context: GetServerSidePropsContext | GetStaticPropsContext
+): context is GetServerSidePropsContext {
+  return (<GetServerSidePropsContext>context).req !== undefined;
+};
+
+export interface Plugin {
+  /**
+   * Detect order when the plugin should be called, e.g. 0 - will be called first (can be a plugin which data is required for other plugins)
+   */
+  order: number;
+  /**
+   * A function which will be called during page props generation
+   */
+  exec(
+    props: SitecorePageProps,
+    context: GetServerSidePropsContext | GetStaticPropsContext
+  ): Promise<SitecorePageProps>;
+}
 
 export class SitecorePagePropsFactory {
-
-  private layoutService: LayoutService;
-  private dictionaryService: DictionaryService;
-
-  constructor() {
-    this.dictionaryService = dictionaryServiceFactory.create();
-    this.layoutService = layoutServiceFactory.create();
-  }
-  
   /**
    * Create SitecorePageProps for given context (SSR / GetServerSidePropsContext or SSG / GetStaticPropsContext)
    * @param {GetServerSidePropsContext | GetStaticPropsContext} context
    * @see SitecorePageProps
    */
   public async create(
-    path: string,
-    language?: string
-  ): Promise<any> {
+    context: GetServerSidePropsContext | GetStaticPropsContext
+  ): Promise<SitecorePageProps> {
+    const startTimestamp = Date.now();
+    debug.common('page-props-factory start');
 
-    let layout: LayoutServiceData = await this.layoutService.fetchLayoutData(path, language || config.defaultLanguage);   
-    let dictionary: DictionaryPhrases = null;//await this.dictionaryService.fetchDictionaryData(language || config.defaultLanguage);
+    const extendedProps = await (Object.values(plugins) as Plugin[])
+      .sort((p1, p2) => p1.order - p2.order)
+      .reduce(async (result, plugin) => {
+        const props = await result;
+        const newProps = await plugin.exec(props, context);
+        return newProps;
+      }, Promise.resolve({} as SitecorePageProps));
 
-    let props = {
-      layoutData: layout,
-      dictionary: dictionary, 
-    };
-    
-    return props;
+    debug.common('page-props-factory end in %dms', Date.now() - startTimestamp);
+
+    return extendedProps;
   }
 }
 
