@@ -24,4 +24,8 @@ export default defineConfig({
   },
   output: "server",
   adapter: adapter,
+  i18n: {
+    locales: ["en", "fr-CA", "ja-JP"],
+    defaultLocale: "en",
+  }
 });
