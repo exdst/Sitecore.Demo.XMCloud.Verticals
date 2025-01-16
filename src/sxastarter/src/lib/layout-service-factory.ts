@@ -8,7 +8,6 @@ const { RestLayoutService, GraphQLLayoutService } = jss;
 export class LayoutServiceFactory {
 
   create(sitename?: string): LayoutService {
-    console.log('layoutServiceFactory.create', sitename);
     return import.meta.env.FETCH_WITH === constants.FETCH_WITH.REST
       ? new RestLayoutService({
         apiHost: config.sitecoreApiHost,

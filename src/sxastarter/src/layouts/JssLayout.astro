@@ -5,7 +5,6 @@ import Placeholder from '../components/system/Placeholder.astro';
 
 interface RouteFields {
   [key: string]: unknown;
-  Title?: Field;
   NavigationTitle?: Field;
 }
 
@@ -19,7 +18,7 @@ const theme = layoutData.sitecore.context.theme as string;
 const contextSiteClass = `site-${theme?.toLowerCase()}`;
 
 const fields = route?.fields as RouteFields;
-const title = fields.Title?.value.toString() || fields.NavigationTitle?.value.toString() || 'Page';
+const title = fields.NavigationTitle?.value.toString() || 'Page';
 ---
 
 <!DOCTYPE html>

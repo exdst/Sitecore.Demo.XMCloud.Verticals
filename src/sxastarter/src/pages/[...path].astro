@@ -9,7 +9,6 @@ import type {
 } from "@sitecore-jss/sitecore-jss/layout";
 import config from "../temp/config";
 import GraphQLRequestClientFactory from "../lib/graphql/graphql-request-client-factory";
-import { sitePrefixIdentifier } from "@/lib/constants";
 import { languages } from "../lib/languages";
 
 export const prerender = false;
@@ -64,39 +63,29 @@ let pageProps = {
 };
 
 try {
-  console.log("Config", config);
-  console.log(config.sitecoreEdgeContextId);
-  console.log(config.sitecoreEdgeUrl);
+  const sc_site = Astro.url.searchParams.get("sc_site");
+  const sc_lang = Astro.url.searchParams.get("sc_lang");
 
   const { path } = Astro.params;
   let site = config.sitecoreSiteName;
-  let language = config.defaultLanguage;
+  let language = sc_lang ?? config.defaultLanguage;
   let cleanPath = path ?? "/";
-  console.log("Path", path);
+
   if (path) {
     const parts = path.split("/");
-    if (parts[0].indexOf(sitePrefixIdentifier) === 0) {
-      site = parts[0].replace(sitePrefixIdentifier, "");
-      cleanPath = path.replace(`${parts[0]}/`, "");
-    }
-
-    if (parts[1]) {
-      language = parts[1];
-      cleanPath = cleanPath.replace(`${parts[1]}`, "") ?? "/";
+    if (parts[0]) {
+      language = parts[0];
+      cleanPath = cleanPath.replace(`${parts[0]}`, "") ?? "/";
     }
   }
 
-  console.log("Site", site);
-  console.log("CleanPath", cleanPath);
-  console.log("Language", language);
+  Astro.locals.site = sc_site ?? site ?? config.sitecoreSiteName;
 
-  Astro.locals.site = site;
-
-  let sitecorePagePropsFactory = new SitecorePagePropsFactory(
-    Astro.locals.site || config.sitecoreSiteName
-  );
+  let sitecorePagePropsFactory = new SitecorePagePropsFactory(Astro.locals.site);
   pageProps = await sitecorePagePropsFactory.create(cleanPath, language);
-  console.log("PageProps", pageProps);
+  if (!pageProps.layoutData?.sitecore?.route) {
+    return new Response("Not found", { status: 404 });
+  }
 
   let scContext = pageProps.layoutData.sitecore.context as SitecoreContextValue;
   scContext.route = pageProps.layoutData.sitecore.route;
@@ -109,4 +98,4 @@ try {
 }
 ---
 
-<JssLayout title="a" layoutData={pageProps.layoutData} />
+<JssLayout layoutData={pageProps.layoutData} />
