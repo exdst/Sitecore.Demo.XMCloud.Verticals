@@ -4,16 +4,16 @@
 //We can't call component as function: https://docs.astro.build/en/reference/errors/invalid-component-args/
 //It causes dependency between Placeholder.astro and ComponentFactory.astro
 //And as ComponentFactory is dynamic and could not be moved out of application, we need to keep Placeholder.astro here as well.
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
-import ComponentFactory from "../../temp/component-factory.astro";
-import {
+import { SitecoreContextMap, placeholderService } from '@astro-sitecore-jss/astro-sitecore-jss';
+import ComponentFactory from '../../temp/component-factory.astro';
+import type {
   ComponentRendering,
   RouteData,
   HtmlElementRendering,
   Field,
   Item,
-} from "@sitecore-jss/sitecore-jss/layout";
-import { placeholderService } from "src/lib/placeholder-service";
+} from '@sitecore-jss/sitecore-jss/layout';
+
 export type JssDynamicComponent = ComponentRendering & {
   isxEditorComponent?: boolean;
 };
@@ -35,7 +35,7 @@ export interface Props {
 }
 
 export function convertToDynamicComponents(
-  components: (ComponentRendering | HtmlElementRendering)[] | undefined
+  components: (ComponentRendering | HtmlElementRendering)[] | undefined,
 ) {
   return (
     components &&
@@ -51,9 +51,9 @@ export function convertToDynamicComponents(
   );
 }
 
-const { rendering }: Props = Astro.props;
+const { rendering } = Astro.props;
 
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const sitecoreContext = SitecoreContextMap.get()['scContext'];
 
 const placeholderData =
   await placeholderService.getPlaceholderDataFromRenderingData(
@@ -67,17 +67,16 @@ const components = convertToDynamicComponents(placeholderData);
 const isEditor =
   components &&
   components.every((component) =>
-    component.isxEditorComponent ? true : false
+    component.isxEditorComponent ? true : false,
   );
 const hasChildren = await Astro.slots.has('default');
 const children = await Astro.slots.render('default', [components, isEditor]);
 
-//WORKAROUND (REMOVE IT AFTER IMPLEMENTING IN JSS ASTRO)
 const componentsExtended =
   components &&
   components.map((component) => {
-    if(component.params) {
-      component.params.styles = `${component.params?.GridParameters || ''} ${component.params?.Styles || ''}`
+    if (component.params) {
+      component.params.styles = `${component.params?.GridParameters || ''} ${component.params?.Styles || ''}`.trim();
     }
 
     const componentProps = {
@@ -85,16 +84,17 @@ const componentsExtended =
       rendering: component,
       params: component.params,
     };
-
     return componentProps;
   });
-//WORKAROUND END
-
 ---
+
 {
   (hasChildren && <Fragment set:html={children} />) ||
     (componentsExtended &&
-    componentsExtended.map((componentExtended) => (
-        <ComponentFactory name={componentExtended.rendering.componentName} route={componentExtended} />
+      componentsExtended.map((componentExtended) => (
+        <ComponentFactory
+          name={componentExtended.rendering.componentName}
+          route={componentExtended}
+        />
       )))
 }

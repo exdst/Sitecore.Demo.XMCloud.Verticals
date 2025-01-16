@@ -6,6 +6,7 @@ import {
   LinkField,
   Image,
   SitecoreContextMap,
+  EditMode
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 interface Fields {
@@ -24,7 +25,7 @@ const props: ImageProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
-const isMetadataMode = sitecoreContext?.editMode == "metadata";
+const isMetadataMode = sitecoreContext?.editMode == EditMode.Metadata;
 const classHeroBannerEmpty =
   isPageEditing && props.fields?.Image?.value?.class === "scEmptyImage"
     ? "hero-banner-empty"

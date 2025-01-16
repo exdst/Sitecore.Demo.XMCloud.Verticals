@@ -27,8 +27,6 @@ const props: AppPromoProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
-
-props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3`;
 ---
 
 <div
@@ -51,7 +49,7 @@ props.fields.Link.value.class = `${props.fields.Link.value.class} button button-
       <div class="btn-array">
         {
           (isPageEditing || props.fields?.Link?.value?.href) && (
-            <Link field={props.fields.Link} />
+            <Link field={props.fields.Link} class="button button-main mt-3" />
           )
         }
       </div>

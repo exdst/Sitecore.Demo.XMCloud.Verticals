@@ -8,8 +8,6 @@ import { HeadingCtaProps } from "../HeadingCta.astro";
 const id = Astro.props.id;
 const isPageEditing: boolean = Astro.props.isPageEditing;
 const props: HeadingCtaProps = Astro.props.route;
-
-props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main`;
 ---
 
 <div
@@ -32,7 +30,7 @@ props.fields.Link.value.class = `${props.fields.Link.value.class} button button-
         </div>
         {
           (isPageEditing || props.fields?.Link?.value?.href) && (
-            <Link field={props.fields.Link} />
+            <Link field={props.fields.Link} class="button button-main" />
           )
         }
       </div>

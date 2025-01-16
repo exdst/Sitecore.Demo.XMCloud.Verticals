@@ -1,6 +1,5 @@
 ---
 import { TextField, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
-
 import NavigationList from "components/NestedComponents/NavigationList.astro";
 
 export interface Fields {
@@ -17,7 +16,6 @@ export interface Fields {
 export type NavigationProps = {
   params?: { [key: string]: string };
   fields: Fields;
-  handleClick: (event?: React.MouseEvent<HTMLElement>) => void;
   relativeLevel: number;
 };
 
@@ -41,9 +39,7 @@ const isPageEditing = sitecoreContext.pageEditing;
       </div>
     )
   }
-</>
-
-<>{
+  {
   !isEmpty && <div class={`component navigation ${styles}`} id={id ? id : undefined}>
       <label class="menu-mobile-navigate-wrapper">
         <input

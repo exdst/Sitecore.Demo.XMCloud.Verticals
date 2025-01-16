@@ -1,6 +1,6 @@
 ---
 import { Field, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ComponentProps } from 'lib/component-props';
+import { ComponentProps } from "lib/component-props";
 import QuoteDefault from "./QuoteVariants/QuoteDefault.astro";
 import QuoteSimple from "./QuoteVariants/QuoteSimple.astro";
 
@@ -18,8 +18,8 @@ export type QuoteProps = ComponentProps & {
 
 const props: QuoteProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-
 ---
+
 <>
   {props.params.FieldNames === 'Default' && <QuoteDefault id={id} route={props} />}
   {props.params.FieldNames === 'Simple' && <QuoteSimple id={id} route={props}/>}

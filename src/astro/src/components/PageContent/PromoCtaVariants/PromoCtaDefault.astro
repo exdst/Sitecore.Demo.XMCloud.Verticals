@@ -12,9 +12,6 @@ import { PromoCtaProps } from "../PromoCta.astro";
 const props: PromoCtaProps = Astro.props.route;
 const id = Astro.props.id;
 const isPageEditing = Astro.props.isPageEditing;
-
-props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3 me-4`;
-props.fields.Link2.value.class = `${props.fields.Link2.value.class} button button-simple mt-3`;
 ---
 
 <div
@@ -43,12 +40,12 @@ props.fields.Link2.value.class = `${props.fields.Link2.value.class} button butto
 
           {
             (isPageEditing || props.fields?.Link?.value?.href) && (
-              <Link field={props.fields.Link} />
+              <Link field={props.fields.Link} class="button button-main mt-3 me-4" />
             )
           }
           {
             (isPageEditing || props.fields?.Link2?.value?.href) && (
-              <Link field={props.fields.Link2} />
+              <Link field={props.fields.Link2} class="button button-simple mt-3" />
             )
           }
         </div>

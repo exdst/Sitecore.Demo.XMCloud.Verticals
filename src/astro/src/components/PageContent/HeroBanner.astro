@@ -37,9 +37,6 @@ const props: HeroBannerProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
-
-props.fields.Cta1.value.class = `${props.fields.Cta1.value.class} button button-main`;
-props.fields.Cta2.value.class = `${props.fields.Cta2.value.class} button button-simple mx-4`;
 ---
 
 <div
@@ -62,12 +59,12 @@ props.fields.Cta2.value.class = `${props.fields.Cta2.value.class} button button-
         <div class="btn-array pt-3 pb-4">
           {
             (isPageEditing || props.fields?.Cta1?.value?.href) && (
-              <Link field={props.fields.Cta1} />
+              <Link field={props.fields.Cta1} class="button button-main" />
             )
           }
           {
             (isPageEditing || props.fields?.Cta2?.value?.href) && (
-              <Link field={props.fields.Cta2} />
+              <Link field={props.fields.Cta2} class="button button-simple mx-4" />
             )
           }
         </div>
