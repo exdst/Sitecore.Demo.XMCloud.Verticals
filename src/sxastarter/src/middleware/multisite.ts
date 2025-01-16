@@ -17,6 +17,7 @@ export const multisite = defineMiddleware((context, next) => {
     && request.url.indexOf(".ico") === -1
     && request.url.indexOf(".webp") === -1
     && request.url.indexOf("/-/") === -1
+    && request.url.indexOf("/api/editing/") === -1
     && request.url.indexOf("site_") === -1) {
     const sites = [...JSON.parse(config.sites), {
       "name": "Basic",

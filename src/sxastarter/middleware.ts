@@ -9,6 +9,9 @@ export default function middleware(request: Request) {
   if (request.url.indexOf(".js") === -1
     && request.url.indexOf(".css") === -1
     && request.url.indexOf(".ico") === -1
+    && request.url.indexOf(".webp") === -1
+    && request.url.indexOf("/-/") === -1
+    && request.url.indexOf("/api/editing/") === -1
     && request.url.indexOf("site_") === -1) {
     const sites = [...config.sites, {
       "name": "Basic",
