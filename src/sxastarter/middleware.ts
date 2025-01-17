@@ -19,7 +19,7 @@ export default function middleware(request: Request) {
     return;
   }
 
-  const sites = [...JSON.parse(config.sites), {
+  const sites = [...config.sites, {
     "name": "Basic",
     "language": "en",
     "hostName": "localhost",
