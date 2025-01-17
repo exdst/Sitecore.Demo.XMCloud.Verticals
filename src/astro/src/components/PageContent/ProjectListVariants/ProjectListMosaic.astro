@@ -1,27 +1,7 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-} from '@astro-sitecore-jss/astro-sitecore-jss';
-import ProjectFilters from './ProjectFilters.astro';
-import ProjectGridItem from './ProjectGridItem.astro';
-
-interface Fields {
-  Title: Field<string>;
-  Category: Field<string>;
-  Abstract: Field<string>;
-  Problem: RichTextField;
-  Solution: RichTextField;
-  Thumbnail: ImageField;
-  Client: ImageField;
-}
-
-export type ProjectListItemProps = {
-  fields: Fields;
-  name: string;
-  url: string;
-};
+import ProjectFilters from "./ProjectFilters.astro";
+import ProjectGridItem from "./ProjectGridItem.astro";
+import { ProjectListItemProps } from "../ProjectList.astro";
 
 const getProjectItems = (items: ProjectListItemProps[], numOfItems: number) => {
   return items
@@ -40,7 +20,7 @@ const applyCategoryFilter = (
 
 let selectedCategory = '';
 const props = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
   const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
   const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
 ---

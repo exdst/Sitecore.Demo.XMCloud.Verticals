@@ -1,24 +1,11 @@
 ---
 import {
-  Field,
-  ImageField,
   Link,
-  LinkField,
   Text,
   Image,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-import NormalImageDefault from "./NormalImageDefault.astro";
-interface Fields {
-  Image: ImageField & { metadata?: { [key: string]: unknown } };
-  ImageCaption: Field<string>;
-  TargetUrl: LinkField;
-}
-
-type ImageProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
+import { ImageProps } from "../Image.astro";
 
 const props: ImageProps = Astro.props.route;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
@@ -45,6 +32,10 @@ const id = props.params.RenderingIdentifier;
       </div>
     )
   }
-  {!props.fields && <NormalImageDefault {...props} />}
+  {!props.fields && <div class={`component image ${props.params.styles}`.trimEnd()}>
+    <div class="component-content">
+      <span class="is-empty-hint">Image</span>
+    </div>
+  </div>}
 }
 </>

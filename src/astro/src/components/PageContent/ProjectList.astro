@@ -1,6 +1,27 @@
 ---
-import ProjectListDefault from './ProjectListVariants/ProjectListDefault.astro';
-import ProjectListMosaic from './ProjectListVariants/ProjectListMosaic.astro';
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import ProjectListDefault from "./ProjectListVariants/ProjectListDefault.astro";
+import ProjectListMosaic from "./ProjectListVariants/ProjectListMosaic.astro";
+
+interface Fields {
+  Title: Field<string>;
+  Category: Field<string>;
+  Abstract: Field<string>;
+  Problem: RichTextField;
+  Solution: RichTextField;
+  Thumbnail: ImageField;
+  Client: ImageField;
+}
+
+export type ProjectListItemProps = {
+  fields: Fields;
+  name: string;
+  url: string;
+};
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---

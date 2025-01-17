@@ -1,8 +1,42 @@
 ---
-import ArticleListDefault from  './ArticleListVariants/ArticleListDefault.astro'
-import ArticleListThreeColumn from  './ArticleListVariants/ArticleListThreeColumn.astro'
-import ArticleListSimplified from  './ArticleListVariants/ArticleListSimplified.astro'
-import ArticleListGrid from './ArticleListVariants/ArticleListGrid.astro';
+import {
+  ComponentParams,
+  ComponentRendering,
+} from "@sitecore-jss/sitecore-jss/layout";
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import ArticleListDefault from  "./ArticleListVariants/ArticleListDefault.astro";
+import ArticleListThreeColumn from  "./ArticleListVariants/ArticleListThreeColumn.astro";
+import ArticleListSimplified from  "./ArticleListVariants/ArticleListSimplified.astro";
+import ArticleListGrid from "./ArticleListVariants/ArticleListGrid.astro";
+
+interface Fields {
+  Title: Field<string>;
+  Excerpt: Field<string>;
+  Content: RichTextField;
+  Thumbnail: ImageField;
+  BackgroundImage: ImageField;
+  Name: Field<string>;
+  Photo: ImageField;
+  Position: Field<string>;
+}
+
+export type ArticleListItemProps = {
+  fields: Fields;
+  name: string;
+  url: string;
+};
+
+export interface ArticleListComponentProps {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
+  fields: {
+    items: ArticleListItemProps[];
+  };
+}
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---

@@ -2,6 +2,25 @@
 import AuthorDetailsSimple from './AuthorDetailsVariants/AuthorDetailsSimple.astro';
 import AuthorDetailsDefault from './AuthorDetailsVariants/AuthorDetailsDefault.astro';
 
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  Name: Field<string>;
+  Position: Field<string>;
+  Photo: ImageField;
+  Bio: RichTextField;
+  BackgroundImage: ImageField;
+}
+
+export type PageBackgroundProps = ComponentProps & {
+  fields: Fields;
+};
+
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
 <>

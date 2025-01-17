@@ -61,7 +61,8 @@ const isPageEditing = sitecoreContext.pageEditing;
             (isPageEditing || props.fields?.Cta1?.value?.href) && (
               <Link field={props.fields.Cta1} class="button button-main" />
             )
-          }{
+          }
+          {
             (isPageEditing || props.fields?.Cta2?.value?.href) && (
               <Link field={props.fields.Cta2} class="button button-simple mx-4" />
             )

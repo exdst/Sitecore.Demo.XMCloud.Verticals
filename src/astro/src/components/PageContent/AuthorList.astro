@@ -35,7 +35,7 @@ interface AuthorListComponentProps {
 }
 
 const props: AuthorListComponentProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;

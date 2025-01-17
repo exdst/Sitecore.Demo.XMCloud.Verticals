@@ -1,6 +1,24 @@
 ---
+import {
+  ImageField,
+  Field,
+  LinkField
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 import PromoDefault from "./PromoVariants/PromoDefault.astro";
 import PromoWithText from "./PromoVariants/PromoWithText.astro";
+
+interface Fields {
+  PromoIcon: ImageField;
+  PromoText: Field<string>;
+  PromoLink: LinkField;
+  PromoText2: Field<string>;
+}
+
+export type PromoProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---

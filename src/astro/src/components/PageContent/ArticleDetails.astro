@@ -1,6 +1,27 @@
 ---
-import ArticleDetailsDefault from './ArticleDetailsVariants/ArticleDetailsDefault.astro';
-import ArticleDetailsSimple from './ArticleDetailsVariants/ArticleDetailsSimple.astro';
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "lib/component-props";
+import ArticleDetailsDefault from "./ArticleDetailsVariants/ArticleDetailsDefault.astro";
+import ArticleDetailsSimple from "./ArticleDetailsVariants/ArticleDetailsSimple.astro";
+
+interface Fields {
+  Title: Field<string>;
+  Excerpt: Field<string>;
+  Content: RichTextField;
+  Thumbnail: ImageField;
+  BackgroundImage: ImageField;
+  Name: Field<string>;
+  Photo: ImageField;
+  Position: Field<string>;
+}
+
+export type PageBackgroundProps = ComponentProps & {
+  fields: Fields;
+};
 
 const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 ---
