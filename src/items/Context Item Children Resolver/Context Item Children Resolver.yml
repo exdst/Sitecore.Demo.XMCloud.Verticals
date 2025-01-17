@@ -1,0 +1,67 @@
+﻿---
+ID: "207769cc-38c0-4de1-b893-a6b037b3aec4"
+Parent: "c626493f-1cc3-4986-a701-f28b83d649f7"
+Template: "814c1dbb-b118-4511-ba2b-7288ed3d490b"
+Path: /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Context Item Children Resolver
+SharedFields:
+- ID: "23b859e1-34f9-4711-a46a-dc0d616584ce"
+  Hint: ItemSelectorQuery
+  Value: ./*
+- ID: "52b17c6d-d151-46c5-a986-b88050073ef0"
+  Hint: UseContextItem
+  Value: 1
+- ID: "de218ede-a9ad-4b04-86c5-9ff593ccf39d"
+  Hint: Type
+  Value: Sitecore.LayoutService.ItemRendering.ContentsResolvers.RenderingContentsResolver, Sitecore.LayoutService
+Languages:
+- Language: da
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Resolver for underordnede kontekstelementer
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5a45ae38-8a9c-4d9a-8231-34ecd7fa2e8e"
+- Language: "de-DE"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: Kontext Element Kinder Resolver
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5a45ae38-8a9c-4d9a-8231-34ecd7fa2e8e"
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "64d7e943-a315-4fcc-952a-39cc4cd5fef8"
+- Language: "ja-JP"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: コンテキスト アイテム子リゾルバー
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5a45ae38-8a9c-4d9a-8231-34ecd7fa2e8e"
+- Language: "zh-CN"
+  Fields:
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: 上下文项目儿童解析器
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "5a45ae38-8a9c-4d9a-8231-34ecd7fa2e8e"

@@ -2,7 +2,7 @@
 import {
   Field,
   ImageField,
-  Link as JssLink,
+  Link,
   LinkField,
   Text,
   Image,
@@ -32,9 +32,9 @@ const id = props.params.RenderingIdentifier;
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
             <Image field={props.fields.Image} />
           ) : (
-            <JssLink field={props.fields.TargetUrl}>
+            <Link field={props.fields.TargetUrl}>
               <Image field={props.fields.Image} />
-            </JssLink>
+            </Link>
           )}
           <Text
             tag="span"
