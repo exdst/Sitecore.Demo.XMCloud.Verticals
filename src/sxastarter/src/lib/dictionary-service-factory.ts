@@ -13,18 +13,18 @@ const { constants } = jss;
  * Factory responsible for creating a DictionaryService instance
  */
 export class DictionaryServiceFactory {  
-  create(): DictionaryService {
+  create(sitename?: string): DictionaryService {
     if(import.meta.env.FETCH_WITH === constants.FETCH_WITH.REST){
       return new RestDictionaryService({
         apiHost: config.sitecoreApiHost,
         apiKey: config.sitecoreApiKey,
-        siteName: config.sitecoreSiteName,
+        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
       });
     } else {
       const clientFactory = createGraphQLClientFactory();
       
       return new GraphQLDictionaryService({
-        siteName: config.jssAppName || config.sitecoreSiteName,
+        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
         cacheEnabled: false,
         clientFactory
       });
