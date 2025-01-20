@@ -1,0 +1,78 @@
+---
+import { Field, Text, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import CountUp from "components/NonSitecore/CountUp.astro";
+
+interface Fields {
+  Title1: Field<string>;
+  Amount1: Field<string>;
+  Currency1: Field<string>;
+  Subtitle1: Field<string>;
+  Value1: Field<string>;
+  Amount2: Field<string>;
+  Currency2: Field<string>;
+  Subtitle2: Field<string>;
+}
+
+export type RichTextProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: RichTextProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+---
+
+<div
+  class={`component comparison ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="title">
+    <Text field={props.fields?.Title1} />
+  </div>
+  <div class="d-flex justify-content-around">
+    <div class="item">
+      <div class="value">
+        <span class="amount">
+          {
+            isPageEditing ? (
+              <Text field={props.fields?.Amount1} />
+            ) : (
+              <CountUp value={parseInt(props.fields?.Amount1.value)} />
+            )
+          }
+        </span>{" "}
+        <span class="currency">
+          <Text field={props.fields?.Currency1} />
+        </span>
+      </div>
+      <span class="subtitle">
+        <Text field={props.fields?.Subtitle1} />
+      </span>
+    </div>
+    <div class="operator">
+      <Text field={props.fields?.Value1} />
+    </div>
+    <div class="item">
+      <div class="value">
+        <span class="amount">
+          {
+            isPageEditing ? (
+              <Text field={props.fields?.Amount2} />
+            ) : (
+              <CountUp value={parseInt(props.fields?.Amount2.value)} />
+            )
+          }
+        </span>{" "}
+        <span class="currency">
+          <Text field={props.fields?.Currency2} />
+        </span>
+      </div>
+      <span class="subtitle">
+        <Text field={props.fields?.Subtitle2} />
+      </span>
+    </div>
+  </div>
+</div>

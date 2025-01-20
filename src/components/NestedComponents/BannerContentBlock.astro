@@ -1,0 +1,25 @@
+---
+import {
+  Text,
+  RichText,
+  Link,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import { ParallaxBannerProps } from "components/PageContent/ParallaxBanner.astro";
+
+const props: ParallaxBannerProps = Astro.props.route;
+const isPageEditing = Astro.props.isPageEditing;
+---
+
+<div class="parallax-banner-content-inner">
+  <h1 class="display-3 fw-bold text-center mb-3">
+    <Text field={props.fields.Title} />
+  </h1>
+  <div class="fs-5 text-center">
+    <RichText field={props.fields.Text} />
+
+    {(isPageEditing || props.fields?.Link?.value?.href) && (
+      <Link field={props.fields.Link} class="button button-main mt-3" />
+    )}
+  </div>
+</div>

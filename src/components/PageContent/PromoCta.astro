@@ -1,0 +1,57 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  RichTextField,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import PromoCtaDefault from "components/Variants/PromoCtaVariants/PromoCtaDefault.astro";
+import PromoCtaWithPlaceholderColumn from "components/Variants/PromoCtaVariants/PromoCtaWithPlaceholderColumn.astro";
+import PromoCtaWithBackgroundImage from "components/Variants/PromoCtaVariants/PromoCtaWithBackgroundImage.astro";
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  Eyebrow: Field<string>;
+  Title: Field<string>;
+  Subtitle: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+  Link: LinkField;
+  Link2: LinkField;
+}
+
+export type PromoCtaProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: PromoCtaProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <PromoCtaDefault id={id} route={props} isPageEditing={isPageEditing} />}
+  {variantName === 'WithPlaceholderColumn' && <PromoCtaWithPlaceholderColumn id={id} route={props} isPageEditing={isPageEditing} />}
+  {variantName === 'WithBackgroundImage' && <PromoCtaWithBackgroundImage id={id} route={props} isPageEditing={isPageEditing} />}
+</>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(".promo-cta");
+    const setVisible = (x: boolean, dom: Element) => {
+      if (x) {
+        dom.querySelector("img.fade-section")?.classList.add("is-visible");
+      } else {
+        dom.querySelector("img.fade-section")?.classList.remove("is-visible");
+      }
+      return x;
+    };
+
+  refs.forEach((ref) => useVisibility(ref, setVisible));
+</script>

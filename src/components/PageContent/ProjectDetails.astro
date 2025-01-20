@@ -1,0 +1,128 @@
+---
+import {
+  Field,
+  ImageField,
+  Text,
+  Image,
+  RichTextField,
+  RichText, useTranslations
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import { ComponentProps } from "lib/component-props";
+import Placeholder from "components/system/Placeholder.astro";
+
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+  TwitterIcon,
+  TwitterShareButton,
+} from 'react-share';
+
+interface Fields {
+  Title: Field<string>;
+  Abstract: Field<string>;
+  Category: Field<string>;
+  Client: ImageField;
+  Problem: RichTextField;
+  Solution: RichTextField;
+  Thumbnail: ImageField;
+}
+
+export type ProjectDetailsProps = ComponentProps & {
+  fields: Fields;
+};
+
+const props: ProjectDetailsProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const t = useTranslations();
+const currentUrl = Astro.url.href;
+---
+<div
+  class={`component project-details mt-4 mb-5 ${props.params?.styles?.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <div class="row gx-5">
+      <div class="col-12 col-lg-6">
+        <h1 class="display-1 fw-bold">
+          <Text field={props.fields?.Title} />
+        </h1>
+        <p class="mb-0">
+          <Text field={props.fields?.Abstract} />
+        </p>
+      </div>
+      <div
+        class="col-12 col-lg-6 d-flex flex-column align-items-end justify-content-end gap-3 mt-3"
+      >
+        <div>
+          <span class="eyebrow-accent me-2">{t("Client") || "Client"}:</span
+          >
+          <Image field={props.fields.Client} class="client-logo" />
+        </div>
+        <div>
+          <span class="eyebrow-accent me-2"
+            >{t("Category") || "Category"}:</span
+          >
+          <Text field={props.fields.Category} />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container-widest-fluid">
+    <Image field={props.fields.Thumbnail} class="project-img img-fluid" />
+  </div>
+  <div class="container">
+    <div class="article-content">
+      <div class="row">
+        <div class="col-12 col-lg-6 mx-auto">
+          <div class="article-content-body rich-text mb-5">
+            <RichText field={props.fields.Problem} />
+          </div>
+        </div>
+        <div class="row">
+          <Placeholder
+            name="project-additional-content"
+            rendering={props.rendering}
+          />
+        </div>
+        <div class="col-12 col-lg-6 mx-auto">
+          <div class="article-content-body rich-text my-5">
+            <RichText field={props.fields.Solution} />
+          </div>
+        </div>
+        <div
+          class="col-12 d-flex gap-2 align-items-center justify-content-end mb-5"
+        >
+          <h6 class="eyebrow-accent mb-0 me-2">
+            {t("Share on") || "Share on"}
+          </h6>
+          <FacebookShareButton client:load url={currentUrl}>
+            <FacebookIcon
+              round
+              size={48}
+              bgStyle={{ fill: "var(--bg-accent)" }}
+            />
+          </FacebookShareButton>
+          <TwitterShareButton client:load url={currentUrl}>
+            <TwitterIcon
+              round
+              size={48}
+              bgStyle={{ fill: "var(--bg-accent)" }}
+            />
+          </TwitterShareButton>
+          <LinkedinShareButton client:load url={currentUrl}>
+            <LinkedinIcon
+              round
+              size={48}
+              bgStyle={{ fill: "var(--bg-accent)" }}
+            />
+          </LinkedinShareButton>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>

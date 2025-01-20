@@ -1,0 +1,34 @@
+---
+import { Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { TestimonialItemProps } from "components/PageContent/Testimonials.astro";
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+
+const item: TestimonialItemProps = Astro.props.item;
+
+const rating = item.fields?.Rating.value;
+
+const maxStars = 5;
+const filledStars = Math.min(parseInt(rating), maxStars);
+const emptyStars = maxStars - filledStars;
+---
+<>{
+    !rating && <></>
+  }
+  {
+    rating && <div class="star-rating">
+    {
+      [...Array(filledStars)].map(() => (
+        <span class="star star-filled" />
+      ))
+    }
+    {
+      [...Array(emptyStars)].map(() => (
+        <span class="star star-empty" />
+      ))
+    }
+      <span>{isPageEditing && <Text field={item.fields?.Rating} />}</span>
+    </div>
+}</>

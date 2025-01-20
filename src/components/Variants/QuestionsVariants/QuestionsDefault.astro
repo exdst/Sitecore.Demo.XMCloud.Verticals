@@ -1,0 +1,32 @@
+---
+import Question from "components/NestedComponents/Question.astro";
+import { QuestionsProps } from "components/PageContent/Questions.astro";
+
+const id = Astro.props.id;
+const props: QuestionsProps = Astro.props.route;
+const questions = props.fields?.items;
+---
+
+<div
+  class={`component questions ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6">
+        {
+          questions
+            ?.filter((_, index) => index % 2 === 0)
+            ?.map((item) => <Question key={item.url} item={item} />)
+        }
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        {
+          questions
+            ?.filter((_, index) => index % 2 !== 0)
+            ?.map((item) => <Question key={item.url} item={item} />)
+        }
+      </div>
+    </div>
+  </div>
+</div>

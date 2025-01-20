@@ -1,0 +1,31 @@
+---
+import { Field } from "@astro-sitecore-jss/astro-sitecore-jss";
+import QuestionsDefault from "components/Variants/QuestionsVariants/QuestionsDefault.astro";
+import QuestionsSingleColumn from "components/Variants/QuestionsVariants/QuestionsSingleColumn.astro";
+
+interface QuestionFields {
+  Question: Field<string>;
+  Answer: Field<string>;
+}
+
+export type QuestionItemProps = {
+  fields: QuestionFields;
+  name: string;
+  url: string;
+};
+
+export type QuestionsProps = {
+  params: { [key: string]: string };
+  fields: {
+    items: QuestionItemProps[];
+  };
+};
+
+const props: QuestionsProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<>
+  {props.params.FieldNames === 'Default' && <QuestionsDefault id={id} route={props} />}
+  {props.params.FieldNames === 'SingleColumn' && <QuestionsSingleColumn id={id} route={props}/>}
+</>

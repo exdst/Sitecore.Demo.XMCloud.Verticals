@@ -1,0 +1,86 @@
+---
+import ProjectFilters from "./ProjectFilters.astro";
+import ProjectGridItem from "./ProjectGridItem.astro";
+import { ProjectListComponentProps, ProjectListItemProps } from "components/PageContent/ProjectList.astro";
+
+const getProjectItems = (items: ProjectListItemProps[], numOfItems: number) => {
+  return items
+    ?.filter((item) => item.name !== 'Data' && item.name !== 'Authors')
+    .slice(0, numOfItems || undefined);
+};
+
+const applyCategoryFilter = (
+  items: ProjectListItemProps[],
+  selectedCategory: string | null
+): ProjectListItemProps[] => {
+  return selectedCategory
+    ? items.filter((item) => item.fields.Category.value === selectedCategory)
+    : items;
+};
+
+let selectedCategory = '';
+const props: ProjectListComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
+const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
+---
+
+<script>
+  const categoriesButtons = document.querySelectorAll('.project-filters button');
+  const projectsRoot = document.querySelector('.project-list-grid-mosaic');
+  const hiddenProjectsRoot = document.querySelector('.hidden-container');
+
+  const showAllProjects = ()=> {
+    hiddenProjectsRoot.querySelectorAll('.project-grid-item').forEach((project)=>{
+      projectsRoot?.append(project);
+    })
+  }
+  const setSelectedCategory = (e) => {
+    categoriesButtons.forEach((button) => {
+      if (e != button) {
+        button.classList.remove("active");
+      }
+    });
+    e.classList.add('active');
+    const selectedCategory = e.getAttribute('key');
+    showAllProjects();
+    if (selectedCategory) {
+      let projects = projectsRoot.querySelectorAll('.project-grid-item');
+      projects.forEach((project) => {
+      let projectCategory = project.querySelector('.project-category').innerText;
+      if (selectedCategory !== projectCategory.trim()) {
+        hiddenProjectsRoot?.append(project);
+      }
+    })
+    }
+  }
+
+  categoriesButtons.forEach((button) => {
+    button.addEventListener('click', (e) => setSelectedCategory(e.currentTarget));
+  });
+</script>
+<div
+  class={`component project-list ${props.params?.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    {
+      !!props.params?.ShowFilters && (
+        <ProjectFilters
+          projectItems={projectItems}
+          selectedCategory={selectedCategory}
+        />
+      )
+    }
+    <div class="hidden-container" style="display: none;">
+
+    </div>
+    <div class="project-list-grid-mosaic">
+      {
+        filteredItems?.map((item) => (
+          <ProjectGridItem item={item} key={item.url} />
+        ))
+      }
+    </div>
+  </div>
+</div>

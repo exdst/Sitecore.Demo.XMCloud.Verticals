@@ -1,0 +1,41 @@
+---
+import {
+  Link,
+  Text
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { HeadingCtaProps } from "components/PageContent/HeadingCta.astro";
+
+const id = Astro.props.id;
+const isPageEditing: boolean = Astro.props.isPageEditing;
+const props: HeadingCtaProps = Astro.props.route;
+---
+
+<div
+  class={`component heading-cta ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <div class="row gx-5">
+      <div class="col">
+        <div class="heading-content-wrapper">
+          <h6 class="eyebrow-accent">
+            <Text field={props.fields?.Eyebrow} />
+          </h6>
+          <h1 class="display-1 fw-bold">
+            <Text field={props.fields?.Heading} />
+          </h1>
+          <p>
+            <Text field={props.fields?.Text} />
+          </p>
+        </div>
+      </div>
+      <div class="col-12 pt-lg-5 col-lg-auto">
+        {
+          (isPageEditing || props.fields?.Link?.value?.href) && (
+            <Link field={props.fields.Link} class="button button-main" />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</div>

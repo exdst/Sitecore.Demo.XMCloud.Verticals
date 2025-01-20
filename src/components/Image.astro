@@ -1,0 +1,28 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import ImageBanner from "components/Variants/ImageVariants/ImageBanner.astro";
+import ImageDefault from "components/Variants/ImageVariants/ImageDefault.astro";
+
+interface Fields {
+  Image: ImageField & { metadata?: { [key: string]: unknown } };
+  ImageCaption: Field<string>;
+  TargetUrl: LinkField;
+}
+
+export type ImageProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ImageProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <ImageDefault route={props} />}
+  {variantName === 'Banner' && <ImageBanner route={props} />}
+</>

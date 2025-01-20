@@ -1,0 +1,52 @@
+---
+import { Image, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+const props = Astro.props;
+---
+
+{
+  isPageEditing ? (
+    <Image field={props.BackgroundImage} className="background-image" />
+  ) : (
+    <div class="parallax-background-image">
+      <div
+        class="parallax parallax-image"
+        style={`background-image: url(${props.BackgroundImage?.value?.src});`}
+      />
+    </div>
+  )
+}
+
+<style>
+  .parallax-background-image {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .parallax-image {
+    background-position: center center;
+    background-size: cover;
+    position: absolute;
+    will-change: transform;
+  }
+</style>
+
+<script>
+  import { useParallax, ParallaxElementOptions } from "lib/useParallax";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const backgroundImages = document.querySelectorAll(
+      ".parallax-background-image",
+    );
+
+    const options: ParallaxElementOptions = {
+        translateY: { from: -150, to: 150, units: "px" },
+    }
+
+    backgroundImages.forEach((backgroundImage) => {
+      useParallax(backgroundImage, options);
+    });
+  });
+</script>

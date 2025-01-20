@@ -1,0 +1,72 @@
+---
+import {
+  Link,
+  RichText,
+  Text,
+  Image,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Placeholder from "components/system/Placeholder.astro";
+import DottedAccent from "components/NonSitecore/DottedAccent.astro";
+import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
+
+const props: PromoCtaProps = Astro.props.route;
+const id = Astro.props.id;
+const isPageEditing = Astro.props.isPageEditing;
+---
+
+<div
+  class={`component promo-cta with-placeholder-column ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="row row-gap-4 main-content align-items-center">
+      <div class="col-lg-5 text-center text-lg-start">
+        <h6 class="eyebrow-accent">
+          <Text field={props.fields.Eyebrow} />
+        </h6>
+        <h1 class="fs-1 fw-bold mb-3">
+          <Text field={props.fields.Title} />
+        </h1>
+        <div class="promo-cta-text">
+          <p class="fs-5">
+            <Text field={props.fields.Subtitle} />
+          </p>
+
+          <RichText field={props.fields.Text} class="text-content" />
+          {
+            (isPageEditing || props.fields?.Link?.value?.href) && (
+              <Link field={props.fields.Link} class="button button-main mt-3" />
+            )
+          }{
+            (isPageEditing || props.fields?.Link2?.value?.href) && (
+              <Link field={props.fields.Link2} class="button button-simple mt-3 mx-4" />
+            )
+          }
+        </div>
+      </div>
+
+      <div class="col-md-12 mx-auto col-lg-7 mx-lg-0">
+        <div class="row align-items-center">
+          <div class="promo-cta-placeholder col-12 col-md-9">
+            <div class="promo-cta-placeholder-inner">
+              <div class="row">
+                <Placeholder name="promo-cta" rendering={props.rendering} />
+              </div>
+            </div>
+          </div>
+
+          <div class="image-wrapper d-none d-md-block col-md-8">
+            <DottedAccent class="dotted-accent-top" />
+            <Image
+              field={props.fields.Image}
+              class={`d-block mx-lg-auto img-fluid ${
+                !isPageEditing ? "fade-section" : ""
+              }`}
+            />
+            <DottedAccent class="dotted-accent-bottom" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

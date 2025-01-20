@@ -1,0 +1,59 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  Image,
+  Text,
+  Link,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+export type ColumnProps = {
+  image: ImageField;
+  text: Field<string>;
+  link: LinkField;
+  delay?: number;
+};
+
+const props: ColumnProps = Astro.props as ColumnProps;
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`column col ${!isPageEditing ? "fade-section" : ""} `}
+  data-delay=`${props.delay}`
+>
+  <Link field={props.link}>
+    <div class="image-container">
+      <Image field={props.image} class="d-block w-100 h-100" />
+    </div>
+  </Link>
+  <div class="text-container">
+    <Text field={props.text} />
+  </div>
+</div>
+
+<script>
+  import useVisibility from "lib/useVisibility";
+
+  const refs: NodeListOf<Element> = document.querySelectorAll(
+    ".five-column-cta .column",
+  );
+  const setVisible = (x: boolean, dom: Element) => {
+    if (x) {
+      dom?.classList.add("is-visible");
+    } else {
+      dom?.classList.remove("is-visible");
+    }
+    return x;
+  };
+
+  refs.forEach((ref) => {
+    const el = ref as HTMLElement;
+    const delay: number = parseInt(el.dataset.delay ?? "0");
+    useVisibility(ref as Element, setVisible, delay);
+  });
+</script>
