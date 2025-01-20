@@ -21,7 +21,6 @@ const isPageEditing = Astro.props.isPageEditing;
         </h1>
         <div class="fs-3 text-center">
           <RichText field={props.fields.Text} />
-
           {
             (isPageEditing || props.fields?.Link?.value?.href) && (
               <Link field={props.fields.Link} class="button button-main mt-3" />

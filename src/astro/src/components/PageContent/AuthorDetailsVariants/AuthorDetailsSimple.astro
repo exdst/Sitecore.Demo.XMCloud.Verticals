@@ -1,30 +1,31 @@
 ---
-import {
-  Image,
-  Text,
-  RichText
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import { PageBackgroundProps } from "../AuthorDetails.astro";
+import { Image, Text, RichText } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AuthorDetailsProps } from "../AuthorDetails.astro";
 
-const props: PageBackgroundProps = Astro.props.route;
+const props: AuthorDetailsProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 ---
 
-<div class="container container-wide">
-  <div class="row g-5">
-    <div class="text-col col-lg-8">
-      <h6 class="eyebrow-accent">
-        <Text field={props.fields.Position} />
-      </h6>
-      <h1 class="display-2 fw-bold">
-        <Text field={props.fields.Name} />
-      </h1>
-      <div class="rich-content mb-4">
-        <RichText field={props.fields.Bio} />
+<div
+  class={`component author-details-simple col-12 ${props.params?.styles?.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <div class="row g-5">
+      <div class="text-col col-lg-8">
+        <h6 class="eyebrow-accent">
+          <Text field={props.fields.Position} />
+        </h6>
+        <h1 class="display-2 fw-bold">
+          <Text field={props.fields.Name} />
+        </h1>
+        <div class="rich-content mb-4">
+          <RichText field={props.fields.Bio} />
+        </div>
       </div>
-    </div>
-    <div class="img-col col-lg-4">
-      <Image field={props.fields.Photo} class="author-img img-fluid" />
+      <div class="img-col col-lg-4">
+        <Image field={props.fields.Photo} class="author-img img-fluid" />
+      </div>
     </div>
   </div>
 </div>

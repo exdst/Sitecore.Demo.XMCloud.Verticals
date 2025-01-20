@@ -1,6 +1,7 @@
 ---
   
 import Bootstrap from '../../src/components/Bootstrap.astro'
+import CdpPageView from '../../src/components/CdpPageView.astro'
 import ColumnSplitter from '../../src/components/ColumnSplitter.astro'
 import Container from '../../src/components/Container.astro'
 import ContentBlock from '../../src/components/ContentBlock.astro'
@@ -12,6 +13,7 @@ import PartialDesignDynamicPlaceholder from '../../src/components/PartialDesignD
 import Promo from '../../src/components/Promo.astro'
 import RichText from '../../src/components/RichText.astro'
 import RowSplitter from '../../src/components/RowSplitter.astro'
+import Scripts from '../../src/components/Scripts.astro'
 import Title from '../../src/components/Title.astro'
 import StyleguideFieldUsageAstroImage from '../../src/components/fields/Styleguide-FieldUsage-AstroImage.astro'
 import StyleguideFieldUsageCheckbox from '../../src/components/fields/Styleguide-FieldUsage-Checkbox.astro'
@@ -101,6 +103,7 @@ export interface Props  {
 
 <>
 {Astro.props.name === 'Bootstrap' && <Bootstrap route={Astro.props.route}/>}
+{Astro.props.name === 'CdpPageView' && <CdpPageView route={Astro.props.route}/>}
 {Astro.props.name === 'ColumnSplitter' && <ColumnSplitter route={Astro.props.route}/>}
 {Astro.props.name === 'Container' && <Container route={Astro.props.route}/>}
 {Astro.props.name === 'ContentBlock' && <ContentBlock route={Astro.props.route}/>}
@@ -112,6 +115,7 @@ export interface Props  {
 {Astro.props.name === 'Promo' && <Promo route={Astro.props.route}/>}
 {Astro.props.name === 'RichText' && <RichText route={Astro.props.route}/>}
 {Astro.props.name === 'RowSplitter' && <RowSplitter route={Astro.props.route}/>}
+{Astro.props.name === 'Scripts' && <Scripts route={Astro.props.route}/>}
 {Astro.props.name === 'Title' && <Title route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-AstroImage' && <StyleguideFieldUsageAstroImage route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-FieldUsage-Checkbox' && <StyleguideFieldUsageCheckbox route={Astro.props.route}/>}

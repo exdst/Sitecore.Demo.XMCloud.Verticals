@@ -19,10 +19,10 @@ export type PromoProps = {
   fields: Fields;
 };
 
-
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+const props: PromoProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 <>
-  {variantName === 'Default' && <PromoDefault route={Astro.props.route} />}
-  {variantName === 'WithText' && <PromoWithText route={Astro.props.route} />}
+  {variantName === 'Default' && <PromoDefault route={props} />}
+  {variantName === 'WithText' && <PromoWithText route={props} />}
 </>

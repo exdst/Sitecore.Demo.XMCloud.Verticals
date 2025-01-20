@@ -6,6 +6,7 @@ import {
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import ProjectListDefault from "./ProjectListVariants/ProjectListDefault.astro";
 import ProjectListMosaic from "./ProjectListVariants/ProjectListMosaic.astro";
+import { ComponentParams, ComponentRendering } from "@sitecore-jss/sitecore-jss/types/layout";
 
 interface Fields {
   Title: Field<string>;
@@ -23,10 +24,19 @@ export type ProjectListItemProps = {
   url: string;
 };
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+export interface ProjectListComponentProps {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
+  fields: {
+    items: ProjectListItemProps[];
+  };
+};
+
+const props: ProjectListComponentProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {variantName === 'Default' && <ProjectListDefault route={Astro.props.route} />}
-  {variantName === 'Mosaic' && <ProjectListMosaic route={Astro.props.route} />}
+  {variantName === 'Default' && <ProjectListDefault route={props} />}
+  {variantName === 'Mosaic' && <ProjectListMosaic route={props} />}
 </>

@@ -19,14 +19,15 @@ interface Fields {
   Position: Field<string>;
 }
 
-export type PageBackgroundProps = ComponentProps & {
+export type ArticleDetailsProps = ComponentProps & {
   fields: Fields;
 };
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+const props: ArticleDetailsProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {variantName === 'Default' && <ArticleDetailsDefault route={Astro.props.route} />}
-  {variantName === 'Simple' && <ArticleDetailsSimple route={Astro.props.route} />}
+  {variantName === 'Default' && <ArticleDetailsDefault route={props} />}
+  {variantName === 'Simple' && <ArticleDetailsSimple route={props} />}
 </>

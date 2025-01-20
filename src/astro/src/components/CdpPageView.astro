@@ -1,18 +1,16 @@
 ---
-
 /**
- * NEXT_PUBLIC_CDP_CLIENT_KEY, 
- * NEXT_PUBLIC_CDP_TARGET_URL, 
- * NEXT_PUBLIC_CDP_POINT_OF_SALE 
+ * NEXT_PUBLIC_CDP_CLIENT_KEY,
+ * NEXT_PUBLIC_CDP_TARGET_URL,
+ * NEXT_PUBLIC_CDP_POINT_OF_SALE
  * env variables should be configured for sending cdp page view event
  */
 
-
-import config from '../temp/config'
-import CdpHelperPkg from '@sitecore-jss/sitecore-jss/personalize';
-import { IPageViewEventInput } from '@sitecore/engage';
-import Layout from "@sitecore-jss/sitecore-jss/layout";;
-import { SitecoreContextMap } from '@astro-sitecore-jss/astro-sitecore-jss';
+import config from "../temp/config";
+import CdpHelperPkg from "@sitecore-jss/sitecore-jss/personalize";
+import { IPageViewEventInput } from "@sitecore/engage";
+import Layout from "@sitecore-jss/sitecore-jss/layout";
+import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 const { CdpHelper } = CdpHelperPkg;
 
 let dataSend = false;
@@ -23,73 +21,76 @@ const itemId = sitecoreContext.route.itemId;
 const page = sitecoreContext.route?.name;
 
 /**
-* Determines if the page view events should be turned off.
-* IMPORTANT: You should implement based on your cookie consent management solution of choice.
-* By default it is disabled in development mode
-* Do not create events in editing or preview mode or if missing route data
-**/
-dataSend = import.meta.env.MODE !== 'development' && pageState === LayoutServicePageState.Normal && !!itemId;
+ * Determines if the page view events should be turned off.
+ * IMPORTANT: You should implement based on your cookie consent management solution of choice.
+ * By default it is disabled in development mode
+ * Do not create events in editing or preview mode or if missing route data
+ **/
+dataSend =
+  import.meta.env.MODE !== "development" &&
+  pageState === LayoutServicePageState.Normal &&
+  !!itemId;
 
 const language = sitecoreContext.language || config.defaultLanguage;
-const variantId = sitecoreContext.variantId || 'default';
+const variantId = sitecoreContext.variantId || "default";
 const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
 
 const pageVariantId = CdpHelper.getPageVariantId(
-    itemId,
-    language,
-    variantId as string,
-    scope
+  itemId,
+  language,
+  variantId as string,
+  scope,
 );
 
 const pageViewData: IPageViewEventInput = {
-    channel: 'WEB',
-    currency: 'USD',
-    page,
-    pageVariantId,
-    language,
+  channel: "WEB",
+  currency: "USD",
+  page,
+  pageVariantId,
+  language,
 };
-
 ---
+
 <>
-    <astro-cdp-page-view 
-        data-send={+dataSend}
-        data-page-view-data={JSON.stringify(pageViewData)} 
-        data-cdp-point-of-sale={import.meta.env.NEXT_PUBLIC_CDP_POINT_OF_SALE}
-        data-cdp-client-key={import.meta.env.NEXT_PUBLIC_CDP_CLIENT_KEY}
-        data-cdp-target-url={import.meta.env.NEXT_PUBLIC_CDP_TARGET_URL}
-        data-cdp-cookie-domain={config.publicUrl} />
+  <astro-cdp-page-view
+    data-send={+dataSend}
+    data-page-view-data={JSON.stringify(pageViewData)}
+    data-cdp-point-of-sale={import.meta.env.NEXT_PUBLIC_CDP_POINT_OF_SALE}
+    data-cdp-client-key={import.meta.env.NEXT_PUBLIC_CDP_CLIENT_KEY}
+    data-cdp-target-url={import.meta.env.NEXT_PUBLIC_CDP_TARGET_URL}
+    data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
 
-    <script>
-        import { init } from '@sitecore/engage';
-        
-        class CdpPageView extends HTMLElement {
-            async connectedCallback() {
-                const dataSend = this.dataset.send !== undefined ? +this.dataset.send : 0;
+  <script>
+    import { init } from "@sitecore/engage";
 
-                if (!dataSend)
-                    return
+    class CdpPageView extends HTMLElement {
+      async connectedCallback() {
+        const dataSend =
+          this.dataset.send !== undefined ? +this.dataset.send : 0;
 
-                const pageViewData = this.dataset.pageViewData;
-                const clientKey = this.dataset.cdpClientKey || '';
-                const targetURL = this.dataset.cdpTargetUrl || '';
-                const pointOfSale = this.dataset.cdpPointOfSale;
+        if (!dataSend) return;
 
-                const engage = await init({
-                    clientKey,
-                    targetURL,
-                    pointOfSale,
-                    // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-                    cookieDomain: window.location.hostname.replace(/^www\./, ''), //'localhost',
-                    // Cookie may be created in personalize middleware (server), but if not we should create it here
-                    forceServerCookieMode: false,
-                })
+        const pageViewData = this.dataset.pageViewData;
+        const clientKey = this.dataset.cdpClientKey || "";
+        const targetURL = this.dataset.cdpTargetUrl || "";
+        const pointOfSale = this.dataset.cdpPointOfSale;
 
-                if(pageViewData !== undefined){
-                    engage.pageView(JSON.parse(pageViewData));   
-                }
-            }
+        const engage = await init({
+          clientKey,
+          targetURL,
+          pointOfSale,
+          // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
+          cookieDomain: window.location.hostname.replace(/^www\./, ""), //'localhost',
+          // Cookie may be created in personalize middleware (server), but if not we should create it here
+          forceServerCookieMode: false,
+        });
+
+        if (pageViewData !== undefined) {
+          engage.pageView(JSON.parse(pageViewData));
         }
+      }
+    }
 
-        customElements.define("astro-cdp-page-view", CdpPageView);
-    </script>
+    customElements.define("astro-cdp-page-view", CdpPageView);
+  </script>
 </>

@@ -38,11 +38,12 @@ export interface ArticleListComponentProps {
   };
 }
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+const props: ArticleListComponentProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 <>
-  {variantName === 'Default' && <ArticleListDefault route={Astro.props.route} />}
-  {variantName === 'ThreeColumn' && <ArticleListThreeColumn route={Astro.props.route} />}
-  {variantName === 'Simplified' && <ArticleListSimplified route={Astro.props.route} />}
-  {variantName === 'Grid' && <ArticleListGrid route={Astro.props.route} />}
+  {variantName === 'Default' && <ArticleListDefault route={props} />}
+  {variantName === 'ThreeColumn' && <ArticleListThreeColumn route={props} />}
+  {variantName === 'Simplified' && <ArticleListSimplified route={props} />}
+  {variantName === 'Grid' && <ArticleListGrid route={props} />}
 </>

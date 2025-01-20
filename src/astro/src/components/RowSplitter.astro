@@ -1,14 +1,6 @@
 ---
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
+import { ComponentProps } from "lib/component-props";
 import Placeholder from "components/system/Placeholder.astro";
-
-interface ComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
-}
 
 const props: ComponentProps = Astro.props.route;
 const styles =

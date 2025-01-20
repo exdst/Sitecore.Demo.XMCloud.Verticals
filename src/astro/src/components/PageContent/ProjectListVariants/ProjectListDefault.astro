@@ -1,28 +1,13 @@
 ---
-import { ProjectListItemProps } from "../ProjectList.astro";
-
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
-
+import { ProjectListComponentProps, ProjectListItemProps } from "../ProjectList.astro";
 import ProjectFilters from "./ProjectFilters.astro";
 import ProjectGridItem from "./ProjectGridItem.astro";
-
-interface ProjectListComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
-  fields: {
-    items: ProjectListItemProps[];
-  };
-}
 
 const getProjectItems = (items: ProjectListItemProps[], numOfItems: number) => {
   return items
     ?.filter((item) => item.name !== 'Data' && item.name !== 'Authors')
     .slice(0, numOfItems || undefined);
 };
-
 
 const applyCategoryFilter = (
   items: ProjectListItemProps[],
@@ -41,6 +26,7 @@ let selectedCategory = '';
 const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
 const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
 ---
+
 <script>
   const categoriesButtons = document.querySelectorAll('.project-filters button');
   const projectsRoot = document.querySelector('.project-list-grid');

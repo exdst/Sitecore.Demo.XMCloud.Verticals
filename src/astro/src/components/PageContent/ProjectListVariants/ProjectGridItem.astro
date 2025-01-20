@@ -1,29 +1,11 @@
 ---
 import {
-  Field,
   Image,
-  ImageField,
   Text,
-  RichTextField,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ProjectListItemProps } from "../ProjectList.astro";
 
-interface Fields {
-  Title: Field<string>;
-  Category: Field<string>;
-  Abstract: Field<string>;
-  Problem: RichTextField;
-  Solution: RichTextField;
-  Thumbnail: ImageField;
-  Client: ImageField;
-}
-
-export type ProjectListItemProps = {
-  fields: Fields;
-  name: string;
-  url: string;
-};
-
-const { item }: { item: ProjectListItemProps } = Astro.props;
+const item: ProjectListItemProps = Astro.props.item;
 ---
 
 <div class="project-grid-item">

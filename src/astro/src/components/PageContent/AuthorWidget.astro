@@ -30,10 +30,11 @@ export type AuthorWidgetProps = {
   fields: Fields;
 };
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+const props: AuthorWidgetProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {variantName === 'Default' && <AuthorWidgetDefault route={Astro.props.route} />}
-  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={Astro.props.route} />}
+  {variantName === 'Default' && <AuthorWidgetDefault route={props} />}
+  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={props} />}
 </>

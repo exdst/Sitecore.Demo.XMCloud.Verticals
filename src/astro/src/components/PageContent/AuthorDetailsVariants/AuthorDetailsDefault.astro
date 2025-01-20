@@ -6,10 +6,10 @@ import {
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Placeholder from "components/system/Placeholder.astro";
 import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
-import { PageBackgroundProps } from "../AuthorDetails.astro";
+import { AuthorDetailsProps } from "../AuthorDetails.astro";
 
 
-const props: PageBackgroundProps = Astro.props.route;
+const props: AuthorDetailsProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 ---
 
