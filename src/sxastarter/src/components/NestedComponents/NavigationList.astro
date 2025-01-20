@@ -30,7 +30,6 @@ const getLinkTitle = (props: NavigationProps): string | undefined => {
 
 const props: NavigationProps = {
   fields: Astro.props.fields,
-  handleClick: Astro.props.handleClick,
   relativeLevel: Astro.props.relativeLevel,
 };
 
@@ -41,12 +40,12 @@ const classNameList = `${props.fields.Styles.concat("rel-level" + props.relative
 const childrenLength = props.fields.Children && props.fields.Children.length;
 
 const linkField = getLinkField(props);
-linkField.value.class = `${linkField.value.class} menu-link`;
 ---
 
 <li class={`${classNameList}`} key={props.fields.Id} tabIndex={0}>
   <div class={`navigation-title ${childrenLength ? "child" : ""}`}>
     <Link
+      class="menu-link"
       field={linkField}
       editable={sitecoreContext.isPageEditing}
       data-isPageEditing={isPageEditing}

@@ -1,44 +1,13 @@
 ---
 import {
-  Field,
-  ImageField,
   Image,
   Text,
-  RichTextField,
+  useTranslations
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
-
-interface Fields {
-  Title: Field<string>;
-  Excerpt: Field<string>;
-  Content: RichTextField;
-  Thumbnail: ImageField;
-  BackgroundImage: ImageField;
-  Name: Field<string>;
-  Photo: ImageField;
-  Position: Field<string>;
-}
-
-export type ArticleListItemProps = {
-  fields: Fields;
-  name: string;
-  url: string;
-};
-
-interface ArticleListComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
-  fields: {
-    items: ArticleListItemProps[];
-  };
-}
+import { ArticleListItemProps, ArticleListComponentProps } from "../ArticleList.astro";
 
 const props: ArticleListComponentProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 
 const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
   return items
@@ -51,7 +20,7 @@ const getAllArticlesPageHref = (items: ArticleListItemProps[]) => {
 };
 const allArticlesPageHref = getAllArticlesPageHref(props.fields?.items);
 
-const t = (v: string) => { v;}
+const t = useTranslations();
 const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
 ---
 <div

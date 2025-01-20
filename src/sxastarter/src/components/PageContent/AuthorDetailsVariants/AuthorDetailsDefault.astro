@@ -1,30 +1,16 @@
 ---
-import { ComponentProps } from "lib/component-props";
 import {
-  Field,
   Image,
-  ImageField,
   Text,
   RichText,
-  RichTextField,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Placeholder from "components/system/Placeholder.astro";
 import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
+import { AuthorDetailsProps } from "../AuthorDetails.astro";
 
-interface Fields {
-  Name: Field<string>;
-  Position: Field<string>;
-  Photo: ImageField;
-  Bio: RichTextField;
-  BackgroundImage: ImageField;
-}
 
-export type PageBackgroundProps = ComponentProps & {
-  fields: Fields;
-};
-
-const props: PageBackgroundProps = Astro.props.route;
-const id = props.uid;
+const props: AuthorDetailsProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
 ---
 
 <div

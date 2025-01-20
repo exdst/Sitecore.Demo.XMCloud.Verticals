@@ -1,23 +1,9 @@
 ---
 import {
-  ImageField,
-  Field,
-  LinkField,
   Image,
   RichText,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-
-interface Fields {
-  PromoIcon: ImageField;
-  PromoText: Field<string>;
-  PromoLink: LinkField;
-  PromoText2: Field<string>;
-}
-
-type PromoProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
+import { PromoProps } from "../Promo.astro";
 
 const props: PromoProps = Astro.props.route;
 const id = props.params?.RenderingIdentifier;

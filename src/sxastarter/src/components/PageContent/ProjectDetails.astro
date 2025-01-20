@@ -35,7 +35,7 @@ export type ProjectDetailsProps = ComponentProps & {
 };
 
 const props: ProjectDetailsProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 const t = useTranslations();
 const currentUrl = Astro.url.href;
 ---

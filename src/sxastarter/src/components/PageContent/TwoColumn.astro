@@ -9,7 +9,7 @@ import {
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-import Placeholder from "../system/Placeholder.astro";
+import Placeholder from "components/system/Placeholder.astro";
 import { ComponentProps } from "lib/component-props";
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
@@ -30,8 +30,6 @@ const props: ColumnProps = Astro.props as ColumnProps;
 const buttonStyle = props.route.params?.ButtonStyle
   ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
   : "button-main";
-
-props.link.value.class = `${props.link.value.class} button ${buttonStyle}`;
 ---
 
 <div
@@ -54,7 +52,7 @@ props.link.value.class = `${props.link.value.class} button ${buttonStyle}`;
         </p>
       )
     }
-    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} />}
+    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} class=`button ${buttonStyle}` />}
     <Placeholder name={props.placeholder} rendering={props.route.rendering} />
   </div>
 </div>

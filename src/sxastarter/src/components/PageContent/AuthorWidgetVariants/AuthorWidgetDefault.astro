@@ -1,34 +1,9 @@
 ---
 import {
-  Field,
   Image,
-  ImageField,
-  Text,
-  LinkField,
-} from '@astro-sitecore-jss/astro-sitecore-jss';
-
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
-
-interface Fields {
-  Name: Field<string>;
-  Position: Field<string>;
-  Photo: ImageField;
-  SocialLink1: LinkField;
-  SocialIcon1: ImageField;
-  SocialLink2: LinkField;
-  SocialIcon2: ImageField;
-  SocialLink3: LinkField;
-  SocialIcon3: ImageField;
-}
-
-export type AuthorWidgetProps = {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: { [key: string]: string };
-  fields: Fields;
-};
+  Text
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AuthorWidgetProps } from "../AuthorWidget.astro";
 
 const props: AuthorWidgetProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;

@@ -9,8 +9,6 @@ import { ParallaxBannerProps } from "components/PageContent/ParallaxBanner.astro
 
 const props: ParallaxBannerProps = Astro.props.route;
 const isPageEditing = Astro.props.isPageEditing;
-
-props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3`;
 ---
 
 <div class="parallax-banner-content-inner">
@@ -21,7 +19,7 @@ props.fields.Link.value.class = `${props.fields.Link.value.class} button button-
     <RichText field={props.fields.Text} />
 
     {(isPageEditing || props.fields?.Link?.value?.href) && (
-      <Link field={props.fields.Link} />
+      <Link field={props.fields.Link} class="button button-main mt-3" />
     )}
   </div>
 </div>

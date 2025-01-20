@@ -29,7 +29,7 @@ export type DocumentsListProps = {
 };
 
 const props: DocumentsListProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 ---
 
 <div

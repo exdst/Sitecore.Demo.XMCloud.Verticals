@@ -1,24 +1,11 @@
 ---
 import {
-  Field,
-  ImageField,
-  Link as JssLink,
-  LinkField,
+  Link,
   Text,
   Image,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-import NormalImageDefault from "./NormalImageDefault.astro";
-interface Fields {
-  Image: ImageField & { metadata?: { [key: string]: unknown } };
-  ImageCaption: Field<string>;
-  TargetUrl: LinkField;
-}
-
-type ImageProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
+import { ImageProps } from "../Image.astro";
 
 const props: ImageProps = Astro.props.route;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
@@ -32,9 +19,9 @@ const id = props.params.RenderingIdentifier;
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
             <Image field={props.fields.Image} />
           ) : (
-            <JssLink field={props.fields.TargetUrl}>
+            <Link field={props.fields.TargetUrl}>
               <Image field={props.fields.Image} />
-            </JssLink>
+            </Link>
           )}
           <Text
             tag="span"
@@ -45,6 +32,10 @@ const id = props.params.RenderingIdentifier;
       </div>
     )
   }
-  {!props.fields && <NormalImageDefault {...props} />}
+  {!props.fields && <div class={`component image ${props.params.styles}`.trimEnd()}>
+    <div class="component-content">
+      <span class="is-empty-hint">Image</span>
+    </div>
+  </div>}
 }
 </>

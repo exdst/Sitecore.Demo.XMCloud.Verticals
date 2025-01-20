@@ -1,30 +1,5 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-
-interface Fields {
-  Title: Field<string>;
-  Category: Field<string>;
-  Abstract: Field<string>;
-  Problem: RichTextField;
-  Solution: RichTextField;
-  Thumbnail: ImageField;
-  Client: ImageField;
-}
-
-export type ProjectListItemProps = {
-  fields: Fields;
-  name: string;
-  url: string;
-};
-
-type ProjectFiltersProp = {
-  projectItems: ProjectListItemProps[];
-  selectedCategory: string | null;
-};
+import { ProjectListItemProps } from "../ProjectList.astro";
 
 const getProjectsCategories = (items: ProjectListItemProps[]) => {
   return items.reduce((acc: Record<string, number>, item) => {
@@ -38,24 +13,24 @@ const getProjectsCategories = (items: ProjectListItemProps[]) => {
   }, {});
 };
 
-const props: ProjectFiltersProp = Astro.props;
-const categories = getProjectsCategories(props.projectItems);
+const projectItems: ProjectListItemProps[] = Astro.props.projectItems;
+const selectedCategory: string | null = Astro.props.selectedCategory;
+
+const categories = getProjectsCategories(projectItems);
 ---
 <div class="project-filters">
   <button
-    class={`button-clear-appearance ${!props.selectedCategory ? "active" : ""}`}
+    class={`button-clear-appearance ${!selectedCategory ? "active" : ""}`}
   >
-    <span>Show all</span>
-    <sup>{props.projectItems.length}</sup>
+    <span>Show all</span><sup>{projectItems.length}</sup>
   </button>
   {
     Object.entries(categories).map(([category, count]) => (
       <button
-        class={`button-clear-appearance ${props.selectedCategory === category ? "active" : ""}`}
+        class={`button-clear-appearance ${selectedCategory === category ? "active" : ""}`}
         key={category}
       >
-        <span>{category}</span>
-        <sup>{count}</sup>
+        <span>{category}</span><sup>{count}</sup>
       </button>
     ))
   }

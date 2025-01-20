@@ -1,14 +1,6 @@
 ---
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
+import { ComponentProps } from "lib/component-props";
 import DefaultContainer from "components/NestedComponents/DefaultContainer.astro";
-
-export interface ComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
-}
 
 const props: ComponentProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
@@ -24,5 +16,5 @@ const isContainer = splitStyles && splitStyles.includes("container");
       </div>
     )
   }
+  {!isContainer && <DefaultContainer id={id} route={props} />}
 </>
-<>{!isContainer && <DefaultContainer id={id} route={props} />}</>

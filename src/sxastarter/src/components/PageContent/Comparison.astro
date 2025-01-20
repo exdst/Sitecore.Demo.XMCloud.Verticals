@@ -19,7 +19,7 @@ export type RichTextProps = {
 };
 
 const props: RichTextProps = Astro.props.route;
-const id = props.uid;
+const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 

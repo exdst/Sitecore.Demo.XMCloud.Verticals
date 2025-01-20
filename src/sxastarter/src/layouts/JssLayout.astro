@@ -2,9 +2,11 @@
 import '../assets/main.scss';
 import type { LayoutServiceData, Field } from "@sitecore-jss/sitecore-jss/layout";
 import Placeholder from '../components/system/Placeholder.astro';
+import Scripts from '@/components/Scripts.astro';
 
 interface RouteFields {
   [key: string]: unknown;
+  Title?: Field;
   NavigationTitle?: Field;
 }
 
@@ -18,12 +20,13 @@ const theme = layoutData.sitecore.context.theme as string;
 const contextSiteClass = `site-${theme?.toLowerCase()}`;
 
 const fields = route?.fields as RouteFields;
-const title = fields.NavigationTitle?.value.toString() || 'Page';
+const title = fields.Title?.value.toString() || fields.NavigationTitle?.value.toString() || 'Page';
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<Scripts/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>{title}</title>

@@ -24,7 +24,6 @@ const props: ColumnProps = Astro.props as ColumnProps;
 const buttonStyle = props.route.params?.ButtonStyle
   ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
   : "button-main";
-props.link.value.class = `${props.link.value.class} button ${buttonStyle}`;
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
@@ -42,6 +41,6 @@ const isPageEditing = sitecoreContext.pageEditing;
     <p>
       <Text field={props.subText} />
     </p>
-    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} />}
+    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} class=`button ${buttonStyle}` />}
   </div>
 </div>

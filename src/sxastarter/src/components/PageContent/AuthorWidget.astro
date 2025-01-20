@@ -1,11 +1,40 @@
 ---
-import AuthorWidgetDefault from './AuthorWidgetVariants/AuthorWidgetDefault.astro';
-import AuthorWidgetWithSocials from './AuthorWidgetVariants/AuthorWidgetWithSocials.astro';
+import {
+  Field,
+  ImageField,
+  LinkField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import AuthorWidgetDefault from "./AuthorWidgetVariants/AuthorWidgetDefault.astro";
+import AuthorWidgetWithSocials from "./AuthorWidgetVariants/AuthorWidgetWithSocials.astro";
 
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+import {
+  ComponentParams,
+  ComponentRendering,
+} from "@sitecore-jss/sitecore-jss/layout";
+
+interface Fields {
+  Name: Field<string>;
+  Position: Field<string>;
+  Photo: ImageField;
+  SocialLink1: LinkField;
+  SocialIcon1: ImageField;
+  SocialLink2: LinkField;
+  SocialIcon2: ImageField;
+  SocialLink3: LinkField;
+  SocialIcon3: ImageField;
+}
+
+export type AuthorWidgetProps = {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: AuthorWidgetProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {variantName === 'Default' && <AuthorWidgetDefault route={Astro.props.route} />}
-  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={Astro.props.route} />}
+  {variantName === 'Default' && <AuthorWidgetDefault route={props} />}
+  {variantName === 'WithSocials' && <AuthorWidgetWithSocials route={props} />}
 </>

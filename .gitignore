@@ -80,7 +80,8 @@ packages/
 /src/rendering/src/temp/!GraphQLIntrospectionResult.json
 
 
-/src/tests/**/backstop_data/*
-/src/tests/**/bitmaps_reference 
+/src/tests/**/bitmaps_reference
+/src/tests/**/bitmaps_test
+/src/tests/**/html_report
 /src/sxastarter-nextjs/.next-container
 /src/sxastarter/scjssconfig.json

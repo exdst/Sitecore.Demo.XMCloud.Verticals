@@ -14,18 +14,21 @@ const maxStars = 5;
 const filledStars = Math.min(parseInt(rating), maxStars);
 const emptyStars = maxStars - filledStars;
 ---
-<>{!rating && <></>}</>
-<>{rating && <div class="star-rating">
-  {
-    [...Array(filledStars)].map(() => (
-      <span class="star star-filled" />
-    ))
+<>{
+    !rating && <></>
   }
   {
-    [...Array(emptyStars)].map(() => (
-      <span class="star star-empty" />
-    ))
-  }
-  <span>{isPageEditing && <Text field={item.fields?.Rating} />}</span>
-</div>}</>
-
+    rating && <div class="star-rating">
+    {
+      [...Array(filledStars)].map(() => (
+        <span class="star star-filled" />
+      ))
+    }
+    {
+      [...Array(emptyStars)].map(() => (
+        <span class="star star-empty" />
+      ))
+    }
+      <span>{isPageEditing && <Text field={item.fields?.Rating} />}</span>
+    </div>
+}</>

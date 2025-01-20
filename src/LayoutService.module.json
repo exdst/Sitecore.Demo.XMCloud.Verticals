@@ -1,0 +1,13 @@
+{
+    "$schema": "../.sitecore/schemas/ModuleFile.schema.json",
+    "namespace": "LayoutService",
+    "items": {
+        "includes": [
+            {
+                "name": "Context Item Children Resolver",
+                "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Context Item Children Resolver",
+                "scope": "singleItem"
+            }
+        ]
+    }
+}

@@ -26,8 +26,6 @@ export type ApplicationFormProps = {
 
 const props: ApplicationFormProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
-
-props.fields.SubmitButton.value.class = `${props.fields.SubmitButton.value.class} button button-main submit-button`;
 ---
 
 <div
@@ -65,7 +63,7 @@ props.fields.SubmitButton.value.class = `${props.fields.SubmitButton.value.class
       <div class="footnote">
         <RichText field={props.fields?.Footnote} />
       </div>
-      <Link field={props.fields.SubmitButton} />
+      <Link field={props.fields.SubmitButton} class="button button-main submit-button" />
     </div>
   </div>
 </div>

@@ -10,6 +10,7 @@ import type {
 import config from "../temp/config";
 import GraphQLRequestClientFactory from "../lib/graphql/graphql-request-client-factory";
 import { languages } from "../lib/languages";
+import Bootstrap from "@/components/Bootstrap.astro";
 
 export const prerender = false;
 /*
@@ -97,5 +98,11 @@ try {
   console.error(error);
 }
 ---
-
+<Bootstrap pageProps={pageProps} />
 <JssLayout layoutData={pageProps.layoutData} />
+
+<script is:inline>
+  // This is a workaround to fix the 'process is not defined' error in Bootstrap component.
+  // 'debug' library used in CloudSDK has a dependency on a variable from the node environment)
+  const process = {};
+</script>

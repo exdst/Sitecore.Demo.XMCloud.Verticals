@@ -50,8 +50,6 @@ const isPageEditing = sitecoreContext.pageEditing;
   <div class="carousel-inner">
     {
       props.fields.items.map((item, i) => {
-        item.fields.Link.value.class = `${item.fields.Link.value.class} button button-accent`;
-
         return (
           <div class="carousel-item">
             {!isPageEditing && item.fields?.Video?.value?.src ? (
@@ -82,7 +80,7 @@ const isPageEditing = sitecoreContext.pageEditing;
                   </h1>
                   <RichText field={item.fields.Text} />
                   {!isPageEditing && item.fields?.Link?.value?.href && (
-                    <Link field={item.fields.Link} />
+                    <Link field={item.fields.Link} class="button button-accent" />
                   )}
                 </div>
               </div>

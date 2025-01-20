@@ -6,8 +6,6 @@ import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundIm
 const props: PromoCtaProps = Astro.props.route;
 const id = Astro.props.id;
 const isPageEditing = Astro.props.isPageEditing;
-
-props.fields.Link.value.class = `${props.fields.Link.value.class} button button-main mt-3`;
 ---
 
 <div
@@ -23,10 +21,9 @@ props.fields.Link.value.class = `${props.fields.Link.value.class} button button-
         </h1>
         <div class="fs-3 text-center">
           <RichText field={props.fields.Text} />
-
           {
             (isPageEditing || props.fields?.Link?.value?.href) && (
-              <Link field={props.fields.Link} />
+              <Link field={props.fields.Link} class="button button-main mt-3" />
             )
           }
         </div>

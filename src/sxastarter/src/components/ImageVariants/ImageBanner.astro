@@ -1,30 +1,21 @@
 ---
-import { CSSProperties } from "react";
+import * as CSS from "csstype";
 import {
-  Field,
-  ImageField,
-  LinkField,
   Image,
   SitecoreContextMap,
+  EditMode
 } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ImageProps } from "../Image.astro";
 
-interface Fields {
-  Image: ImageField & { metadata?: { [key: string]: unknown } };
-  ImageCaption: Field<string>;
-  TargetUrl: LinkField;
+interface CSSProperties extends CSS.Properties<string | number> {
 }
-
-type ImageProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
 
 const props: ImageProps = Astro.props.route;
 
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
-const isMetadataMode = sitecoreContext?.editMode == "metadata";
+const isMetadataMode = sitecoreContext?.editMode == EditMode.Metadata;
 const classHeroBannerEmpty =
   isPageEditing && props.fields?.Image?.value?.class === "scEmptyImage"
     ? "hero-banner-empty"
