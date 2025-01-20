@@ -9,12 +9,12 @@ export class LayoutServiceFactory {
     return config.fetchWith === 'GraphQL'
       ? new GraphQLLayoutService({
         clientFactory,
-        siteName: config.jssAppName,
+        siteName: config.sitecoreSiteName,
       })
       : new RestLayoutService({
         apiHost: config.sitecoreApiHost,
         apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
+        siteName: config.sitecoreSiteName,
         configurationName: 'sxa-jss',
       });
   }

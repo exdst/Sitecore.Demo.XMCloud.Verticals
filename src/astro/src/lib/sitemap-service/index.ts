@@ -97,7 +97,7 @@ export class SitemapService implements ISitemapService {
 
   protected async fetchSitemap(language: string): Promise<RouteQueryResult[]> {
     const args: SitemapQueryArgs = {
-      siteName: config.jssAppName,
+      siteName: config.sitecoreSiteName,
       language: language,
       pageSize: this._pageSize
     };

@@ -8,7 +8,7 @@ config.rootItemId = import.meta.env.ROOT_ITEM_ID || '{08D9417D-5071-46FF-896B-EB
 config.defaultLanguage = import.meta.env.DEFAULT_LANGUAGE || 'en';
 config.fetchWith = import.meta.env.FETCH_WITH || 'GraphQL';
 config.publicUrl = import.meta.env.PUBLIC_URL || 'undefined';
-config.jssAppName = import.meta.env.JSS_APP_NAME || 'Financial';
 config.sitecoreEdgeUrl = import.meta.env.SITECORE_EDGE_URL || 'https://edge-platform.sitecorecloud.io';
 config.sitecoreEdgeContextId = import.meta.env.SITECORE_EDGE_CONTEXT_ID || 'undefined';
+config.sites = import.meta.env.SITES || '[]';
 export default config;
