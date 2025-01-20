@@ -1,0 +1,67 @@
+---
+import { LinkField, TextField, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import LinkListItem from "./NestedComponents/LinkListItem.astro";
+
+type ResultsFieldLink = {
+  field: {
+    link: LinkField;
+  };
+};
+
+interface Fields {
+  data: {
+    datasource: {
+      children: {
+        results: ResultsFieldLink[];
+      };
+      field: {
+        title: TextField;
+      };
+    };
+  };
+}
+
+type LinkListProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: LinkListProps = Astro.props.route;
+const datasource = props.fields?.data?.datasource;
+const styles = `component link-list ${props.params.styles}`.trimEnd();
+const id = props.params.RenderingIdentifier;
+---
+
+<>
+  {
+    datasource && (
+      <div class={styles} id={id ? id : undefined}>
+        <div class="component-content">
+          <Text tag="h3" field={datasource?.field?.title} />
+          <ul>
+            {datasource.children.results
+              .filter((element: ResultsFieldLink) => element?.field?.link)
+              .map((element: ResultsFieldLink, key: number) => (
+                <LinkListItem
+                  index={key}
+                  key={`${key}${element.field.link}`}
+                  total={datasource.children.results.length}
+                  field={element.field.link}
+                />
+              ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
+
+  {
+    !datasource && (
+      <div class={styles} id={id ? id : undefined}>
+        <div class="component-content">
+          <h3>Link List</h3>
+        </div>
+      </div>
+    )
+  }
+</>

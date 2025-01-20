@@ -1,0 +1,20 @@
+---
+import { ComponentProps } from "lib/component-props";
+import DefaultContainer from "components/NestedComponents/DefaultContainer.astro";
+
+const props: ComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+
+const splitStyles = props.params?.Styles?.split(" ");
+const isContainer = splitStyles && splitStyles.includes("container");
+---
+
+<>{
+    isContainer && (
+      <div class="container-wrapper">
+        { <DefaultContainer id={id} route={props} /> }
+      </div>
+    )
+  }
+  {!isContainer && <DefaultContainer id={id} route={props} />}
+</>

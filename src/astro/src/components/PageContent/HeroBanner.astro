@@ -1,0 +1,84 @@
+---
+import {
+  Image,
+  Text,
+  RichText,
+  Link,
+  File,
+  SitecoreContextMap,
+  LinkField,
+  ImageField,
+  RichTextField,
+  FileField,
+  Field
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import { ComponentProps } from "lib/component-props";
+import Placeholder from "components/system/Placeholder.astro";
+import IconAccent from "components/NonSitecore/IconAccent.astro";
+import DottedAccent from "components/NonSitecore/DottedAccent.astro";
+
+interface Fields {
+  Tagline: Field<string>;
+  Title: Field<string>;
+  Text: RichTextField;
+  Image: ImageField;
+  Cta1: LinkField;
+  Cta2: LinkField;
+  Icon: ImageField;
+}
+
+export type HeroBannerProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: HeroBannerProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`component hero-banner ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-wide">
+    <div class="hero-row">
+      <div class="content-column">
+        <h6 class="eyebrow-accent">
+          <Text field={props.fields.Tagline} class="hello" />
+        </h6>
+        <h1 class="display-2 fw-bold">
+          <Text field={props.fields.Title} />
+        </h1>
+
+        <div class="rich-content mb-4">
+          <RichText field={props.fields.Text} />
+        </div>
+        <div class="btn-array pt-3 pb-4">
+          {
+            (isPageEditing || props.fields?.Cta1?.value?.href) && (
+              <Link field={props.fields.Cta1} class="button button-main" />
+            )
+          }{
+            (isPageEditing || props.fields?.Cta2?.value?.href) && (
+              <Link field={props.fields.Cta2} class="button button-simple mx-4" />
+            )
+          }
+        </div>
+        <div class="row mt-2">
+          <Placeholder name="hero-banner" rendering={props.rendering} />
+        </div>
+        <IconAccent image={props.fields.Icon} />
+      </div>
+      <div class="img-column">
+        <div class="img-wrapper">
+          <DottedAccent class="dotted-accent-top" />
+          <Image field={props.fields.Image} class="img-fluid" />
+          <DottedAccent class="dotted-accent-bottom" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -78,3 +78,8 @@ packages/
 /src/rendering/src/temp/!.gitignore
 /src/rendering/src/temp/!GraphQLFragmentTypes.json
 /src/rendering/src/temp/!GraphQLIntrospectionResult.json
+
+
+/src/tests/**/bitmaps_reference
+/src/tests/**/bitmaps_test
+/src/tests/**/html_report

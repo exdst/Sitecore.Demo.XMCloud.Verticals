@@ -25,7 +25,7 @@ class ConfigPlugin implements IConfigPlugin {
     const graphQLEndpoint = getValue("graphQLEndpoint") || `${apiHost}${graphQLEndpointPath}`;
 
     return Object.assign({}, config, {
-      jssAppName: getValue("jssAppName"),
+      sitecoreSiteName: getValue("jssAppName"),
       sitecoreApiKey: getValue("sitecoreApiKey"),
       sitecoreApiHost: apiHost,      
       graphQLEndpointPath: graphQLEndpointPath,

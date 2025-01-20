@@ -23,12 +23,6 @@
     "skipLibCheck": true,
     "ignoreDeprecations": "5.0"
   },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  },
   "files": [],
   "include": ["./src/**/*.ts", "./src/**/*.tsx"]
 }

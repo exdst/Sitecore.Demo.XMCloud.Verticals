@@ -1,11 +1,12 @@
 ---
-import JssLayout from "../layouts/JssLayout.astro";
-import { SitemapService, StaticPath } from "../lib/sitemap-service";
-import { SitecorePagePropsFactory } from "../lib/page-props-factory";
+import JssLayout from "@/layouts/JssLayout.astro";
+import { SitemapService, StaticPath } from "lib/sitemap-service";
+import { SitecorePagePropsFactory } from "lib/page-props-factory";
 import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 import type { LayoutServiceContext, RouteData } from '@sitecore-jss/sitecore-jss/layout';
-import config from "../temp/config";
-import GraphQLRequestClientFactory from "../lib/graphql/graphql-request-client-factory";
+import config from "@/temp/config";
+import GraphQLRequestClientFactory from "lib/graphql/graphql-request-client-factory";
+import Bootstrap from "components/Bootstrap.astro";
 
 export const prerender = true;
 
@@ -35,4 +36,11 @@ SitecoreContextMap.setKey('scContext', scContext);
 SitecoreContextMap.setKey('dictionary', pageProps.dictionary);
 
 ---
-<JssLayout title="a" layoutData={pageProps.layoutData} />
+<Bootstrap pageProps={pageProps} />
+<JssLayout layoutData={pageProps.layoutData} />
+
+<script is:inline>
+  // This is a workaround to fix the 'process is not defined' error in Bootstrap component.
+  // 'debug' library used in CloudSDK has a dependency on a variable from the node environment)
+  const process = {};
+</script>

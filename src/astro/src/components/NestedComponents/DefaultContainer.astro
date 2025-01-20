@@ -1,0 +1,30 @@
+---
+import Placeholder from "components/system/Placeholder.astro";
+import { ComponentProps } from "components/Container.astro";
+
+const props: ComponentProps = Astro.props.route;
+const id = Astro.props.id;
+
+const containerStyles = props.params && props.params.Styles ? props.params.Styles : "";
+const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
+const phKey = `container-${props.params.DynamicPlaceholderId}`;
+const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, "i");
+const backgroundImage = props.params.BackgroundImage as string;
+let backgroundStyle: { [key: string]: string } = {};
+
+if (backgroundImage && backgroundImage.match(mediaUrlPattern)) {
+  const mediaUrl = backgroundImage.match(mediaUrlPattern)?.[1] || "";
+
+  backgroundStyle = {
+    backgroundImage: `url('${mediaUrl}')`,
+  };
+}
+---
+
+<div class={`component container-default ${styles}`} id={id ? id : undefined}>
+  <div class="component-content" style={backgroundStyle}>
+    <div class="row">
+      <Placeholder name={phKey} rendering={props.rendering} />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+  Text,
+  RichText,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import Placeholder from "components/system/Placeholder.astro";
+import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  Title: Field<string>;
+  Content: RichTextField;
+  BackgroundImage: ImageField;
+}
+
+export type PageBackgroundProps = ComponentProps & {
+  fields: Fields;
+};
+
+const props: PageBackgroundProps = Astro.props.route;
+const id = props.params?.RenderingIdentifier;
+---
+
+<div
+  class={`component page-background col-12 ${props.params?.styles?.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />
+
+  <div class="container">
+    <Placeholder name="page-navigation" rendering={props.rendering} />
+
+    <h1 class="display-6 fw-bold">
+      <Text field={props.fields.Title} />
+    </h1>
+    <div class="fs-2">
+      <RichText field={props.fields.Content} />
+    </div>
+  </div>
+
+  <div class="background-content-wrapper">
+    <div
+      class="background-content component-spaced container rounded-corners"
+    >
+      <div class="p-3 p-sm-5">
+        <div class="row">
+          <Placeholder
+            name="background-page-content"
+            rendering={props.rendering}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <Placeholder name="page-content" rendering={props.rendering} />
+</div>

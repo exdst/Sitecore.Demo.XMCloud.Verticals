@@ -1,0 +1,50 @@
+---
+import { ComponentProps } from "lib/component-props";
+import Placeholder from "components/system/Placeholder.astro";
+
+const props: ComponentProps = Astro.props.route;
+const styles = `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd();
+
+const columnWidths = [
+  props.params.ColumnWidth1,
+  props.params.ColumnWidth2,
+  props.params.ColumnWidth3,
+  props.params.ColumnWidth4,
+  props.params.ColumnWidth5,
+  props.params.ColumnWidth6,
+  props.params.ColumnWidth7,
+  props.params.ColumnWidth8,
+];
+
+const columnStyles = [
+  props.params.Styles1,
+  props.params.Styles2,
+  props.params.Styles3,
+  props.params.Styles4,
+  props.params.Styles5,
+  props.params.Styles6,
+  props.params.Styles7,
+  props.params.Styles8,
+];
+
+const enabledPlaceholders = props.params.EnabledPlaceholders.split(",");
+const id = props.params.RenderingIdentifier;
+---
+
+<div class={`row component column-splitter ${styles}`} id={id ? id : undefined} >
+  {
+    enabledPlaceholders.map((ph) => {
+      const phKey = `column-${ph}-{*}`;
+      const phStyles =
+        `${columnWidths[+ph - 1]} ${columnStyles[+ph - 1] ?? ""}`.trimEnd();
+
+      return (
+        <div class={phStyles}>
+          <div class="row">
+            <Placeholder name={phKey} rendering={props.rendering} />
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

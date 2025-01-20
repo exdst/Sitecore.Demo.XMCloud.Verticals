@@ -1,50 +1,34 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import vue from '@astrojs/vue';
-import node from '@astrojs/node';
-import angular from "@analogjs/astro-angular";
-import config from '/src/temp/config';
+import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import node from "@astrojs/node";
+import vercel from "@astrojs/vercel";
 
-const reactConfig = {
-  babel: {
-    "presets": [
-      [
-        "@babel/preset-react",
-        {
-          "runtime": "classic"
-        }
-      ]
-    ],
-    "plugins": [
-      ["@babel/plugin-proposal-decorators", { "legacy": true }]
-    ]
-  }
-}
-
-const angularConfig = {
-  vite: {
-    transformFilter: (code, id ) => {
-      return !id.includes('/packages/astro-sitecore-jss/')
-    },
-  }
-}
+const adapter = process.env.VERCEL ?
+vercel({
+  isr: {
+    // 5 minutes
+    expiration: 60 * 5,
+  },
+}) : node({
+  mode: 'standalone',
+});
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(reactConfig),
-    vue(),
-    angular(angularConfig)
-  ],
-  output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
-  outDir: './dist',
+  integrations: [react()],
   security: {
     checkOrigin: false,
   },
-  redirects: {
-    '/-/jssmedia/[...slug]': `${config.sitecoreApiHost}/-/jssmedia/[...slug]`
+  server: {
+    port: 3000,
+  },
+  output: "server",
+  adapter: adapter,
+  i18n: {
+    locales: ["en", "fr-CA", "ja-JP"],
+    defaultLocale: "en",
+  },
+  devToolbar: {
+    enabled: false
   }
 });

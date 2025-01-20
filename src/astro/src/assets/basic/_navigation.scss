@@ -149,12 +149,12 @@ $hamburger-margin: 18px;
       .menu-humburger {
         display: flex;
         flex-direction: column;
-        gap: $hamburger-height / 5;
+        gap: $hamburger-height * 0.2;
         width: $hamburger-width;
         height: $hamburger-height;
 
         span {
-          height: $hamburger-height / 5;
+          height: $hamburger-height * 0.2;
           background-color: var(--text-body);
           border-radius: var(--roundness);
           transition: transform 0.3s ease-in-out;

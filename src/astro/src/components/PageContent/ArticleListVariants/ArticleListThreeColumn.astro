@@ -1,0 +1,45 @@
+---
+import {
+  Image,
+  Text
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ArticleListItemProps, ArticleListComponentProps } from "../ArticleList.astro";
+
+const props: ArticleListComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+
+const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
+  return items
+    ?.filter((item) => item.name !== "Data" && item.name !== "Authors")
+    .slice(0, numOfItems || undefined);
+};
+
+const newsItems = getNewsItems(
+  props.fields?.items,
+  parseInt(props.params?.NumberOfItems)
+);
+---
+
+<div
+  class={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="row row-gap-3">
+      {
+        newsItems?.map((item) => (
+          <>
+            <div class="col-lg-4" key={item.url}>
+              <a href={item.url} class="wrapper-link">
+                <Image field={item.fields.Thumbnail} />
+                <h3 class="fs-4 mt-3">
+                  <Text field={item.fields.Title} />
+                </h3>
+              </a>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</div>

@@ -6,13 +6,13 @@ Path: /sitecore/system/Settings/Services/Rendering Hosts/Default
 SharedFields:
 - ID: "94470b31-e282-4d8d-bc54-85689efb294c"
   Hint: ServerSideRenderingEngineConfigUrl
-  Value: "http://rendering:3000/api/editing/config"
+  Value: "http://host.docker.internal:3000/api/editing/config"
 - ID: "e32c1801-79b3-4fc1-a9c4-3c6e6c2968ae"
   Hint: ServerSideRenderingEngineApplicationUrl
-  Value: "http://rendering:3000"
+  Value: "http://host.docker.internal:3000"
 - ID: "fc76919b-0d7c-4732-865d-2af795fb38a4"
   Hint: ServerSideRenderingEngineEndpointUrl
-  Value: "http://rendering:3000/api/editing/render"
+  Value: "http://host.docker.internal:3000/api/editing/render"
 Languages:
 - Language: "de-DE"
   Versions:
@@ -27,7 +27,7 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c9cd6f4c-0f8a-45af-8792-044e422401b0"
+      Value: "415b275a-a736-426a-acaf-ca8127817a15"
 - Language: "ja-JP"
   Versions:
   - Version: 1
