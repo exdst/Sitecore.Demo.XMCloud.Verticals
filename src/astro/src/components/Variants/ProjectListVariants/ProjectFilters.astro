@@ -1,0 +1,37 @@
+---
+import { ProjectListItemProps } from "components/PageContent/ProjectList.astro";
+
+const getProjectsCategories = (items: ProjectListItemProps[]) => {
+  return items.reduce((acc: Record<string, number>, item) => {
+    const category = item.fields.Category.value;
+    if (acc[category]) {
+      acc[category]++;
+    } else {
+      acc[category] = 1;
+    }
+    return acc;
+  }, {});
+};
+
+const projectItems: ProjectListItemProps[] = Astro.props.projectItems;
+const selectedCategory: string | null = Astro.props.selectedCategory;
+
+const categories = getProjectsCategories(projectItems);
+---
+<div class="project-filters">
+  <button
+    class={`button-clear-appearance ${!selectedCategory ? "active" : ""}`}
+  >
+    <span>Show all</span><sup>{projectItems.length}</sup>
+  </button>
+  {
+    Object.entries(categories).map(([category, count]) => (
+      <button
+        class={`button-clear-appearance ${selectedCategory === category ? "active" : ""}`}
+        key={category}
+      >
+        <span>{category}</span><sup>{count}</sup>
+      </button>
+    ))
+  }
+</div>

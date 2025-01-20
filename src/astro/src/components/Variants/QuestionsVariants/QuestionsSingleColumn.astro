@@ -1,0 +1,19 @@
+---
+import Question from "components/NestedComponents/Question.astro";
+import { QuestionsProps } from "components/PageContent/Questions.astro";
+
+const id = Astro.props.id;
+const props: QuestionsProps = Astro.props.route;
+const questions = props.fields?.items;
+---
+
+<div
+  class={`component questions single-column ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="questions-wrapper">
+      {questions?.map((item) => <Question key={item.url} item={item} />)}
+    </div>
+  </div>
+</div>

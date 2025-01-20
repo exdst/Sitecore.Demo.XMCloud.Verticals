@@ -1,0 +1,41 @@
+---
+import {
+  Link,
+  Text,
+  Image,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ImageProps } from "components/Image.astro";
+
+const props: ImageProps = Astro.props.route;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const id = props.params.RenderingIdentifier;
+---
+<>
+{
+  props.fields && (
+      <div class={`component image ${props.params.styles}`} id={id ? id : undefined}>
+        <div class="component-content">
+          {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
+            <Image field={props.fields.Image} />
+          ) : (
+            <Link field={props.fields.TargetUrl}>
+              <Image field={props.fields.Image} />
+            </Link>
+          )}
+          <Text
+            tag="span"
+            class="image-caption field-imagecaption"
+            field={props.fields.ImageCaption}
+          />
+        </div>
+      </div>
+    )
+  }
+  {!props.fields && <div class={`component image ${props.params.styles}`.trimEnd()}>
+    <div class="component-content">
+      <span class="is-empty-hint">Image</span>
+    </div>
+  </div>}
+}
+</>

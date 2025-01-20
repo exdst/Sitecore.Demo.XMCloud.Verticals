@@ -1,0 +1,41 @@
+---
+import { ThreeColumnCtaProps } from "components/PageContent/ThreeColumnCta.astro";
+import ThreeColumnWithIconsCompact from "components/NestedComponents/ThreeColumnWithIconsCompact.astro";
+
+const props: ThreeColumnCtaProps = Astro.props.route;
+const id = Astro.props.id;
+---
+
+<div
+  class={`component component-spaced three-column-cta with-icons with-icons-compact ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="row gx-0">
+      <ThreeColumnWithIconsCompact
+        image={props.fields.Image1}
+        text={props.fields.Text1}
+        subText={props.fields.SubText1}
+        link={props.fields.Link1}
+        delay={0}
+        route={props}
+      />
+      <ThreeColumnWithIconsCompact
+        image={props.fields.Image2}
+        text={props.fields.Text2}
+        subText={props.fields.SubText2}
+        link={props.fields.Link2}
+        delay={500}
+        route={props}
+      />
+      <ThreeColumnWithIconsCompact
+        image={props.fields.Image3}
+        text={props.fields.Text3}
+        subText={props.fields.SubText3}
+        link={props.fields.Link3}
+        delay={1000}
+        route={props}
+      />
+    </div>
+  </div>
+</div>

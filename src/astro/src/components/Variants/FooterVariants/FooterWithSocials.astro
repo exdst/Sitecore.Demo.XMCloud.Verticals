@@ -1,0 +1,71 @@
+---
+import {
+  Image,
+  Link,
+  RichText,
+  Text,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { FooterProps } from "components/Navigation/Footer.astro";
+
+const id = Astro.props.id;
+const props: FooterProps = Astro.props.route;
+---
+
+<div
+  class={`component component-spaced footer with-socials ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="content">
+      <div class="logo">
+        <Image
+          field={props.fields?.Image1}
+          height={" "}
+          class="img-fluid"
+        />
+      </div>
+      <div class="row row-cols-1 row-cols-md-3 row-gap-5 gx-5">
+        <div class="col">
+          <div class="title eyebrow-accent">
+            <Text field={props.fields?.Title1} />
+          </div>
+          <div class="links">
+            <RichText field={props.fields?.Text1} />
+          </div>
+        </div>
+        <div class="col">
+          <div class="title eyebrow-accent">
+            <Text field={props.fields?.Title2} />
+          </div>
+          <div class="links">
+            <RichText field={props.fields?.Text2} />
+          </div>
+        </div>
+        <div class="col">
+          <div class="title eyebrow-accent">
+            <Text field={props.fields?.SocialsTitle} />
+          </div>
+          <div class="links links-socials">
+            <Link field={props.fields?.SocialLink1}>
+              <Image field={props.fields?.SocialIcon1} />
+            </Link>
+            <Link field={props.fields?.SocialLink2}>
+              <Image field={props.fields?.SocialIcon2} />
+            </Link>
+            <Link field={props.fields?.SocialLink3}>
+              <Image field={props.fields?.SocialIcon3} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="footnote">
+      <Text field={props.fields?.Copyright} />
+      <div class="privacy-links">
+        <Link field={props.fields?.Link1} />
+        <Link field={props.fields?.Link2} />
+      </div>
+    </div>
+  </div>
+</div>

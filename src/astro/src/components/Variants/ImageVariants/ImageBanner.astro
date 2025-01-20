@@ -1,0 +1,59 @@
+---
+import * as CSS from "csstype";
+import {
+  Image,
+  SitecoreContextMap,
+  EditMode
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ImageProps } from "components/Image.astro";
+
+interface CSSProperties extends CSS.Properties<string | number> {
+}
+
+const props: ImageProps = Astro.props.route;
+
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+const isMetadataMode = sitecoreContext?.editMode == EditMode.Metadata;
+const classHeroBannerEmpty =
+  isPageEditing && props.fields?.Image?.value?.class === "scEmptyImage"
+    ? "hero-banner-empty"
+    : "";
+const backgroundStyle = (props?.fields?.Image?.value?.src && {
+  backgroundImage: `url('${props.fields.Image.value.src}')`,
+}) as CSSProperties;
+
+const modifyImageProps = !isMetadataMode
+  ? {
+      ...props.fields.Image,
+      editable: props?.fields?.Image?.editable
+        ?.replace(
+          `width="${props?.fields?.Image?.value?.width}"`,
+          'width="100%"'
+        )
+        .replace(
+          `height="${props?.fields?.Image?.value?.height}"`,
+          'height="100%"'
+        ),
+    }
+  : {
+      ...props.fields.Image,
+      value: {
+        ...props.fields.Image.value,
+        style: { width: "100%", height: "100%" },
+      },
+    };
+---
+
+<div
+  class={`component hero-banner ${props.params.styles} ${classHeroBannerEmpty}`}
+  id={id ? id : undefined}
+>
+  <div
+    class="component-content sc-sxa-image-hero-banner"
+    style={backgroundStyle}
+  >
+    {sitecoreContext.pageEditing ? <Image field={modifyImageProps} /> : ""}
+  </div>
+</div>

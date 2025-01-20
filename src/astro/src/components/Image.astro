@@ -4,8 +4,8 @@ import {
   ImageField,
   LinkField
 } from "@astro-sitecore-jss/astro-sitecore-jss";
-import ImageBanner from "./ImageVariants/ImageBanner.astro";
-import ImageDefault from "./ImageVariants/ImageDefault.astro";
+import ImageBanner from "components/Variants/ImageVariants/ImageBanner.astro";
+import ImageDefault from "components/Variants/ImageVariants/ImageDefault.astro";
 
 interface Fields {
   Image: ImageField & { metadata?: { [key: string]: unknown } };

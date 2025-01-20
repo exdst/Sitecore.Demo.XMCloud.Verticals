@@ -1,0 +1,31 @@
+---
+import {
+  Image,
+  RichText,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { PromoProps } from "components/Promo.astro";
+
+const props: PromoProps = Astro.props.route;
+const id = props.params?.RenderingIdentifier;
+---
+
+<div
+  class={`component promo ${props.params.styles}`}
+  id={id ? id : undefined}
+>
+  <div class="component-content">
+    <div class="field-promoicon">
+      <Image field={props.fields.PromoIcon} />
+    </div>
+    <div class="promo-text">
+      <div>
+        <div class="field-promotext">
+          <RichText class="promo-text" field={props.fields.PromoText} />
+        </div>
+      </div>
+      <div class="field-promotext">
+        <RichText class="promo-text" field={props.fields.PromoText2} />
+      </div>
+    </div>
+  </div>
+</div>
