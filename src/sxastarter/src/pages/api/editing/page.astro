@@ -1,0 +1,20 @@
+---
+import JssLayout from "./../../../layouts/JssLayout.astro";
+
+let layoutData = {
+  sitecore: {
+    context: {} as any,
+    route: {} as any,
+  },
+};
+try {
+  const body = await Astro.request.json();
+  const path = body.args[0];
+  layoutData = JSON.parse(body.args[1]);
+  const dictionary = JSON.parse(body.args[2]);
+} catch (error) {
+  return new Response(`Error parsing body. ${error}`, { status: 500 });
+}
+---
+
+<JssLayout title="a" layoutData={layoutData} />

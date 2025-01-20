@@ -1,59 +1,61 @@
 {
-    "renderingHosts": {
-      "xmcloudpreview": {
-        "path": "./src/sxastarter",
-        "nodeVersion": "20.10.0",
-        "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
-        "enabled": true,
-        "type": "sxa",
-        "buildCommand": "build",
-        "runCommand": "next:start"
-      }
-    },
-    "transforms": [
-        {
-            "xdtPath": "/xdts/",
-            "targetPath": "/"
-        }
-    ],
-    "deployItems": {
-      "modules": [
-        "renderinghost",
-        "InitItems",
-        "HeadlessSxaWebsite",
-        "HeadlessSxaWebsite-Content"
-      ]
-    },
-    "postActions": {
-        "actions":{
-          "populateSchema": {
-            "indexNames": []
-          },
-          "scsModules": {
-            "modules": [
-              "HeadlessSxaWebsite-Media"
-            ]
-          },
-          "warmUpCm": {
-            "urls": [
-              "/Utilities/InitializeComponentsLibraryId.aspx",
-              "/Utilities/InitializeHostname.aspx"
-            ]
-          },
-          "reindex": {
-            "indexNames": []
-          },
-          "publish": {
-            "path": "/sitecore",
-            "languages": [
-              "en",
-              "fr-CA",
-              "ja-JP"
-            ],
-            "itemIds": [],
-            "targets": ["Edge"],
-            "republish": false
-          }
-        }
+  "renderingHosts": {
+    "xmcloudpreview": {
+      "path": "./src/sxastarter",
+      "nodeVersion": "20.12.0",
+      "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+      "enabled": true,
+      "type": "sxa",
+      "buildCommand": "build",
+      "runCommand": "dev"
     }
+  },
+  "transforms": [
+    {
+      "xdtPath": "/xdts/",
+      "targetPath": "/"
+    }
+  ],
+  "deployItems": {
+    "modules": [
+      "renderinghost",
+      "InitItems",
+      "HeadlessSxaWebsite",
+      "HeadlessSxaWebsite-Content"
+    ]
+  },
+  "postActions": {
+    "actions": {
+      "populateSchema": {
+        "indexNames": []
+      },
+      "scsModules": {
+        "modules": [
+          "HeadlessSxaWebsite-Media"
+        ]
+      },
+      "warmUpCm": {
+        "urls": [
+          "/Utilities/InitializeComponentsLibraryId.aspx",
+          "/Utilities/InitializeHostname.aspx"
+        ]
+      },
+      "reindex": {
+        "indexNames": []
+      },
+      "publish": {
+        "path": "/sitecore",
+        "languages": [
+          "en",
+          "fr-CA",
+          "ja-JP"
+        ],
+        "itemIds": [],
+        "targets": [
+          "Edge"
+        ],
+        "republish": false
+      }
+    }
+  }
 }

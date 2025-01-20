@@ -1,0 +1,104 @@
+[
+  {
+    "libraryId": "generated",
+    "id": "FUfNZuU_-j",
+    "componentId": "qknpDWdzh6",
+    "name": "Name",
+    "description": "",
+    "status": "published",
+    "orderIdx": "03qKK",
+    "revision": 2,
+    "model": "",
+    "view": "<style data-format-version=\"30\">/* Type: grid Id: custom-grid Title: Custom grid Instance Id: PuIK7ClnI2 */ .-grid--custom[data-instance-id=\"PuIK7ClnI2\"]:not(._._._._._._#_) { ---self--display: grid; display: var(---self--display); grid-template-rows: minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px, auto); grid-template-columns: minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr); row-gap: var(---spacing--row-gap); column-gap: var(---spacing--column-gap); } .-grid--custom[data-instance-id=\"PuIK7ClnI2\"] > :nth-child(1):not(._._._._._._#_) { grid-column: 3; grid-column-end: 10; grid-row: 1; grid-row-end: 5; order: 0; position: relative; } /* Data: {\"type\":\"grid\",\"details\":{\"title\":\"Custom grid\",\"description\":\"\",\"id\":\"custom-grid\",\"exampleContent\":null,\"slug\":\"custom\",\"isInternal\":true,\"isHidden\":true,\"instanceId\":\"PuIK7ClnI2\"},\"props\":{\"columns\":[{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}}],\"rows\":[{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":null}],\"items\":[{\"from\":{\"row\":1,\"column\":3},\"to\":{\"row\":5,\"column\":10},\"order\":0}]}} */</style><section class=\"-grid--custom\" data-instance-id=\"PuIK7ClnI2\"><div><blockquote><p>Test component !!!</p></blockquote></div></section>",
+    "diff": {},
+    "breakpointIds": null,
+    "datasourceIds": [],
+    "isEmbeddable": false,
+    "forkOriginId": null,
+    "forkOriginRevision": 0,
+    "forkedAt": null,
+    "classList": [
+      "-theme--default"
+    ],
+    "createdAt": "2025-01-16T14:41:42.603Z",
+    "deletedAt": null,
+    "modifiedAt": "2025-01-16T14:42:10.303Z",
+    "modifiedBy": {
+      "id": "656ef69832ce4d9b360f4d23",
+      "name": "antontishchenko@gmail.com",
+      "givenName": "Anton",
+      "familyName": "Tishchenko",
+      "email": "antontishchenko@gmail.com",
+      "picture": "https://s.gravatar.com/avatar/36798c374437f272e589e949d59f3d5d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+      "nickname": "antontishchenko"
+    }
+  },
+  {
+    "libraryId": "generated",
+    "id": "FUfNZuU_-j",
+    "componentId": "qknpDWdzh6",
+    "name": "Name",
+    "description": "",
+    "status": "staged",
+    "orderIdx": "03qKK",
+    "revision": 2,
+    "model": "",
+    "view": "<style data-format-version=\"30\">/* Type: grid Id: custom-grid Title: Custom grid Instance Id: PuIK7ClnI2 */ .-grid--custom[data-instance-id=\"PuIK7ClnI2\"]:not(._._._._._._#_) { ---self--display: grid; display: var(---self--display); grid-template-rows: minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px, auto); grid-template-columns: minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr); row-gap: var(---spacing--row-gap); column-gap: var(---spacing--column-gap); } .-grid--custom[data-instance-id=\"PuIK7ClnI2\"] > :nth-child(1):not(._._._._._._#_) { grid-column: 3; grid-column-end: 10; grid-row: 1; grid-row-end: 5; order: 0; position: relative; } /* Data: {\"type\":\"grid\",\"details\":{\"title\":\"Custom grid\",\"description\":\"\",\"id\":\"custom-grid\",\"exampleContent\":null,\"slug\":\"custom\",\"isInternal\":true,\"isHidden\":true,\"instanceId\":\"PuIK7ClnI2\"},\"props\":{\"columns\":[{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}}],\"rows\":[{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":null}],\"items\":[{\"from\":{\"row\":1,\"column\":3},\"to\":{\"row\":5,\"column\":10},\"order\":0}]}} */</style><section class=\"-grid--custom\" data-instance-id=\"PuIK7ClnI2\"><div><blockquote><p>Test component !!!</p></blockquote></div></section>",
+    "diff": {},
+    "breakpointIds": null,
+    "datasourceIds": [],
+    "isEmbeddable": false,
+    "forkOriginId": null,
+    "forkOriginRevision": 0,
+    "forkedAt": null,
+    "classList": [
+      "-theme--default"
+    ],
+    "createdAt": "2025-01-16T14:41:42.603Z",
+    "deletedAt": null,
+    "modifiedAt": "2025-01-16T14:42:10.303Z",
+    "modifiedBy": {
+      "id": "656ef69832ce4d9b360f4d23",
+      "name": "antontishchenko@gmail.com",
+      "givenName": "Anton",
+      "familyName": "Tishchenko",
+      "email": "antontishchenko@gmail.com",
+      "picture": "https://s.gravatar.com/avatar/36798c374437f272e589e949d59f3d5d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+      "nickname": "antontishchenko"
+    }
+  },
+  {
+    "libraryId": "generated",
+    "id": "FUfNZuU_-j",
+    "componentId": "qknpDWdzh6",
+    "name": "Name",
+    "description": "",
+    "status": "saved",
+    "orderIdx": "03qKK",
+    "revision": 2,
+    "model": "",
+    "view": "<style data-format-version=\"30\">/* Type: grid Id: custom-grid Title: Custom grid Instance Id: PuIK7ClnI2 */ .-grid--custom[data-instance-id=\"PuIK7ClnI2\"]:not(._._._._._._#_) { ---self--display: grid; display: var(---self--display); grid-template-rows: minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px,36px) minmax(36px, auto); grid-template-columns: minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr) minmax(0px,1fr); row-gap: var(---spacing--row-gap); column-gap: var(---spacing--column-gap); } .-grid--custom[data-instance-id=\"PuIK7ClnI2\"] > :nth-child(1):not(._._._._._._#_) { grid-column: 3; grid-column-end: 10; grid-row: 1; grid-row-end: 5; order: 0; position: relative; } /* Data: {\"type\":\"grid\",\"details\":{\"title\":\"Custom grid\",\"description\":\"\",\"id\":\"custom-grid\",\"exampleContent\":null,\"slug\":\"custom\",\"isInternal\":true,\"isHidden\":true,\"instanceId\":\"PuIK7ClnI2\"},\"props\":{\"columns\":[{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}},{\"min\":{\"value\":0,\"unit\":\"px\"},\"max\":{\"value\":1,\"unit\":\"fr\"}}],\"rows\":[{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":{\"value\":36,\"unit\":\"px\"}},{\"min\":{\"value\":36,\"unit\":\"px\"},\"max\":null}],\"items\":[{\"from\":{\"row\":1,\"column\":3},\"to\":{\"row\":5,\"column\":10},\"order\":0}]}} */</style><section class=\"-grid--custom\" data-instance-id=\"PuIK7ClnI2\"><div><blockquote><p>Test component !!!</p></blockquote></div></section>",
+    "diff": {},
+    "breakpointIds": null,
+    "datasourceIds": [],
+    "isEmbeddable": false,
+    "forkOriginId": null,
+    "forkOriginRevision": 0,
+    "forkedAt": null,
+    "classList": [
+      "-theme--default"
+    ],
+    "createdAt": "2025-01-16T14:41:42.603Z",
+    "deletedAt": null,
+    "modifiedAt": "2025-01-16T14:42:10.303Z",
+    "modifiedBy": {
+      "id": "656ef69832ce4d9b360f4d23",
+      "name": "antontishchenko@gmail.com",
+      "givenName": "Anton",
+      "familyName": "Tishchenko",
+      "email": "antontishchenko@gmail.com",
+      "picture": "https://s.gravatar.com/avatar/36798c374437f272e589e949d59f3d5d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fan.png",
+      "nickname": "antontishchenko"
+    }
+  }
+]

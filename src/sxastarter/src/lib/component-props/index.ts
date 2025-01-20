@@ -2,7 +2,7 @@ import {
   ComponentParams,
   ComponentRendering,
   SitecoreContextValue,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+} from '@sitecore-jss/sitecore-jss-react';
 
 /**
  * Shared component props

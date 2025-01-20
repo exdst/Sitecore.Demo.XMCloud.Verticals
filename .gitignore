@@ -83,3 +83,5 @@ packages/
 /src/tests/**/bitmaps_reference
 /src/tests/**/bitmaps_test
 /src/tests/**/html_report
+/src/sxastarter-nextjs/.next-container
+/src/sxastarter/scjssconfig.json
