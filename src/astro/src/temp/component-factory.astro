@@ -51,12 +51,9 @@ import AuthorWidget from '../../src/components/PageContent/AuthorWidget.astro'
 import Carousel from '../../src/components/PageContent/Carousel.astro'
 import Comparison from '../../src/components/PageContent/Comparison.astro'
 import CtaBanner from '../../src/components/PageContent/CtaBanner.astro'
-import DocumentItem from '../../src/components/PageContent/DocumentItem.astro'
 import DocumentsList from '../../src/components/PageContent/DocumentsList.astro'
 import Features from '../../src/components/PageContent/Features.astro'
-import FiveColumn from '../../src/components/PageContent/FiveColumn.astro'
 import FiveColumnCta from '../../src/components/PageContent/FiveColumnCta.astro'
-import FourColumn from '../../src/components/PageContent/FourColumn.astro'
 import FourColumnCta from '../../src/components/PageContent/FourColumnCta.astro'
 import HeadingCta from '../../src/components/PageContent/HeadingCta.astro'
 import Hero from '../../src/components/PageContent/Hero.astro'
@@ -72,7 +69,6 @@ import Quote from '../../src/components/PageContent/Quote.astro'
 import StatsCounter from '../../src/components/PageContent/StatsCounter.astro'
 import Testimonials from '../../src/components/PageContent/Testimonials.astro'
 import ThreeColumnCta from '../../src/components/PageContent/ThreeColumnCta.astro'
-import TwoColumn from '../../src/components/PageContent/TwoColumn.astro'
 import TwoColumnCta from '../../src/components/PageContent/TwoColumnCta.astro'
 import StyleguideComponentParams from '../../src/components/styleguide/Styleguide-ComponentParams.astro'
 import StyleguideCustomRouteType from '../../src/components/styleguide/Styleguide-CustomRouteType.astro'
@@ -153,12 +149,9 @@ export interface Props  {
 {Astro.props.name === 'Carousel' && <Carousel route={Astro.props.route}/>}
 {Astro.props.name === 'Comparison' && <Comparison route={Astro.props.route}/>}
 {Astro.props.name === 'CtaBanner' && <CtaBanner route={Astro.props.route}/>}
-{Astro.props.name === 'DocumentItem' && <DocumentItem route={Astro.props.route}/>}
 {Astro.props.name === 'DocumentsList' && <DocumentsList route={Astro.props.route}/>}
 {Astro.props.name === 'Features' && <Features route={Astro.props.route}/>}
-{Astro.props.name === 'FiveColumn' && <FiveColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FiveColumnCta' && <FiveColumnCta route={Astro.props.route}/>}
-{Astro.props.name === 'FourColumn' && <FourColumn route={Astro.props.route}/>}
 {Astro.props.name === 'FourColumnCta' && <FourColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'HeadingCta' && <HeadingCta route={Astro.props.route}/>}
 {Astro.props.name === 'Hero' && <Hero route={Astro.props.route}/>}
@@ -174,7 +167,6 @@ export interface Props  {
 {Astro.props.name === 'StatsCounter' && <StatsCounter route={Astro.props.route}/>}
 {Astro.props.name === 'Testimonials' && <Testimonials route={Astro.props.route}/>}
 {Astro.props.name === 'ThreeColumnCta' && <ThreeColumnCta route={Astro.props.route}/>}
-{Astro.props.name === 'TwoColumn' && <TwoColumn route={Astro.props.route}/>}
 {Astro.props.name === 'TwoColumnCta' && <TwoColumnCta route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-ComponentParams' && <StyleguideComponentParams route={Astro.props.route}/>}
 {Astro.props.name === 'Styleguide-CustomRouteType' && <StyleguideCustomRouteType route={Astro.props.route}/>}
