@@ -21,6 +21,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    host: true,
   },
   output: "server",
   adapter: adapter,
