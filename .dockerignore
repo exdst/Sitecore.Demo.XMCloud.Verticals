@@ -15,6 +15,7 @@ packages
 **/.next*/
 **/.vscode/
 **/coverage/
+**/tests/
 
 # files
 *Dockerfile

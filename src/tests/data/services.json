@@ -1,110 +1,134 @@
 [
-            {
-              "path": "/authors/sophia-lee"
-            },
-            {
-              "path": "/authors/olivia-patel"
-            },
-            {
-              "path": "/authors/david-kim"
-            },
-            {
-              "path": "/authors/emma-thompson"
-            },
-            {
-              "path": "/authors/michael-oreilly"
-            },
-            {
-              "path": "/authors/lily-majors"
-            },
-            {
-              "path": "/authors/jack-martinez"
-            },
-            {
-              "path": "/portfolio/optimize-supply-chains-with-blockchain-technology"
-            },
-            {
-              "path": "/portfolio/enhancing-retail-experience-with-ar"
-            },
-            {
-              "path": "/portfolio/the-next-evolution-of-ecommerce"
-            },
-            {
-              "path": "/portfolio/innovative-strategies-for-modern-brands"
-            },
-            {
-              "path": "/portfolio/integrated-social-media-strategies"
-            },
-            {
-              "path": "/portfolio/advanced-marketing-strategies"
-            },
-            {
-              "path": "/portfolio/a-digital-transformation-story-premiere-insurance"
-            },
-            {
-              "path": "/portfolio/increase-customer-engagement"
-            },
-            {
-              "path": "/portfolio/get-results-with-data-driven-decisions"
-            },
-            {
-              "path": "/landing-pages/simple-landing-page"
-            },
-            {
-              "path": "/landing-pages/marketing-landing-page"
-            },
-            {
-              "path": "/insights/leveraging-ai-for-digital-marketers"
-            },
-            {
-              "path": "/insights/measuring-success"
-            },
-            {
-              "path": "/insights/the-power-of-consistency"
-            },
-            {
-              "path": "/insights/key-industry-trends-shaping-the-digital-landscape"
-            },
-            {
-              "path": "/insights/Maximizing-roi-with-digital-ads"
-            },
-            {
-              "path": "/insights/career-growth-strategies-for-remote-workers"
-            },
-            {
-              "path": "/insights/building-strong-client-relationships"
-            },
-            {
-              "path": "/insights/achieving-work-life-balance"
-            },
-            {
-              "path": "/insights/selecting-images-that-resonate"
-            },
-            {
-              "path": "/insights/the-creative-process-dilemma"
-            },
-            {
-              "path": "/contact"
-            },
-            {
-              "path": "/landing-pages"
-            },
-            {
-              "path": "/authors"
-            },
-            {
-              "path": "/services"
-            },
-            {
-              "path": "/insights"
-            },
-            {
-              "path": "/about"
-            },
-            {
-              "path": "/portfolio"
-            },
-            {
-              "path": "/"
-            }
-          ]
+  {
+    "path": "/en/authors/sophia-lee?sc_site=services"
+  },
+  {
+    "path": "/en/authors/olivia-patel?sc_site=services"
+  },
+  {
+    "path": "/en/authors/david-kim?sc_site=services"
+  },
+  {
+    "path": "/en/authors/emma-thompson?sc_site=services"
+  },
+  {
+    "path": "/en/authors/michael-oreilly?sc_site=services"
+  },
+  {
+    "path": "/en/authors/lily-majors?sc_site=services"
+  },
+  {
+    "path": "/en/authors/jack-martinez?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/optimize-supply-chains-with-blockchain-technology?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/enhancing-retail-experience-with-ar?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/the-next-evolution-of-ecommerce?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/innovative-strategies-for-modern-brands?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/integrated-social-media-strategies?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/advanced-marketing-strategies?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/a-digital-transformation-story-premiere-insurance?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/increase-customer-engagement?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio/get-results-with-data-driven-decisions?sc_site=services"
+  },
+  {
+    "path": "/en/landing-pages/simple-landing-page?sc_site=services"
+  },
+  {
+    "path": "/en/landing-pages/marketing-landing-page?sc_site=services"
+  },
+  {
+    "path": "/en/insights/leveraging-ai-for-digital-marketers?sc_site=services"
+  },
+  {
+    "path": "/en/insights/measuring-success?sc_site=services"
+  },
+  {
+    "path": "/en/insights/the-power-of-consistency?sc_site=services"
+  },
+  {
+    "path": "/en/insights/key-industry-trends-shaping-the-digital-landscape?sc_site=services"
+  },
+  {
+    "path": "/en/insights/Maximizing-roi-with-digital-ads?sc_site=services"
+  },
+  {
+    "path": "/en/insights/career-growth-strategies-for-remote-workers?sc_site=services"
+  },
+  {
+    "path": "/en/insights/building-strong-client-relationships?sc_site=services"
+  },
+  {
+    "path": "/en/insights/achieving-work-life-balance?sc_site=services"
+  },
+  {
+    "path": "/en/insights/selecting-images-that-resonate?sc_site=services"
+  },
+  {
+    "path": "/en/insights/the-creative-process-dilemma?sc_site=services"
+  },
+  {
+    "path": "/en/contact?sc_site=services"
+  },
+  {
+    "path": "/en/landing-pages?sc_site=services"
+  },
+  {
+    "path": "/en/authors?sc_site=services"
+  },
+  {
+    "path": "/en/services?sc_site=services"
+  },
+  {
+    "path": "/en/insights?sc_site=services"
+  },
+  {
+    "path": "/en/about?sc_site=services"
+  },
+  {
+    "path": "/en/portfolio?sc_site=services"
+  },
+  {
+    "path": "/en/?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/sophia-lee?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/olivia-patel?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/lily-majors?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/david-kim?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/jack-martinez?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/emma-thompson?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors/michael-oreilly?sc_site=services"
+  },
+  {
+    "path": "/fr-CA/authors?sc_site=services"
+  }
+]
