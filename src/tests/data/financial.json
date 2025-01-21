@@ -1,104 +1,302 @@
- [
-            {
-              "path": "/personal/borrowing/line-of-credit"
-            },
-            {
-              "path": "/personal/borrowing/credit-cards"
-            },
-            {
-              "path": "/authors/Gabby-Ross"
-            },
-            {
-              "path": "/authors/Olly-Damon"
-            },
-            {
-              "path": "/authors/Nick-Reddick"
-            },
-            {
-              "path": "/authors/Patricia-Ball"
-            },
-            {
-              "path": "/retirement-planning/estate-planning"
-            },
-            {
-              "path": "/retirement-planning/building-wealth"
-            },
-            {
-              "path": "/retirement-planning/living-in-retirement"
-            },
-            {
-              "path": "/articles/exploring-the-use-of-blockchain-technology"
-            },
-            {
-              "path": "/articles/introducing-mobile-finance"
-            },
-            {
-              "path": "/articles/empowering-young-adults"
-            },
-            {
-              "path": "/articles/important-announcement-play-finance-client"
-            },
-            {
-              "path": "/articles/five-tips-for-new-retirees"
-            },
-            {
-              "path": "/articles/introducing-innovative-financial-solutions"
-            },
-            {
-              "path": "/articles/closing-the-wealth-gap"
-            },
-            {
-              "path": "/personal/investing"
-            },
-            {
-              "path": "/articles/beware-of-financial-online-scams"
-            },
-            {
-              "path": "/personal/everyday-banking"
-            },
-            {
-              "path": "/personal/borrowing"
-            },
-            {
-              "path": "/business/small-business-loans"
-            },
-            {
-              "path": "/business/employee-management"
-            },
-            {
-              "path": "/business/international-banking"
-            },
-            {
-              "path": "/articles"
-            },
-            {
-              "path": "/about-us"
-            },
-            {
-              "path": "/personal"
-            },
-            {
-              "path": "/retirement-planning"
-            },
-            {
-              "path": "/authors"
-            },
-            {
-              "path": "/business"
-            },
-            {
-              "path": "/customer-support"
-            },
-            {
-              "path": "/faqs"
-            },
-            {
-              "path": "/get-a-loan"
-            },
-            {
-              "path": "/"
-            },
-            {
-              "path": "/articles/exploring-the-use-of-blockchain-technology"
-            }
-          ]
+[
+  {
+    "path": "/en/personal/borrowing/line-of-credit?sc_site=financial"
+  },
+  {
+    "path": "/en/personal/borrowing/credit-cards?sc_site=financial"
+  },
+  {
+    "path": "/en/authors/Gabby-Ross?sc_site=financial"
+  },
+  {
+    "path": "/en/authors/Olly-Damon?sc_site=financial"
+  },
+  {
+    "path": "/en/authors/Nick-Reddick?sc_site=financial"
+  },
+  {
+    "path": "/en/authors/Patricia-Ball?sc_site=financial"
+  },
+  {
+    "path": "/en/retirement-planning/estate-planning?sc_site=financial"
+  },
+  {
+    "path": "/en/retirement-planning/building-wealth?sc_site=financial"
+  },
+  {
+    "path": "/en/retirement-planning/living-in-retirement?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/exploring-the-use-of-blockchain-technology?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/introducing-mobile-finance?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/empowering-young-adults?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/important-announcement-play-finance-client?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/five-tips-for-new-retirees?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/introducing-innovative-financial-solutions?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/closing-the-wealth-gap?sc_site=financial"
+  },
+  {
+    "path": "/en/personal/investing?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/beware-of-financial-online-scams?sc_site=financial"
+  },
+  {
+    "path": "/en/personal/everyday-banking?sc_site=financial"
+  },
+  {
+    "path": "/en/personal/borrowing?sc_site=financial"
+  },
+  {
+    "path": "/en/business/small-business-loans?sc_site=financial"
+  },
+  {
+    "path": "/en/business/employee-management?sc_site=financial"
+  },
+  {
+    "path": "/en/business/international-banking?sc_site=financial"
+  },
+  {
+    "path": "/en/articles?sc_site=financial"
+  },
+  {
+    "path": "/en/about-us?sc_site=financial"
+  },
+  {
+    "path": "/en/personal?sc_site=financial"
+  },
+  {
+    "path": "/en/retirement-planning?sc_site=financial"
+  },
+  {
+    "path": "/en/authors?sc_site=financial"
+  },
+  {
+    "path": "/en/business?sc_site=financial"
+  },
+  {
+    "path": "/en/customer-support?sc_site=financial"
+  },
+  {
+    "path": "/en/faqs?sc_site=financial"
+  },
+  {
+    "path": "/en/get-a-loan?sc_site=financial"
+  },
+  {
+    "path": "/en/?sc_site=financial"
+  },
+  {
+    "path": "/en/articles/exploring-the-use-of-blockchain-technology?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal/borrowing/line-of-credit?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal/borrowing/credit-cards?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/business/small-business-loans?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/business/employee-management?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal/borrowing?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal/everyday-banking?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/business/international-banking?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal/investing?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/exploring-the-use-of-blockchain-technology?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/empowering-young-adults?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/introducing-mobile-finance?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/five-tips-for-new-retirees?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/introducing-innovative-financial-solutions?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/beware-of-financial-online-scams?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/closing-the-wealth-gap?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles/important-announcement-play-finance-client?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/authors/Patricia-Ball?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/authors/Gabby-Ross?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/authors/Nick-Reddick?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/authors/Olly-Damon?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/retirement-planning/building-wealth?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/retirement-planning/living-in-retirement?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/retirement-planning/estate-planning?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/business?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/articles?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/customer-support?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/personal?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/get-a-loan?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/retirement-planning?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/faqs?sc_site=financial?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/authors?sc_site=financial?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/about-us?sc_site=financial?sc_site=financial"
+  },
+  {
+    "path": "/fr-CA/?sc_site=financial?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal/borrowing/line-of-credit?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal/borrowing/credit-cards?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/business/small-business-loans?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/business/employee-management?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal/borrowing?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal/everyday-banking?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/business/international-banking?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal/investing?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/exploring-the-use-of-blockchain-technology?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/empowering-young-adults?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/introducing-mobile-finance?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/five-tips-for-new-retirees?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/important-announcement-play-finance-client?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/introducing-innovative-financial-solutions?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/beware-of-financial-online-scams?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles/closing-the-wealth-gap?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/authors/Patricia-Ball?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/authors/Gabby-Ross?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/authors/Nick-Reddick?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/authors/Olly-Damon?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/retirement-planning/building-wealth?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/retirement-planning/living-in-retirement?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/retirement-planning/estate-planning?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/business?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/articles?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/customer-support?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/personal?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/faqs?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/get-a-loan?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/retirement-planning?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/authors?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/about-us?sc_site=financial"
+  },
+  {
+    "path": "/ja-JP/?sc_site=financial"
+  }
+]
