@@ -24,7 +24,9 @@ class EdgePlatformPlugin implements IConfigPlugin {
       });
     }
 
-    return config;
+    return Object.assign({}, config, {
+      sitecoreEdgeUrl
+    });
   }
 }
 
