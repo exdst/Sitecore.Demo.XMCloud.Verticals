@@ -1,0 +1,83 @@
+---
+import {
+  LinkField,
+  TextField,
+  Link,
+  SitecoreContextMap,
+  Text,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  data: {
+    datasource: {
+      url: {
+        path: string;
+        siteName: string;
+      };
+      field: {
+        jsonValue: {
+          value: string;
+          editable?: string;
+          metadata?: { [key: string]: unknown };
+        };
+      };
+    };
+    contextItem: {
+      url: {
+        path: string;
+        siteName: string;
+      };
+      field: {
+        jsonValue: {
+          value: string;
+          editable?: string;
+          metadata?: { [key: string]: unknown };
+        };
+      };
+    };
+  };
+}
+
+type TitleProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: TitleProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+const datasource =
+  props.fields?.data?.datasource || props.fields?.data?.contextItem;
+const text: TextField = datasource?.field?.jsonValue || {};
+const link: LinkField = {
+  value: {
+    href: datasource?.url?.path,
+    title: datasource?.field?.jsonValue?.value,
+  },
+};
+
+if (sitecoreContext.pageState !== "normal") {
+  link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
+  if (!text?.value) {
+    text.value = "Title field";
+    link.value.href = "#";
+  }
+}
+---
+
+<div class={`component title ${props.params.styles}`} id={id ? id : undefined}>
+  <div class="component-content">
+    <div class="field-title">
+      {
+        isPageEditing ? (
+          <Text field={text} />
+        ) : (
+          <Link field={link}>
+            <Text field={text} />
+          </Link>
+        )
+      }
+    </div>
+  </div>
+</div>

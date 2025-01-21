@@ -1,0 +1,13 @@
+---
+import { ComponentProps } from "lib/component-props";
+import HeaderDefault from "components/Variants/HeaderVariants/HeaderDefault.astro";
+import HeaderWithLogoImage from "components/Variants/HeaderVariants/HeaderWithLogoImage.astro";
+
+const props: ComponentProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<>
+  {props.params.FieldNames === 'Default' && <HeaderDefault id={id} route={props} />}
+  {props.params.FieldNames === 'WithLogoImage' && <HeaderWithLogoImage id={id} route={props}/>}
+</>

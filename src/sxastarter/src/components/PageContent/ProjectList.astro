@@ -1,0 +1,42 @@
+---
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import ProjectListDefault from "components/Variants/ProjectListVariants/ProjectListDefault.astro";
+import ProjectListMosaic from "components/Variants/ProjectListVariants/ProjectListMosaic.astro";
+import { ComponentParams, ComponentRendering } from "@sitecore-jss/sitecore-jss/types/layout";
+
+interface Fields {
+  Title: Field<string>;
+  Category: Field<string>;
+  Abstract: Field<string>;
+  Problem: RichTextField;
+  Solution: RichTextField;
+  Thumbnail: ImageField;
+  Client: ImageField;
+}
+
+export type ProjectListItemProps = {
+  fields: Fields;
+  name: string;
+  url: string;
+};
+
+export interface ProjectListComponentProps {
+  rendering: ComponentRendering & { params: ComponentParams };
+  params: ComponentParams;
+  fields: {
+    items: ProjectListItemProps[];
+  };
+};
+
+const props: ProjectListComponentProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
+---
+
+<>
+  {variantName === 'Default' && <ProjectListDefault route={props} />}
+  {variantName === 'Mosaic' && <ProjectListMosaic route={props} />}
+</>

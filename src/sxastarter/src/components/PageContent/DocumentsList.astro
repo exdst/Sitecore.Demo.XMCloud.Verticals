@@ -1,0 +1,72 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  Text,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import DocumentItem from "components/NestedComponents/DocumentItem.astro";
+
+interface Fields {
+  Title1: Field<string>;
+  Subtitle1: Field<string>;
+  Image1: ImageField;
+  Link1: LinkField;
+  Subtitle2: Field<string>;
+  Image2: ImageField;
+  Link2: LinkField;
+  Subtitle3: Field<string>;
+  Image3: ImageField;
+  Link3: LinkField;
+  Subtitle4: Field<string>;
+  Image4: ImageField;
+  Link4: LinkField;
+}
+
+export type DocumentsListProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: DocumentsListProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<div
+  class={`component component-spaced documents-list ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container">
+    <div class="title display-6">
+      <Text field={props.fields?.Title1} />
+    </div>
+    <div class="documents-container">
+      <div class="row row-cols-1 row-cols-xl-2 gx-4 justify-content-center">
+        <DocumentItem
+          image={props.fields?.Image1}
+          subtitle={props.fields?.Subtitle1}
+          link={props.fields?.Link1}
+          delay={0}
+        />
+        <DocumentItem
+          image={props.fields?.Image2}
+          subtitle={props.fields?.Subtitle2}
+          link={props.fields?.Link2}
+          delay={500}
+        />
+        <DocumentItem
+          image={props.fields?.Image3}
+          subtitle={props.fields?.Subtitle3}
+          link={props.fields?.Link3}
+          delay={1000}
+        />
+        <DocumentItem
+          image={props.fields?.Image4}
+          subtitle={props.fields?.Subtitle4}
+          link={props.fields?.Link4}
+          delay={1500}
+        />
+      </div>
+    </div>
+  </div>
+</div>

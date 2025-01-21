@@ -1,0 +1,33 @@
+---
+import { Link, RichText, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
+import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
+
+const props: PromoCtaProps = Astro.props.route;
+const id = Astro.props.id;
+const isPageEditing = Astro.props.isPageEditing;
+---
+
+<div
+  class={`component promo-cta with-background-image ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <ParallaxBackgroundImage BackgroundImage={props.fields.Image} />
+  <div class="container">
+    <div class="row justify-content-center main-content">
+      <div class="col-12 mx-auto">
+        <h1 class="display-3 fw-bold text-center mb-3">
+          <Text field={props.fields.Title} />
+        </h1>
+        <div class="fs-3 text-center">
+          <RichText field={props.fields.Text} />
+          {
+            (isPageEditing || props.fields?.Link?.value?.href) && (
+              <Link field={props.fields.Link} class="button button-main mt-3" />
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+---
+import {
+  Field,
+  ImageField,
+  LinkField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import FooterDefault from "components/Variants/FooterVariants/FooterDefault.astro";
+import FooterWithSocials from "components/Variants/FooterVariants/FooterWithSocials.astro";
+
+interface Fields {
+  Image1: ImageField;
+  Title1: Field<string>;
+  Text1: RichTextField;
+  Title2: Field<string>;
+  Text2: RichTextField;
+  Title3: Field<string>;
+  Text3: RichTextField;
+  Title4: Field<string>;
+  Text4: RichTextField;
+  Copyright: Field<string>;
+  Link1: LinkField;
+  Link2: LinkField;
+  SocialsTitle: Field<string>;
+  SocialLink1: LinkField;
+  SocialIcon1: ImageField;
+  SocialLink2: LinkField;
+  SocialIcon2: ImageField;
+  SocialLink3: LinkField;
+  SocialIcon3: ImageField;
+}
+
+export type FooterProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: FooterProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<>
+  {props.params.FieldNames === 'Default' && <FooterDefault id={id} route={props} />}
+  {props.params.FieldNames === 'WithSocials' && <FooterWithSocials id={id} route={props}/>}
+</>

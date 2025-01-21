@@ -1,0 +1,69 @@
+---
+import {
+  Field,
+  LinkField,
+  RichTextField,
+  Link,
+  Text,
+  RichText,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Title: Field<string>;
+  Subtitle: RichTextField;
+  FullName: Field<string>;
+  IDNumber: Field<string>;
+  Email: Field<string>;
+  MobileNumber: Field<number>;
+  Footnote: RichTextField;
+  SubmitButton: LinkField;
+}
+
+export type ApplicationFormProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ApplicationFormProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<div
+  class={`component application-form ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="application-form-inner">
+    <div class="container">
+      <div class="title">
+        <Text field={props.fields?.Title} />
+      </div>
+      <div class="subtitle">
+        <RichText field={props.fields?.Subtitle} />
+      </div>
+      <input
+        class="input-field"
+        value={props.fields?.FullName?.value}
+        placeholder="First and Last name"
+      />
+      <input
+        class="input-field"
+        value={props.fields?.IDNumber?.value}
+        placeholder="ID number"
+      />
+      <input
+        class="input-field"
+        value={props.fields?.Email?.value}
+        placeholder="Email"
+      />
+      <input
+        class="input-field"
+        value={props.fields?.MobileNumber?.value}
+        placeholder="Mobile number"
+      />
+      <div class="footnote">
+        <RichText field={props.fields?.Footnote} />
+      </div>
+      <Link field={props.fields.SubmitButton} class="button button-main submit-button" />
+    </div>
+  </div>
+</div>

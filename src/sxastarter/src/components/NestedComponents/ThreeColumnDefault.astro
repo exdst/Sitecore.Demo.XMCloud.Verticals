@@ -1,0 +1,46 @@
+---
+import {
+  Image,
+  Text,
+  Link,
+  Field,
+  ImageField,
+  LinkField,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+import { ComponentProps } from "lib/component-props";
+
+export type ColumnProps = {
+  image: ImageField;
+  text: Field<string>;
+  subText: Field<string>;
+  link: LinkField;
+  delay?: number;
+  route: ComponentProps;
+};
+
+const props: ColumnProps = Astro.props as ColumnProps;
+const buttonStyle = props.route.params?.ButtonStyle
+  ? `button-${props.route.params.ButtonStyle.toLowerCase()}`
+  : "button-main";
+
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+---
+
+<div
+  class={`column col-sm-12 col-lg-4 ${!isPageEditing ? "fade-section" : ""} `}
+  data-delay=`${props.delay}`
+>
+  <div class="content-wrapper">
+    <Image field={props.image} height={" "} />
+    <h2>
+      <Text field={props.text} />
+    </h2>
+    <p>
+      <Text field={props.subText} />
+    </p>
+    {(isPageEditing || props.link?.value?.href) && <Link field={props.link} class=`button ${buttonStyle}` />}
+  </div>
+</div>

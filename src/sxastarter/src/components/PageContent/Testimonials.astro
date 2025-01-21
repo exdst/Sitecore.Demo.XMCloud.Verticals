@@ -1,0 +1,83 @@
+---
+import { Field, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import Testimonial from "components/NestedComponents/Testimonial.astro";
+
+interface TestimonialFields {
+  Rating: Field<string>;
+  Content: Field<string>;
+  AuthorName: Field<string>;
+  AuthorPosition: Field<string>;
+  AuthorImage: ImageField;
+}
+
+export type TestimonialItemProps = {
+  fields: TestimonialFields;
+  name: string;
+  url: string;
+};
+
+export type TestimonialsProps = {
+  params: { [key: string]: string };
+  fields: {
+    items: TestimonialItemProps[];
+  };
+};
+
+const props: TestimonialsProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+const testimonials = props.fields?.items;
+---
+
+<div
+  class={`component testimonials ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {
+        testimonials?.map((item) => (
+          <div class="swiper-slide"}>
+            <Testimonial item={item} />
+          </div>
+        ))
+      }
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+
+  export const swiperConfig = {
+    modules: [Autoplay, EffectCoverflow, Pagination],
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: true,
+    },
+    effect: "coverflow",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 0,
+      modifier: 1,
+    },
+    spaceBetween: 0,
+    slidesPerView: 1,
+    breakpoints: {
+      992: {
+        slidesPerView: 3,
+      },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    centeredSlides: true,
+    loop: true,
+    grabCursor: true,
+  };
+
+  new Swiper(".testimonials .swiper", swiperConfig);
+</script>

@@ -1,0 +1,10 @@
+---
+import { Image, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+
+const image: ImageField = Astro.props.image;
+const inverted: boolean = Astro.props.inverted;
+---
+
+<div class={`icon-accent ${inverted ? "inverted" : ""}`}>
+  <Image field={image} />
+</div>

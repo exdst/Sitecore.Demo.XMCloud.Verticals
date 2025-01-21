@@ -1,0 +1,50 @@
+---
+import {
+  Field,
+  ImageField,
+  Image,
+  Text,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+
+interface Fields {
+  Title: Field<string>;
+  EmailLabel: Field<string>;
+  SubjectLabel: Field<string>;
+  MessageLabel: Field<string>;
+  ButtonLabel: Field<string>;
+  BackgroundImage: ImageField;
+}
+
+export type ContactFormProps = {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+const props: ContactFormProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<div
+  class={`component contact-form component-spaced ${props.params.styles.trimEnd()}`}
+  id={id ? id : undefined}
+>
+  <div class="container container-widest-fluid">
+    <Image field={props.fields.BackgroundImage} class="img-fluid" />
+    <div class="container">
+      <div class="contact-form-inner">
+        <form>
+          <h2 class="mb-4">
+            <Text field={props.fields?.Title} />
+          </h2>
+          <input type="text" placeholder={props.fields.EmailLabel.value} />
+          <input type="text" placeholder={props.fields.SubjectLabel.value} />
+          <textarea placeholder={props.fields.MessageLabel.value}></textarea>
+          <input
+            type="submit"
+            value={props.fields.ButtonLabel.value}
+            class="button button-main mt-3"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

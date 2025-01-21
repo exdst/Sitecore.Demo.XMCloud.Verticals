@@ -1,0 +1,27 @@
+---
+import { Text, Image } from "@astro-sitecore-jss/astro-sitecore-jss";
+import StarRating from "./StarRating.astro";
+import { TestimonialItemProps } from "components/PageContent/Testimonials.astro";
+
+const item: TestimonialItemProps = Astro.props.item;
+---
+
+<div class="testimonial-item">
+  <StarRating item={item} />
+  <blockquote class="testimonial-content mt-5 mb-4">
+    <Text field={item.fields.Content} />
+  </blockquote>
+  <div class="row align-items-center">
+    <div class="col-auto">
+      <Image field={item.fields.AuthorImage} class="author-image" />
+    </div>
+    <div class="col">
+      <p class="author-name fs-4 fw-bold mb-1">
+        <Text field={item.fields.AuthorName} />
+      </p>
+      <p class="author-position mb-0">
+        <Text field={item.fields.AuthorPosition} />
+      </p>
+    </div>
+  </div>
+</div>

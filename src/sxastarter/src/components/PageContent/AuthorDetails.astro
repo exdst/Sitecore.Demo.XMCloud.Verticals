@@ -1,0 +1,30 @@
+---
+import AuthorDetailsSimple from 'components/Variants/AuthorDetailsVariants/AuthorDetailsSimple.astro';
+import AuthorDetailsDefault from 'components/Variants/AuthorDetailsVariants/AuthorDetailsDefault.astro';
+
+import {
+  Field,
+  ImageField,
+  RichTextField,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  Name: Field<string>;
+  Position: Field<string>;
+  Photo: ImageField;
+  Bio: RichTextField;
+  BackgroundImage: ImageField;
+}
+
+export type AuthorDetailsProps = ComponentProps & {
+  fields: Fields;
+};
+
+const props: AuthorDetailsProps = Astro.props.route;
+const variantName = props.params.FieldNames ?? 'Default';
+---
+<>
+  {variantName === 'Default' && <AuthorDetailsDefault route={props} />}
+  {variantName === 'Simple' && <AuthorDetailsSimple route={props} />}
+</>
