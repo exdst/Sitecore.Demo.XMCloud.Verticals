@@ -18,14 +18,11 @@ class EdgePlatformPlugin implements IConfigPlugin {
       console.log(
         "You have configured both 'sitecoreApiKey' and 'sitecoreEdgeContextId' values. The 'sitecoreEdgeContextId' is used instead."
       );
-      return Object.assign({}, config, {
-        sitecoreEdgeUrl,
-        sitecoreEdgeContextId,
-      });
     }
 
     return Object.assign({}, config, {
-      sitecoreEdgeUrl
+      sitecoreEdgeUrl,
+      sitecoreEdgeContextId,
     });
   }
 }
