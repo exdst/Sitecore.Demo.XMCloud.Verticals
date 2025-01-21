@@ -3,6 +3,7 @@ import '../assets/main.scss';
 import type { LayoutServiceData, Field } from "@sitecore-jss/sitecore-jss/layout";
 import Placeholder from '../components/system/Placeholder.astro';
 import Scripts from '@/components/Scripts.astro';
+import config from '@/temp/config';
 
 interface RouteFields {
   [key: string]: unknown;
@@ -11,7 +12,7 @@ interface RouteFields {
 }
 
 const layoutData: LayoutServiceData = Astro.props.layoutData;
-
+console.log(layoutData)
 const { route } = layoutData.sitecore;
 
 const isPageEditing = layoutData.sitecore.context.pageEditing;

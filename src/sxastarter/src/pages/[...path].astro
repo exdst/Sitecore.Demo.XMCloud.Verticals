@@ -80,9 +80,9 @@ try {
     }
   }
 
-  Astro.locals.site = sc_site ?? site ?? config.sitecoreSiteName;
-
-  let sitecorePagePropsFactory = new SitecorePagePropsFactory(Astro.locals.site);
+  const site1 = sc_site ?? site ?? config.sitecoreSiteName;
+console.log(config.sitecoreEdgeContextId)
+  let sitecorePagePropsFactory = new SitecorePagePropsFactory('Financial');
   pageProps = await sitecorePagePropsFactory.create(cleanPath, language);
   if (!pageProps.layoutData?.sitecore?.route) {
     return new Response("Not found", { status: 404 });
