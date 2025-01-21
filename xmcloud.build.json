@@ -7,7 +7,7 @@
       "enabled": true,
       "type": "sxa",
       "buildCommand": "build",
-      "runCommand": "dev"
+      "runCommand": "preview"
     }
   },
   "transforms": [

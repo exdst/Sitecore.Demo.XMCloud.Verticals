@@ -11,9 +11,10 @@
   "scripts": {
     "dev": "npm-run-all --serial bootstrap astro:dev",
     "build": "npm-run-all --serial bootstrap astro:build",
+    "preview": "npm-run-all --serial bootstrap astro:build astro:preview",
     "astro:dev": "astro dev --host",
     "astro:build": "astro build",
-    "preview": "astro preview",
+    "astro:preview": "astro preview",
     "astro": "astro",
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts"
   },
