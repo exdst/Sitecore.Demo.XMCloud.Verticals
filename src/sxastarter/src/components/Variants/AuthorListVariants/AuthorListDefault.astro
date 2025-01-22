@@ -1,0 +1,58 @@
+---
+import { 
+  Image,
+  Text,
+  Link,
+  RichText,
+  SitecoreContextMap,
+  useTranslations
+} from '@astro-sitecore-jss/astro-sitecore-jss';
+import { AuthorListComponentProps } from "components/PageContent/AuthorList.astro";
+
+
+const props: AuthorListComponentProps = Astro.props.route;
+const id = Astro.props.id;
+const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
+const sitecoreContext = SitecoreContextMap.get()["scContext"];
+const isPageEditing = sitecoreContext.pageEditing;
+const t = useTranslations();
+---
+<div
+      class={`component author-list ${props.params.styles.trimEnd()}`}
+      id={id ? id : undefined}
+    >
+      <div class="container">
+        <div class="background p-3 p-sm-5">
+          {authors?.map((author, i) => (
+            <>
+              <div
+                class={`row gx-5 row-gap-3 align-items-center ${
+                  i % 2 !== 0 ? 'flex-row-reverse' : ''
+                }`}
+              >
+                <div class="col-lg-4">
+                  <Image field={author.fields.Photo} />
+                </div>
+                <div class="col-lg-8">
+                  <h3 class="fs-3 mb-0">
+                    <Text field={author.fields.Name}></Text>
+                  </h3>
+                  <p class="position fs-5">
+                    <Text field={author.fields.Position} />
+                  </p>
+                  <div class={`bio fs-5 ${isPageEditing ? '' : 'clamped'}`}>
+                    <RichText field={author.fields.Bio}></RichText>
+                  </div>
+                  <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center">
+                    <Link field={{href:author.url}} class="button button-secondary">
+                      {t('Read more') || 'Read more'}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {i === authors.length - 1 ? <></> : <hr />}
+            </>
+          ))}
+        </div>
+      </div>
+</div>
