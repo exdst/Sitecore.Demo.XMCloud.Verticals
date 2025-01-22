@@ -48,7 +48,7 @@ const pageViewData: IPageViewEventInput = {
   <astro-cdp-page-view
     data-send={+dataSend}
     data-page-view-data={JSON.stringify(pageViewData)}
-    data-site-name={config.sitecoreSiteName}
+    data-site-name={Astro.locals.site}
     data-sitecore-edge-context-id={config.sitecoreEdgeContextId}
     data-sitecore-edge-url={config.sitecoreEdgeUrl}
     data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
