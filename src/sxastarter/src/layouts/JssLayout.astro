@@ -18,13 +18,14 @@ const isPageEditing = layoutData.sitecore.context.pageEditing;
 const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
 const theme = layoutData.sitecore.context.theme as string;
 const contextSiteClass = `site-${theme?.toLowerCase()}`;
+const language = layoutData.sitecore.context.language || 'en';
 
 const fields = route?.fields as RouteFields;
 const title = fields.Title?.value.toString() || fields.NavigationTitle?.value.toString() || 'Page';
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang=`${language}`>
 	<head>
 		<Scripts/>
 		<meta charset="utf-8">
