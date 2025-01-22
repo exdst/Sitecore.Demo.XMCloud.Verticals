@@ -53,7 +53,7 @@ const pageViewData: IPageViewEventInput = {
 
 <>
   <astro-cdp-page-view
-    data-send={1}
+    data-send={+dataSend}
     data-page-view-data={JSON.stringify(pageViewData)}
     data-cdp-point-of-sale={config.jssAppName}
     data-cdp-client-key={config.sitecoreEdgeContextId}
