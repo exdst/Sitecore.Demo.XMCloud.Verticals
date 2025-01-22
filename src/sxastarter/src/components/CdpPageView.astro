@@ -1,11 +1,4 @@
 ---
-/**
- * NEXT_PUBLIC_CDP_CLIENT_KEY,
- * NEXT_PUBLIC_CDP_TARGET_URL,
- * NEXT_PUBLIC_CDP_POINT_OF_SALE
- * env variables should be configured for sending cdp page view event
- */
-
 import config from "../temp/config";
 import CdpHelperPkg from "@sitecore-jss/sitecore-jss/personalize";
 import { IPageViewEventInput } from "@sitecore/engage";
@@ -55,13 +48,14 @@ const pageViewData: IPageViewEventInput = {
   <astro-cdp-page-view
     data-send={+dataSend}
     data-page-view-data={JSON.stringify(pageViewData)}
-    data-cdp-point-of-sale={"astro"}
-    data-cdp-client-key={import.meta.env.NEXT_PUBLIC_PERSONALIZE_SCOPE}
-    data-cdp-target-url={"https://api-engage-eu.sitecorecloud.io"}
+    data-site-name={config.sitecoreSiteName}
+    data-sitecore-edge-context-id={config.sitecoreEdgeContextId}
+    data-sitecore-edge-url={config.sitecoreEdgeUrl}
     data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
 
   <script>
-    import { init } from "@sitecore/engage";
+    import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+    import { pageView } from '@sitecore-cloudsdk/events/browser';
 
     class CdpPageView extends HTMLElement {
       async connectedCallback() {
@@ -71,22 +65,24 @@ const pageViewData: IPageViewEventInput = {
         if (!dataSend) return;
 
         const pageViewData = this.dataset.pageViewData;
-        const clientKey = this.dataset.cdpClientKey || "";
-        const targetURL = this.dataset.cdpTargetUrl || "";
-        const pointOfSale = this.dataset.cdpPointOfSale;
+        const sitecoreEdgeContextId = this.dataset.sitecoreEdgeContextId || "";
+        const sitecoreEdgeUrl = this.dataset.sitecoreEdgeUrl || "";
+        const siteName = this.dataset.siteName || "";
 
-        const engage = await init({
-          clientKey,
-          targetURL,
-          pointOfSale,
+        CloudSDK({
+          siteName,
+          sitecoreEdgeUrl,
+          sitecoreEdgeContextId,
           // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-          cookieDomain: window.location.hostname.replace(/^www\./, ""), //'localhost',
+          cookieDomain: window.location.hostname.replace(/^www\./, ''),
           // Cookie may be created in personalize middleware (server), but if not we should create it here
-          forceServerCookieMode: false,
-        });
+          enableBrowserCookie: true,
+        })
+        .addEvents()
+        .initialize();
 
         if (pageViewData !== undefined) {
-          engage.pageView(JSON.parse(pageViewData));
+          pageView(JSON.parse(pageViewData));
         }
       }
     }
