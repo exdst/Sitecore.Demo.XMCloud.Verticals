@@ -53,11 +53,11 @@ const pageViewData: IPageViewEventInput = {
 
 <>
   <astro-cdp-page-view
-    data-send={+dataSend}
+    data-send={1}
     data-page-view-data={JSON.stringify(pageViewData)}
-    data-cdp-point-of-sale={import.meta.env.NEXT_PUBLIC_CDP_POINT_OF_SALE}
-    data-cdp-client-key={import.meta.env.NEXT_PUBLIC_CDP_CLIENT_KEY}
-    data-cdp-target-url={import.meta.env.NEXT_PUBLIC_CDP_TARGET_URL}
+    data-cdp-point-of-sale={config.jssAppName}
+    data-cdp-client-key={config.sitecoreEdgeContextId}
+    data-cdp-target-url={config.sitecoreEdgeUrl}
     data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
 
   <script>
