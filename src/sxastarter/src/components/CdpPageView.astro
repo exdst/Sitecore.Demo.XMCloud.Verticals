@@ -55,9 +55,9 @@ const pageViewData: IPageViewEventInput = {
   <astro-cdp-page-view
     data-send={+dataSend}
     data-page-view-data={JSON.stringify(pageViewData)}
-    data-cdp-point-of-sale={import.meta.env.NEXT_PUBLIC_CDP_POINT_OF_SALE}
-    data-cdp-client-key={import.meta.env.NEXT_PUBLIC_CDP_CLIENT_KEY}
-    data-cdp-target-url={import.meta.env.NEXT_PUBLIC_CDP_TARGET_URL}
+    data-cdp-point-of-sale={"astro"}
+    data-cdp-client-key={import.meta.env.NEXT_PUBLIC_PERSONALIZE_SCOPE}
+    data-cdp-target-url={"https://api-engage-eu.sitecorecloud.io"}
     data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
 
   <script>
