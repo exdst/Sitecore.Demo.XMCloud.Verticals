@@ -73,9 +73,10 @@ export function useParallax(parallaxLayer: Element, options: ParallaxElementOpti
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
+        updateParallaxCallback(); // Run once to set the initial values
+
         if (entry.isIntersecting) {
           window.addEventListener("scroll", updateParallaxCallback);
-          updateParallaxCallback(); // Run once to set the initial position when it comes into view
         } else {
           window.removeEventListener("scroll", updateParallaxCallback);
         }
