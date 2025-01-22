@@ -34,7 +34,7 @@
     "@sitecore/engage": "^1.4.3",
     "@types/react": "^18.2.38",
     "@types/react-dom": "^18.2.16",
-    "astro": "^5.1.8",
+    "astro": "5.1.6",
     "bootstrap": "^5.2.3",
     "change-case": "^4.1.2",
     "debug": "^4.3.4",
