@@ -46,18 +46,15 @@ const isPageEditing = sitecoreContext.pageEditing;
       <div class="row gx-0">
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value1} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value1.value)} />
                 )
-              }
-            </span>
-            <span>
-              <Text field={props.fields?.Symbol1} />
-            </span>
+              }</span><span>{
+                <Text field={props.fields?.Symbol1} />
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption1} />
@@ -65,18 +62,15 @@ const isPageEditing = sitecoreContext.pageEditing;
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value2} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value2.value)} />
                 )
-              }
-            </span>
-            <span>
-              <Text field={props.fields?.Symbol2} />
-            </span>
+              }</span><span>{
+                <Text field={props.fields?.Symbol2} />
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption2} />
@@ -84,18 +78,15 @@ const isPageEditing = sitecoreContext.pageEditing;
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value3} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value3.value)} />
                 )
-              }
-            </span>
-            <span>
+              }</span><span>{
               <Text field={props.fields?.Symbol3} />
-            </span>
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption3} />
