@@ -11,6 +11,10 @@
       padding-right: $size-padding;
     }
 
+    &.info-wrapper {
+      position: relative;
+    }
+
     > .row {
       position: relative;
       border: 1px solid var(--border-color);
@@ -75,6 +79,14 @@
     .dotted-accent {
       position: absolute;
       z-index: 1;
+
+      &-wrapper {
+        position: absolute;
+        bottom: -20px;
+        top: -23px;
+        height: auto;
+        width: 100%;
+      }
 
       &-top {
         top: -3rem;
