@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.1",
-    "@astrojs/node": "^9.0.0-beta.2",
+    "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^3.6.2",
     "@astrojs/vercel": "^8.0.2",
     "@babel/plugin-proposal-decorators": "^7.25.9",
