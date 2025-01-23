@@ -6,27 +6,25 @@
 
 <script>
   let isSystemDark = false;
-
+  const themeSwitcher = document.getElementById("theme-switcher");
   const mq = window.matchMedia("(prefers-color-scheme: dark)");
 
   if (mq.matches) {
-    isSystemDark = true;
-    document.body.classList.toggle("dark", isSystemDark);
+    changeTheme(true);
   }
 
   mq.addEventListener("change", (evt) => {
-    isSystemDark = evt.matches;
-    document.body.classList.toggle("dark", isSystemDark);
+    changeTheme(evt.matches);
   });
 
+  function changeTheme(dark: boolean) {
+    isSystemDark = dark;
+    themeSwitcher.checked = dark;
+    document.body.classList.toggle("dark", dark);
+  }
   function setIsSystemDark(event: any) {
-    isSystemDark = !isSystemDark;
-
-    const themeSwitcher = document.getElementById("theme-switcher");
-    themeSwitcher.checked = isSystemDark;
-    document.body.classList.toggle("dark", isSystemDark);
+    changeTheme(!isSystemDark);
   }
 
-  const themeSwitcher = document.getElementById("theme-switcher");
   themeSwitcher?.addEventListener("change", setIsSystemDark);
 </script>
