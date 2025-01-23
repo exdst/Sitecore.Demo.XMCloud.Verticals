@@ -1,6 +1,6 @@
 <label class="theme-switcher">
   <label for="theme-switcher" class="d-none"> Switch theme </label>
-  <input name="theme-switcher" id="theme-switcher" type="checkbox" checked/>
+  <input name="theme-switcher" id="theme-switcher" type="checkbox"/>
   <span class="theme-switcher-slider"></span>
 </label>
 
@@ -11,7 +11,7 @@
 
   if (mq.matches) {
     isSystemDark = true;
-    document.body.classList.add("dark");
+    document.body.classList.toggle("dark", isSystemDark);
   }
 
   mq.addEventListener("change", (evt) => {
@@ -22,9 +22,8 @@
   function setIsSystemDark(event: any) {
     isSystemDark = !isSystemDark;
 
-    const themeSwitcher = event.currentTarget as HTMLInputElement;
+    const themeSwitcher = document.getElementById("theme-switcher");
     themeSwitcher.checked = isSystemDark;
-
     document.body.classList.toggle("dark", isSystemDark);
   }
 
