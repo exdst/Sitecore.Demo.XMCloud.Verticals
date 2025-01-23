@@ -19,7 +19,7 @@
     "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts"
   },
   "dependencies": {
-    "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.1",
+    "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.2",
     "@astrojs/node": "^9.0.0-beta.2",
     "@astrojs/react": "^3.6.2",
     "@astrojs/vercel": "^8.0.2",
