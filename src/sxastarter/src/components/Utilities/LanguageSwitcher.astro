@@ -7,17 +7,19 @@ const availableLanguages = [
   { code: "ja-JP", label: "日本語" },
 ];
 
+const pathName = Astro.url.pathname.toLowerCase();
+
 const pageWithoutLangCode = (url: string) => {
   for (let i = 0; i < availableLanguages.length; i++) {
-    if(Astro.url.pathname.startsWith('/' + availableLanguages[i].code)){
-      return Astro.url.pathname.substring(availableLanguages[i].code.length + 1);
+    if(pathName.startsWith('/' + availableLanguages[i].code.toLowerCase())){
+      return pathName.substring(availableLanguages[i].code.length + 1);
     }
   }
   return url;
 }
 
 const getLangPageUrl = (lang: string) => {
-  const pathWithoutLanguage = pageWithoutLangCode(Astro.url.pathname);
+  const pathWithoutLanguage = pageWithoutLangCode(pathName);
   if(pathWithoutLanguage){
     return "/" + lang + pathWithoutLanguage;
   }
