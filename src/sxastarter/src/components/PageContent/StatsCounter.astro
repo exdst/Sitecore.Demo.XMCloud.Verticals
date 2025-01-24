@@ -40,24 +40,21 @@ const isPageEditing = sitecoreContext.pageEditing;
   id={id ? id : undefined}
 >
   <div class="container container-wide-fluid">
-    <Image field={props.fields?.Image1} class="image-left" />
-    <div class="container">
+    <Image field={props.fields?.Image1} class="image-left" height={284} />
+    <div class="container info-wrapper">
       <DottedAccent class="dotted-accent-top" />
       <div class="row gx-0">
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value1} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value1.value)} />
                 )
-              }
-            </span>
-            <span>
-              <Text field={props.fields?.Symbol1} />
-            </span>
+              }</span><span>{
+                <Text field={props.fields?.Symbol1} />
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption1} />
@@ -65,18 +62,15 @@ const isPageEditing = sitecoreContext.pageEditing;
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value2} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value2.value)} />
                 )
-              }
-            </span>
-            <span>
-              <Text field={props.fields?.Symbol2} />
-            </span>
+              }</span><span>{
+                <Text field={props.fields?.Symbol2} />
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption2} />
@@ -84,18 +78,15 @@ const isPageEditing = sitecoreContext.pageEditing;
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>
-              {
+            <span>{
                 isPageEditing ? (
                   <Text field={props.fields?.Value3} />
                 ) : (
                   <CountUp value={parseInt(props.fields?.Value3.value)} />
                 )
-              }
-            </span>
-            <span>
+              }</span><span>{
               <Text field={props.fields?.Symbol3} />
-            </span>
+              }</span>
           </p>
           <p class="fs-5 mb-0">
             <Text field={props.fields?.Caption3} />
@@ -104,6 +95,6 @@ const isPageEditing = sitecoreContext.pageEditing;
       </div>
       <DottedAccent class="dotted-accent-bottom" />
     </div>
-    <Image field={props.fields?.Image2} class="image-right" />
+    <Image field={props.fields?.Image2} class="image-right" height={284}/>
   </div>
 </div>
