@@ -15,7 +15,7 @@ SharedFields:
   Value: Services
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
-  Value: services.sxastarter.localhost
+  Value: "demo20250124-fi6a8ag4rkm2bkkr6tmw-services.vercel.app"
 - ID: "cb4e9e2e-2b66-43dc-ad3f-9caf363d28d3"
   Hint: SiteName
   Value: Services
@@ -35,7 +35,7 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3dc556c3-5e4b-49d9-a84b-d077a451e478"
+      Value: "645c42b7-e0d5-40e7-970f-deaa2487af39"
     - ID: "96cffc48-0bd5-4f70-9b36-d49c844d51ef"
       Hint: Theme
       Value: Services
