@@ -3,7 +3,6 @@ import jssI18n from '@sitecore-jss/sitecore-jss/i18n';
 import type { DictionaryService } from '@sitecore-jss/sitecore-jss/i18n';
 import jss from '@sitecore-jss/sitecore-jss';
 import config from '../temp/config';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-react';
 import { createGraphQLClientFactory } from './graphql/graphql-create-client-factory';
 
 const { RestDictionaryService, GraphQLDictionaryService} = jssI18n;
