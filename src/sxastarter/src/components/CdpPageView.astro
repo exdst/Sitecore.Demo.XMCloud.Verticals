@@ -1,74 +1,32 @@
 ---
-import config from "../temp/config";
-import CdpHelperPkg from "@sitecore-jss/sitecore-jss/personalize";
-import { IPageViewEventInput } from "@sitecore/engage";
-import Layout from "@sitecore-jss/sitecore-jss/layout";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
-const { CdpHelper } = CdpHelperPkg;
-let dataSend = false;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const { LayoutServicePageState } = Layout;
-const pageState = sitecoreContext.pageState;
-const itemId = sitecoreContext.route.itemId;
-const page = sitecoreContext.route?.name;
-/**
- * Determines if the page view events should be turned off.
- * IMPORTANT: You should implement based on your cookie consent management solution of choice.
- * By default it is disabled in development mode
- * Do not create events in editing or preview mode or if missing route data
- **/
-dataSend =
-  import.meta.env.MODE !== "development" &&
-  pageState === LayoutServicePageState.Normal &&
-  !!itemId;
-const language = sitecoreContext.language || config.defaultLanguage;
-const variantId = sitecoreContext.variantId || "default";
-const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
-const pageVariantId = CdpHelper.getPageVariantId(
-  itemId,
-  language,
-  variantId as string,
-  scope,
-);
-const pageViewData: IPageViewEventInput = {
-  channel: "WEB",
-  currency: "USD",
-  page,
-  pageVariantId,
-  language,
-};
+import { PageViewData } from "@sitecore-cloudsdk/events/dist/esm/src/lib/events";
+import { CdpService } from "@/lib/cdp-service";
+
+const cdpService = new CdpService();
+let dataSend = cdpService.isNormalMode();
+const pageViewData: PageViewData = cdpService.getPageViewData("WEB", "USD");
 ---
 <>
   <astro-cdp-page-view
     data-send={+dataSend}
     data-page-view-data={JSON.stringify(pageViewData)}
-    data-site-name={Astro.locals.site}
-    data-sitecore-edge-context-id={config.sitecoreEdgeContextId}
-    data-sitecore-edge-url={config.sitecoreEdgeUrl}
-    data-cdp-cookie-domain={config.publicUrl}></astro-cdp-page-view>
+  ></astro-cdp-page-view>
+
   <script>
-    import { CloudSDK } from '@sitecore-cloudsdk/core/browser';
+    import { getEnabledPackageBrowser } from '@sitecore-cloudsdk/core/internal';
     import { pageView } from '@sitecore-cloudsdk/events/browser';
+
     class CdpPageView extends HTMLElement {
       async connectedCallback() {
-        const dataSend =
+        const isInitialized = getEnabledPackageBrowser("@sitecore-cloudsdk/events")?.initState;
+
+        const dataSend = isInitialized &&
           this.dataset.send !== undefined ? +this.dataset.send : 0;
+          
         if (!dataSend) return;
+
         const pageViewData = this.dataset.pageViewData;
-        const sitecoreEdgeContextId = this.dataset.sitecoreEdgeContextId || "";
-        const sitecoreEdgeUrl = this.dataset.sitecoreEdgeUrl || "";
-        const siteName = this.dataset.siteName || "";
-        CloudSDK({
-          siteName,
-          sitecoreEdgeUrl,
-          sitecoreEdgeContextId,
-          // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-          cookieDomain: window.location.hostname.replace(/^www\./, ''),
-          // Cookie may be created in personalize middleware (server), but if not we should create it here
-          enableBrowserCookie: true,
-        })
-        .addEvents()
-        .initialize();
+
         if (pageViewData !== undefined) {
           pageView(JSON.parse(pageViewData));
         }
