@@ -547,19 +547,3 @@ const className: string = Astro.props.class;
     </svg>
   </div>
 </div>
-
-<script>
-  import { ParallaxElementOptions, useParallax } from "lib/useParallax";
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const dottedAccents = document.querySelectorAll(".dotted-accent-wrapper");
-
-    const options: ParallaxElementOptions = {
-        translateY: { from: 80, to: -80, units: "px" },
-    }
-    
-    dottedAccents.forEach((dottedAccent) => {
-      useParallax(dottedAccent, options);
-    });
-  });
-</script>

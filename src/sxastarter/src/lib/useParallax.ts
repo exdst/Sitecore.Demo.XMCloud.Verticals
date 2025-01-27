@@ -4,7 +4,7 @@ export type ParallaxElementOptions = {
   opacity?: { from: number, to: number };
 }
 
-export function useParallax(parallaxLayer: Element, options: ParallaxElementOptions, targetQuery?: string) {
+export function useParallax(parallaxLayer: HTMLElement, options: ParallaxElementOptions, targetQuery?: string) {
   if (!parallaxLayer || !options) return;
 
   const parallaxContent = parallaxLayer.querySelector(
@@ -47,7 +47,7 @@ export function useParallax(parallaxLayer: Element, options: ParallaxElementOpti
         }, contentVisibleProgress);
     }
 
-    parallaxContent.style.transform = transformStyle;
+    parallaxLayer.style.transform = transformStyle;
 
     if (options.opacity) {
       parallaxContent.style.opacity = getOpacityTransformation(
