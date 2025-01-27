@@ -20,6 +20,9 @@ const sendData = cdpService.isNormalMode();
 </astro-bootstrap>
 
 <script>
+  //******************************************************//
+  //***************Cloud SDK initialization***************//
+  //******************************************************//
   import { CloudSDK } from "@sitecore-cloudsdk/core/browser";
   import "@sitecore-cloudsdk/events/browser";
 
@@ -49,4 +52,21 @@ const sendData = cdpService.isNormalMode();
   }
 
   customElements.define("astro-bootstrap", Bootstrap);
+
+  //******************************************************//
+  //****************Paralax initialization****************//
+  //******************************************************//
+  import { ParallaxElementOptions, useParallax } from "lib/useParallax";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const dottedAccents = document.querySelectorAll(".dotted-accent-wrapper");
+
+    const options: ParallaxElementOptions = {
+        translateY: { from: 80, to: -80, units: "px" },
+    }
+
+    dottedAccents.forEach((dottedAccent) => {
+      useParallax(dottedAccent, options);
+    });
+  });
 </script>
