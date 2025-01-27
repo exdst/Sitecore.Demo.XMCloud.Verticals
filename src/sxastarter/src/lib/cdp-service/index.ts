@@ -18,12 +18,7 @@ export class CdpService implements ICdpService {
     const sitecoreContext = SitecoreContextMap.get()["scContext"];
     const pageState = sitecoreContext.pageState;
     const itemId = sitecoreContext.route.itemId;
-    /**
-      * Determines if the page view events should be turned off.
-      * IMPORTANT: You should implement based on your cookie consent management solution of choice.
-      * By default it is disabled in development mode
-      * Do not create events in editing or preview mode or if missing route data
-      **/
+
     return import.meta.env.MODE !== "development" &&
       pageState === LayoutServicePageState.Normal &&
       !!itemId;
