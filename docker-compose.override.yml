@@ -50,10 +50,10 @@ services:
       - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
       - "traefik.http.routers.rendering-secure.tls=true"
       - "traefik.http.routers.rendering-secure-financial.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure-financial.rule=Host(`financial.sxastarter.localhost`)"
+      - "traefik.http.routers.rendering-secure-financial.rule=Host(`${HOSTNAME2}`)"
       - "traefik.http.routers.rendering-secure-financial.tls=true"
       - "traefik.http.routers.rendering-secure-services.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure-services.rule=Host(`services.sxastarter.localhost`)"
+      - "traefik.http.routers.rendering-secure-services.rule=Host(`${HOSTNAME3}`)"
       - "traefik.http.routers.rendering-secure-services.tls=true"
 
   # Mount the Traefik configuration and certs.

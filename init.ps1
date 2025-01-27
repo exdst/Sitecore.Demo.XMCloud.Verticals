@@ -99,14 +99,15 @@ finally {
 # Add Windows hosts file entries
 ################################
 
-Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
+$envContent = Get-Content .env -Encoding UTF8
+$hostnames = $envContent | Select-String -Pattern 'HOSTNAME\d+=(.+)'
+$hostnamesList = $hostnames.Matches.Groups | Where-Object {$_ -notmatch 'HOSTNAME'}
 
-Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry "www.sxastarter.localhost"
-Add-HostsEntry "services.sxastarter.localhost"
-Add-HostsEntry "financial.sxastarter.localhost"
-Add-HostsEntry "services.localhost"
-Add-HostsEntry "financial.localhost"
+Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
+$hostnamesList | ForEach-Object {
+    Add-HostsEntry $_
+    Write-Host "Host $_ added"
+}
 
 ###############################
 # Generate scjssconfig
