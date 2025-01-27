@@ -100,8 +100,8 @@ finally {
 ################################
 
 $envContent = Get-Content .env -Encoding UTF8
-$hostnames = $envContent | Select-String -Pattern 'HOSTNAME\d+=(.+)'
-$hostnamesList = $hostnames.Matches.Groups | Where-Object {$_ -notmatch 'HOSTNAME'}
+$hostnames = $envContent | Select-String -Pattern '(RENDERING_HOST_?\d?|CM_HOST|RENDERING_HOST)=(.+)'
+$hostnamesList = $hostnames.Matches.Groups | Where-Object { $_ -notmatch 'CM_HOST|RENDERING_HOST'}
 
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 $hostnamesList | ForEach-Object {
