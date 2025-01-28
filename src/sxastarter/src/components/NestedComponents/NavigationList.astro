@@ -82,6 +82,8 @@ const linkField = getLinkField(props);
 </li>
 
 <script>
+  import { handleToggleMenu } from 'components/scripts/menu';
+
   function setActive(event: any) {
     const currentTarget = event.currentTarget as Element;
 
@@ -93,30 +95,6 @@ const linkField = getLinkField(props);
   navigationLinks.forEach((el) => {
     el.addEventListener("click", setActive);
   });
-
-  let isOpenMenu = false;
-
-  function openMenu(event: any) {
-    isOpenMenu = !isOpenMenu;
-
-    const menuMobileNavigate = event.currentTarget as HTMLInputElement;
-    menuMobileNavigate.checked = isOpenMenu;
-  }
-
-  function handleToggleMenu(event: any, flag?: boolean): void {
-    if (event) {
-      const currentTarget = event.currentTarget as HTMLInputElement;
-      if (currentTarget.dataset.isPageEditing) {
-        event.preventDefault();
-      }
-    }
-
-    if (flag !== undefined) {
-      return openMenu(flag);
-    }
-
-    openMenu(!isOpenMenu);
-  }
 
   const menuLinks = document.querySelectorAll("menu-link");
   menuLinks?.forEach((el) =>

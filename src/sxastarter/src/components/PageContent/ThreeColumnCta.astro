@@ -41,21 +41,8 @@ const variantName = Astro.props.route.params.FieldNames ?? 'Default';
 </>
 
 <script>
-  import useVisibility from "lib/useVisibility";
+  import setVisibility from "components/scripts/SetVisibility";
 
   const refs: NodeListOf<Element> = document.querySelectorAll(".three-column-cta .column");
-  const setVisible = (x: boolean, dom: Element) => {
-    if (x) {
-      dom?.classList.add("is-visible");
-    } else {
-      dom?.classList.remove("is-visible");
-    }
-    return x;
-  };
-
-  refs.forEach((ref) => {
-    const el = ref as HTMLElement;
-    const delay: number = parseInt(el.dataset.delay ?? "0");
-    useVisibility(ref as Element, setVisible, delay);
-  });
+  setVisibility(refs);
 </script>
