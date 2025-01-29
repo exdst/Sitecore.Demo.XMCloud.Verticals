@@ -83,6 +83,8 @@ try {
     & $mkcert -install
     & $mkcert "*.sxastarter.localhost"
     & $mkcert "xmcloudcm.localhost"
+    & $mkcert "services.localhost"
+    & $mkcert "financial.localhost"
 
     # stash CAROOT path for messaging at the end of the script
     $caRoot = "$(& $mkcert -CAROOT)\rootCA.pem"
