@@ -56,6 +56,9 @@ urls.forEach((url) => {
       console.log("Lighthouse failed, skipping run...");
       continue;
     }
+
+    fs.writeFileSync(`./data/nextjs/${website}${path.replaceAll("/","-")}-${i}.json`, stdout);
+
     nextJsResults.push(JSON.parse(stdout));
   }
 
@@ -77,6 +80,9 @@ urls.forEach((url) => {
       console.log("Lighthouse failed, skipping run...");
       continue;
     }
+
+    fs.writeFileSync(`./data/astro/${website}-${path.replaceAll("/","-")}-${i}.json`, stdout);
+
     astroResults.push(JSON.parse(stdout));
   }
 
