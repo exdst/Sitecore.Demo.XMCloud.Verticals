@@ -29,5 +29,8 @@ export default defineConfig({
   },
   devToolbar: {
     enabled: false
-  }
+  },
+  image: {
+    domains: ['financial.sxastarter.localhost', 'services.sxastarter.localhost'],
+  },
 });
