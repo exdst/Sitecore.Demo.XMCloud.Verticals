@@ -154,19 +154,7 @@
           "givenName": "Anton",
           "familyName": "Tishchenko"
         },
-        "bundles": [
-          {
-            "id": "responsive",
-            "libraryId": "generated",
-            "componentId": "qknpDWdzh6",
-            "name": "Default bundle",
-            "description": "",
-            "breakpoints": {},
-            "orderIdx": "",
-            "createdAt": "2025-01-16T14:41:42.276Z",
-            "modifiedAt": "2025-01-16T14:41:42.276Z"
-          }
-        ]
+        "bundles": []
       }
     ]
   }
