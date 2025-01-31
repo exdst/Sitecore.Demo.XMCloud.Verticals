@@ -17,13 +17,13 @@ export class DictionaryServiceFactory {
       return new RestDictionaryService({
         apiHost: config.sitecoreApiHost,
         apiKey: config.sitecoreApiKey,
-        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
+        siteName: sitename || config.sitecoreSiteName,
       });
     } else {
       const clientFactory = createGraphQLClientFactory();
       
       return new GraphQLDictionaryService({
-        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
+        siteName: sitename || config.sitecoreSiteName,
         cacheEnabled: false,
         clientFactory
       });
