@@ -12,12 +12,12 @@ export class LayoutServiceFactory {
       ? new RestLayoutService({
         apiHost: config.sitecoreApiHost,
         apiKey: config.sitecoreApiKey,
-        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
+        siteName: sitename || config.sitecoreSiteName,
         configurationName: 'sxa-jss',
       })
       : new GraphQLLayoutService({
         clientFactory,
-        siteName: sitename || config.jssAppName || config.sitecoreSiteName,
+        siteName: sitename || config.sitecoreSiteName,
       });
   }
 }
