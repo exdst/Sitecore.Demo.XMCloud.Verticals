@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   Link,
   Field,
@@ -34,7 +34,7 @@ const isPageEditing = sitecoreContext.pageEditing;
   data-delay=`${props.delay}`
 >
   <div class="content-wrapper">
-    <Image field={props.image} height={" "} />
+    <AstroImage field={props.image} />
     <h2>
       <Text field={props.text} />
     </h2>

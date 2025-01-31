@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   RichText,
   Link,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
@@ -15,7 +15,7 @@ const id = props.params?.RenderingIdentifier;
 >
   <div class="component-content">
     <div class="field-promoicon">
-      <Image field={props.fields.PromoIcon} />
+      <AstroImage field={props.fields.PromoIcon} />
     </div>
     <div class="promo-text">
       <div>
