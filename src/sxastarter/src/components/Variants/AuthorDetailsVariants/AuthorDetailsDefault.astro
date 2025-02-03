@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   RichText,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
@@ -29,7 +29,7 @@ const id = props.params.RenderingIdentifier;
         <div class="">
           <div class="row row-gap-4 gx-5">
             <div class="col-12 col-lg-5">
-              <Image field={props.fields.Photo} class="author-img" />
+              <AstroImage field={props.fields.Photo} class="author-img" />
             </div>
             <div class="col-12 col-lg-7">
               <h1 class="author-name display-5 fw-bold">

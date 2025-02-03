@@ -3,7 +3,7 @@ import {
   Field,
   ImageField,
   LinkField,
-  Image,
+  AstroImage,
   Text,
   Link,
   SitecoreContextMap,
@@ -37,7 +37,7 @@ const buttonStyle = props.route.params?.ButtonStyle
   data-delay=`${props.delay}`
 >
   <div class="content-wrapper">
-    <Image field={props.image} height={" "} />
+    <AstroImage field={props.image} />
     {
       (isPageEditing || props.title?.value) && (
         <h2>

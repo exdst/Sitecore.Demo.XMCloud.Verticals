@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { ArticleListItemProps, ArticleListComponentProps } from "components/PageContent/ArticleList.astro";
@@ -29,7 +29,7 @@ const newsItems = getNewsItems(
       {newsItems?.map((item) => (
         <div class="col-lg-4">
           <a href={item.url} class="wrapper-link">
-            <Image field={item.fields.Thumbnail} />
+            <AstroImage field={item.fields.Thumbnail} />
             <h3 class="fs-4 mt-3">
               <Text field={item.fields.Title}></Text>
             </h3>

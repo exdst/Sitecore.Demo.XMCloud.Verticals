@@ -1,7 +1,7 @@
 ---
 import {
   Text,
-  Image,
+  AstroImage,
   RichText,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Placeholder from "components/system/Placeholder.astro";
@@ -30,7 +30,7 @@ const id = props.params.RenderingIdentifier;
         <div class="article-content">
           <div class="row row-gap-4 gx-5">
             <div class="col-12 col-lg-6">
-              <Image
+              <AstroImage
                 field={props.fields.Thumbnail}
                 class="article-img img-fluid"
               />

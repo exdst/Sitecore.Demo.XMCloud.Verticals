@@ -3,7 +3,7 @@ import {
   Field,
   ImageField,
   LinkField,
-  Image,
+  AstroImage,
   Text,
   Link,
   SitecoreContextMap,
@@ -47,7 +47,7 @@ const isPageEditing = sitecoreContext.pageEditing;
 </script>
 <div class={`col  ${!isPageEditing ? "fade-section is-visible" : ""}`} data-delay={props.delay}>
   <div class="item">
-    <Image field={props.image} height={38} width={30}/>
+    <AstroImage field={props.image} height={30} width={30}/>
     <div class="text-container">
       <Link field={props.link} />
       <span class="subtitle">
