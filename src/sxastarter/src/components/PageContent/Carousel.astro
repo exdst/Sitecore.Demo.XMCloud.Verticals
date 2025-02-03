@@ -51,7 +51,7 @@ const isPageEditing = sitecoreContext.pageEditing;
     {
       props.fields.items.map((item, i) => {
         return (
-          <div class="carousel-item">
+          <div class={'carousel-item ' + (i == 0 ? 'active' : '')}>
             {!isPageEditing && item.fields?.Video?.value?.src ? (
               <video
                 class="object-fit-cover d-block w-100 h-100"
