@@ -4,9 +4,9 @@ const lighthouseCli = require.resolve("lighthouse/cli");
 const nextJsFinancialHost = "https://xmc-us4oyb-financial.sitecoredemo.com";
 const nextJsServicesHost = "https://xmc-us4oyb-services.sitecoredemo.com";
 const astroFinancialHost =
-  "https://main-dfmhtpb5mu6rhugmetmedg-financial.vercel.app";
+  "https://astro-bzpxcs2kizsvwts7rjwa-financial.vercel.app/";
 const astroServicesHost =
-  "https://main-dfmhtpb5mu6rhugmetmedg-services.vercel.app";
+  "https://astro-bzpxcs2kizsvwts7rjwa-services.vercel.app/";
 const amountOfRequestInTest = 5;
 
 const financialPaths = JSON.parse(fs.readFileSync(`./data/financial.json`));
@@ -62,10 +62,19 @@ urls.forEach((url) => {
     nextJsResults.push(JSON.parse(stdout));
   }
 
-  const nextJsAverage =
+  const nextJsAverageScore =
     nextJsResults.reduce((acc, result) => {
       return acc + result.categories.performance.score;
     }, 0) / nextJsResults.length;
+  const nextJsAverageFCP =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["first-contentful-paint"].numericValue;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageLCP =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["largest-contentful-paint"].numericValue;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageSpeedIndex =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["speed-index"].numericValue;
+  }, 0) / nextJsResults.length;
 
   const astroResults = [];
 
@@ -86,20 +95,37 @@ urls.forEach((url) => {
     astroResults.push(JSON.parse(stdout));
   }
 
-  const astroAverage =
+  const astroAverageScore =
     astroResults.reduce((acc, result) => {
       return acc + result.categories.performance.score;
     }, 0) / astroResults.length;
 
+  const astroAverageFCP =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["first-contentful-paint"].numericValue;
+  }, 0) / astroResults.length;
+  const astroAverageLCP =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["largest-contentful-paint"].numericValue;
+  }, 0) / astroResults.length;
+  const astroAverageSpeedIndex =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["speed-index"].numericValue;
+  }, 0) / astroResults.length;
+
+
   console.log(`\n\n${website} ${path}`);
-  console.log(`NextJs average performance score: ${nextJsAverage}`);
-  console.log(`Astro average performance score: ${astroAverage}`);
+  console.log(`NextJs average performance score: ${nextJsAverageScore}`);
+  console.log(`Astro average performance score: ${astroAverageScore}`);
 
   results.push({
     website,
     path,
-    nextJsAverage,
-    astroAverage,
+    nextJsAverageScore: nextJsAverageScore,
+    astroAverageScore: astroAverageScore,
+    nextJsAverageFCP: nextJsAverageFCP,
+    astroAverageFCP: astroAverageFCP,
+    nextJsAverageLCP: nextJsAverageLCP,
+    astroAverageLCP: astroAverageLCP,
+    nextJsAverageSpeedIndex: nextJsAverageSpeedIndex,
+    astroAverageSpeedIndex: astroAverageSpeedIndex,
   });
 });
 
