@@ -14,5 +14,5 @@ module.exports = async (
       i.removeAttribute("loading");
     });
   }, scenario);
-  await sleep(3000);
+  await new Promise(r => setTimeout(r, 1000));
 };
