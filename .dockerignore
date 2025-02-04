@@ -16,6 +16,7 @@ packages
 **/.vscode/
 **/coverage/
 **/tests/
+**/performance-tests/
 
 # files
 *Dockerfile

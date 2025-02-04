@@ -4,9 +4,9 @@ const lighthouseCli = require.resolve("lighthouse/cli");
 const nextJsFinancialHost = "https://xmc-us4oyb-financial.sitecoredemo.com";
 const nextJsServicesHost = "https://xmc-us4oyb-services.sitecoredemo.com";
 const astroFinancialHost =
-  "https://astro-bzpxcs2kizsvwts7rjwa-financial.vercel.app/";
+  "https://astro-zlyve5kyxe6tudsaeujbuw-financial.vercel.app";
 const astroServicesHost =
-  "https://astro-bzpxcs2kizsvwts7rjwa-services.vercel.app/";
+  "https://astro-zlyve5kyxe6tudsaeujbuw-services.vercel.app";
 const amountOfRequestInTest = 5;
 
 const financialPaths = JSON.parse(fs.readFileSync(`./data/financial.json`));
@@ -76,6 +76,29 @@ urls.forEach((url) => {
     return acc + result.audits["speed-index"].numericValue;
   }, 0) / nextJsResults.length;
 
+  const nextJsAverageFCPScore =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["first-contentful-paint"].score;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageLCPScore =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["largest-contentful-paint"].score;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageSpeedIndexScore =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["speed-index"].score;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageTBT =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["total-blocking-time"].numericValue;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageTBTScore =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["total-blocking-time"].score;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageCLS =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["cumulative-layout-shift"].numericValue;
+  }, 0) / nextJsResults.length;
+  const nextJsAverageCLSScore =  nextJsResults.reduce((acc, result) => {
+    return acc + result.audits["cumulative-layout-shift"].score;
+  }, 0) / nextJsResults.length;
+
+
   const astroResults = [];
 
   for (let i = 0; i < amountOfRequestInTest; i++) {
@@ -110,6 +133,33 @@ urls.forEach((url) => {
     return acc + result.audits["speed-index"].numericValue;
   }, 0) / astroResults.length;
 
+  const astroAverageFCPScore =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["first-contentful-paint"].score;
+  }, 0) / astroResults.length;
+
+  const astroAverageLCPScore =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["largest-contentful-paint"].score;
+  }, 0) / astroResults.length;
+
+  const astroAverageSpeedIndexScore =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["speed-index"].score;
+  }, 0) / astroResults.length;
+
+  const astroAverageTBT =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["total-blocking-time"].numericValue;
+  }, 0) / astroResults.length;
+
+  const astroAverageTBTScore =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["total-blocking-time"].score;
+  }, 0) / astroResults.length;
+
+  const astroAverageCLS =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["cumulative-layout-shift"].numericValue;
+  }, 0) / astroResults.length;
+
+  const astroAverageCLSScore =  astroResults.reduce((acc, result) => {
+    return acc + result.audits["cumulative-layout-shift"].score;
+  }, 0) / astroResults.length;
 
   console.log(`\n\n${website} ${path}`);
   console.log(`NextJs average performance score: ${nextJsAverageScore}`);
@@ -126,6 +176,20 @@ urls.forEach((url) => {
     astroAverageLCP: astroAverageLCP,
     nextJsAverageSpeedIndex: nextJsAverageSpeedIndex,
     astroAverageSpeedIndex: astroAverageSpeedIndex,
+    nextJsAverageFCPScore: nextJsAverageFCPScore,
+    astroAverageFCPScore: astroAverageFCPScore,
+    nextJsAverageLCPScore: nextJsAverageLCPScore,
+    astroAverageLCPScore: astroAverageLCPScore,
+    nextJsAverageSpeedIndexScore: nextJsAverageSpeedIndexScore,
+    astroAverageSpeedIndexScore: astroAverageSpeedIndexScore,
+    nextJsAverageTBT: nextJsAverageTBT,
+    astroAverageTBT: astroAverageTBT,
+    nextJsAverageTBTScore: nextJsAverageTBTScore,
+    astroAverageTBTScore: astroAverageTBTScore,
+    nextJsAverageCLS: nextJsAverageCLS,
+    astroAverageCLS: astroAverageCLS,
+    nextJsAverageCLSScore: nextJsAverageCLSScore,
+    astroAverageCLSScore: astroAverageCLSScore,
   });
 });
 
