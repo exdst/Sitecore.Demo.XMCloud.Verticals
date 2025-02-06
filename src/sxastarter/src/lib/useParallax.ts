@@ -16,8 +16,8 @@ export function useParallax(parallaxLayer: HTMLElement, options: ParallaxElement
     const scrollPosition = window.scrollY;
 
     const contentTop =
-      parallaxLayer!.getBoundingClientRect().top + scrollPosition;
-    const contentHeight = parallaxLayer!.clientHeight;
+    parallaxContent!.getBoundingClientRect().top + scrollPosition;
+    const contentHeight = parallaxContent!.clientHeight;
 
     // Calculate how much the content has moved into view (from the top of the document to the scroll position)
     const contentVisibleProgress = Math.min(
@@ -47,7 +47,7 @@ export function useParallax(parallaxLayer: HTMLElement, options: ParallaxElement
         }, contentVisibleProgress);
     }
 
-    parallaxLayer.style.transform = transformStyle;
+    parallaxContent.style.transform = transformStyle;
 
     if (options.opacity) {
       parallaxContent.style.opacity = getOpacityTransformation(
