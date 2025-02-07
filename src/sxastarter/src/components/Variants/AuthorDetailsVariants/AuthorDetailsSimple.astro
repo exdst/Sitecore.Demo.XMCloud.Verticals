@@ -1,5 +1,5 @@
 ---
-import { Image, Text, RichText } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AstroImage, Text, RichText } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { AuthorDetailsProps } from "components/PageContent/AuthorDetails.astro";
 
 const props: AuthorDetailsProps = Astro.props.route;
@@ -24,7 +24,7 @@ const id = props.params.RenderingIdentifier;
         </div>
       </div>
       <div class="img-col col-lg-4">
-        <Image field={props.fields.Photo} class="author-img img-fluid" />
+        <AstroImage field={props.fields.Photo} class="author-img img-fluid" />
       </div>
     </div>
   </div>

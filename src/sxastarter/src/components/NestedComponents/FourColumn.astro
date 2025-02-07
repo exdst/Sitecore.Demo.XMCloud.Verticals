@@ -3,7 +3,7 @@ import {
   Field,
   ImageField,
   LinkField,
-  Image,
+  AstroImage,
   Text,
   Link,
   SitecoreContextMap,
@@ -29,7 +29,7 @@ const isPageEditing = sitecoreContext.pageEditing;
 >
   <Link field={props.link}>
     <div class="content-wrapper">
-      <Image field={props.image} height={" "} />
+      <AstroImage field={props.image} />
       <div class="text-wrapper">
         <h2>
           <Text field={props.title} />

@@ -1,5 +1,5 @@
 ---
-import { Text, Image } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Text, AstroImage } from "@astro-sitecore-jss/astro-sitecore-jss";
 import StarRating from "./StarRating.astro";
 import { TestimonialItemProps } from "components/PageContent/Testimonials.astro";
 
@@ -13,7 +13,7 @@ const item: TestimonialItemProps = Astro.props.item;
   </blockquote>
   <div class="row align-items-center">
     <div class="col-auto">
-      <Image field={item.fields.AuthorImage} class="author-image" />
+      <AstroImage field={item.fields.AuthorImage} class="author-image" />
     </div>
     <div class="col">
       <p class="author-name fs-4 fw-bold mb-1">

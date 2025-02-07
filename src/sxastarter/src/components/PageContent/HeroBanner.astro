@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   RichText,
   Link,
@@ -73,7 +73,7 @@ const isPageEditing = sitecoreContext.pageEditing;
       <div class="img-column">
         <div class="img-wrapper">
           <DottedAccent class="dotted-accent-top" />
-          <Image field={props.fields.Image} class="img-fluid" />
+          <AstroImage field={props.fields.Image} class="img-fluid" />
           <DottedAccent class="dotted-accent-bottom" />
         </div>
       </div>

@@ -3,7 +3,7 @@ import {
   Field,
   ImageField,
   RichTextField,
-  Image,
+  AstroImage,
   Text,
   RichText,
   SitecoreContextMap,
@@ -41,7 +41,7 @@ const isPageEditing = sitecoreContext.pageEditing;
         </div>
       </div>
       <div class="col-md-10 mx-auto col-lg-6 image-wrapper">
-        <Image
+        <AstroImage
           field={props.fields.Image}
           class={`${isPageEditing ? "d-block" : "d-none"} mx-lg-auto img-fluid`}
         />

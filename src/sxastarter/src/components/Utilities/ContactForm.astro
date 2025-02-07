@@ -2,7 +2,7 @@
 import {
   Field,
   ImageField,
-  Image,
+  AstroImage,
   Text,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 
@@ -28,7 +28,7 @@ const id = props.params.RenderingIdentifier;
   id={id ? id : undefined}
 >
   <div class="container container-widest-fluid">
-    <Image field={props.fields.BackgroundImage} class="img-fluid" />
+    <AstroImage field={props.fields.BackgroundImage} class="img-fluid" />
     <div class="container">
       <div class="contact-form-inner">
         <form>

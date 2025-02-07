@@ -1,7 +1,7 @@
 ---
 import {
   Field,
-  Image,
+  AstroImage,
   ImageField,
   RichText,
   Text,
@@ -60,7 +60,7 @@ const accordionItems = props.fields?.items;
         <div class="accordion-group">
           <button class={`button-clear-appearance`}>
             <div class="icon-wrapper">
-              <Image field={item.fields.Icon} />
+              <AstroImage field={item.fields.Icon} />
             </div>
             <h3 class="display-6 fw-bold mb-0">
               <Text field={item.fields.Title} />

@@ -4,7 +4,7 @@ import {
   ImageField,
   RichTextField,
   LinkField,
-  Image,
+  AstroImage,
   Text,
   RichText,
   Link,
@@ -34,7 +34,7 @@ const isPageEditing = sitecoreContext.pageEditing;
   id={id ? id : undefined}
 >
   <picture>
-    <Image field={props.fields.Image} class="" />
+    <AstroImage field={props.fields.Image} class="" />
   </picture>
   <div class="container content-container">
     <div class="top-layout">
