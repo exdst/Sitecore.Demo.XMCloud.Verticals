@@ -7,6 +7,7 @@ const publicUrl = jssConfig.publicUrl;
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  outputFileTracing: false,
   // Set assetPrefix to our public URL
   // assetPrefix: publicUrl,
 
