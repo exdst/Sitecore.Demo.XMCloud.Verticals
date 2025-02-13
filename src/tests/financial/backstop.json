@@ -288,6 +288,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/en/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -315,6 +316,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/en/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     },
     {
@@ -558,6 +560,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -621,6 +624,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     },
     {
@@ -855,6 +859,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -918,6 +923,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     }
   ],
