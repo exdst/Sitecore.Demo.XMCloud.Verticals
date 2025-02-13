@@ -47,7 +47,7 @@ export function useParallax(parallaxLayer: HTMLElement, options: ParallaxElement
         }, contentVisibleProgress);
     }
 
-    parallaxLayer.style.transform = transformStyle;
+    parallaxContent.style.transform = transformStyle;
 
     if (options.opacity) {
       parallaxContent.style.opacity = getOpacityTransformation(
