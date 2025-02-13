@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
+import react from '@astrojs/react';
 
 const adapter = process.env.VERCEL ?
 vercel({
@@ -14,6 +15,7 @@ vercel({
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [react()],
   security: {
     checkOrigin: false,
   },

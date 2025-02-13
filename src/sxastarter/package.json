@@ -21,6 +21,7 @@
   "dependencies": {
     "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.2",
     "@astrojs/node": "^9.0.2",
+    "@astrojs/react": "^4.2.0",
     "@astrojs/vercel": "^8.0.5",
     "@sitecore-cloudsdk/core": "^0.4.4",
     "@sitecore-cloudsdk/events": "^0.4.4",

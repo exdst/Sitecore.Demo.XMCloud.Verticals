@@ -288,6 +288,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/en/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -315,6 +316,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/en/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     },
     {
@@ -558,6 +560,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -588,39 +591,40 @@
       "requireSameDimensions": true
     },
     {
-      "label": "/fr-CA/faqs?sc_site=financial?sc_site=financial",
+      "label": "/fr-CA/faqs?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/faqs?sc_site=financial?sc_site=financial",
+      "url": "http://localhost:3000/fr-CA/faqs?sc_site=financial",
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/faqs",
       "delay": 3000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "/fr-CA/authors?sc_site=financial?sc_site=financial",
+      "label": "/fr-CA/authors?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors?sc_site=financial?sc_site=financial",
+      "url": "http://localhost:3000/fr-CA/authors?sc_site=financial",
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/authors",
       "delay": 3000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "/fr-CA/about-us?sc_site=financial?sc_site=financial",
+      "label": "/fr-CA/about-us?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/about-us?sc_site=financial?sc_site=financial",
+      "url": "http://localhost:3000/fr-CA/about-us?sc_site=financial",
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/about-us",
       "delay": 3000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
     {
-      "label": "/fr-CA/?sc_site=financial?sc_site=financial",
+      "label": "/fr-CA/?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/?sc_site=financial?sc_site=financial",
+      "url": "http://localhost:3000/fr-CA/?sc_site=financial",
       "referenceUrl": "https://financial.sxastarter.localhost/fr-CA/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     },
     {
@@ -855,6 +859,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/customer-support",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".component-spaced .fade-section"],
       "requireSameDimensions": true
     },
     {
@@ -918,6 +923,7 @@
       "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
+      "hideSelectors": [".carousel video"],
       "requireSameDimensions": true
     }
   ],
