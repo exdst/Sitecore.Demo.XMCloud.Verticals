@@ -12,7 +12,6 @@ import { defineMiddleware } from "astro/middleware";
 // We add sc_lang to set Sitecore language
 
 export const multisite = defineMiddleware((context, next) => {
-  console.log('Astro middleware');
 
   const request = context.request;
   const url = new URL(request.url.toLowerCase());
@@ -31,7 +30,7 @@ export const multisite = defineMiddleware((context, next) => {
   }
 
   const sites = [...JSON.parse(config.sites), {
-    "name": "Basic",
+    "name": import.meta.env.SITECORE_SITE_NAME ?? "Basic",
     "language": "en",
     "hostName": "localhost",
   }];
@@ -58,7 +57,6 @@ export const multisite = defineMiddleware((context, next) => {
       url.searchParams.set("sc_site", site.name);
       url.searchParams.set("sc_lang", site.language);
 
-      console.log('REWRITE:', `${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
       return context.rewrite(`${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
     }
   }

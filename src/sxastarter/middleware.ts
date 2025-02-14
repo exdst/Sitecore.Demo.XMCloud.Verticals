@@ -3,7 +3,6 @@ import config from './src/temp/config.vercel.js';
 import { languages } from './src/lib/languages.js';
 
 export default function middleware(request: Request) {
-  console.log('Vercel middleware');
   const url = new URL(request.url.toLowerCase());
 
   if (request.url.indexOf("/-/") !== -1
@@ -47,7 +46,6 @@ export default function middleware(request: Request) {
       url.searchParams.set("sc_site", site.name);
       url.searchParams.set("sc_lang", site.language);
 
-      console.log('REWRITE:', `${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
       return rewrite(`${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
     }
   }
