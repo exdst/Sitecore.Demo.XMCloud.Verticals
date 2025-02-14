@@ -1,6 +1,5 @@
 ---
 import JssLayout from "../layouts/JssLayout.astro";
-import { SitemapService, StaticPath } from "../lib/sitemap-service";
 import { SitecorePagePropsFactory } from "../lib/page-props-factory";
 import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
 import type {
@@ -8,51 +7,9 @@ import type {
   RouteData,
 } from "@sitecore-jss/sitecore-jss/layout";
 import config from "../temp/config";
-import GraphQLRequestClientFactory from "../lib/graphql/graphql-request-client-factory";
-import { languages } from "../lib/languages";
 import Bootstrap from "@/components/Bootstrap.astro";
 
 export const prerender = false;
-/*
-
-
-export async function getStaticPaths() {
-  try {
-    const graphQlRequestSitemapFactory = new GraphQLRequestClientFactory();
-    const sitemapService = new SitemapService(graphQlRequestSitemapFactory);
-    let staticPaths: StaticPath[] = [];
-    if (config.sites) {
-      const sites = JSON.parse(config.sites);
-      for (const site of sites) {
-        const sitePrefix = `${sitePrefixIdentifier}${site.name}`;
-
-        for (const language of languages) {
-          const paths = await sitemapService
-            .getStaticSitemap(language, site.name)
-            .then((value) => {
-              return value.map((x) => {
-                x.params.path = `/${sitePrefix}/${language}/${x.params.path ?? ""}`.toLowerCase();
-                return x;
-              });
-            });
-          staticPaths.push(...paths);
-        }
-      }
-    } else {
-      const paths = await sitemapService.getStaticSitemap(
-        config.defaultLanguage
-      );
-      staticPaths.push(...paths);
-    }
-
-    return staticPaths;
-  } catch (error) {
-    console.error(error);
-  }
-
-  return [];
-}
-*/
 
 export type SitecoreContextValue = LayoutServiceContext & {
   itemId?: string;
@@ -82,7 +39,9 @@ try {
 
   Astro.locals.site = sc_site ?? site ?? config.sitecoreSiteName;
 
-  let sitecorePagePropsFactory = new SitecorePagePropsFactory(Astro.locals.site);
+  let sitecorePagePropsFactory = new SitecorePagePropsFactory(
+    Astro.locals.site
+  );
   pageProps = await sitecorePagePropsFactory.create(cleanPath, language);
   if (!pageProps.layoutData?.sitecore?.route) {
     return new Response("Not found", { status: 404 });
@@ -98,6 +57,7 @@ try {
   console.error(error);
 }
 ---
+
 <Bootstrap pageProps={pageProps} />
 <JssLayout layoutData={pageProps.layoutData} />
 
