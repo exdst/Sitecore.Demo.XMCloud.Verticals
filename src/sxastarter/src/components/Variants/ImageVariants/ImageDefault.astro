@@ -2,7 +2,7 @@
 import {
   Link,
   Text,
-  Image,
+  AstroImage,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { ImageProps } from "components/Image.astro";
@@ -17,10 +17,10 @@ const id = props.params.RenderingIdentifier;
       <div class={`component image ${props.params.styles}`} id={id ? id : undefined}>
         <div class="component-content">
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
-            <Image field={props.fields.Image} />
+            <AstroImage field={props.fields.Image} />
           ) : (
             <Link field={props.fields.TargetUrl}>
-              <Image field={props.fields.Image} />
+              <AstroImage field={props.fields.Image} />
             </Link>
           )}
           <Text

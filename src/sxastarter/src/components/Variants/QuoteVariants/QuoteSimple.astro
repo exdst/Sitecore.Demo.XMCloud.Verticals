@@ -1,6 +1,6 @@
 ---
 import { QuoteProps } from "components/PageContent/Quote.astro";
-import { Image, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AstroImage, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 const id = Astro.props.id;
 const props: QuoteProps = Astro.props.route;
@@ -12,7 +12,7 @@ const props: QuoteProps = Astro.props.route;
 >
 	<div class="row gx-0">
 		<div class="col-auto me-3">
-			<Image field={props.fields.Image} class="author-image" />
+			<AstroImage field={props.fields.Image} class="author-image" />
 		</div>
 		<div class="col">
 			<blockquote class="mb-0">

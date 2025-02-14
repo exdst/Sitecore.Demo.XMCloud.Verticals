@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   Link,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
@@ -16,7 +16,7 @@ const id = props.params.RenderingIdentifier;
 >
   <div class="author-card row g-0">
     <div class="col-auto">
-      <Image field={props.fields.Photo} class="author-img" />
+      <AstroImage field={props.fields.Photo} class="author-img" />
     </div>
     <div class="col">
       <h6 class="author-name">
@@ -29,13 +29,13 @@ const id = props.params.RenderingIdentifier;
     <div class="col-12 col-md-auto">
       <div class="social-links">
         <Link field={props.fields?.SocialLink1}>
-          <Image field={props.fields?.SocialIcon1} />
+          <AstroImage field={props.fields?.SocialIcon1} />
         </Link>
         <Link field={props.fields?.SocialLink2}>
-          <Image field={props.fields?.SocialIcon2} />
+          <AstroImage field={props.fields?.SocialIcon2} />
         </Link>
         <Link field={props.fields?.SocialLink3}>
-          <Image field={props.fields?.SocialIcon3} />
+          <AstroImage field={props.fields?.SocialIcon3} />
         </Link>
       </div>
     </div>

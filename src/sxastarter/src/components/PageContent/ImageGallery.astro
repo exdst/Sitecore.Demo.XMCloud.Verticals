@@ -1,5 +1,5 @@
 ---
-import { Image, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AstroImage, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
 
 export type ImageItemProps = {
@@ -32,7 +32,7 @@ const images = props.fields?.items;
       {
         images?.map((image) => (
           <div class="image-gallery-item">
-            <Image field={image.fields.Image} />
+            <AstroImage field={image.fields.Image} />
           </div>
         ))
       }
