@@ -50,7 +50,6 @@ function writeConfig(config: JssConfig): void {
   });
 
   configText += "export default config;";
-  console.log(configText);
   fs.writeFileSync(CONFIG_PATH, configText, { encoding: "utf-8" });
 }
 
