@@ -10,6 +10,7 @@ SharedFields:
 - ID: "94470b31-e282-4d8d-bc54-85689efb294c"
   Hint: ServerSideRenderingEngineConfigUrl
   Value: "http://renderingastro:3000/api/editing/config"
+  Value: "https://xmc-eh-78mtheqltu8h99yoh21xbd.sitecorecloud.io:443/api/editing/config"
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
   Value: 
