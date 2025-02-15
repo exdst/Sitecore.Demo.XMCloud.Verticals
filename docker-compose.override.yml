@@ -37,7 +37,7 @@ services:
     environment:
       SITECORE_API_HOST: "http://cm"
       NEXTJS_DIST_DIR: ".next-container"
-      PUBLIC_URL: "https://${RENDERING_HOST}"
+      PUBLIC_URL: "https://${RENDERING_HOST_1}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_API_KEY: "${SITECORE_API_KEY_xmcloudpreview}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
@@ -47,7 +47,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST_1}`)"
       - "traefik.http.routers.rendering-secure.tls=true"
       - "traefik.http.routers.rendering-secure-financial.entrypoints=websecure"
       - "traefik.http.routers.rendering-secure-financial.rule=Host(`${RENDERING_HOST_2}`)"
@@ -68,22 +68,23 @@ services:
     environment:
       SITECORE_API_HOST: "http://cm"
       GRAPH_QL_ENDPOINT: "http://cm/sitecore/api/graph/edge"
-      NEXTJS_DIST_DIR: "dist"
-      PUBLIC_URL: "https://${RENDERING_HOST_4}"
+      PUBLIC_URL: "https://${RENDERING_HOST_6}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_API_KEY: "${SITECORE_API_KEY_xmcloudpreview}"
-      DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
     depends_on:
       - cm
       - nodejs
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.renderingastro-secure.entrypoints=websecure"
-      - "traefik.http.routers.renderingastro-secure.rule=Host(`${RENDERING_HOST_4}`)"
-      - "traefik.http.routers.renderingastro-secure.tls=true"
+      - "traefik.http.routers.renderingastro-secure-services.entrypoints=websecure"
+      - "traefik.http.routers.renderingastro-secure-services.rule=Host(`${RENDERING_HOST_4}`)"
+      - "traefik.http.routers.renderingastro-secure-services.tls=true"
       - "traefik.http.routers.renderingastro-secure-financial.entrypoints=websecure"
       - "traefik.http.routers.renderingastro-secure-financial.rule=Host(`${RENDERING_HOST_5}`)"
       - "traefik.http.routers.renderingastro-secure-financial.tls=true"
+      - "traefik.http.routers.renderingastro-secure-basic.entrypoints=websecure"
+      - "traefik.http.routers.renderingastro-secure-basic.rule=Host(`${RENDERING_HOST_6}`)"
+      - "traefik.http.routers.renderingastro-secure-basic.tls=true"
 
   # Mount the Traefik configuration and certs.
   traefik:
@@ -131,7 +132,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      RENDERING_HOST_INTERNAL_URI: "http://host.docker.internal:4321"
+      RENDERING_HOST_INTERNAL_URI: "http://renderingastro:3000/"
       JSS_DEPLOYMENT_SECRET_xmcloudpreview: ${JSS_DEPLOYMENT_SECRET_xmcloudpreview}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"

@@ -31,13 +31,13 @@ SharedFields:
   Value: "{886787BC-AFE2-43A0-BC26-38178F98AD34}"
 - ID: "5e8ed724-126a-4bb7-8106-85c2d1042c9e"
   Hint: ServerSideRenderingEngineApplicationUrl
-  Value: "http://host.docker.internal:3000/"
+  Value: "https://services.sxastarter.localhost.astro/"
 - ID: "72e83c8d-3578-4e50-b4c0-93a78a1729f2"
   Hint: FilesystemPath
   Value: /dist/Services
 - ID: "89849738-34ee-46bc-b525-825f1153189e"
   Hint: ServerSideRenderingEngineEndpointUrl
-  Value: "http://host.docker.internal:3000/api/editing/render"
+  Value: "http://renderingastro:3000/api/editing/render"
 - ID: "9016141c-ff51-40f2-9135-40f5161b9784"
   Hint: ServerSideRenderingEngine
   Value: http
@@ -69,4 +69,4 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9e09fcaf-6db6-4937-8102-28cb21636ff0"
+      Value: "b3ef7800-1d65-4ecc-b7e4-ddde9e41d75b"

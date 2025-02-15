@@ -4,7 +4,5 @@ tls:
       keyFile: C:\etc\traefik\certs\_wildcard.sxastarter.localhost-key.pem
     - certFile: C:\etc\traefik\certs\xmcloudcm.localhost.pem
       keyFile: C:\etc\traefik\certs\xmcloudcm.localhost-key.pem
-    - certFile: C:\etc\traefik\certs\financial.localhost.pem
-      keyFile: C:\etc\traefik\certs\financial.localhost-key.pem
-    - certFile: C:\etc\traefik\certs\services.localhost.pem
-      keyFile: C:\etc\traefik\certs\services.localhost-key.pem
+    - certFile: C:\etc\traefik\certs\_wildcard.sxastarter.localhost.astro.pem
+      keyFile: C:\etc\traefik\certs\_wildcard.sxastarter.localhost.astro-key.pem
