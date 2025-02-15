@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   useTranslations
 } from "@astro-sitecore-jss/astro-sitecore-jss";
@@ -44,7 +44,7 @@ const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.Numbe
         <>
           <div class="row gx-5 row-gap-3 align-items-center">
             <div class="col-lg-4">
-              <Image field={item.fields.Thumbnail} />
+              <AstroImage field={item.fields.Thumbnail} />
             </div>
             <div class="col-lg-6">
               <h3 class="fs-4">

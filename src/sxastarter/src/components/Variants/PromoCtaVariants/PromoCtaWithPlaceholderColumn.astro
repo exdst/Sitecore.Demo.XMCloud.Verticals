@@ -3,7 +3,7 @@ import {
   Link,
   RichText,
   Text,
-  Image,
+  AstroImage,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Placeholder from "components/system/Placeholder.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
@@ -57,7 +57,7 @@ const isPageEditing = Astro.props.isPageEditing;
 
           <div class="image-wrapper d-none d-md-block col-md-8">
             <DottedAccent class="dotted-accent-top" />
-            <Image
+            <AstroImage
               field={props.fields.Image}
               class={`d-block mx-lg-auto img-fluid ${
                 !isPageEditing ? "fade-section" : ""

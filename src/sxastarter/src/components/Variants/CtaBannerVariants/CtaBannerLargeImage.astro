@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   RichText,
   Link,
@@ -46,7 +46,7 @@ const isPageEditing = Astro.props.isPageEditing;
       <div class="col-md-10 mx-auto col-lg-6 mx-lg-0">
         <div class="image-wrapper">
           <DottedAccent class="dotted-accent-top" />
-          <Image
+          <AstroImage
             field={props.fields.Image}
             class={`d-block mx-lg-auto img-fluid ${
               !isPageEditing ? "fade-section" : ""

@@ -1,7 +1,7 @@
 ---
 import Placeholder from "components/system/Placeholder.astro";
 import { ComponentProps } from "lib/component-props";
-import { Image, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { AstroImage, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
 
 export type WithImageProps = ComponentProps & {
   fields: {
@@ -17,7 +17,7 @@ const props: WithImageProps = Astro.props.route;
   <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row align-items-center">
       <div class="col-auto">
-        <Image field={props.fields.LogoImage} />
+        <AstroImage field={props.fields.LogoImage} />
       </div>
       <div class="col">
         <Placeholder name="header-right" rendering={props.rendering} />
