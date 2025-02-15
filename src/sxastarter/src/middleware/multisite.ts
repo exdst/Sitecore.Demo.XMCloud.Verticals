@@ -18,7 +18,7 @@ export const multisite = defineMiddleware((context, next) => {
   const url = new URL(request.url.toLowerCase());
 
   if (request.url.indexOf("/-/") !== -1
-    //|| request.url.indexOf("/_image") !== -1
+    || request.url.indexOf("/_image") !== -1
     || request.url.indexOf("/api/editing/") !== -1
     || request.url.indexOf("site_") !== -1
     || request.url.indexOf(".js") !== -1
