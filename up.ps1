@@ -119,6 +119,8 @@ Write-Host "Pushing Sitecore items" -ForegroundColor Green
 dotnet sitecore ser push
 
 docker compose restart rendering
+docker compose restart renderingastro
+
 
 # Rebuild indexes
 Write-Host "Rebuilding indexes ..." -ForegroundColor Green
@@ -128,7 +130,7 @@ if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
     
     Start-Process https://xmcloudcm.localhost/sitecore/
-    Start-Process https://www.sxastarter.localhost/
+    Start-Process https://basic.sxastarter.localhost.astro/
 }
 
 $containerId = docker ps --filter ancestor=sxastarter-xmcloud-cm:1.0.1 --format "{{.ID}}"

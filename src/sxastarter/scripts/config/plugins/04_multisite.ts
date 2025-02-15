@@ -20,7 +20,7 @@ class MultisitePlugin implements IConfigPlugin {
     let sites: SiteInfo[] = [];
     console.log('Fetching site information');
 
-    
+
     try {
       // We use the SITECORE_EDGE_CONTEXT_ID environment variable to determine if we are running in Sitecore Edge
       // If we run not on the Sitecore Edge, we don't need multisite support for demo purposes
@@ -31,8 +31,19 @@ class MultisitePlugin implements IConfigPlugin {
             apiKey: "not-needed",
           })
         });
+
         sites = await siteInfoService.fetchSiteInfo();
         console.log('Fetched site information from Sitecore Edge');
+      }
+      else {
+        const siteInfoService = new GraphQLSiteInfoService({
+          clientFactory: GraphQLRequestClient.createClientFactory({
+            endpoint: process.env.GRAPH_QL_ENDPOINT ?? "http://cm/sitecore/api/graph/edge",
+            apiKey: process.env.SITECORE_API_KEY,
+          })
+        });
+        sites = await siteInfoService.fetchSiteInfo();
+        console.log('Fetched site information from CM Endpoint');
       }
     } catch (error) {
       console.error('Error fetching site information');
