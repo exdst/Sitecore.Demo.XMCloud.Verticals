@@ -4,7 +4,7 @@ import {
   ImageField,
   RichTextField,
   LinkField,
-  Image,
+  AstroImage,
   SitecoreContextMap,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import BannerContentBlock from "components/NestedComponents/BannerContentBlock.astro";
@@ -37,14 +37,14 @@ const isPageEditing = sitecoreContext.pageEditing;
   {
     isPageEditing ? (
       <div class="parallax-banner-inner">
-        <Image
+        <AstroImage
           field={props.fields.BackgroundImage}
           class="parallax-banner-background"
         />
         <div class="parallax-banner-content">
           {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
         </div>
-        <Image
+        <AstroImage
           field={props.fields.ForegroundImage}
           class="parallax-banner-foreground"
         />

@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { AuthorWidgetProps } from "components/PageContent/AuthorWidget.astro";
@@ -15,7 +15,7 @@ const id = props.params.RenderingIdentifier;
 >
   <div class="author-card row g-0">
     <div class="col-auto">
-      <Image field={props.fields.Photo} class="author-img" />
+      <AstroImage field={props.fields.Photo} class="author-img" />
     </div>
     <div class="col">
       <h6 class="author-name">

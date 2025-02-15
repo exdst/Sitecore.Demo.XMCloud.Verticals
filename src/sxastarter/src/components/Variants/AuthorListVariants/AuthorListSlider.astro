@@ -1,6 +1,6 @@
 ---
 import { 
-  Image,
+  AstroImage,
   Text,
   Link
 } from '@astro-sitecore-jss/astro-sitecore-jss';
@@ -25,7 +25,7 @@ const isLoop = authors.length > 4;
           authors?.map((author) => (
             <div class="swiper-slide" key={author.url}>
               <Link field={{href: author.url}} class="wrapper-link">
-                <Image field={author.fields.Photo} />
+                <AstroImage field={author.fields.Photo} />
                 <h3 class="fs-4 mt-4">
                   <Text field={author.fields.Name} />
                 </h3>

@@ -82,9 +82,8 @@ try {
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
     & $mkcert "*.sxastarter.localhost"
+    & $mkcert "*.sxastarter.localhost.astro"
     & $mkcert "xmcloudcm.localhost"
-    & $mkcert "services.localhost"
-    & $mkcert "financial.localhost"
 
     # stash CAROOT path for messaging at the end of the script
     $caRoot = "$(& $mkcert -CAROOT)\rootCA.pem"
@@ -129,14 +128,6 @@ Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_xmcloudpreview" -Value $xmCloudBuild.
 $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
 Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
 
-#################################
-# Generate Astro environment file
-#################################
-#$sitesArray = @(@{ name="Services" language="en" hostName="services.localhost" }, @{ name="Financial" language="en" hostName="financial.localhost" })
-New-Item -Path "./src/sxastarter/.env" -Force
-$sitesArray = '[{ "name": "Services", "language": "en", "hostName": "services.localhost" }, { "name": "Financial", "language": "en", "hostName": "financial.localhost" }]'
-Set-EnvFileVariable "SITES" -Value $sitesArray -PATH "./src/sxastarter/.env"
-
 ###############################
 # Populate the environment file
 ###############################
@@ -150,9 +141,6 @@ if ($InitEnv) {
 
     # CM_HOST
     Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost"
-
-    # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.sxastarter.localhost"
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)

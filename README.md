@@ -28,15 +28,38 @@ This repository is a Sitecore DXP demo that is based on [sitecorelabs/xmcloud-fo
 
 You can deploy the demo in just a few clicks at [Sitecore Demo Portal](https://portal.sitecoredemo.com/), or use one of the quick starts below to run it locally.
 
-## Quick start (front-end app)
+## Quick start Astro (front-end app)
 
 This is the easier way to get started, as long as you have access to XM Cloud. It does not require Docker and should work on any operating system supported by Node (Mac, Windows, Linux).
 
 1. Deploy the project to XM Cloud
 
-2. Download (from XM Cloud Deploy app / Developer Settings tab) and add the `.env.local` file to your app folder.
+1. Download (from XM Cloud Deploy app / Developer Settings tab) and add the `.env.local` file to your app folder.
 
-3. Install dependencies and run your app.
+1. `cd src/sxastarter-nextjs`
+
+1. Install dependencies and run your app.
+
+   ```ps1
+   npm install
+   npm run dev
+   ```
+
+   Open http://localhost:3000 with your browser to see the result.
+
+## Quick start Next.js (front-end app)
+
+This is the easier way to get started, as long as you have access to XM Cloud. It does not require Docker and should work on any operating system supported by Node (Mac, Windows, Linux).
+
+1. Deploy the project to XM Cloud
+
+1. Download (from XM Cloud Deploy app / Developer Settings tab) and add the `.env.local` file to your app folder.
+
+1. If for some reason you don't have acces to XM Cloud Deploy app / Developer Settings tab, you can find required values in the configuration of Vercel project: Settings / Environment Variables / SITECORE_EDGE_CONTEXT_ID and SITECORE_SITE_NAME.
+
+1. `cd src/sxastarter-nextjs`
+
+1. Install dependencies and run your app.
 
    ```ps1
    npm install
@@ -44,7 +67,6 @@ This is the easier way to get started, as long as you have access to XM Cloud. I
    ```
 
    Open http://localhost:3000 with your browser to see the result.
-   You can start editing the pages by modifying files under the \src\rendering. The pages auto-update as you edit the files.
 
 ## Quick start (Docker)
 
@@ -65,17 +87,3 @@ This will work only on Windows and deploy all Content Management roles and inter
 Go to the `src\sxastarter\src\assets\sass\abstracts\vars` and update the colors in the `_colors.scss` file. Note, that each site has it's own color set for both light and dark theme.
 
 Note, that each site has a special `site-*` class, this allows to apply custom CSS the specific site(s).
-
-## Connect your local host to Pages
-
-In addition to the offical documentation https://doc.sitecore.com/xmc/en/developers/xm-cloud/connect-your-local-host-to-pages.html, some extra steps are required:
-
-1. Remove the following code from next.config.js:
-
-   ```ps1
-   assetPrefix: publicUrl,
-   ```
-
-2. Make sure that the domain name you use, i.e. https://www.sxastarter.localhost/ is added to the SXA Site definition of the site you want to edit.
-
-3. If using a local Docker as a back-end, make sure the JSS Editing Secret is set to what Pages is using.
