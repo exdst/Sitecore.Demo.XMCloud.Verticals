@@ -24,7 +24,7 @@ SharedFields:
   Value: 1
 - ID: "8e0dd914-9afb-4d45-bf8b-7ff5d6e5337e"
   Hint: HostName
-  Value: "astro-zlyve5kyxe6tudsaeujbuw-financial.vercel.app"
+  Value: financial.sxastarter.localhost
 - ID: "9eaf6dc9-b811-4cda-9edd-9697faba628a"
   Hint: POS
   Value: "en=play-finance&fr=play-finance"
@@ -47,7 +47,7 @@ Languages:
     Fields:
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "2db9ee86-e6de-4648-b415-36766c76c037"
+      Value: "3087bb7d-590f-4f9c-a035-8ab328381fc7"
     - ID: "96cffc48-0bd5-4f70-9b36-d49c844d51ef"
       Hint: Theme
       Value: Financial
