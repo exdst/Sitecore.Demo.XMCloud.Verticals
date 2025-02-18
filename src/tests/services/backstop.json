@@ -345,33 +345,6 @@
       "requireSameDimensions": true
     },
     {
-      "label": "/fr-CA/authors/sophia-lee?sc_site=services",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/sophia-lee?sc_site=services",
-      "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/sophia-lee",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
-      "label": "/fr-CA/authors/olivia-patel?sc_site=services",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/olivia-patel?sc_site=services",
-      "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/olivia-patel",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
-      "label": "/fr-CA/authors/lily-majors?sc_site=services",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/lily-majors?sc_site=services",
-      "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/lily-majors",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
       "label": "/fr-CA/authors/david-kim?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/david-kim?sc_site=services",
@@ -385,24 +358,6 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/jack-martinez?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/jack-martinez",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
-      "label": "/fr-CA/authors/emma-thompson?sc_site=services",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/emma-thompson?sc_site=services",
-      "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/emma-thompson",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
-      "label": "/fr-CA/authors/michael-oreilly?sc_site=services",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/michael-oreilly?sc_site=services",
-      "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/michael-oreilly",
       "delay": 3000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true

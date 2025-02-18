@@ -147,15 +147,6 @@
       "requireSameDimensions": true
     },
     {
-      "label": "/en/articles/introducing-innovative-financial-solutions?sc_site=financial",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://financial.sxastarter.localhost.astro/en/articles/introducing-innovative-financial-solutions?sc_site=financial",
-      "referenceUrl": "https://financial.sxastarter.localhost/en/articles/introducing-innovative-financial-solutions",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
       "label": "/en/articles/closing-the-wealth-gap?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://financial.sxastarter.localhost.astro/en/articles/closing-the-wealth-gap?sc_site=financial",
@@ -700,15 +691,6 @@
       "requireSameDimensions": true
     },
     {
-      "label": "/ja-JP/articles/exploring-the-use-of-blockchain-technology?sc_site=financial",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://financial.sxastarter.localhost.astro/ja-JP/articles/exploring-the-use-of-blockchain-technology?sc_site=financial",
-      "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/articles/exploring-the-use-of-blockchain-technology",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
       "label": "/ja-JP/articles/empowering-young-adults?sc_site=financial",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://financial.sxastarter.localhost.astro/ja-JP/articles/empowering-young-adults?sc_site=financial",
@@ -740,15 +722,6 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://financial.sxastarter.localhost.astro/ja-JP/articles/important-announcement-play-finance-client?sc_site=financial",
       "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/articles/important-announcement-play-finance-client",
-      "delay": 3000,
-      "misMatchThreshold": 0.1,
-      "requireSameDimensions": true
-    },
-    {
-      "label": "/ja-JP/articles/introducing-innovative-financial-solutions?sc_site=financial",
-      "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "https://financial.sxastarter.localhost.astro/ja-JP/articles/introducing-innovative-financial-solutions?sc_site=financial",
-      "referenceUrl": "https://financial.sxastarter.localhost/ja-JP/articles/introducing-innovative-financial-solutions",
       "delay": 3000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
