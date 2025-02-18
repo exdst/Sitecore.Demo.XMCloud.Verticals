@@ -23,7 +23,7 @@
     {
       "label": "/en/authors/sophia-lee?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/sophia-lee?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/sophia-lee?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/sophia-lee",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -32,7 +32,7 @@
     {
       "label": "/en/authors/olivia-patel?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/olivia-patel?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/olivia-patel?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/olivia-patel",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -41,7 +41,7 @@
     {
       "label": "/en/authors/david-kim?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/david-kim?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/david-kim?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/david-kim",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -50,7 +50,7 @@
     {
       "label": "/en/authors/emma-thompson?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/emma-thompson?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/emma-thompson?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/emma-thompson",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -59,7 +59,7 @@
     {
       "label": "/en/authors/michael-oreilly?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/michael-oreilly?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/michael-oreilly?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/michael-oreilly",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -68,7 +68,7 @@
     {
       "label": "/en/authors/lily-majors?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/lily-majors?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/lily-majors?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/lily-majors",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -77,7 +77,7 @@
     {
       "label": "/en/authors/jack-martinez?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors/jack-martinez?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors/jack-martinez?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/jack-martinez",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -86,7 +86,7 @@
     {
       "label": "/en/portfolio/optimize-supply-chains-with-blockchain-technology?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/optimize-supply-chains-with-blockchain-technology?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/optimize-supply-chains-with-blockchain-technology?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/optimize-supply-chains-with-blockchain-technology",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -95,7 +95,7 @@
     {
       "label": "/en/portfolio/enhancing-retail-experience-with-ar?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/enhancing-retail-experience-with-ar?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/enhancing-retail-experience-with-ar?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/enhancing-retail-experience-with-ar",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -104,7 +104,7 @@
     {
       "label": "/en/portfolio/the-next-evolution-of-ecommerce?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/the-next-evolution-of-ecommerce?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/the-next-evolution-of-ecommerce?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/the-next-evolution-of-ecommerce",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -113,7 +113,7 @@
     {
       "label": "/en/portfolio/innovative-strategies-for-modern-brands?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/innovative-strategies-for-modern-brands?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/innovative-strategies-for-modern-brands?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/innovative-strategies-for-modern-brands",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -122,7 +122,7 @@
     {
       "label": "/en/portfolio/integrated-social-media-strategies?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/integrated-social-media-strategies?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/integrated-social-media-strategies?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/integrated-social-media-strategies",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -131,7 +131,7 @@
     {
       "label": "/en/portfolio/advanced-marketing-strategies?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/advanced-marketing-strategies?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/advanced-marketing-strategies?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/advanced-marketing-strategies",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -140,7 +140,7 @@
     {
       "label": "/en/portfolio/a-digital-transformation-story-premiere-insurance?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/a-digital-transformation-story-premiere-insurance?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/a-digital-transformation-story-premiere-insurance?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/a-digital-transformation-story-premiere-insurance",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -149,7 +149,7 @@
     {
       "label": "/en/portfolio/increase-customer-engagement?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/increase-customer-engagement?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/increase-customer-engagement?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/increase-customer-engagement",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -158,7 +158,7 @@
     {
       "label": "/en/portfolio/get-results-with-data-driven-decisions?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio/get-results-with-data-driven-decisions?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio/get-results-with-data-driven-decisions?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/get-results-with-data-driven-decisions",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -167,7 +167,7 @@
     {
       "label": "/en/landing-pages/simple-landing-page?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/landing-pages/simple-landing-page?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/landing-pages/simple-landing-page?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages/simple-landing-page",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -176,7 +176,7 @@
     {
       "label": "/en/landing-pages/marketing-landing-page?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/landing-pages/marketing-landing-page?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/landing-pages/marketing-landing-page?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages/marketing-landing-page",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -185,7 +185,7 @@
     {
       "label": "/en/insights/leveraging-ai-for-digital-marketers?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/leveraging-ai-for-digital-marketers?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/leveraging-ai-for-digital-marketers?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/leveraging-ai-for-digital-marketers",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -194,7 +194,7 @@
     {
       "label": "/en/insights/measuring-success?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/measuring-success?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/measuring-success?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/measuring-success",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -203,7 +203,7 @@
     {
       "label": "/en/insights/the-power-of-consistency?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/the-power-of-consistency?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/the-power-of-consistency?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/the-power-of-consistency",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -212,7 +212,7 @@
     {
       "label": "/en/insights/key-industry-trends-shaping-the-digital-landscape?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/key-industry-trends-shaping-the-digital-landscape?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/key-industry-trends-shaping-the-digital-landscape?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/key-industry-trends-shaping-the-digital-landscape",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -221,7 +221,7 @@
     {
       "label": "/en/insights/Maximizing-roi-with-digital-ads?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/Maximizing-roi-with-digital-ads?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/Maximizing-roi-with-digital-ads?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/Maximizing-roi-with-digital-ads",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -230,7 +230,7 @@
     {
       "label": "/en/insights/career-growth-strategies-for-remote-workers?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/career-growth-strategies-for-remote-workers?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/career-growth-strategies-for-remote-workers?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/career-growth-strategies-for-remote-workers",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -239,7 +239,7 @@
     {
       "label": "/en/insights/building-strong-client-relationships?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/building-strong-client-relationships?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/building-strong-client-relationships?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/building-strong-client-relationships",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -248,7 +248,7 @@
     {
       "label": "/en/insights/achieving-work-life-balance?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/achieving-work-life-balance?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/achieving-work-life-balance?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/achieving-work-life-balance",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -257,7 +257,7 @@
     {
       "label": "/en/insights/selecting-images-that-resonate?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/selecting-images-that-resonate?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/selecting-images-that-resonate?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/selecting-images-that-resonate",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -266,7 +266,7 @@
     {
       "label": "/en/insights/the-creative-process-dilemma?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights/the-creative-process-dilemma?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights/the-creative-process-dilemma?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/the-creative-process-dilemma",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -275,7 +275,7 @@
     {
       "label": "/en/contact?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/contact?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/contact?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/contact",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -284,7 +284,7 @@
     {
       "label": "/en/landing-pages?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/landing-pages?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/landing-pages?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -293,7 +293,7 @@
     {
       "label": "/en/authors?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/authors?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/authors?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -302,7 +302,7 @@
     {
       "label": "/en/services?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/services?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/services?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/services",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -311,7 +311,7 @@
     {
       "label": "/en/insights?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/insights?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/insights?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -320,7 +320,7 @@
     {
       "label": "/en/about?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/about?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/about?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/about",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -329,7 +329,7 @@
     {
       "label": "/en/portfolio?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/portfolio?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/portfolio?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -338,7 +338,7 @@
     {
       "label": "/en/?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/en/?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/en/?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/en/",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -347,7 +347,7 @@
     {
       "label": "/fr-CA/authors/sophia-lee?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/sophia-lee?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/sophia-lee?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/sophia-lee",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -356,7 +356,7 @@
     {
       "label": "/fr-CA/authors/olivia-patel?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/olivia-patel?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/olivia-patel?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/olivia-patel",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -365,7 +365,7 @@
     {
       "label": "/fr-CA/authors/lily-majors?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/lily-majors?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/lily-majors?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/lily-majors",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -374,7 +374,7 @@
     {
       "label": "/fr-CA/authors/david-kim?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/david-kim?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/david-kim?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/david-kim",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -383,7 +383,7 @@
     {
       "label": "/fr-CA/authors/jack-martinez?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/jack-martinez?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/jack-martinez?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/jack-martinez",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -392,7 +392,7 @@
     {
       "label": "/fr-CA/authors/emma-thompson?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/emma-thompson?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/emma-thompson?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/emma-thompson",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -401,7 +401,7 @@
     {
       "label": "/fr-CA/authors/michael-oreilly?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors/michael-oreilly?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/michael-oreilly?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/michael-oreilly",
       "delay": 3000,
       "misMatchThreshold": 0.1,
@@ -410,7 +410,7 @@
     {
       "label": "/fr-CA/authors?sc_site=services",
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
-      "url": "http://localhost:3000/fr-CA/authors?sc_site=services",
+      "url": "https://services.sxastarter.localhost.astro/fr-CA/authors?sc_site=services",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors",
       "delay": 3000,
       "misMatchThreshold": 0.1,
