@@ -6,6 +6,7 @@ import Scripts from '@/components/Scripts.astro';
 import config from '@/temp/config';
 import { HTMLLink } from '@sitecore-jss/sitecore-jss';
 import layoutPkg from '@sitecore-jss/sitecore-jss/layout';
+import Bootstrap from '@/components/Bootstrap.astro';
 const { getContentStylesheetLink, getComponentLibraryStylesheetLinks } = layoutPkg;
 
 interface RouteFields {
@@ -40,7 +41,6 @@ compponentThemesLink && headLinks.push(...compponentThemesLink);
 <!DOCTYPE html>
 <html lang=`${language}`>
 	<head>
-		<Scripts/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>{title}</title>
@@ -54,6 +54,8 @@ compponentThemesLink && headLinks.push(...compponentThemesLink);
 		))}
 	</head>
 	<body>
+		<Scripts/>
+		<Bootstrap />
 			<div class={`${mainClassPageEditing} ${contextSiteClass} body`}>
 				<header>
 					<div id="header">
