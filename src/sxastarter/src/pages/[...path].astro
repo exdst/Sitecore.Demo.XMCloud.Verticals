@@ -49,17 +49,12 @@ try {
   // And we don't want to touch Next.js at it is "etalon" for comparison
   // This code should be remove on real project
   let strProps = JSON.stringify(pageProps);
-  if (import.meta?.env?.PUBLIC_URL?.indexOf(".localhost") > -1) {
-    strProps = strProps
-      .replaceAll(
-        ':"https://services.sxastarter.localhost',
-        ':"http://renderingastro:3000'
-      )
-      .replaceAll(
-        ':"https://financial.sxastarter.localhost',
-        ':"http://renderingastro:3000'
-      );
+  console.log(strProps)
+  if(import.meta.env.PUBLIC_URL.indexOf(".localhost") > -1) {
+    strProps = strProps.replaceAll(':"https://services.sxastarter.localhost', ':"http://renderingastro:3000')
+      .replaceAll(':"https://financial.sxastarter.localhost', ':"http://renderingastro:3000');
   }
+
   pageProps = JSON.parse(strProps);
   if (!pageProps.layoutData?.sitecore?.route) {
     return new Response("Not found", { status: 404 });
