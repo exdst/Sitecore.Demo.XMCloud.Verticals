@@ -45,9 +45,8 @@ const isPageEditing = sitecoreContext.pageEditing;
           field={props.fields.Image}
           class={`${isPageEditing ? "d-block" : "d-none"} mx-lg-auto img-fluid`}
         />
-        <img
-          src={props.fields.Image.value?.src}
-          alt={props.fields.Image.value?.alt as string}
+        <AstroImage
+          field={props.fields.Image}
           class={`${isPageEditing ? "d-none" : "d-block"} mx-lg-auto img-fluid parallax`}
           style={{ transformOrigin: "bottom" }}
         />
