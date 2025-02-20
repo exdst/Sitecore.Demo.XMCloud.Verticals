@@ -7,6 +7,9 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: "-/media/BE5D7615900B467BAD1958A3907E43EE.ashx?h=16&thn=1&w=16"
+- ID: "22eac599-f13b-4607-a89d-c091763a467d"
+  Hint: Width
+  Value: 100
 - ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
   Hint: Blob
   BlobID: "8f920434-f994-4a8a-a463-0b5ab5b77f10"
@@ -20,6 +23,9 @@ SharedFields:
 - ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
   Hint: Extension
   Value: svg
+- ID: "de2ca9e4-c117-4c8a-a139-1ff4b199d15a"
+  Hint: Height
+  Value: 40
 - ID: "fd4e2050-186c-4375-8b99-e8a85dd7436e"
   Hint: __Enable item fallback
   Value: 
@@ -33,4 +39,4 @@ Languages:
       Value: LogoIpsum4
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "48e2a1e3-aca8-453d-91b2-4f2a880e13bb"
+      Value: "f0b7387e-428f-4f21-91ee-1a20fe3442ee"

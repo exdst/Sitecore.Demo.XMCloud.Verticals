@@ -1,9 +1,16 @@
 ---
-import { AstroImage, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import {
+  AstroImage,
+  SitecoreContextMap,
+} from "@astro-sitecore-jss/astro-sitecore-jss";
 
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 const props = Astro.props;
+const backgroundImage = props.BackgroundImage?.value?.src.replaceAll(
+  "http://renderingastro:3000",
+  ""
+);
 ---
 
 {
@@ -13,7 +20,7 @@ const props = Astro.props;
     <div class="parallax-background-image">
       <div
         class="parallax parallax-image"
-        style={`background-image: url(${props.BackgroundImage?.value?.src});`}
+        style={`background-image: url(${backgroundImage});`}
       />
     </div>
   )
@@ -38,12 +45,12 @@ const props = Astro.props;
 
   document.addEventListener("DOMContentLoaded", function () {
     const backgroundImages = document.querySelectorAll(
-      ".parallax-background-image",
+      ".parallax-background-image"
     );
 
     const options: ParallaxElementOptions = {
-        translateY: { from: -150, to: 150, units: "px" },
-    }
+      translateY: { from: -150, to: 150, units: "px" },
+    };
 
     backgroundImages.forEach((backgroundImage) => {
       useParallax(backgroundImage, options);

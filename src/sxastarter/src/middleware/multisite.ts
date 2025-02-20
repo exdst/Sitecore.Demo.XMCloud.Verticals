@@ -24,6 +24,7 @@ export const multisite = defineMiddleware((context, next) => {
     || request.url.indexOf(".css") !== -1
     || request.url.indexOf(".ico") !== -1
     || request.url.indexOf(".webp") !== -1
+    || request.url.indexOf(".svg") !== -1
     || request.url.indexOf(".png") !== -1
     || request.url.indexOf(".jpg") !== -1
     || request.url.indexOf("sc_site") !== -1) {
