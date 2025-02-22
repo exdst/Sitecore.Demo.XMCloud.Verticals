@@ -3,6 +3,11 @@ import '../assets/main.scss';
 import type { LayoutServiceData, Field } from "@sitecore-jss/sitecore-jss/layout";
 import Placeholder from '../components/system/Placeholder.astro';
 import Scripts from '@/components/Scripts.astro';
+import config from '@/temp/config';
+import { HTMLLink } from '@sitecore-jss/sitecore-jss';
+import layoutPkg from '@sitecore-jss/sitecore-jss/layout';
+import Bootstrap from '@/components/Bootstrap.astro';
+const { getContentStylesheetLink, getComponentLibraryStylesheetLinks } = layoutPkg;
 
 interface RouteFields {
   [key: string]: unknown;
@@ -22,25 +27,35 @@ const language = layoutData.sitecore.context.language || 'en';
 
 const fields = route?.fields as RouteFields;
 const title = fields.Title?.value.toString() || fields.NavigationTitle?.value.toString() || 'Page';
+
+let headLinks = [] as HTMLLink[];
+
+const contentStylesheetLink = getContentStylesheetLink(layoutData, config.sitecoreEdgeContextId, config.sitecoreEdgeUrl)
+const compponentThemesLink = getComponentLibraryStylesheetLinks(layoutData, config.sitecoreEdgeContextId, config.sitecoreEdgeUrl)
+
+contentStylesheetLink && headLinks.push(contentStylesheetLink);
+compponentThemesLink && headLinks.push(...compponentThemesLink);
+
 ---
 
 <!DOCTYPE html>
 <html lang=`${language}`>
 	<head>
-		<Scripts/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<title>{title}</title>
 		<link rel="icon" href={`${Astro.url.origin}/favicon.ico`} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={'anonymous'} />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <meta name="description" content="A Verticals demo site."></meta>
-    <!-- {headLinks.map((headLink) => (
-      <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
-    ))} -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin={'anonymous'} />
+		<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+		<meta name="description" content="A Verticals demo site."></meta>
+		{headLinks.map((headLink) => (
+			<link rel={headLink.rel} href={headLink.href} />
+		))}
 	</head>
 	<body>
+		<Scripts/>
+		<Bootstrap />
 			<div class={`${mainClassPageEditing} ${contextSiteClass} body`}>
 				<header>
 					<div id="header">
