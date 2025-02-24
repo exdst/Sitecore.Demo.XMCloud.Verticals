@@ -9,6 +9,7 @@ export default function middleware(request: Request) {
     || request.url.indexOf("/_image") !== -1
     || request.url.indexOf("/api/editing/") !== -1
     || request.url.indexOf("site_") !== -1
+    || request.url.indexOf("/_image") !== -1
     || request.url.indexOf(".js") !== -1
     || request.url.indexOf(".css") !== -1
     || request.url.indexOf(".ico") !== -1
