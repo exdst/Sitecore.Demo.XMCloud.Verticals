@@ -49,7 +49,7 @@ try {
   // This code should be remove on real project
   let strProps = JSON.stringify(pageProps);
 
-  if(import.meta.env.PUBLIC_URL.indexOf(".localhost") > -1) {
+  if(import.meta.env?.PUBLIC_URL?.indexOf(".localhost") > -1) {
     strProps = strProps.replaceAll(':"https://services.sxastarter.localhost', ':"http://renderingastro:3000')
       .replaceAll(':"https://financial.sxastarter.localhost', ':"http://renderingastro:3000');
   }
