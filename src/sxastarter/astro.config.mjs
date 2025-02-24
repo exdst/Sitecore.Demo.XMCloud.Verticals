@@ -33,6 +33,6 @@ export default defineConfig({
     enabled: false
   },
   image: {
-    domains: ['financial.sxastarter.localhost.astro', 'services.sxastarter.localhost.astro', 'renderingastro'],
+    domains: ['financial.sxastarter.localhost.astro', 'services.sxastarter.localhost.astro', 'renderingastro', 'edge.sitecorecloud.io'],
   },
 });
