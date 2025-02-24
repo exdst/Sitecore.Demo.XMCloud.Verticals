@@ -7,7 +7,6 @@ import type {
   RouteData,
 } from "@sitecore-jss/sitecore-jss/layout";
 import config from "../temp/config";
-import Bootstrap from "@/components/Bootstrap.astro";
 
 export const prerender = false;
 
@@ -43,6 +42,19 @@ try {
     Astro.locals.site
   );
   pageProps = await sitecorePagePropsFactory.create(cleanPath, language);
+
+  // Replace sxastarter.localhost with sxastarter.localhost.astro in the the layout data (image URLs)
+  // It is requried, because we run Next.js and Astro headless sites on the same Sitecore project
+  // And we don't want to touch Next.js at it is "etalon" for comparison
+  // This code should be remove on real project
+  let strProps = JSON.stringify(pageProps);
+
+  if(import.meta.env.PUBLIC_URL.indexOf(".localhost") > -1) {
+    strProps = strProps.replaceAll(':"https://services.sxastarter.localhost', ':"http://renderingastro:3000')
+      .replaceAll(':"https://financial.sxastarter.localhost', ':"http://renderingastro:3000');
+  }
+
+  pageProps = JSON.parse(strProps);
   if (!pageProps.layoutData?.sitecore?.route) {
     return new Response("Not found", { status: 404 });
   }
@@ -58,7 +70,6 @@ try {
 }
 ---
 
-<Bootstrap pageProps={pageProps} />
 <JssLayout layoutData={pageProps.layoutData} />
 
 <script is:inline>
