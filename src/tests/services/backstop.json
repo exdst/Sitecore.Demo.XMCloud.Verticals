@@ -4,17 +4,17 @@
     {
       "label": "phone",
       "width": 320,
-      "height": 480
+      "height": 10000
     },
     {
       "label": "tablet",
       "width": 1024,
-      "height": 768
+      "height": 10000
     },
     {
       "label": "desktop",
       "width": 1920,
-      "height": 1080
+      "height": 10000
     }
   ],
   "onBeforeScript": "puppet/onBefore.js",
@@ -25,7 +25,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/sophia-lee",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/sophia-lee",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -34,7 +34,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/olivia-patel",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/olivia-patel",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -43,7 +43,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/david-kim",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/david-kim",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -52,7 +52,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/emma-thompson",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/emma-thompson",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -61,7 +61,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/michael-oreilly",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/michael-oreilly",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -70,7 +70,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/lily-majors",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/lily-majors",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -79,7 +79,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors/jack-martinez",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors/jack-martinez",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -88,7 +88,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/optimize-supply-chains-with-blockchain-technology",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/optimize-supply-chains-with-blockchain-technology",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -97,7 +97,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/enhancing-retail-experience-with-ar",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/enhancing-retail-experience-with-ar",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -106,7 +106,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/the-next-evolution-of-ecommerce",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/the-next-evolution-of-ecommerce",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -115,7 +115,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/innovative-strategies-for-modern-brands",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/innovative-strategies-for-modern-brands",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -124,7 +124,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/integrated-social-media-strategies",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/integrated-social-media-strategies",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -133,7 +133,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/advanced-marketing-strategies",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/advanced-marketing-strategies",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -142,7 +142,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/a-digital-transformation-story-premiere-insurance",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/a-digital-transformation-story-premiere-insurance",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -151,7 +151,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/increase-customer-engagement",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/increase-customer-engagement",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -160,7 +160,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio/get-results-with-data-driven-decisions",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio/get-results-with-data-driven-decisions",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -169,7 +169,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/landing-pages/simple-landing-page",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages/simple-landing-page",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -178,7 +178,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/landing-pages/marketing-landing-page",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages/marketing-landing-page",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -187,7 +187,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/leveraging-ai-for-digital-marketers",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/leveraging-ai-for-digital-marketers",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -196,7 +196,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/measuring-success",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/measuring-success",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -205,7 +205,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/the-power-of-consistency",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/the-power-of-consistency",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -214,7 +214,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/key-industry-trends-shaping-the-digital-landscape",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/key-industry-trends-shaping-the-digital-landscape",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -223,7 +223,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/Maximizing-roi-with-digital-ads",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/Maximizing-roi-with-digital-ads",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -232,7 +232,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/career-growth-strategies-for-remote-workers",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/career-growth-strategies-for-remote-workers",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -241,7 +241,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/building-strong-client-relationships",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/building-strong-client-relationships",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -250,7 +250,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/achieving-work-life-balance",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/achieving-work-life-balance",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -259,7 +259,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/selecting-images-that-resonate",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/selecting-images-that-resonate",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -268,7 +268,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights/the-creative-process-dilemma",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights/the-creative-process-dilemma",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -277,7 +277,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/contact",
       "referenceUrl": "https://services.sxastarter.localhost/en/contact",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -286,7 +286,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/landing-pages",
       "referenceUrl": "https://services.sxastarter.localhost/en/landing-pages",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -295,7 +295,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/authors",
       "referenceUrl": "https://services.sxastarter.localhost/en/authors",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -304,7 +304,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/services",
       "referenceUrl": "https://services.sxastarter.localhost/en/services",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -313,7 +313,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/insights",
       "referenceUrl": "https://services.sxastarter.localhost/en/insights",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -322,7 +322,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/about",
       "referenceUrl": "https://services.sxastarter.localhost/en/about",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -331,7 +331,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/portfolio",
       "referenceUrl": "https://services.sxastarter.localhost/en/portfolio",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -340,7 +340,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/en/",
       "referenceUrl": "https://services.sxastarter.localhost/en/",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -349,7 +349,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/david-kim",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/david-kim",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -358,7 +358,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/fr-CA/authors/jack-martinez",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors/jack-martinez",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     },
@@ -367,7 +367,7 @@
       "cookiePath": "backstop_data/engine_scripts/new_cookies.json",
       "url": "https://services.sxastarter.localhost.astro/fr-CA/authors",
       "referenceUrl": "https://services.sxastarter.localhost/fr-CA/authors",
-      "delay": 3000,
+      "delay": 6000,
       "misMatchThreshold": 0.1,
       "requireSameDimensions": true
     }
