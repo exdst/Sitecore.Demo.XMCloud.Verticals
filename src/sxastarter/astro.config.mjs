@@ -1,17 +1,19 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-const adapter = process.env.VERCEL ?
-vercel({
-  isr: {
-    // 5 minutes
-    expiration: 60 * 5,
-  },
-}) : node({
-  mode: 'standalone',
-});
+const adapter = process.env.VERCEL
+  ? vercel({
+      isr: {
+        // 5 minutes
+        expiration: 60 * 5,
+      },
+      imageService: true,
+    })
+  : node({
+      mode: "standalone",
+    });
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,9 +32,14 @@ export default defineConfig({
     defaultLocale: "en",
   },
   devToolbar: {
-    enabled: false
+    enabled: false,
   },
   image: {
-    domains: ['financial.sxastarter.localhost.astro', 'services.sxastarter.localhost.astro', 'renderingastro', 'edge.sitecorecloud.io'],
+    domains: [
+      "financial.sxastarter.localhost.astro",
+      "services.sxastarter.localhost.astro",
+      "renderingastro",
+      "edge.sitecorecloud.io",
+    ],
   },
 });
