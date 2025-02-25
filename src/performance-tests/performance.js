@@ -1,8 +1,8 @@
 const fs = require("fs");
 const spawnSync = require("child_process").spawnSync;
 const lighthouseCli = require.resolve("lighthouse/cli");
-const nextJsFinancialHost = "https://next-4egsw0z3reo5qtczn01sq-financial.vercel.app";
-const nextJsServicesHost = "https://next-4egsw0z3reo5qtczn01sq-services.vercel.app";
+const nextJsFinancialHost = "https://nextjs-sdeobysfus1adltgqnutq-financial.vercel.app";
+const nextJsServicesHost = "https://nextjs-sdeobysfus1adltgqnutq-services.vercel.app";
 const astroFinancialHost =
   "https://astro-zlyve5kyxe6tudsaeujbuw-financial.vercel.app";
 const astroServicesHost =
