@@ -39,7 +39,8 @@ export default defineConfig({
       "financial.sxastarter.localhost.astro",
       "services.sxastarter.localhost.astro",
       "renderingastro",
-      "edge.sitecorecloud.io",
+      //Images from Sitecore are already optimized. Enable this if you want to use the Astro image service with Sitecore images from Sitecore Experience Edge.
+      //"edge.sitecorecloud.io",
     ],
   },
 });
