@@ -32,6 +32,20 @@ A headless multi-site solution focused on XM Cloud content and site management c
 
 You can deploy the demo in just a few clicks at [Sitecore Demo Portal](https://portal.sitecoredemo.com/), or use one of the quick starts below to run it locally.
 
+## Quick start Astro (Sitecore Demo Portal)
+
+1. Fork this repository or use this repository as a template to create your one
+2. Login to the Sitecore Demo Portal
+3. Make sure that Sitecore Demo Portal has access to your GitHub account repositories
+4. Create a new demo by clicking "Get a demo"
+5. Select Vertical Demos as a template
+6. Choose the name for the demo
+7. Customize the GihHub source. Select the repository you have created.
+8. Customize the Vercel connection. Add Vercel token
+9. Customize environment variables. Set `VERCEL_PROJECT_FRAMEWORK` to `astro`.
+10. Review the changes
+11. Deploy the demo!
+
 ## Quick start Astro (front-end app)
 
 This is the easier way to get started, as long as you have access to XM Cloud. It does not require Docker and should work on any operating system supported by Node (Mac, Windows, Linux).
