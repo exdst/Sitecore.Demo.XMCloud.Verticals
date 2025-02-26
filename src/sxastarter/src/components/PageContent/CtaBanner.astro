@@ -49,17 +49,8 @@ const isPageEditing = sitecoreContext.pageEditing;
 </>
 
 <script>
-  import useVisibility from "lib/useVisibility";
+  import setVisibility from "components/scripts/SetVisibility";
 
-  const refs: NodeListOf<Element> = document.querySelectorAll(".cta-banner");
-  const setVisible = (x: boolean, dom: Element) => {
-    if (x) {
-      dom.querySelector("img.fade-section")?.classList.add("is-visible");
-    } else {
-      dom.querySelector("img.fade-section")?.classList.remove("is-visible");
-    }
-    return x;
-  };
-
-  refs.forEach((ref) => useVisibility(ref, setVisible));
+  const refs: NodeListOf<Element> = document.querySelectorAll(".cta-banner img.fade-section");
+  setVisibility(refs);
 </script>

@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
 } from "@astro-sitecore-jss/astro-sitecore-jss";
 import { ProjectListItemProps } from "components/PageContent/ProjectList.astro";
@@ -10,7 +10,7 @@ const item: ProjectListItemProps = Astro.props.item;
 
 <div class="project-grid-item">
   <a href={item.url} class="wrapper-link">
-    <Image field={item.fields.Thumbnail} />
+    <AstroImage field={item.fields.Thumbnail} />
     <div class="project-grid-item-content">
       <span class="project-category">
         <Text field={item.fields.Category} />

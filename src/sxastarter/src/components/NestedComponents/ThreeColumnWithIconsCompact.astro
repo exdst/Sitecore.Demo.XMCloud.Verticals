@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   Link,
   Field,
@@ -33,7 +33,7 @@ const isPageEditing = sitecoreContext.pageEditing;
     <div class="content-wrapper">
       <div class="d-flex align-items-center gap-3 mb-4">
         <div class="image-wrapper">
-          <Image field={props.image} height={32} />
+          <AstroImage field={props.image} height={32} />
         </div>
         <h2 class="eyebrow-accent mb-0 mt-2">
           <Text field={props.text} />

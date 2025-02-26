@@ -1,6 +1,6 @@
 ---
 import {
-  Image,
+  AstroImage,
   Text,
   Link,
   Field,
@@ -32,7 +32,7 @@ const isPageEditing = sitecoreContext.pageEditing;
   <Link field={props.link} class="wrapper-link">
     <div class="content-wrapper">
       <div class="image-wrapper mb-5">
-        <Image field={props.image} height={32} />
+        <AstroImage field={props.image} height={32} />
       </div>
       <h2>
         <Text field={props.text} />

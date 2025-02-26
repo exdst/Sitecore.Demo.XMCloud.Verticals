@@ -3,7 +3,7 @@ import {
   Field,
   ImageField,
   LinkField,
-  Image,
+  AstroImage,
   Text,
   Link,
   SitecoreContextMap,
@@ -29,7 +29,7 @@ const isPageEditing = sitecoreContext.pageEditing;
 >
   <Link field={props.link}>
     <div class="content-wrapper">
-      <Image field={props.image} height={" "} />
+      <AstroImage field={props.image} />
       <div class="text-wrapper">
         <h2>
           <Text field={props.title} />
@@ -43,21 +43,8 @@ const isPageEditing = sitecoreContext.pageEditing;
 </div>
 
 <script>
-  import useVisibility from "lib/useVisibility";
+  import setVisibility from "components/scripts/SetVisibility";
 
   const refs: NodeListOf<Element> = document.querySelectorAll(".four-column-cta .column");
-  const setVisible = (x: boolean, dom: Element) => {
-    if (x) {
-      dom?.classList.add("is-visible");
-    } else {
-      dom?.classList.remove("is-visible");
-    }
-    return x;
-  };
-
-  refs.forEach((ref) => {
-    const el = ref as HTMLElement;
-    const delay: number = parseInt(el.dataset.delay ?? "0");
-    useVisibility(ref as Element, setVisible, delay);
-  });
+  setVisibility(refs);
 </script>
