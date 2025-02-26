@@ -1,12 +1,16 @@
-# Vertical Demos on XM Cloud
+# Fork of the official Sitecore Vertical Demos on XM Cloud
 
 A headless multi-site solution focused on XM Cloud content and site management capabilities. Includes easily customizable sample sites for select industries.
+
+𝐍 Next.js implementation with minimal changes(only related to Docker) from Sitecore
+
+🚀 Astro implementation based on [Astro JSS SDK](https://github.com/exdst/jss-astro-public).
 
 ✨ 42 beautiful custom components - enough to build any site you can dream up
 
 🌍 Multisite support (3 sites ready to go, and more can easily be added)
 
-🇨🇦 Multilingual (English and French-Canadian)
+🇨🇦 Multilingual (English, French-Canadian, and Japanese)
 
 🌓 Light and dark themes
 
@@ -18,13 +22,13 @@ A headless multi-site solution focused on XM Cloud content and site management c
 
 📄 Seamless integration with Pages
 
-![PLAY! Website Home Page](docs/images/launchpad.JPG)
+▲ Vercel integration
 
-This repository is a Sitecore DXP demo that is based on [sitecorelabs/xmcloud-foundation-head](https://github.com/sitecorelabs/xmcloud-foundation-head) repository and uses:
+🌐 140 pages
 
-- Sitecore XM Cloud
-- Sitecore JavaScript Services (JSS)
-- Next.js
+📈 Performance testing scripts (Lighthouse)
+
+🧪 Automated UI testing scripts (Backstop.js)
 
 You can deploy the demo in just a few clicks at [Sitecore Demo Portal](https://portal.sitecoredemo.com/), or use one of the quick starts below to run it locally.
 
