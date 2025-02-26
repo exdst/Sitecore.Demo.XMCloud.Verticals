@@ -4,9 +4,9 @@ A headless multi-site solution focused on XM Cloud content and site management c
 
 𝐍 Next.js implementation with minimal changes(only related to Docker) from Sitecore
 
-🚀 Astro implementation based on [Astro JSS SDK](https://github.com/exdst/jss-astro-public).
+🚀 **Astro** implementation based on [Astro JSS SDK](https://github.com/exdst/jss-astro-public).
 
-✨ 42 beautiful custom components - enough to build any site you can dream up
+✨ 42 beautiful custom components (React and Astro) - enough to build any site you can dream up
 
 🌍 Multisite support (3 sites ready to go, and more can easily be added)
 
