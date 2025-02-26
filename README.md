@@ -1,4 +1,4 @@
-# Fork of the official Sitecore Vertical Demos on XM Cloud
+# Fork of the official Sitecore Vertical Demos on XM Cloud to showcase Astro
 
 A headless multi-site solution focused on XM Cloud content and site management capabilities. Includes easily customizable sample sites for select industries.
 
