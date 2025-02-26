@@ -85,3 +85,4 @@ packages/
 /src/tests/**/html_report
 /src/sxastarter-nextjs/.next-container
 /src/sxastarter/scjssconfig.json
+/src/performance-tests/data/nextjs
