@@ -26,6 +26,10 @@ const props: ParallaxBannerProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
+let foregroundImage = props.fields.ForegroundImage?.value?.src;
+let backgroundImage = props.fields.BackgroundImage?.value?.src;
+foregroundImage = foregroundImage?.replaceAll("http://renderingastro:3000", "");
+backgroundImage = backgroundImage?.replaceAll("http://renderingastro:3000", "");
 ---
 
 <div
@@ -52,14 +56,14 @@ const isPageEditing = sitecoreContext.pageEditing;
     ) : (
       <div class="parallax-banner-inner">
         <div
-          style={`background-image: url(${props.fields.BackgroundImage?.value?.src});`}
+          style={`background-image: url(${backgroundImage});`}
           class="parallax-banner-background"
         />
         <div class="parallax-banner-content">
           {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
         </div>
         <div
-          style={`background-image: url(${props.fields.ForegroundImage?.value?.src});`}
+          style={`background-image: url(${foregroundImage});`}
           class="parallax-banner-foreground"
         />
       </div>
@@ -94,7 +98,7 @@ const isPageEditing = sitecoreContext.pageEditing;
 
   document.addEventListener("DOMContentLoaded", function () {
     const backgroundImages = document.querySelectorAll(
-      ".parallax-banner-inner",
+      ".parallax-banner-inner"
     );
 
     const backgroundImageOptions: ParallaxElementOptions = {

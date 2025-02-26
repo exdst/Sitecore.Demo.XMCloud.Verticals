@@ -17,13 +17,14 @@ export const multisite = defineMiddleware((context, next) => {
   const url = new URL(request.url.toLowerCase());
 
   if (request.url.indexOf("/-/") !== -1
-    //|| request.url.indexOf("/_image") !== -1
+    || request.url.indexOf("/_image") !== -1
     || request.url.indexOf("/api/editing/") !== -1
     || request.url.indexOf("site_") !== -1
     || request.url.indexOf(".js") !== -1
     || request.url.indexOf(".css") !== -1
     || request.url.indexOf(".ico") !== -1
     || request.url.indexOf(".webp") !== -1
+    || request.url.indexOf(".svg") !== -1
     || request.url.indexOf(".png") !== -1
     || request.url.indexOf(".jpg") !== -1
     || request.url.indexOf("sc_site") !== -1) {
