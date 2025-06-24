@@ -9,27 +9,7 @@ SharedFields:
   Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "c924a443-1fc6-45be-82ab-32cebc9a18c7"
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        s:l="{A51BF5C0-CD68-48A5-884B-1BD4BD08D57C}">
-        <r
-          uid="{8AFB7B41-3142-4018-A635-B780C1F9249B}"
-          p:after="r[@uid='{B343725A-3A93-446E-A9C8-3A2CBD3DB489}']"
-          s:id="{493B3A83-0FA7-4484-8FC9-4680991CF743}"
-          s:ph="mains" />
-        <r
-          uid="{191040C0-089C-4711-A96C-9C3128A0F7C0}"
-          p:after="*[1=2]"
-          s:id="{E1AF4AA3-3B5D-4611-8C71-959AD261E5B7}"
-          s:ph="mains" />
-      </d>
-    </r>
+  Value: "74504272-a646-4bf4-8c1d-600eca28e67a"
 Languages:
 - Language: en
   Versions:
@@ -43,7 +23,7 @@ Languages:
       Value: "Merge-Layout-By-Path"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0201f468-7ad9-4b16-9f5b-33131db49380"
+      Value: "130ebe29-2d3f-4232-8366-99b33b75339a"
 - Language: "ja-JP"
   Versions:
   - Version: 1
@@ -56,4 +36,4 @@ Languages:
       Value: "Merge-Layout-By-Path"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "9d1891cb-e28c-465d-ab73-1f035ed5ebcd"
+      Value: "fd14f6b3-fedd-45b1-8f26-136a5a1d54f1"

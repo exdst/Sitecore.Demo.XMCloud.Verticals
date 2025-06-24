@@ -9,7 +9,7 @@ SharedFields:
   Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "6ad1d27c-13b7-42d2-9359-a1356f270a56"
+  Value: "a2fae72d-6943-4ad7-8efe-98fe67b9af97"
 Languages:
 - Language: en
   Versions:
@@ -23,20 +23,11 @@ Languages:
       Value: "Set-Layout-By-Id"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "28ef96a6-8ff2-419a-8bd4-9cd9d7dbf25c"
+      Value: "223d0841-8aa2-4ab9-8142-e5be5fb795fa"
 - Language: "ja-JP"
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            s:l="{7BDF4126-6FF2-413F-A85F-154FF6372F55}" />
-        </r>
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
@@ -45,4 +36,4 @@ Languages:
       Value: "Set-Layout-By-Id"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "058666f1-1ef0-4544-8166-0116027b4c1d"
+      Value: "66be51ad-3ccd-4b0f-bd83-e50e2ff96eb1"

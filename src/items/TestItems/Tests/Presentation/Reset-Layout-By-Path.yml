@@ -9,7 +9,7 @@ SharedFields:
   Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "f62799b9-4d49-433f-9e98-6f3fb38fa2d6"
+  Value: "6999f592-119e-41d2-aa6e-059f20dca9ce"
 Languages:
 - Language: en
   Versions:
@@ -23,7 +23,7 @@ Languages:
       Value: "Reset-Layout-By-Path"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e52b2a9b-5012-4830-a040-0e87af5051bb"
+      Value: "c5b19daf-4424-4d80-9d9e-c561b9254107"
 - Language: "ja-JP"
   Versions:
   - Version: 1
@@ -36,4 +36,4 @@ Languages:
       Value: "Reset-Layout-By-Path"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8145f869-1e1b-495c-912a-05b5963abe19"
+      Value: "b4b415f9-383c-4441-9a23-8a925759d1f4"

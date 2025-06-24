@@ -9,30 +9,12 @@ SharedFields:
   Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "6a50dc4d-85f5-493d-bb04-baaf7cf1eec0"
-- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
-  Hint: __Renderings
-  Value: |
-    <r xmlns:p="p" xmlns:s="s"
-      p:p="1">
-      <d
-        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        s:l="{D6B14132-F0DE-4225-9006-1B41BC4E7852}" />
-    </r>
+  Value: "4e861f11-7e9b-40d9-88f4-fe71d0f5d9d0"
 Languages:
 - Language: en
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            s:l="{C36E76F8-576E-474F-9894-76C087CD89B5}" />
-        </r>
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
@@ -41,20 +23,11 @@ Languages:
       Value: "Get-Layout-By-Id"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "90bd830c-58f0-4d69-ba4d-0059db8ddb71"
+      Value: "6ccf5539-46df-4364-bff5-428369b72110"
 - Language: "ja-JP"
   Versions:
   - Version: 1
     Fields:
-    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
-      Hint: __Final Renderings
-      Value: |
-        <r xmlns:p="p" xmlns:s="s"
-          p:p="1">
-          <d
-            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-            s:l="{800C8DAA-207D-43A7-8C69-EC84F1AF661D}" />
-        </r>
     - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
       Hint: __Workflow state
       Value: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
@@ -63,4 +36,4 @@ Languages:
       Value: "Get-Layout-By-Id"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "676140ab-adaa-4f76-92a3-e5ebd07bbaae"
+      Value: "81e34e9d-f105-4add-a01d-8c1dc2655352"
