@@ -1,0 +1,36 @@
+﻿---
+ID: "39694fbe-cbd0-4f02-a4f4-63542ff97856"
+Parent: "778e91a1-4140-438e-8cef-0d26124f6c1f"
+Template: "e3429c67-07b5-4327-a428-c7fae6c4d235"
+Path: "/sitecore/content/Home/Tests/Presentation/Set-Rendering-Parameter-By-Path"
+SharedFields:
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "2e8a7188-4705-4577-8805-092005a74bfe"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "8b63894a-4ca4-4359-9c59-7964974f4d18"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}"
+              s:par="CSSStyles&amp;sample=value_updated_by_path" />
+          </d>
+        </r>
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "e33db7e5-a8fb-44b9-80ff-4f87a5add418"
