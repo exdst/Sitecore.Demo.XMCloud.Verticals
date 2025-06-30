@@ -1,0 +1,68 @@
+﻿---
+ID: "4b820f75-1704-4484-bc6c-18734f505152"
+Parent: "2b9dab00-5229-405e-8bd4-d99ccb27c6ac"
+Template: "2b9dab00-5229-405e-8bd4-d99ccb27c6ac"
+Path: /sitecore/templates/Feature/Tests/Page With Placeholder Setting/__Standard Values
+SharedFields:
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "1b0a98c5-6d03-40d2-9b64-5ddea048dd46"
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{14030E9F-CE92-49C6-AD87-7D49B50E42EA}">
+        <p
+          uid="{77CD012F-A0EC-4B09-9F51-4AD4587B6490}"
+          key="test_placeholder"
+          md="{2B3B1A5E-E231-40DF-BB5F-3EB0061ACC41}" />
+        <r
+          ds=""
+          id="{885B8314-7D8C-4CBB-8000-01421EA8F406}"
+          par=""
+          ph="main"
+          uid="{43222D12-08C9-453B-AE96-D406EBB95126}" />
+        <r
+          ds=""
+          id="{CE4ADCFB-7990-4980-83FB-A00C1E3673DB}"
+          par=""
+          ph="/main/centercolumn"
+          uid="{CF044AD9-0332-407A-ABDE-587214A2C808}" />
+        <r
+          ds=""
+          id="{493B3A83-0FA7-4484-8FC9-4680991CF743}"
+          par=""
+          ph="/main/centercolumn/content"
+          uid="{B343725A-3A93-446E-A9C8-3A2CBD3DB489}" />
+      </d>
+      <d
+        id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}"
+        l="{14030E9F-CE92-49C6-AD87-7D49B50E42EA}">
+        <r
+          ds=""
+          id="{493B3A83-0FA7-4484-8FC9-4680991CF743}"
+          par=""
+          ph="content"
+          uid="{A08C9132-DBD1-474F-A2CA-6CA26A4AA650}" />
+      </d>
+    </r>
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4329642b-b86d-4341-bbd9-14058a519bf4"
+- Language: "ja-JP"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
+      Hint: __Final Renderings
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "4a7e82e8-727f-48f4-89d5-95445eda3606"
