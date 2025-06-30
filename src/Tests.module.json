@@ -17,6 +17,11 @@
                 "name": "TestRenderings",
                 "path": "/sitecore/layout/Renderings/Feature/Tests",
                 "scope": "ItemAndDescendants"
+            },
+            {
+                "name": "TestTemplates",
+                "path": "/sitecore/templates/Feature/Tests",
+                "scope": "ItemAndDescendants"
             }
         ]
     }
