@@ -9,7 +9,7 @@ SharedFields:
   Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "ff352253-9680-4251-af11-a978fed58db4"
+  Value: "93a2eae1-3b7b-4b8b-8384-398956801039"
 Languages:
 - Language: en
   Versions:
@@ -23,4 +23,8 @@ Languages:
       Value: "Get-Item-Referrer-By-Id"
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "16d90a62-dbe1-4a9c-95b6-90431b1f6842"
+      Value: "5099216e-9ccc-44f7-baf4-efe02bd20222"
+    - ID: "a60acd61-a6db-4182-8329-c957982cec74"
+      Hint: Text
+      Value: |
+        <a href="~/link.aspx?_id=1274D86EE90C4925BDEADDD6221A60F9&amp;_z=z">Get-Item-Referrer-By-Path</a>
