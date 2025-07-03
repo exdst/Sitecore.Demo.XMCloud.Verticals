@@ -22,6 +22,11 @@
                 "name": "TestRenderings",
                 "path": "/sitecore/layout/Renderings/Feature/Tests",
                 "scope": "ItemAndDescendants"
+            },
+            {
+                "name": "TestPlaceholderSettings",
+                "path": "/sitecore/layout/Placeholder Settings/Feature/Tests",
+                "scope": "ItemAndDescendants"
             }
         ]
     }
