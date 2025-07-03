@@ -1,0 +1,20 @@
+﻿---
+ID: "2b3b1a5e-e231-40df-bb5f-3eb0061acc41"
+Parent: "4d17bbdd-e259-4ffc-81a8-ea2790cec99f"
+Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
+Path: "/sitecore/layout/Placeholder Settings/Feature/Tests/Placeholder-Setting"
+SharedFields:
+- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
+  Hint: Placeholder Key
+  Value: test_placeholder
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "616a34f5-b2f4-45da-9904-0222546f89bc"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "51e5ea05-6ff2-46fe-a9ec-7253c125a5e7"
