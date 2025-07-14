@@ -1,0 +1,30 @@
+﻿---
+ID: "1856552c-118b-48b6-b766-a12a0069beed"
+Parent: "df986b2f-8ef7-4751-8563-009fb09abe0f"
+Template: "76036f5e-cbce-46d1-af0a-4143f9b557aa"
+Path: "/sitecore/content/Home/Tests/Common/Update-Item-Referrer-By-Path"
+SharedFields:
+- ID: "a4f985d9-98b3-4b52-aaaf-4344f6e747c6"
+  Hint: __Workflow
+  Value: "{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}"
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "75626038-412f-48fc-8428-5d1b9f79c988"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "3e431de1-525e-47a3-b6b0-1ccbec3a8c98"
+      Hint: __Workflow state
+      Value: "{190B1C84-F1BE-47ED-AA41-F42193D9C8FC}"
+    - ID: "75577384-3c97-45da-a847-81b00500e250"
+      Hint: Title
+      Value: "Update-Item-Referrer-By-Path"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "6d861db8-487e-4b2d-a2fb-3cac877d28d7"
+    - ID: "a60acd61-a6db-4182-8329-c957982cec74"
+      Hint: Text
+      Value: |
+        <a href="~/link.aspx?_id=A48AD4C0CB6440B6BDD7154A9D59F935&amp;_z=z">Update-Item-Referrer-By-Id</a>
