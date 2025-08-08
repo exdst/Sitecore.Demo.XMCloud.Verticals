@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Basic",
+    "hostName": "*",
+    "language": "en"
+  },
+  {
+    "name": "Financial",
+    "hostName": "financial.sxastarter.localhost",
+    "language": "en"
+  },
+  {
+    "name": "Basic",
+    "hostName": "basic.sxastarter.localhost",
+    "language": "en"
+  },
+  {
+    "name": "Services",
+    "hostName": "services.sxastarter.localhost",
+    "language": "en"
+  }
+]

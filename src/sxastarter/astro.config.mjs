@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
+import { cjsInterop } from "vite-plugin-cjs-interop";
 
 const adapter = process.env.VERCEL
   ? vercel({
@@ -42,6 +43,22 @@ export default defineConfig({
       "renderingastro",
       //Images from Sitecore are already optimized. Enable this if you want to use the Astro image service with Sitecore images from Sitecore Experience Edge.
       //"edge.sitecorecloud.io",
+    ],
+  },
+  vite: {
+    server: {
+      cors: {
+        preflightContinue: true,
+      },
+    },
+    plugins: [
+      cjsInterop({
+        // List of CJS dependencies that require interop
+        dependencies: [
+          "@sitecore-content-sdk/core",
+          "@sitecore-content-sdk/core/*",
+        ],
+      }),
     ],
   },
 });
