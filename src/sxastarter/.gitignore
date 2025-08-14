@@ -40,3 +40,8 @@ scjssconfig.json
 
 # generated files
 src/temp
+
+# sitecore temp files
+.sitecore/
+# except for component-map
+!.sitecore/component-map.ts

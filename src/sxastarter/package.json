@@ -16,7 +16,10 @@
     "astro:build": "astro build",
     "astro:preview": "astro preview",
     "astro": "astro",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts"
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
+    "sitecore-tools:generate-map": "sitecore-tools project component generate-map",
+    "sitecore-tools:generate-map:watch": "sitecore-tools project component generate-map --watch",
+    "sitecore-tools:build": "sitecore-tools project build"
   },
   "dependencies": {
     "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.2",
