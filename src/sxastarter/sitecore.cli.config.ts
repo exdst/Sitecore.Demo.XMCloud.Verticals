@@ -1,6 +1,9 @@
-import { defineCliConfig } from "@astro-sitecore-jss/astro-sitecore-jss/config-cli";
-import config from './sitecore.config';
-import { generateMetadata, generateSites } from "@sitecore-content-sdk/core/tools";
+import { defineCliConfig } from "@astro-sitecore-jss/astro-content-sdk/config-cli";
+import config from "./sitecore.config";
+import {
+  generateMetadata,
+  generateSites,
+} from "@astro-sitecore-jss/astro-content-sdk/tools";
 
 export default defineCliConfig({
   build: {
@@ -15,8 +18,12 @@ export default defineCliConfig({
     ],
   },
   componentMap: {
-    paths: ['src/components'],
+    paths: ["src/components"],
     // Exclude content-sdk auxillary components
-    exclude: ['src/components/content-sdk/*'],
+    exclude: [
+      "src/components/content-sdk/*",
+      "src/components/Variants/**/*",
+      "src/components/NestedComponents/**/*",
+    ],
   },
 });

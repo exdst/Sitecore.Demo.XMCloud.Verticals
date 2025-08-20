@@ -1,5 +1,5 @@
 import type { APIRoute, APIContext } from "astro";
-import { EditingRenderMiddleware } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { EditingRenderMiddleware } from "@astro-sitecore-jss/astro-content-sdk/editing";
 
 /**
  * This API route is used to handle GET requests from Sitecore Editor.

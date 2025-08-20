@@ -1,5 +1,6 @@
 import type { APIRoute, APIContext } from "astro";
-import { EditingConfigMiddleware } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { EditingConfigMiddleware } from "@astro-sitecore-jss/astro-content-sdk/editing";
+import components from ".sitecore/component-map";
 import metadata from ".sitecore/metadata.json";
 
 /**
@@ -8,7 +9,7 @@ import metadata from ".sitecore/metadata.json";
  */
 export const ALL: APIRoute = async ({ request }: APIContext) => {
   const handler = new EditingConfigMiddleware({
-    /*components,*/
+    components,
     metadata,
   }).getHandler();
 

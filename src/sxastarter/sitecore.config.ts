@@ -1,4 +1,4 @@
-import { defineConfig } from "@astro-sitecore-jss/astro-sitecore-jss/config";
+import { defineConfig } from "@astro-sitecore-jss/astro-content-sdk/config";
 /**
  * See the documentation for `defineConfig`:
  * https://doc.sitecore.com/xmc/en/developers/content-sdk/the-sitecore-configuration-file.html
