@@ -41,6 +41,8 @@ export default defineConfig({
       "financial.sxastarter.localhost.astro",
       "services.sxastarter.localhost.astro",
       "renderingastro",
+      "sitecore-demo-xm-cloud-verticals-services.vercel.app",
+      "sitecore-demo-xm-cloud-verticals-financial.vercel.app",
       //Images from Sitecore are already optimized. Enable this if you want to use the Astro image service with Sitecore images from Sitecore Experience Edge.
       //"edge.sitecorecloud.io",
     ],
