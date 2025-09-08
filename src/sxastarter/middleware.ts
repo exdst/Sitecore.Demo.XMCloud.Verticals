@@ -28,9 +28,6 @@ export default function middleware(request: Request) {
   }];
 
   for (const site of sites) {
-
-    // https://github.com/Sitecore/Sitecore.Demo.XMCloud.Verticals/issues/251
-    // Temporary fix for the issue above
     const hostname = site.hostName.indexOf("services") > -1 ? "services" : "financial";
 
     if (url.host.indexOf(hostname) > -1) {
@@ -48,7 +45,7 @@ export default function middleware(request: Request) {
 
       url.searchParams.set("sc_site", site.name);
       url.searchParams.set("sc_lang", site.language);
-
+      console.log(`Rewriting URL to ${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
       return rewrite(`${url.protocol}//${url.host}${path}${url.search}`.toLowerCase());
     }
   }
