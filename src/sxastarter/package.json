@@ -1,5 +1,5 @@
 {
-  "name": "astro",
+  "name": "astrodemo",
   "version": "0.0.1",
   "config": {
     "appName": "astro",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.2",
+    "@astrojs/netlify": "^6.5.10",
     "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.2.0",
     "@astrojs/vercel": "^8.0.5",
@@ -27,7 +28,7 @@
     "@sitecore-cloudsdk/events": "^0.4.4",
     "@sitecore-jss/sitecore-jss": "^22.2.1",
     "@sitecore/components": "^1.1.12",
-    "astro": "5.1.6",
+    "astro": "^5.7.0",
     "bootstrap": "^5.3.3",
     "change-case": "^4.1.2",
     "font-awesome": "^4.7.0",
