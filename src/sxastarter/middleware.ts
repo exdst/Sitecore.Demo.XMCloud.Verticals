@@ -33,9 +33,9 @@ export default function middleware(request: Request) {
     // Temporary fix for the issue above
     const hostname = site.hostName.replace("-basic", "-website");
 
-    if (url.host.startsWith(hostname)) {
+    if (true) {
       let path = url.pathname;
-     let hasLanguage = false;
+      let hasLanguage = false;
       for (const language of languages) {
         if (url.pathname.startsWith("/" + language.code.toLowerCase())) {
           hasLanguage = true;
