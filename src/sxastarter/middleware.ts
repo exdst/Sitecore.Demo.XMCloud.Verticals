@@ -31,9 +31,9 @@ export default function middleware(request: Request) {
 
     // https://github.com/Sitecore/Sitecore.Demo.XMCloud.Verticals/issues/251
     // Temporary fix for the issue above
-    const hostname = site.hostName.replace("-basic", "-website");
+    const hostname = site.hostName.indexOf("services") > -1 ? "services" : "financial";
 
-    if (true) {
+    if (url.host.indexOf(hostname) > -1) {
       let path = url.pathname;
       let hasLanguage = false;
       for (const language of languages) {
