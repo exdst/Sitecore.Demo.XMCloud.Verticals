@@ -28,7 +28,7 @@ export default defineConfig({
     host: true,
   },
   output: "server",
-  adapter: netlify(),
+  adapter: vercel(),
   i18n: {
     locales: ["en", "fr-CA", "ja-JP", "es-ES", "uk-UA", "de-DE", "it-IT", "nl-NL", "pt-PT", "ru-RU", "zh-CN", "zh-TW"],
     defaultLocale: "en",
