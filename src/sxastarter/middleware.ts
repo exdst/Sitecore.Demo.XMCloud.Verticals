@@ -35,9 +35,9 @@ export default function middleware(request: Request) {
 
     if (url.host.startsWith(hostname)) {
       let path = url.pathname;
-      let hasLanguage = false;
+     let hasLanguage = false;
       for (const language of languages) {
-        if (url.pathname.startsWith("/" + language.toLocaleLowerCase())) {
+        if (url.pathname.startsWith("/" + language.code.toLowerCase())) {
           hasLanguage = true;
         }
       }
