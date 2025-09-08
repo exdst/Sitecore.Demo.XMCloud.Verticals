@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
+import netlify from "@astrojs/netlify";
 import react from "@astrojs/react";
 
 const adapter = process.env.VERCEL
@@ -27,9 +28,9 @@ export default defineConfig({
     host: true,
   },
   output: "server",
-  adapter: adapter,
+  adapter: netlify(),
   i18n: {
-    locales: ["en", "fr-CA", "ja-JP"],
+    locales: ["en", "fr-CA", "ja-JP", "es-ES", "uk-UA", "de-DE", "it-IT", "nl-NL", "pt-PT", "ru-RU", "zh-CN", "zh-TW"],
     defaultLocale: "en",
   },
   devToolbar: {
