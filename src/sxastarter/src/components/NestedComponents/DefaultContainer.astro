@@ -1,15 +1,19 @@
 ---
-import Placeholder from "components/system/Placeholder.astro";
-import { ComponentProps } from "components/Container.astro";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
+import { ContainerProps } from "components/Container.astro";
 
-const props: ComponentProps = Astro.props.route;
-const id = Astro.props.id;
+const { params, rendering } = Astro.props as ContainerProps;
+const {
+  styles,
+  RenderingIdentifier: id,
+  BackgroundImage: backgroundImage,
+  DynamicPlaceholderId,
+} = params;
+const phKey = `container-${DynamicPlaceholderId}`;
 
-const containerStyles = props.params && props.params.Styles ? props.params.Styles : "";
-const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
-const phKey = `container-${props.params.DynamicPlaceholderId}`;
+// Extract the mediaurl from rendering parameters
 const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, "i");
-const backgroundImage = props.params.BackgroundImage as string;
+
 let backgroundStyle: { [key: string]: string } = {};
 
 if (backgroundImage && backgroundImage.match(mediaUrlPattern)) {
@@ -21,10 +25,10 @@ if (backgroundImage && backgroundImage.match(mediaUrlPattern)) {
 }
 ---
 
-<div class={`component container-default ${styles}`} id={id ? id : undefined}>
+<div class={`component container-default ${styles}`} id={id}>
   <div class="component-content" style={backgroundStyle}>
     <div class="row">
-      <Placeholder name={phKey} rendering={props.rendering} />
+      <Placeholder name={phKey} rendering={rendering} />
     </div>
   </div>
 </div>
