@@ -1,31 +1,39 @@
 ---
-import {
-  AstroImage,
-  RichText,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
 import { PromoProps } from "components/Promo.astro";
 
-const props: PromoProps = Astro.props.route;
-const id = props.params?.RenderingIdentifier;
+const { fields, params } = Astro.props as PromoProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component promo ${props.params.styles}`}
-  id={id ? id : undefined}
->
-  <div class="component-content">
-    <div class="field-promoicon">
-      <AstroImage field={props.fields.PromoIcon} />
-    </div>
-    <div class="promo-text">
-      <div>
-        <div class="field-promotext">
-          <RichText class="promo-text" field={props.fields.PromoText} />
+<>
+  {
+    fields && (
+      <div class={`component promo ${styles}`} id={id}>
+        <div class="component-content">
+          <div class="field-promoicon">
+            <AstroImage field={fields.PromoIcon} />
+          </div>
+          <div class="promo-text">
+            <div class="field-promotext">
+              <RichText class="promo-text" field={fields.PromoText} />
+            </div>
+            <div class="field-promotext">
+              <RichText class="promo-text" field={fields.PromoText2} />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="field-promotext">
-        <RichText class="promo-text" field={props.fields.PromoText2} />
+    )
+  }
+  {
+    !fields && (
+      <div class={`component promo ${styles}`} id={id}>
+        <div class="component-content">
+          <span class="is-empty-hint">Promo</span>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    )
+  }
+</>

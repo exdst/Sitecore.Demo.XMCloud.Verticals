@@ -1,9 +1,8 @@
 ---
-import {
-  ImageField,
-  Field,
-  LinkField
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
 import PromoDefault from "components/Variants/PromoVariants/PromoDefault.astro";
 import PromoWithText from "components/Variants/PromoVariants/PromoWithText.astro";
 
@@ -14,15 +13,15 @@ interface Fields {
   PromoText2: Field<string>;
 }
 
-export type PromoProps = {
-  params: { [key: string]: string };
+export interface PromoProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: PromoProps = Astro.props.route;
-const variantName = props.params.FieldNames ?? 'Default';
+const props = Astro.props as PromoProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
+
 <>
-  {variantName === 'Default' && <PromoDefault route={props} />}
-  {variantName === 'WithText' && <PromoWithText route={props} />}
+  {variantName === "Default" && <PromoDefault {...props} />}
+  {variantName === "WithText" && <PromoWithText {...props} />}
 </>
