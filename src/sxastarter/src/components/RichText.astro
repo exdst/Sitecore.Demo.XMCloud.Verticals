@@ -1,27 +1,25 @@
 ---
-import { Field, RichText as JssRichText } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import ContentSdkRichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
 
 interface Fields {
   Text: Field<string>;
 }
 
-export type RichTextProps = {
-  params: { [key: string]: string };
+export interface RichTextProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: RichTextProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as RichTextProps;
+const { RenderingIdentifier: id, styles } = params;
 ---
 
-<div
-  class={`component rich-text ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component rich-text ${styles}`} id={id}>
   <div class="component-content">
     {
-      props.fields ? (
-        <JssRichText field={props.fields.Text} />
+      fields ? (
+        <ContentSdkRichText field={fields.Text} />
       ) : (
         <span class="is-empty-hint">Rich text</span>
       )

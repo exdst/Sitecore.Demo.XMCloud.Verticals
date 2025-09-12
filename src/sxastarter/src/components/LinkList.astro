@@ -1,50 +1,49 @@
 ---
-import { LinkField, TextField, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import Text, { TextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
 import LinkListItem from "./NestedComponents/LinkListItem.astro";
 
-type ResultsFieldLink = {
-  field: {
-    link: LinkField;
-  };
-};
-
-interface Fields {
-  data: {
-    datasource: {
-      children: {
-        results: ResultsFieldLink[];
-      };
-      field: {
-        title: TextField;
+interface LinkListProps extends ComponentProps {
+  fields: {
+    /**
+     * The Integrated graphQL query result. This illustrates the way to access the datasource children.
+     */
+    data: {
+      datasource: {
+        children: {
+          results: Array<{
+            field: {
+              link: LinkField;
+            };
+          }>;
+        };
+        field: {
+          title: TextField;
+        };
       };
     };
   };
 }
 
-type LinkListProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
-
-const props: LinkListProps = Astro.props.route;
-const datasource = props.fields?.data?.datasource;
-const styles = `component link-list ${props.params.styles}`.trimEnd();
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as LinkListProps;
+const datasource = fields?.data?.datasource;
+const styles = `component link-list ${params.styles || ""}`.trim();
+const id = params.RenderingIdentifier;
 ---
 
 <>
   {
     datasource && (
-      <div class={styles} id={id ? id : undefined}>
+      <div class={styles} id={id}>
         <div class="component-content">
           <Text tag="h3" field={datasource?.field?.title} />
           <ul>
             {datasource.children.results
-              .filter((element: ResultsFieldLink) => element?.field?.link)
-              .map((element: ResultsFieldLink, key: number) => (
+              .filter((element) => element?.field?.link)
+              .map((element, index) => (
                 <LinkListItem
-                  index={key}
-                  key={`${key}${element.field.link}`}
+                  index={index}
                   total={datasource.children.results.length}
                   field={element.field.link}
                 />
@@ -57,7 +56,7 @@ const id = props.params.RenderingIdentifier;
 
   {
     !datasource && (
-      <div class={styles} id={id ? id : undefined}>
+      <div class={styles} id={id}>
         <div class="component-content">
           <h3>Link List</h3>
         </div>

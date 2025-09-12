@@ -1,5 +1,7 @@
 ---
-import { TextField, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { TextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import NavigationList from "components/NestedComponents/NavigationList.astro";
 
 export interface Fields {
@@ -13,71 +15,63 @@ export interface Fields {
   Styles: string[];
 }
 
-export type NavigationProps = {
-  params?: { [key: string]: string };
+interface NavigationProps extends ComponentProps {
   fields: Fields;
-  relativeLevel: number;
-};
+}
 
-const props: NavigationProps = Astro.props.route;
-const styles =
-  props.params != null
-    ? `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd()
-    : "";
-const id = props.params?.RenderingIdentifier;
+const { params, fields } = Astro.props as NavigationProps;
+const { page } = useSitecore();
+const { styles, RenderingIdentifier: id } = params;
 
-const isEmpty = !Object.values(props.fields).length;
-
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const isEmpty = !Object.values(fields).length;
 ---
 
 <>{
     isEmpty && (
-      <div class={`component navigation ${styles}`} id={id ? id : undefined}>
+      <div class={`component navigation ${styles}`} id={id}>
         <div class="component-content">[Navigation]</div>
       </div>
     )
   }
   {
-  !isEmpty && <div class={`component navigation ${styles}`} id={id ? id : undefined}>
-      <label class="menu-mobile-navigate-wrapper">
-        <input
-          type="checkbox"
-          class="menu-mobile-navigate"
-          data-isPageEditing={isPageEditing}
-        />
-        {/* DEMO TEAM CUSTOMIZATION */}
-        <div class="menu-humburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="component-content">
-          <nav>
-            {/* DEMO TEAM CUSTOMIZATION */}
-            <ul>{
-              Object.values(props.fields)
-                .filter((element) => element)
-                .map((element: Fields, key: number) => (
-                  <NavigationList
-                    key={`${key}${element.Id}`}
-                    fields={element}
-                    relativeLevel={1}
-                  />
-                ))
-              }</ul>
-          </nav>
-        </div>
-      </label>
-    </div>
+    !isEmpty && (
+      <div class={`component navigation ${styles}`} id={id}>
+        <label class="menu-mobile-navigate-wrapper">
+          <input
+            type="checkbox"
+            class="menu-mobile-navigate"
+            data-isPageEditing={page.mode.isEditing}
+          />
+          {/* DEMO TEAM CUSTOMIZATION */}
+          <div class="menu-humburger">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div class="component-content">
+            <nav>
+              {/* DEMO TEAM CUSTOMIZATION */}
+              <ul>
+                {Object.values(fields)
+                  .filter((element) => element)
+                  .map((element: Fields, key: number) => (
+                    <NavigationList fields={element} relativeLevel={1} />
+                  ))}
+              </ul>
+            </nav>
+          </div>
+        </label>
+      </div>
+    )
   }
 </>
 
 <script>
-  import { handleToggleMenu } from 'components/scripts/Menu';
+  import { handleToggleMenu } from "components/scripts/Menu";
 
-  const menuMobileNavigate = document.getElementsByClassName("menu-mobile-navigate")[0];
+  const menuMobileNavigate = document.getElementsByClassName(
+    "menu-mobile-navigate"
+  )[0];
   menuMobileNavigate?.addEventListener("change", (event) => {
     handleToggleMenu(event);
   });

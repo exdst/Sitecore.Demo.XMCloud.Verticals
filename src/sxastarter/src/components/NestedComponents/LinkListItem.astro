@@ -1,27 +1,26 @@
 ---
-import { Link, LinkField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import Link, {
+  LinkField,
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
 
-type LinkListItemProps = {
-  key: string;
+const { index, total, field } = Astro.props as {
   index: number;
   total: number;
   field: LinkField;
 };
 
-const props: LinkListItemProps = Astro.props as LinkListItemProps;
-
-let className = `item${props.index}`;
-className += (props.index + 1) % 2 == 0 ? " even" : " odd";
-if (props.index == 0) {
-  className += " first";
-}
-if (props.index + 1 == props.total) {
-  className += " last";
-}
+const classNames = [
+  `item${index}`,
+  index % 2 === 0 ? "odd" : "even",
+  index === 0 ? "first" : "",
+  index === total - 1 ? "last" : "",
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
-<li class={className}>
+<li class={classNames}>
   <div class="field-link">
-    <Link field={props.field} />
+    <Link field={field} />
   </div>
 </li>

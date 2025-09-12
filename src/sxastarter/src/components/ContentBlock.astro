@@ -1,11 +1,17 @@
 ---
-import { RichText, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
 
-export interface ContentBlockProps {
-  route: any;
+export interface ContentBlockProps extends ComponentProps {
+  fields: {
+    heading: Field<string>;
+    content: Field<string>;
+  };
 }
 
-const { fields } = Astro.props.route;
+const { fields } = Astro.props as ContentBlockProps;
 ---
 
 <div class="contentBlock">
