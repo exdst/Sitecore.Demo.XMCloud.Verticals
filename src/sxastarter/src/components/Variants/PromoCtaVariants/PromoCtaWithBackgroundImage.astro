@@ -1,29 +1,34 @@
 ---
-import { Link, RichText, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
 import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
-const props: PromoCtaProps = Astro.props.route;
-const id = Astro.props.id;
-const isPageEditing = Astro.props.isPageEditing;
+const { fields, params } = Astro.props as PromoCtaProps;
+const { RenderingIdentifier: id, styles } = params;
+
+const { page } = useSitecore();
+const isEditing = page.mode.isEditing;
 ---
 
 <div
-  class={`component promo-cta with-background-image ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component promo-cta with-background-image ${styles?.trim()}`}
+  id={id}
 >
-  <ParallaxBackgroundImage BackgroundImage={props.fields.Image} />
+  <ParallaxBackgroundImage BackgroundImage={fields.Image} />
   <div class="container">
     <div class="row justify-content-center main-content">
       <div class="col-12 mx-auto">
         <h1 class="display-3 fw-bold text-center mb-3">
-          <Text field={props.fields.Title} />
+          <Text field={fields.Title} />
         </h1>
         <div class="fs-3 text-center">
-          <RichText field={props.fields.Text} />
+          <RichText field={fields.Text} />
           {
-            (isPageEditing || props.fields?.Link?.value?.href) && (
-              <Link field={props.fields.Link} class="button button-main mt-3" />
+            (isEditing || fields?.Link?.value?.href) && (
+              <Link field={fields.Link} class="button button-main mt-3" />
             )
           }
         </div>

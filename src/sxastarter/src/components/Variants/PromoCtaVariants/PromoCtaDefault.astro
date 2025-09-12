@@ -1,50 +1,48 @@
 ---
-import {
-  Link,
-  RichText,
-  Text,
-  AstroImage,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import Placeholder from "components/system/Placeholder.astro";
+import Image from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
 import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
-const props: PromoCtaProps = Astro.props.route;
-const id = Astro.props.id;
-const isPageEditing = Astro.props.isPageEditing;
+const { fields, params, rendering } = Astro.props as PromoCtaProps;
+const { RenderingIdentifier: id, styles } = params;
+
+const { page } = useSitecore();
+const isEditing = page.mode.isEditing;
 ---
 
-<div
-  class={`component promo-cta ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component promo-cta ${styles?.trim()}`} id={id}>
   <div class="container">
     <div class="row row-gap-4 main-content align-items-center">
       <div class="col-lg-5 text-center text-lg-start">
         <h6 class="eyebrow-accent">
-          <Text field={props.fields.Eyebrow} />
+          <Text field={fields.Eyebrow} />
         </h6>
         <h1 class="display-6 fw-bold mb-3">
-          <Text field={props.fields.Title} />
+          <Text field={fields.Title} />
         </h1>
         <div class="promo-cta-text">
           <p class="fs-5">
-            <Text field={props.fields.Subtitle} />
+            <Text field={fields.Subtitle} />
           </p>
 
-          <RichText field={props.fields.Text} class="text-content" />
+          <RichText field={fields.Text} class="text-content" />
 
           <div class="row mt-2">
-            <Placeholder name="promo-cta" rendering={props.rendering} />
+            <Placeholder name="promo-cta" rendering={rendering} />
           </div>
 
           {
-            (isPageEditing || props.fields?.Link?.value?.href) && (
-              <Link field={props.fields.Link} class="button button-main mt-3 me-4" />
+            (isEditing || fields?.Link?.value?.href) && (
+              <Link field={fields.Link} class="button button-main mt-3 me-4" />
             )
           }{
-            (isPageEditing || props.fields?.Link2?.value?.href) && (
-              <Link field={props.fields.Link2} class="button button-simple mt-3" />
+            (isEditing || fields?.Link2?.value?.href) && (
+              <Link field={fields.Link2} class="button button-simple mt-3" />
             )
           }
         </div>
@@ -52,10 +50,10 @@ const isPageEditing = Astro.props.isPageEditing;
       <div class="col-md-10 mx-auto col-lg-7 mx-lg-0">
         <div class="image-wrapper">
           <DottedAccent class="dotted-accent-top" />
-          <AstroImage
-            field={props.fields.Image}
+          <Image
+            field={fields.Image}
             class={`d-block mx-lg-auto img-fluid ${
-              !isPageEditing ? "fade-section" : ""
+              !isEditing ? "fade-section" : ""
             }`}
           />
           <DottedAccent class="dotted-accent-bottom" />
