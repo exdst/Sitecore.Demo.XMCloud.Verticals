@@ -1,41 +1,44 @@
 ---
-import {
-  Link,
-  Text,
-  AstroImage,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import { ImageProps } from "components/Image.astro";
 
-const props: ImageProps = Astro.props.route;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const id = props.params.RenderingIdentifier;
+const { page } = useSitecore();
+const { fields, params } = Astro.props as ImageProps;
+const { styles, RenderingIdentifier: id } = params;
+
+const shouldWrapWithLink =
+  !page.mode.isEditing && fields?.TargetUrl?.value?.href;
 ---
+
 <>
-{
-  props.fields && (
-      <div class={`component image ${props.params.styles}`} id={id ? id : undefined}>
+  {
+    fields && (
+      <div class={`component image ${styles}`.trim()} id={id}>
+        {shouldWrapWithLink ? (
+          <Link field={fields.TargetUrl}>
+            <AstroImage field={fields.Image} />
+          </Link>
+        ) : (
+          <AstroImage field={fields.Image} />
+        )}
+        <Text
+          tag="span"
+          className="image-caption field-imagecaption"
+          field={fields.ImageCaption}
+        />
+      </div>
+    )
+  }
+  {
+    !fields && (
+      <div class={`component image ${styles}`.trim()} id={id}>
         <div class="component-content">
-          {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
-            <AstroImage field={props.fields.Image} />
-          ) : (
-            <Link field={props.fields.TargetUrl}>
-              <AstroImage field={props.fields.Image} />
-            </Link>
-          )}
-          <Text
-            tag="span"
-            class="image-caption field-imagecaption"
-            field={props.fields.ImageCaption}
-          />
+          <span class="is-empty-hint">Image</span>
         </div>
       </div>
     )
   }
-  {!props.fields && <div class={`component image ${props.params.styles}`.trimEnd()}>
-    <div class="component-content">
-      <span class="is-empty-hint">Image</span>
-    </div>
-  </div>}
-}
 </>
