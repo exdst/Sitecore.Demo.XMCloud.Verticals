@@ -1,0 +1,81 @@
+---
+/**
+ * This is the CDP page view component.
+ * It uses the Sitecore Cloud SDK to enable page view events on the client-side.
+ * See Sitecore Cloud SDK documentation for details.
+ * https://www.npmjs.com/package/@sitecore-cloudsdk/events
+ */
+
+import { CdpHelper } from "@sitecore-content-sdk/core/personalize";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import config from "sitecore.config";
+
+const {
+  page: { layout, mode },
+} = useSitecore();
+const { route, context } = layout.sitecore;
+
+/**
+ * Determines if the page view events should be turned off.
+ * IMPORTANT: You should implement based on your cookie consent management solution of choice.
+ * By default it is disabled in development mode
+ */
+const disabled = () => {
+  return process.env.NODE_ENV === "development";
+};
+
+// Do not create events in editing or preview mode or if missing route data
+if (!mode.isNormal || !route?.itemId) {
+  return;
+}
+
+// Do not create events if disabled (e.g. we don't have consent)
+if (disabled()) {
+  return;
+}
+
+const language = route.itemLanguage || config.defaultLanguage;
+const scope = config.personalize?.scope;
+
+const pageVariantId = CdpHelper.getPageVariantId(
+  route.itemId,
+  language,
+  context.variantId as string,
+  scope
+);
+
+const pageViewData = JSON.stringify({
+  channel: "WEB",
+  currency: "USD",
+  page: route.name,
+  pageVariantId,
+  language,
+});
+---
+
+<>
+  <astro-cdp-page-view data-page-view-data={pageViewData}></astro-cdp-page-view>
+
+  <script>
+    import { getEnabledPackageBrowser } from "@sitecore-cloudsdk/core/internal";
+    import { pageView } from "@sitecore-cloudsdk/events/browser";
+
+    class CdpPageView extends HTMLElement {
+      async connectedCallback() {
+        const isInitialized = getEnabledPackageBrowser(
+          "@sitecore-cloudsdk/events"
+        )?.initState;
+
+        if (!isInitialized) return;
+
+        const pageViewData = this.dataset.pageViewData;
+
+        if (pageViewData !== undefined) {
+          // there can be cases where Events are not initialized which are expected to reject
+          pageView(JSON.parse(pageViewData)).catch((e) => console.debug(e));
+        }
+      }
+    }
+    customElements.define("astro-cdp-page-view", CdpPageView);
+  </script>
+</>
