@@ -1,47 +1,53 @@
 ---
 import { ComponentProps } from "lib/component-props";
-import Placeholder from "components/system/Placeholder.astro";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
 
-const props: ComponentProps = Astro.props.route;
-const styles = `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd();
+/**
+ * The number of columns that can be inserted into the column splitter component.
+ * The maximum number of columns is 8.
+ */
+type ColumnNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
-const columnWidths = [
-  props.params.ColumnWidth1,
-  props.params.ColumnWidth2,
-  props.params.ColumnWidth3,
-  props.params.ColumnWidth4,
-  props.params.ColumnWidth5,
-  props.params.ColumnWidth6,
-  props.params.ColumnWidth7,
-  props.params.ColumnWidth8,
-];
+/**
+ * The width specified for each rendered column.
+ * The key is the column number, and the value is the width.
+ */
+type ColumnWidths = {
+  [K in ColumnNumber as `ColumnWidth${K}`]?: string;
+};
 
-const columnStyles = [
-  props.params.Styles1,
-  props.params.Styles2,
-  props.params.Styles3,
-  props.params.Styles4,
-  props.params.Styles5,
-  props.params.Styles6,
-  props.params.Styles7,
-  props.params.Styles8,
-];
+/**
+ * The styles specified for each rendered column.
+ * The key is the column number, and the value is the styles.
+ */
+type ColumnStyles = {
+  [K in ColumnNumber as `Styles${K}`]?: string;
+};
 
-const enabledPlaceholders = props.params.EnabledPlaceholders.split(",");
-const id = props.params.RenderingIdentifier;
+interface ColumnSplitterProps extends ComponentProps {
+  params: ComponentProps["params"] & ColumnWidths & ColumnStyles;
+}
+
+const { params, rendering } = Astro.props as ColumnSplitterProps;
+const { EnabledPlaceholders, RenderingIdentifier: id, styles } = params;
+const enabledColumns = EnabledPlaceholders?.split(",") ?? [];
 ---
 
-<div class={`row component column-splitter ${styles}`} id={id ? id : undefined} >
+<div class={`row component column-splitter ${styles}`} id={id}>
   {
-    enabledPlaceholders.map((ph) => {
-      const phKey = `column-${ph}-{*}`;
-      const phStyles =
-        `${columnWidths[+ph - 1]} ${columnStyles[+ph - 1] ?? ""}`.trimEnd();
+    enabledColumns.map((columnNum, index) => {
+      const num = Number(columnNum) as ColumnNumber;
+      const columnWidth = params[`ColumnWidth${num}`] ?? "";
+      const columnStyle = params[`Styles${num}`] ?? "";
+      const columnClassNames = `${columnWidth} ${columnStyle}`.trim();
 
       return (
-        <div class={phStyles}>
+        <div class={columnClassNames}>
           <div class="row">
-            <Placeholder name={phKey} rendering={props.rendering} />
+            <Placeholder
+              name={`column-${columnNum}-{*}`}
+              rendering={rendering}
+            />
           </div>
         </div>
       );
