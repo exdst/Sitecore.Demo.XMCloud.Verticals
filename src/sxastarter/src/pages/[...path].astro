@@ -5,11 +5,11 @@ import {
   COOKIE_NAME_PRERENDER_DATA,
 } from "@astro-sitecore-jss/astro-content-sdk/editing";
 import { extractPath } from "@astro-sitecore-jss/astro-content-sdk/utils";
-import client from "../lib/sitecore-client";
-import Layout from "@/layouts/Layout.astro";
+import client from "@/lib/sitecore-client";
+import Layout from "@/Layout.astro";
 import components from ".sitecore/component-map";
-import config from "../../sitecore.config";
-import NotFound from "@/layouts/NotFound.astro";
+import config from "sitecore.config";
+import NotFound from "@/NotFound.astro";
 
 // Enable on-demand rendering
 export const prerender = false;

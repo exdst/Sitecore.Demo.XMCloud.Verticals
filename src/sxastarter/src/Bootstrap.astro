@@ -1,21 +1,42 @@
 ---
-import { CdpService } from "@/lib/cdp-service";
-import config from "../temp/config";
-
-const cdpService = new CdpService();
-const sendData = cdpService.isNormalMode();
-
 /**
  * The Bootstrap component is the entry point for performing any initialization logic
  * that needs to happen early in the application's lifecycle.
  */
+
+import { Page } from "@astro-sitecore-jss/astro-content-sdk";
+import config from "sitecore.config";
+
+const page = Astro.props.page as Page;
+
+if (!page) {
+  return;
+}
+
+const mode = page.mode;
+
+if (process.env.NODE_ENV === "development") {
+  console.debug(
+    "Browser Events SDK is not initialized in development environment"
+  );
+  return;
+} else if (!mode.isNormal) {
+  console.debug(
+    "Browser Events SDK is not initialized in edit and preview modes"
+  );
+  return;
+}
+
+if (!config.api.edge?.clientContextId) {
+  console.error("Client Edge API settings missing from configuration");
+  return;
+}
 ---
 
 <astro-bootstrap
-  data-send={+sendData}
-  data-site-name={Astro.locals.site}
-  data-sitecore-edge-context-id={config.sitecoreEdgeContextId}
-  data-sitecore-edge-url={config.sitecoreEdgeUrl}
+  data-sitecore-edge-url={config.api.edge.edgeUrl}
+  data-sitecore-edge-context-id={config.api.edge.clientContextId}
+  data-site-name={page.siteName || config.defaultSite}
 >
 </astro-bootstrap>
 
@@ -28,12 +49,10 @@ const sendData = cdpService.isNormalMode();
 
   class Bootstrap extends HTMLElement {
     connectedCallback() {
-      const dataSend =
-        this.dataset.send !== undefined ? +this.dataset.send : 0;
-        
       const sitecoreEdgeContextId = this.dataset.sitecoreEdgeContextId || "";
-          
-      if (!dataSend || !sitecoreEdgeContextId || sitecoreEdgeContextId == 'undefined') return;
+
+      if (!sitecoreEdgeContextId || sitecoreEdgeContextId == "undefined")
+        return;
 
       const sitecoreEdgeUrl = this.dataset.sitecoreEdgeUrl || "";
       const siteName = this.dataset.siteName || "";
@@ -46,15 +65,15 @@ const sendData = cdpService.isNormalMode();
         // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
         cookieDomain: window.location.hostname.replace(/^www\./, ""),
       })
-      .addEvents()
-      .initialize();
+        .addEvents()
+        .initialize();
     }
   }
 
   customElements.define("astro-bootstrap", Bootstrap);
 
   //******************************************************//
-  //****************Paralax initialization****************//
+  //****************Parallax initialization****************//
   //******************************************************//
   import { ParallaxElementOptions, useParallax } from "lib/useParallax";
 
@@ -62,11 +81,11 @@ const sendData = cdpService.isNormalMode();
     const dottedAccents = document.querySelectorAll(".dotted-accent-wrapper");
 
     const options: ParallaxElementOptions = {
-        translateY: { from: 80, to: -80, units: "px" },
-    }
+      translateY: { from: 80, to: -80, units: "px" },
+    };
 
     dottedAccents.forEach((dottedAccent) => {
-      useParallax(dottedAccent, options);
+      useParallax(dottedAccent as HTMLElement, options);
     });
   });
 </script>
