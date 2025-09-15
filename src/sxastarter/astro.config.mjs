@@ -57,6 +57,8 @@ export default defineConfig({
         dependencies: [
           "@sitecore-content-sdk/core",
           "@sitecore-content-sdk/core/*",
+          "@astro-sitecore-jss/astro-content-sdk",
+          "@astro-sitecore-jss/astro-content-sdk/*"
         ],
       }),
     ],

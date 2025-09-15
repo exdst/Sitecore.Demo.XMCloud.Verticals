@@ -34,5 +34,5 @@
       "lib/*": ["src/lib/*"],
     },
   },
-  "include": ["**/*.ts", ".sitecore/**/*.ts"]
+  "include": ["**/*.ts", "**/*.astro", ".sitecore/**/*.ts"]
 }
