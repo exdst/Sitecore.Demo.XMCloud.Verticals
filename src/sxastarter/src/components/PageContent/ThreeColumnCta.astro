@@ -1,9 +1,8 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { ComponentProps } from "@/lib/component-props";
 
 import ThreeColumnCtaDefault from "components/Variants/ThreeColumnCtaVariants/ThreeColumnCtaDefault.astro"
 import ThreeColumnCtaWithIcons from "components/Variants/ThreeColumnCtaVariants/ThreeColumnCtaWithIcons.astro"
@@ -24,20 +23,18 @@ interface Fields {
   Link3: LinkField;
 }
 
-export type ThreeColumnCtaProps = {
-  params: { [key: string]: string };
+export interface ThreeColumnCtaProps extends ComponentProps {
   fields: Fields;
 };
 
-const props: ThreeColumnCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const variantName = Astro.props.route.params.FieldNames ?? 'Default';
+const props = Astro.props as ThreeColumnCtaProps;
+const variantName = props.params.FieldNames ?? 'Default';
 ---
 
 <>
-  {variantName === 'Default' && <ThreeColumnCtaDefault id={id} route={props} />}
-  {variantName === 'WithIcons' && <ThreeColumnCtaWithIcons id={id} route={props} />}
-  {variantName === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact id={id} route={props} />}
+  {variantName === 'Default' && <ThreeColumnCtaDefault {...props} />}
+  {variantName === 'WithIcons' && <ThreeColumnCtaWithIcons {...props} />}
+  {variantName === 'WithIconsCompact' && <ThreeColumnCtaWithIconsCompact {...props} />}
 </>
 
 <script>

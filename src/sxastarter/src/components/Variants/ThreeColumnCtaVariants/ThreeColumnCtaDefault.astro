@@ -2,39 +2,39 @@
 import { ThreeColumnCtaProps } from "components/PageContent/ThreeColumnCta.astro";
 import ThreeColumnDefault from "components/NestedComponents/ThreeColumnDefault.astro";
 
-const props: ThreeColumnCtaProps = Astro.props.route;
-const id = Astro.props.id;
+const { fields, params } = Astro.props as ThreeColumnCtaProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
 <div
-  class={`component component-spaced three-column-cta ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component component-spaced three-column-cta ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
     <div class="row">
       <ThreeColumnDefault
-        image={props.fields.Image1}
-        text={props.fields.Text1}
-        subText={props.fields.SubText1}
-        link={props.fields.Link1}
+        image={fields.Image1}
+        text={fields.Text1}
+        subText={fields.SubText1}
+        link={fields.Link1}
         delay={0}
-        route={props}
+        params={params}
       />
       <ThreeColumnDefault
-        image={props.fields.Image2}
-        text={props.fields.Text2}
-        subText={props.fields.SubText2}
-        link={props.fields.Link2}
+        image={fields.Image2}
+        text={fields.Text2}
+        subText={fields.SubText2}
+        link={fields.Link2}
         delay={500}
-        route={props}
+        params={params}
       />
       <ThreeColumnDefault
-        image={props.fields.Image3}
-        text={props.fields.Text3}
-        subText={props.fields.SubText3}
-        link={props.fields.Link3}
+        image={fields.Image3}
+        text={fields.Text3}
+        subText={fields.SubText3}
+        link={fields.Link3}
         delay={1000}
-        route={props}
+        params={params}
       />
     </div>
   </div>
