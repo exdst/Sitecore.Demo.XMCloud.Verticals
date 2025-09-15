@@ -1,6 +1,8 @@
 ---
-import { Field, ImageField, LinkField } from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ComponentProps } from "lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { ComponentProps } from "@/lib/component-props";
 import TwoColumn from "components/NestedComponents/TwoColumn.astro";
 
 interface Fields {
@@ -14,38 +16,34 @@ interface Fields {
   Link2: LinkField;
 }
 
-export type TwoColumnCtaProps = ComponentProps & {
-  params: { [key: string]: string };
+export interface TwoColumnCtaProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: TwoColumnCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields, rendering } = Astro.props as TwoColumnCtaProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component two-column-cta pb-5 ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component two-column-cta pb-5 ${styles?.trimEnd()}`} id={id}>
   <div class="container">
     <div class="row">
       <TwoColumn
-        image={props.fields.Image1}
-        title={props.fields.Title1}
-        text={props.fields.Text1}
-        link={props.fields.Link1}
-        placeholder="two-col-placeholder-left"
+        image={fields.Image1}
+        title={fields.Title1}
+        text={fields.Text1}
+        link={fields.Link1}
+        placeholderName="two-col-placeholder-left"
         delay={0}
-        route={props}
+        rendering={rendering}
       />
       <TwoColumn
-        image={props.fields.Image2}
-        title={props.fields.Title2}
-        text={props.fields.Text2}
-        link={props.fields.Link2}
-        placeholder="two-col-placeholder-right"
+        image={fields.Image2}
+        title={fields.Title2}
+        text={fields.Text2}
+        link={fields.Link2}
+        placeholderName="two-col-placeholder-right"
         delay={500}
-        route={props}
+        rendering={rendering}
       />
     </div>
   </div>
