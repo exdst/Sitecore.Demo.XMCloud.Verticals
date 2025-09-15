@@ -1,5 +1,8 @@
 ---
-import { Field, Text, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "@/lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import CountUp from "components/NonSitecore/CountUp.astro";
 
 interface Fields {
@@ -13,24 +16,19 @@ interface Fields {
   Subtitle2: Field<string>;
 }
 
-export type RichTextProps = {
-  params: { [key: string]: string };
+export interface ComparisonProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: RichTextProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
-
+const { fields, params } = Astro.props as ComparisonProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
-<div
-  class={`component comparison ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component comparison ${styles?.trimEnd()}`} id={id}>
   <div class="title">
-    <Text field={props.fields?.Title1} />
+    <Text field={fields.Title1} />
   </div>
   <div class="d-flex justify-content-around">
     <div class="item">
@@ -38,40 +36,40 @@ const isPageEditing = sitecoreContext.pageEditing;
         <span class="amount">
           {
             isPageEditing ? (
-              <Text field={props.fields?.Amount1} />
+              <Text field={fields.Amount1} />
             ) : (
-              <CountUp value={parseInt(props.fields?.Amount1.value)} />
+              <CountUp value={parseInt(fields.Amount1.value)} />
             )
           }
         </span>{" "}
         <span class="currency">
-          <Text field={props.fields?.Currency1} />
+          <Text field={fields.Currency1} />
         </span>
       </div>
       <span class="subtitle">
-        <Text field={props.fields?.Subtitle1} />
+        <Text field={fields.Subtitle1} />
       </span>
     </div>
     <div class="operator">
-      <Text field={props.fields?.Value1} />
+      <Text field={fields.Value1} />
     </div>
     <div class="item">
       <div class="value">
         <span class="amount">
           {
             isPageEditing ? (
-              <Text field={props.fields?.Amount2} />
+              <Text field={fields.Amount2} />
             ) : (
-              <CountUp value={parseInt(props.fields?.Amount2.value)} />
+              <CountUp value={parseInt(fields.Amount2.value)} />
             )
           }
         </span>{" "}
         <span class="currency">
-          <Text field={props.fields?.Currency2} />
+          <Text field={fields.Currency2} />
         </span>
       </div>
       <span class="subtitle">
-        <Text field={props.fields?.Subtitle2} />
+        <Text field={fields.Subtitle2} />
       </span>
     </div>
   </div>
