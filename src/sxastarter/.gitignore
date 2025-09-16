@@ -6,15 +6,6 @@
 # testing
 /coverage
 
-# next.js
-/.next*/
-/out/
-
-# graphql code generation
-/.generated
-*.graphql.d.ts
-*.graphqls.d.ts
-
 # misc
 .DS_Store
 
@@ -26,20 +17,12 @@
 # Log files
 *.log*
 
-# sitecore
-scjssconfig.json
-*.deploysecret.config
-
 # vercel
 .vercel
 
 #astro
 /.astro*/
-
 /dist
-
-# generated files
-src/temp
 
 # sitecore temp files
 .sitecore/
