@@ -1,5 +1,8 @@
 ---
-import { Field, LinkField, SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ComponentProps } from "@/lib/component-props";
+
 import HeadingCtaDefault from "components/Variants/HeadingCtaVariants/HeadingCtaDefault.astro";
 import HeadingCtaCompact from "components/Variants/HeadingCtaVariants/HeadingCtaCompact.astro";
 import HeadingCtaPageHeading from "components/Variants/HeadingCtaVariants/HeadingCtaPageHeading.astro";
@@ -12,36 +15,17 @@ interface Fields {
   Link: LinkField;
 }
 
-export type HeadingCtaProps = {
-  params: { [key: string]: string };
+export interface HeadingCtaProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: HeadingCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const props = Astro.props as HeadingCtaProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
 
 <>
-  {
-    props.params.FieldNames === "Default" && (
-      <HeadingCtaDefault id={id} isPageEditing={isPageEditing} route={props} />
-    )
-  }
-  {
-    props.params.FieldNames === "Compact" && (
-      <HeadingCtaCompact id={id} isPageEditing={isPageEditing} route={props} />
-    )
-  }
-  {
-    props.params.FieldNames === "PageHeading" && (
-      <HeadingCtaPageHeading id={id} isPageEditing={isPageEditing} route={props} />
-    )
-  }
-  {
-    props.params.FieldNames === "Centered" && (
-      <HeadingCtaCentered id={id} isPageEditing={isPageEditing} route={props} />
-    )
-  }
+  {variantName === "Default" && <HeadingCtaDefault {...props} />}
+  {variantName === "Compact" && <HeadingCtaCompact {...props} />}
+  {variantName === "PageHeading" && <HeadingCtaPageHeading {...props} />}
+  {variantName === "Centered" && <HeadingCtaCentered {...props} />}
 </>
