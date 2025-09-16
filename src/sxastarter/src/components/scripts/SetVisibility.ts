@@ -1,8 +1,7 @@
 import useVisibility from "lib/useVisibility";
 
-export default function SetVisibility(refs: NodeListOf<Element>){
-
-    const setVisible = (x: boolean, dom: Element) => {
+export default function SetVisibility(refs: NodeListOf<Element>) {
+  const setVisible = (x: boolean, dom: Element) => {
     if (x) {
       dom?.classList.add("is-visible");
     } else {
