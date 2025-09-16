@@ -1,13 +1,14 @@
 ---
-import { Text, AstroImage } from "@astro-sitecore-jss/astro-sitecore-jss";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import StarRating from "./StarRating.astro";
 import { TestimonialItemProps } from "components/PageContent/Testimonials.astro";
 
-const item: TestimonialItemProps = Astro.props.item;
+const item = Astro.props as TestimonialItemProps;
 ---
 
 <div class="testimonial-item">
-  <StarRating item={item} />
+  <StarRating {...item} />
   <blockquote class="testimonial-content mt-5 mb-4">
     <Text field={item.fields.Content} />
   </blockquote>

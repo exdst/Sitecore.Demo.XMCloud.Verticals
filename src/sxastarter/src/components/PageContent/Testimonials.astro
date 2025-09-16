@@ -1,4 +1,5 @@
 ---
+import { ComponentProps } from "@/lib/component-props";
 import { Field, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
 import Testimonial from "components/NestedComponents/Testimonial.astro";
 
@@ -10,34 +11,31 @@ interface TestimonialFields {
   AuthorImage: ImageField;
 }
 
-export type TestimonialItemProps = {
+export interface TestimonialItemProps {
   fields: TestimonialFields;
-  name: string;
-  url: string;
 };
 
-export type TestimonialsProps = {
-  params: { [key: string]: string };
+export interface TestimonialsProps extends ComponentProps  {
   fields: {
     items: TestimonialItemProps[];
   };
 };
 
-const props: TestimonialsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const testimonials = props.fields?.items;
+const { params, fields } = Astro.props as TestimonialsProps;
+const { styles, RenderingIdentifier: id } = params;
+const testimonials = fields?.items;
 ---
 
 <div
-  class={`component testimonials ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component testimonials ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="swiper">
     <div class="swiper-wrapper">
       {
         testimonials?.map((item) => (
-          <div class="swiper-slide"}>
-            <Testimonial item={item} />
+          <div class="swiper-slide">
+            <Testimonial {...item} />
           </div>
         ))
       }

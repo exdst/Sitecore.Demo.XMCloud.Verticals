@@ -1,12 +1,12 @@
 ---
-import { Text } from "@astro-sitecore-jss/astro-sitecore-jss";
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import { TestimonialItemProps } from "components/PageContent/Testimonials.astro";
 
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 
-const item: TestimonialItemProps = Astro.props.item;
+const item = Astro.props as TestimonialItemProps;
 
 const rating = item.fields?.Rating.value;
 
