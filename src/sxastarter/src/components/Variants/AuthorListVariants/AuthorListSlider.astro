@@ -1,30 +1,27 @@
 ---
-import { 
-  AstroImage,
-  Text,
-  Link
-} from '@astro-sitecore-jss/astro-sitecore-jss';
-import { AuthorListComponentProps } from "components/PageContent/AuthorList.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { AuthorListProps } from "components/PageContent/AuthorList.astro";
 
-const props: AuthorListComponentProps = Astro.props.route;
-const id = Astro.props.id;
-const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
-const isLoop = authors.length > 4;
+const { fields, params } = Astro.props as AuthorListProps;
+const { styles, RenderingIdentifier: id } = params;
+const authors = fields?.items?.filter((item) => item.name !== "Data");
 ---
 
 <div
-  class={`component author-list author-list-slider ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component author-list author-list-slider ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
-    <div class="swiper" >
+    <div class="swiper">
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-wrapper">
         {
           authors?.map((author) => (
-            <div class="swiper-slide" key={author.url}>
-              <Link field={{href: author.url}} class="wrapper-link">
+            <div class="swiper-slide">
+              <Link field={{ href: author.url }} class="wrapper-link">
                 <AstroImage field={author.fields.Photo} />
                 <h3 class="fs-4 mt-4">
                   <Text field={author.fields.Name} />
@@ -51,21 +48,21 @@ const isLoop = authors.length > 4;
     slidesPerView: 1,
     breakpoints: {
       768: {
-          slidesPerView: 2,
-          slidesPerGroup: 2,
-        },
-        992: {
-          slidesPerView: 4,
-          slidesPerGroup: 4,
-        },
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+      },
+      992: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+      },
     },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
     loop: true,
   };

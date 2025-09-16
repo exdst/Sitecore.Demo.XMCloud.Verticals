@@ -1,25 +1,26 @@
 ---
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import {
-  AstroImage,
-  Text,
-  Link,
-  RichText,
-  SitecoreContextMap,
-  useTranslations,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import { AuthorListComponentProps } from "components/PageContent/AuthorList.astro";
+  useDictionary,
+  useSitecore,
+} from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { AuthorListProps } from "components/PageContent/AuthorList.astro";
 
-const props: AuthorListComponentProps = Astro.props.route;
-const id = Astro.props.id;
-const authors = props.fields?.items?.filter((item) => item.name !== "Data");
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
-const t = useTranslations();
+const { fields, params } = Astro.props as AuthorListProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
+
+const authors = fields?.items?.filter((item) => item.name !== "Data");
+const t = useDictionary();
 ---
 
 <div
-  class={`component author-list author-list-simple ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component author-list author-list-simple ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
     <div
@@ -27,7 +28,7 @@ const t = useTranslations();
     >
       {
         authors?.map((author) => (
-          <div key={author.url} class="col-sm-5 col-lg-3">
+          <div class="col-sm-5 col-lg-3">
             <div>
               <AstroImage field={author.fields.Photo} />
             </div>
@@ -41,7 +42,7 @@ const t = useTranslations();
               <div class={`bio ${isPageEditing ? "" : "clamped"}`}>
                 <RichText field={author.fields.Bio} />
               </div>
-              <Link field={{href: author.url}} class="button button-simple">
+              <Link field={{ href: author.url }} class="button button-simple">
                 {t("Read more") || "Read more"}
               </Link>
             </div>

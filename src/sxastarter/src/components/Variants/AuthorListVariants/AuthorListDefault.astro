@@ -1,25 +1,22 @@
 ---
-import { 
-  AstroImage,
-  Text,
-  Link,
-  RichText,
-  SitecoreContextMap,
-  useTranslations
-} from '@astro-sitecore-jss/astro-sitecore-jss';
-import { AuthorListComponentProps } from "components/PageContent/AuthorList.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useDictionary, useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { AuthorListProps } from "components/PageContent/AuthorList.astro";
 
+const { fields, params } = Astro.props as AuthorListProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 
-const props: AuthorListComponentProps = Astro.props.route;
-const id = Astro.props.id;
-const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
-const t = useTranslations();
+const authors = fields?.items?.filter((item) => item.name !== 'Data');
+const t = useDictionary();
 ---
 <div
-      class={`component author-list ${props.params.styles.trimEnd()}`}
-      id={id ? id : undefined}
+      class={`component author-list ${styles?.trimEnd()}`}
+      id={id}
     >
       <div class="container">
         <div class="background p-3 p-sm-5">
