@@ -1,19 +1,15 @@
 ---
-import {
-  Text,
-  RichText
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import { QuestionItemProps } from "components/PageContent/Questions.astro";
 
-const item: QuestionItemProps = Astro.props.item;
+const { fields } = Astro.props as QuestionItemProps;
 ---
 
 <div class="question-item">
-  <button
-    class={`button-clear-appearance`}
-  >
+  <button class={`button-clear-appearance`}>
     <h3>
-      <Text field={item.fields.Question} />
+      <Text field={fields.Question} />
     </h3>
     <span class="icon-wrapper">
       <svg
@@ -29,12 +25,12 @@ const item: QuestionItemProps = Astro.props.item;
     </span>
   </button>
   <div class={`answer d-none`}>
-    <RichText field={item.fields.Answer} />
+    <RichText field={fields.Answer} />
   </div>
 </div>
 
 <script>
-  function setIsExpanded(event: any){
+  function setIsExpanded(event: any) {
     const toggleButton = event.currentTarget as Element;
     toggleButton.classList.toggle("expanded");
 
@@ -44,8 +40,10 @@ const item: QuestionItemProps = Astro.props.item;
     answer?.classList.toggle("d-none");
   }
 
-  const toggleButtons = document.querySelectorAll('.questions .button-clear-appearance');
+  const toggleButtons = document.querySelectorAll(
+    ".questions .button-clear-appearance"
+  );
   toggleButtons.forEach((el) => {
-    el.addEventListener('click', setIsExpanded);
+    el.addEventListener("click", setIsExpanded);
   });
 </script>
