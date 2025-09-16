@@ -3,6 +3,7 @@ import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
 import { cjsInterop } from "vite-plugin-cjs-interop";
+import dotenvFlow from "dotenv-flow";
 
 const adapter = process.env.VERCEL
   ? vercel({
@@ -16,6 +17,9 @@ const adapter = process.env.VERCEL
   : node({
       mode: "standalone",
     });
+
+// Load enviroment variables from .env.* files
+dotenvFlow.config();
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,7 +62,7 @@ export default defineConfig({
           "@sitecore-content-sdk/core",
           "@sitecore-content-sdk/core/*",
           "@astro-sitecore-jss/astro-content-sdk",
-          "@astro-sitecore-jss/astro-content-sdk/*"
+          "@astro-sitecore-jss/astro-content-sdk/*",
         ],
       }),
     ],
