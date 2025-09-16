@@ -1,26 +1,25 @@
 ---
-import {
-  Field,
-  ImageField,
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Link, {
   LinkField,
-  AstroImage,
-  Text,
-  Link,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
-export type ColumnProps = {
+export interface ColumnProps {
   image: ImageField;
   title: Field<string>;
   text: Field<string>;
   link: LinkField;
   delay?: number;
-};
+}
 
-const props: ColumnProps = Astro.props as ColumnProps;
+const props = Astro.props as ColumnProps;
 
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
 <div
@@ -45,6 +44,8 @@ const isPageEditing = sitecoreContext.pageEditing;
 <script>
   import setVisibility from "components/scripts/SetVisibility";
 
-  const refs: NodeListOf<Element> = document.querySelectorAll(".four-column-cta .column");
+  const refs: NodeListOf<Element> = document.querySelectorAll(
+    ".four-column-cta .column"
+  );
   setVisibility(refs);
 </script>
