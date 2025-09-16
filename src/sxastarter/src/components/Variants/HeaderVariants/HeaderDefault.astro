@@ -1,19 +1,19 @@
 ---
-import Placeholder from "components/system/Placeholder.astro";
-import { ComponentProps } from "lib/component-props";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
+import { ComponentProps } from "@/lib/component-props";
 
-const id = Astro.props.id;
-const props: ComponentProps = Astro.props.route;
+const { rendering, params } = Astro.props as ComponentProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div class={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
-  <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
+<div class={`component header ${styles?.trimEnd()}`} id={id ? id : undefined}>
+  <div class={`container container-${params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row align-items-center">
       <div class="col-auto">
-        <Placeholder name="header-left" rendering={props.rendering} />
+        <Placeholder name="header-left" rendering={rendering} />
       </div>
       <div class="col">
-        <Placeholder name="header-right" rendering={props.rendering} />
+        <Placeholder name="header-right" rendering={rendering} />
       </div>
     </div>
   </div>

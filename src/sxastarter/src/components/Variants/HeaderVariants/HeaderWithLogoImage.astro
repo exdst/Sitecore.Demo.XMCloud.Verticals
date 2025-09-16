@@ -1,26 +1,27 @@
 ---
-import Placeholder from "components/system/Placeholder.astro";
-import { ComponentProps } from "lib/component-props";
-import { AstroImage, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
+import { ComponentProps } from "@/lib/component-props";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
 
-export type WithImageProps = ComponentProps & {
+interface HeaderWithImageProps extends ComponentProps {
   fields: {
     LogoImage: ImageField;
   };
 };
 
-const id = Astro.props.id;
-const props: WithImageProps = Astro.props.route;
+const { fields, rendering, params } = Astro.props as HeaderWithImageProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div class={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
-  <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
+<div class={`component header ${styles?.trimEnd()}`} id={id ? id : undefined}>
+  <div class={`container container-${params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row align-items-center">
       <div class="col-auto">
-        <AstroImage field={props.fields.LogoImage} />
+        <AstroImage field={fields.LogoImage} />
       </div>
       <div class="col">
-        <Placeholder name="header-right" rendering={props.rendering} />
+        <Placeholder name="header-right" rendering={rendering} />
       </div>
     </div>
   </div>
