@@ -1,66 +1,61 @@
 ---
-import {
-  AstroImage,
-  Link,
-  RichText,
-  Text,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
 import { FooterProps } from "components/Navigation/Footer.astro";
 
-const id = Astro.props.id;
-const props: FooterProps = Astro.props.route;
+const { fields, params } = Astro.props as FooterProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component component-spaced footer ${props.params.styles.trimEnd()}`} 
-  id={id ? id : undefined}
->
+<div class={`component component-spaced footer ${styles?.trimEnd()}`} id={id}>
   <div class="container">
     <div class="content">
       <div class="logo">
-        <AstroImage field={props.fields?.Image1} class="img-fluid" />
+        <AstroImage field={fields?.Image1} class="img-fluid" />
       </div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 row-gap-5 gx-5">
         <div class="col">
           <div class="title">
-            <Text field={props.fields?.Title1} />
+            <Text field={fields?.Title1} />
           </div>
           <div class="links">
-            <RichText field={props.fields?.Text1} />
+            <RichText field={fields?.Text1} />
           </div>
         </div>
         <div class="col">
           <div class="title">
-            <Text field={props.fields?.Title2} />
+            <Text field={fields?.Title2} />
           </div>
           <div class="links">
-            <RichText field={props.fields?.Text2} />
+            <RichText field={fields?.Text2} />
           </div>
         </div>
         <div class="col">
           <div class="title">
-            <Text field={props.fields?.Title3} />
+            <Text field={fields?.Title3} />
           </div>
           <div class="links">
-            <RichText field={props.fields?.Text3} />
+            <RichText field={fields?.Text3} />
           </div>
         </div>
         <div class="col">
           <div class="title">
-            <Text field={props.fields?.Title4} />
+            <Text field={fields?.Title4} />
           </div>
           <div class="links">
-            <RichText field={props.fields?.Text4} />
+            <RichText field={fields?.Text4} />
           </div>
         </div>
       </div>
     </div>
     <hr />
     <div class="footnote">
-      <Text field={props.fields?.Copyright} />
+      <Text field={fields?.Copyright} />
       <div class="privacy-links">
-        <Link field={props.fields?.Link1} />
-        <Link field={props.fields?.Link2} />
+        <Link field={fields?.Link1} />
+        <Link field={fields?.Link2} />
       </div>
     </div>
   </div>

@@ -1,10 +1,10 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-  RichTextField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import { ComponentProps } from "@/lib/component-props";
+
 import FooterDefault from "components/Variants/FooterVariants/FooterDefault.astro";
 import FooterWithSocials from "components/Variants/FooterVariants/FooterWithSocials.astro";
 
@@ -30,16 +30,14 @@ interface Fields {
   SocialIcon3: ImageField;
 }
 
-export type FooterProps = {
-  params: { [key: string]: string };
+export interface FooterProps extends ComponentProps {
   fields: Fields;
 };
 
-const props: FooterProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const props = Astro.props as FooterProps;
 ---
 
 <>
-  {props.params.FieldNames === 'Default' && <FooterDefault id={id} route={props} />}
-  {props.params.FieldNames === 'WithSocials' && <FooterWithSocials id={id} route={props}/>}
+  {props.params.FieldNames === 'Default' && <FooterDefault {...props} />}
+  {props.params.FieldNames === 'WithSocials' && <FooterWithSocials {...props}/>}
 </>
