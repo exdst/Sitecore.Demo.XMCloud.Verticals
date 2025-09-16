@@ -1,14 +1,12 @@
 ---
-import {
-  Field,
-  AstroImage,
-  ImageField,
-  Text,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { ComponentProps } from "@/lib/component-props";
 import CountUp from "components/NonSitecore/CountUp.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
-import { ComponentProps } from "lib/component-props";
 
 interface Fields {
   Image1: ImageField;
@@ -24,77 +22,76 @@ interface Fields {
   Caption3: Field<string>;
 }
 
-export type StatsCounterProps = ComponentProps & {
-  params: { [key: string]: string };
+export interface StatsCounterProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: StatsCounterProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { fields, params } = Astro.props as StatsCounterProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
 <div
-  class={`component stats-counter component-spaced ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component stats-counter component-spaced ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container container-wide-fluid">
-    <AstroImage field={props.fields?.Image1} class="image-left" height={284} />
+    <AstroImage field={fields.Image1} class="image-left" height={284} />
     <div class="container info-wrapper">
       <DottedAccent class="dotted-accent-top" />
       <div class="row gx-0">
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>{
+            <span
+              >{
                 isPageEditing ? (
-                  <Text field={props.fields?.Value1} />
+                  <Text field={fields.Value1} />
                 ) : (
-                  <CountUp value={parseInt(props.fields?.Value1.value)} />
+                  <CountUp value={parseInt(fields.Value1.value)} />
                 )
-              }</span><span>{
-                <Text field={props.fields?.Symbol1} />
-              }</span>
+              }</span
+            ><span>{(<Text field={fields.Symbol1} />)}</span>
           </p>
           <p class="fs-5 mb-0">
-            <Text field={props.fields?.Caption1} />
+            <Text field={fields.Caption1} />
           </p>
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>{
+            <span
+              >{
                 isPageEditing ? (
-                  <Text field={props.fields?.Value2} />
+                  <Text field={fields.Value2} />
                 ) : (
-                  <CountUp value={parseInt(props.fields?.Value2.value)} />
+                  <CountUp value={parseInt(fields.Value2.value)} />
                 )
-              }</span><span>{
-                <Text field={props.fields?.Symbol2} />
-              }</span>
+              }</span
+            ><span>{(<Text field={fields.Symbol2} />)}</span>
           </p>
           <p class="fs-5 mb-0">
-            <Text field={props.fields?.Caption2} />
+            <Text field={fields.Caption2} />
           </p>
         </div>
         <div class="col-lg-4">
           <p class="display-6 fw-bold">
-            <span>{
+            <span
+              >{
                 isPageEditing ? (
-                  <Text field={props.fields?.Value3} />
+                  <Text field={fields.Value3} />
                 ) : (
-                  <CountUp value={parseInt(props.fields?.Value3.value)} />
+                  <CountUp value={parseInt(fields.Value3.value)} />
                 )
-              }</span><span>{
-              <Text field={props.fields?.Symbol3} />
-              }</span>
+              }</span
+            ><span>{(<Text field={fields.Symbol3} />)}</span>
           </p>
           <p class="fs-5 mb-0">
-            <Text field={props.fields?.Caption3} />
+            <Text field={fields.Caption3} />
           </p>
         </div>
       </div>
       <DottedAccent class="dotted-accent-bottom" />
     </div>
-    <AstroImage field={props.fields?.Image2} class="image-right" height={284}/>
+    <AstroImage field={fields.Image2} class="image-right" height={284} />
   </div>
 </div>
