@@ -1,25 +1,24 @@
 ---
-import {
-  Field,
-  ImageField,
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Link, {
   LinkField,
-  AstroImage,
-  Text,
-  Link,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
-export type ColumnProps = {
+export interface ColumnProps {
   image: ImageField;
   text: Field<string>;
   link: LinkField;
   delay?: number;
-};
+}
 
-const props: ColumnProps = Astro.props as ColumnProps;
+const props = Astro.props as ColumnProps;
 
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
 <div
@@ -28,7 +27,11 @@ const isPageEditing = sitecoreContext.pageEditing;
 >
   <Link field={props.link}>
     <div class="image-container">
-      <AstroImage field={props.image} format="svg" class="d-block w-100 h-100"/>
+      <AstroImage
+        field={props.image}
+        format="svg"
+        class="d-block w-100 h-100"
+      />
     </div>
   </Link>
   <div class="text-container">
@@ -40,7 +43,7 @@ const isPageEditing = sitecoreContext.pageEditing;
   import setVisibility from "components/scripts/SetVisibility";
 
   const refs: NodeListOf<Element> = document.querySelectorAll(
-    ".five-column-cta .column",
+    ".five-column-cta .column"
   );
   setVisibility(refs);
 </script>

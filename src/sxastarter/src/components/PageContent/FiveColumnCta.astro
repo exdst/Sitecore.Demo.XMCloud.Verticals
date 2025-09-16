@@ -1,9 +1,8 @@
 ---
-import {
-  Field,
-  ImageField,
-  LinkField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { ComponentProps } from "@/lib/component-props";
 import FiveColumn from "components/NestedComponents/FiveColumn.astro";
 
 interface Fields {
@@ -24,51 +23,50 @@ interface Fields {
   Link5: LinkField;
 }
 
-export type FiveColumnCtaProps = {
-  params: { [key: string]: string };
+export interface FiveColumnCtaProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: FiveColumnCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { fields, params } = Astro.props as FiveColumnCtaProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
 <div
-  class={`component component-spaced five-column-cta ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component component-spaced five-column-cta ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
     <div
       class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 row-gap-3 gx-5 justify-content-center"
     >
       <FiveColumn
-        image={props.fields.Image1}
-        text={props.fields.Text1}
-        link={props.fields.Link1}
+        image={fields.Image1}
+        text={fields.Text1}
+        link={fields.Link1}
         delay={0}
       />
       <FiveColumn
-        image={props.fields.Image2}
-        text={props.fields.Text2}
-        link={props.fields.Link2}
+        image={fields.Image2}
+        text={fields.Text2}
+        link={fields.Link2}
         delay={500}
       />
       <FiveColumn
-        image={props.fields.Image3}
-        text={props.fields.Text3}
-        link={props.fields.Link3}
+        image={fields.Image3}
+        text={fields.Text3}
+        link={fields.Link3}
         delay={1000}
       />
       <FiveColumn
-        image={props.fields.Image4}
-        text={props.fields.Text4}
-        link={props.fields.Link4}
+        image={fields.Image4}
+        text={fields.Text4}
+        link={fields.Link4}
         delay={1500}
       />
       <FiveColumn
-        image={props.fields.Image5}
-        text={props.fields.Text5}
-        link={props.fields.Link5}
+        image={fields.Image5}
+        text={fields.Text5}
+        link={fields.Link5}
         delay={2000}
       />
     </div>
