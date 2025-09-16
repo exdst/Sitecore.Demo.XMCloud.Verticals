@@ -1,13 +1,13 @@
 ---
-import {
-  Field,
-  ImageField,
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import RichText, {
   RichTextField,
-  AstroImage,
-  Text,
-  RichText,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import { ComponentProps } from "@/lib/component-props";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
 interface Fields {
   Title: Field<string>;
@@ -15,38 +15,34 @@ interface Fields {
   Image: ImageField;
 }
 
-export type AppPromoProps = {
-  params: { [key: string]: string };
+export interface AppPromoProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: AppPromoProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { fields, params } = Astro.props as AppPromoProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
-<div
-  class={`component app-promo ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component app-promo ${styles?.trimEnd()}`} id={id}>
   <div class="container">
     <div class="row row-gap-5 align-items-center g-5">
       <div class="col-lg-6 text-center text-lg-start">
         <h1 class="display-6 fw-bold mb-3">
-          <Text field={props.fields.Title} />
+          <Text field={fields.Title} />
         </h1>
         <div class="col-lg-10 fs-5">
-          <RichText field={props.fields.Text} />
+          <RichText field={fields.Text} />
         </div>
       </div>
       <div class="col-md-10 mx-auto col-lg-6 image-wrapper">
         <AstroImage
-          field={props.fields.Image}
+          field={fields.Image}
           class={`${isPageEditing ? "d-block" : "d-none"} mx-lg-auto img-fluid`}
         />
         <AstroImage
-          field={props.fields.Image}
+          field={fields.Image}
           class={`${isPageEditing ? "d-none" : "d-block"} mx-lg-auto img-fluid parallax`}
           style={{ transformOrigin: "bottom" }}
         />
@@ -59,16 +55,14 @@ const isPageEditing = sitecoreContext.pageEditing;
   import { useParallax, ParallaxElementOptions } from "lib/useParallax";
 
   document.addEventListener("DOMContentLoaded", function () {
-    const appPromos = document.querySelectorAll(
-      ".app-promo",
-    );
+    const appPromos = document.querySelectorAll(".app-promo");
 
     const options: ParallaxElementOptions = {
-        scale: { from: 0.8, to: 1.2 }
-    }
+      scale: { from: 0.8, to: 1.2 },
+    };
 
     appPromos.forEach((appPromo) => {
-      useParallax(appPromo, options);
+      useParallax(appPromo as HTMLElement, options);
     });
   });
 </script>
