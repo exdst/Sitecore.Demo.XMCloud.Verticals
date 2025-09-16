@@ -1,14 +1,16 @@
 ---
-import {
-  Field,
-  ImageField,
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Link, {
   LinkField,
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import RichText, {
   RichTextField,
-  AstroImage,
-  Link,
-  Text,
-  RichText,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+} from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+
+import { ComponentProps } from "@/lib/component-props";
 
 interface Fields {
   Eyebrow: Field<string>;
@@ -21,49 +23,45 @@ interface Fields {
   Text2: Field<string>;
 }
 
-export type FeaturesProps = {
-  params: { [key: string]: string };
+export interface FeaturesProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: FeaturesProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as FeaturesProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component features component-spaced ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component features component-spaced ${styles?.trimEnd()}`} id={id}>
   <div class="container">
     <div class="info">
       <div class="eyebrow-accent">
-        <Text field={props.fields?.Eyebrow} />
+        <Text field={fields.Eyebrow} />
       </div>
       <div class="tagline">
-        <RichText field={props.fields?.Text} />
+        <RichText field={fields.Text} />
       </div>
       <div class="button button-main">
-        <Link field={props.fields?.Link} />
+        <Link field={fields.Link} />
       </div>
     </div>
     <div class="items">
       <div class="item left">
         <div class="icon">
-          <AstroImage field={props.fields?.Image1} />
+          <AstroImage field={fields.Image1} />
         </div>
         <div class="title">
-          <Text field={props.fields?.Title1} />
+          <Text field={fields.Title1} />
         </div>
         <p class="subtitle">
-          <Text field={props.fields?.Text1} />
+          <Text field={fields.Text1} />
         </p>
       </div>
       <div class="item right">
         <div class="title">
-          <Text field={props.fields?.Title2} />
+          <Text field={fields.Title2} />
         </div>
         <p class="subtitle">
-          <Text field={props.fields?.Text2} />
+          <Text field={fields.Text2} />
         </p>
       </div>
     </div>

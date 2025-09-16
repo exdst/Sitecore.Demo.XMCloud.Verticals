@@ -1,10 +1,9 @@
 ---
-import {
-  Field,
-  ImageField,
-  AstroImage,
-  Text,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { ComponentProps } from "@/lib/component-props";
 
 interface Fields {
   Title: Field<string>;
@@ -15,32 +14,32 @@ interface Fields {
   BackgroundImage: ImageField;
 }
 
-export type ContactFormProps = {
-  params: { [key: string]: string };
+export interface ContactFormProps extends ComponentProps {
   fields: Fields;
-};
-const props: ContactFormProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+}
+
+const { params, fields } = Astro.props as ContactFormProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
 <div
-  class={`component contact-form component-spaced ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component contact-form component-spaced ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container container-widest-fluid">
-    <AstroImage field={props.fields.BackgroundImage} class="img-fluid" />
+    <AstroImage field={fields.BackgroundImage} class="img-fluid" />
     <div class="container">
       <div class="contact-form-inner">
         <form>
           <h2 class="mb-4">
-            <Text field={props.fields?.Title} />
+            <Text field={fields.Title} />
           </h2>
-          <input type="text" placeholder={props.fields.EmailLabel.value} />
-          <input type="text" placeholder={props.fields.SubjectLabel.value} />
-          <textarea placeholder={props.fields.MessageLabel.value}></textarea>
+          <input type="text" placeholder={fields.EmailLabel.value} />
+          <input type="text" placeholder={fields.SubjectLabel.value} />
+          <textarea placeholder={fields.MessageLabel.value}></textarea>
           <input
             type="submit"
-            value={props.fields.ButtonLabel.value}
+            value={fields.ButtonLabel.value}
             class="button button-main mt-3"
           />
         </form>
