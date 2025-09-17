@@ -1,6 +1,9 @@
 ---
-import { Field, Text, useTranslations } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useDictionary } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import ResultLine from "components/NestedComponents/LoanCalculatorResultLine.astro";
+import { ComponentProps } from "@/lib/component-props";
 
 interface Fields {
   BankFee: Field<number>;
@@ -13,51 +16,48 @@ interface Fields {
   TermName: Field<string>;
 }
 
-export type LoanCalculatorProps = {
-  params: { [key: string]: string };
+export interface LoanCalculatorProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: LoanCalculatorProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as LoanCalculatorProps;
+const { styles, RenderingIdentifier: id } = params;
 
-const t = useTranslations();
+const t = useDictionary();
 
 let loanAmount = Math.round(
-  (props.fields.MinAmount.value + props.fields.MaxAmount.value) / 2,
+  (fields.MinAmount.value + fields.MaxAmount.value) / 2
 );
-let loanTerm = Math.round(
-  (props.fields.MinTerm.value + props.fields.MaxTerm.value) / 2,
-);
+let loanTerm = Math.round((fields.MinTerm.value + fields.MaxTerm.value) / 2);
 
 const bgLoanAmount = `${
-  loanAmount < props.fields.MinAmount.value
+  loanAmount < fields.MinAmount.value
     ? "0"
-    : loanAmount > props.fields.MaxAmount.value
+    : loanAmount > fields.MaxAmount.value
       ? "100"
-      : ((loanAmount - props.fields.MinAmount.value) * 100) /
-        (props.fields.MaxAmount.value - props.fields.MinAmount.value)
+      : ((loanAmount - fields.MinAmount.value) * 100) /
+        (fields.MaxAmount.value - fields.MinAmount.value)
 }% 100%`;
 
 const bgLoanTerm = `${
-  loanTerm < props.fields.MinTerm.value
+  loanTerm < fields.MinTerm.value
     ? "0"
-    : loanTerm > props.fields.MaxTerm.value
+    : loanTerm > fields.MaxTerm.value
       ? "100"
-      : ((loanTerm - props.fields.MinTerm.value) * 100) /
-        (props.fields.MaxTerm.value - props.fields.MinTerm.value)
+      : ((loanTerm - fields.MinTerm.value) * 100) /
+        (fields.MaxTerm.value - fields.MinTerm.value)
 }% 100%`;
 ---
 
 <div
-  class={`component loan-calculator ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
-  data-interest-rate={props.fields.InterestRate.value}
-  data-min-amount={props.fields.MinAmount.value}
-  data-max-amount={props.fields.MaxAmount.value}
-  data-min-term={props.fields.MinTerm.value}
-  data-max-term={props.fields.MaxTerm.value}
-  data-bank-fee={props.fields.BankFee.value}
+  class={`component loan-calculator ${styles?.trimEnd()}`}
+  id={id}
+  data-interest-rate={fields.InterestRate.value}
+  data-min-amount={fields.MinAmount.value}
+  data-max-amount={fields.MaxAmount.value}
+  data-min-term={fields.MinTerm.value}
+  data-max-term={fields.MaxTerm.value}
+  data-bank-fee={fields.BankFee.value}
 >
   <div class="loan-calculator-input-group">
     <div class="row justify-content-between">
@@ -81,10 +81,10 @@ const bgLoanTerm = `${
             type="number"
             id="loan-amount"
             name="loan-amount"
-            min={props.fields.MinAmount.value}
-            max={props.fields.MaxAmount.value}
+            min={fields.MinAmount.value}
+            max={fields.MaxAmount.value}
             value={loanAmount}
-          /><span class="fw-bold"><Text field={props.fields.Currency} /></span>
+          /><span class="fw-bold"><Text field={fields.Currency} /></span>
         </div>
       </div>
     </div>
@@ -95,8 +95,8 @@ const bgLoanTerm = `${
             type="range"
             id="loan-amount-range"
             name="loan-amount-range"
-            min={props.fields.MinAmount.value}
-            max={props.fields.MaxAmount.value}
+            min={fields.MinAmount.value}
+            max={fields.MaxAmount.value}
             value={loanAmount}
             style={{
               backgroundSize: bgLoanAmount,
@@ -108,14 +108,14 @@ const bgLoanTerm = `${
     <div class="row justify-content-between">
       <div class="col-auto">
         <span>
-          <Text field={props.fields.MinAmount} />
-          <Text field={props.fields.Currency} />
+          <Text field={fields.MinAmount} />
+          <Text field={fields.Currency} />
         </span>
       </div>
       <div class="col-auto">
         <span>
-          <Text field={props.fields.MaxAmount} />
-          <Text field={props.fields.Currency} />
+          <Text field={fields.MaxAmount} />
+          <Text field={fields.Currency} />
         </span>
       </div>
     </div>
@@ -144,10 +144,10 @@ const bgLoanTerm = `${
             type="number"
             id="loan-term"
             name="loan-term"
-            min={props.fields.MinTerm.value}
-            max={props.fields.MaxTerm.value}
+            min={fields.MinTerm.value}
+            max={fields.MaxTerm.value}
             value={loanTerm}
-          /><span class="fw-bold"><Text field={props.fields.TermName} /></span>
+          /><span class="fw-bold"><Text field={fields.TermName} /></span>
         </div>
       </div>
     </div>
@@ -158,8 +158,8 @@ const bgLoanTerm = `${
             type="range"
             id="loan-term-range"
             name="loan-term-range"
-            min={props.fields.MinTerm.value}
-            max={props.fields.MaxTerm.value}
+            min={fields.MinTerm.value}
+            max={fields.MaxTerm.value}
             value={loanTerm}
             style={{
               backgroundSize: bgLoanTerm,
@@ -171,14 +171,14 @@ const bgLoanTerm = `${
     <div class="row justify-content-between">
       <div class="col-auto">
         <span>
-          <Text field={props.fields.MinTerm} />
-          <Text field={props.fields.TermName} />
+          <Text field={fields.MinTerm} />
+          <Text field={fields.TermName} />
         </span>
       </div>
       <div class="col-auto">
         <span>
-          <Text field={props.fields.MaxTerm} />
-          <Text field={props.fields.TermName} />
+          <Text field={fields.MaxTerm} />
+          <Text field={fields.TermName} />
         </span>
       </div>
     </div>
@@ -193,7 +193,7 @@ const bgLoanTerm = `${
         <span slot="right">
           <>
             <span class="monthly-payment">{0}</span>
-            <Text field={props.fields.Currency} />
+            <Text field={fields.Currency} />
           </>
         </span>
       </ResultLine>
@@ -204,7 +204,7 @@ const bgLoanTerm = `${
       </span>
       <span slot="right">
         <>
-          <Text field={props.fields.InterestRate} />%
+          <Text field={fields.InterestRate} />%
         </>
       </span>
     </ResultLine>
@@ -214,8 +214,8 @@ const bgLoanTerm = `${
       </span>
       <span slot="right">
         <>
-          <Text field={props.fields.BankFee} />
-          <Text field={props.fields.Currency} />
+          <Text field={fields.BankFee} />
+          <Text field={fields.Currency} />
         </>
       </span>
     </ResultLine>
@@ -226,7 +226,7 @@ const bgLoanTerm = `${
       <span slot="right">
         <>
           <span class="total-interest">{0}</span>
-          <Text field={props.fields.Currency} />
+          <Text field={fields.Currency} />
         </>
       </span>
     </ResultLine>
@@ -237,7 +237,7 @@ const bgLoanTerm = `${
       <span slot="right">
         <>
           <span class="total-debt">{0}</span>
-          <Text field={props.fields.Currency} />
+          <Text field={fields.Currency} />
         </>
       </span>
     </ResultLine>
@@ -252,13 +252,17 @@ const bgLoanTerm = `${
   });
 
   function setCalculator(calculator: HTMLElement) {
-    const termInput = calculator.querySelector("#loan-term") as HTMLInputElement;
-    const termRangeInput = calculator.querySelector(
-      "#loan-term-range",
+    const termInput = calculator.querySelector(
+      "#loan-term"
     ) as HTMLInputElement;
-    const amountInput = calculator.querySelector("#loan-amount") as HTMLInputElement;
+    const termRangeInput = calculator.querySelector(
+      "#loan-term-range"
+    ) as HTMLInputElement;
+    const amountInput = calculator.querySelector(
+      "#loan-amount"
+    ) as HTMLInputElement;
     const amountRangeInput = calculator.querySelector(
-      "#loan-amount-range",
+      "#loan-amount-range"
     ) as HTMLInputElement;
 
     const monthlyPaymentEl = calculator.querySelector(".monthly-payment");
@@ -314,7 +318,11 @@ const bgLoanTerm = `${
       termRangeInput!.style.backgroundSize = bgLoanTerm;
     }
 
-    function getInputValue(value: string, minValue: number, maxValue: number) : number {
+    function getInputValue(
+      value: string,
+      minValue: number,
+      maxValue: number
+    ): number {
       const numberValue = parseInt(value);
       if (numberValue < minValue) return minValue;
       if (numberValue > maxValue) return maxValue;

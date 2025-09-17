@@ -1,12 +1,11 @@
 ---
-import {
-  Field,
-  LinkField,
-  RichTextField,
-  Link,
-  Text,
-  RichText,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { ComponentProps } from "@/lib/component-props";
 
 interface Fields {
   Title: Field<string>;
@@ -19,51 +18,50 @@ interface Fields {
   SubmitButton: LinkField;
 }
 
-export type ApplicationFormProps = {
-  params: { [key: string]: string };
+export interface ApplicationFormProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: ApplicationFormProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as ApplicationFormProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component application-form ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component application-form ${styles?.trimEnd()}`} id={id}>
   <div class="application-form-inner">
     <div class="container">
       <div class="title">
-        <Text field={props.fields?.Title} />
+        <Text field={fields.Title} />
       </div>
       <div class="subtitle">
-        <RichText field={props.fields?.Subtitle} />
+        <RichText field={fields.Subtitle} />
       </div>
       <input
         class="input-field"
-        value={props.fields?.FullName?.value}
+        value={fields.FullName?.value}
         placeholder="First and Last name"
       />
       <input
         class="input-field"
-        value={props.fields?.IDNumber?.value}
+        value={fields.IDNumber?.value}
         placeholder="ID number"
       />
       <input
         class="input-field"
-        value={props.fields?.Email?.value}
+        value={fields.Email?.value}
         placeholder="Email"
       />
       <input
         class="input-field"
-        value={props.fields?.MobileNumber?.value}
+        value={fields.MobileNumber?.value}
         placeholder="Mobile number"
       />
       <div class="footnote">
-        <RichText field={props.fields?.Footnote} />
+        <RichText field={fields.Footnote} />
       </div>
-      <Link field={props.fields.SubmitButton} class="button button-main submit-button" />
+      <Link
+        field={fields.SubmitButton}
+        class="button button-main submit-button"
+      />
     </div>
   </div>
 </div>
