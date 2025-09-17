@@ -1,5 +1,8 @@
 ---
-import { updateSitecoreContext } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import {
+  updateSitecoreContext,
+  updateSitecoreDictionary,
+} from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import {
   isDesignLibraryPreviewData,
   COOKIE_NAME_PRERENDER_DATA,
@@ -40,17 +43,26 @@ if (context.preview && isDesignLibraryPreviewData(context.previewData)) {
 if (page) {
   props = {
     page,
-    dictionary: await client.getDictionary({
-      site: page.siteName,
-      locale: page.locale,
-    }),
+    // dictionary: await client.getDictionary({
+    //   site: page.siteName,
+    //   locale: page.locale,
+    // }),
     //componentProps: await client.getComponentData(page.layout, context, components),
   };
+
+  const dictionary = await client.getDictionary({
+    site: page.siteName,
+    locale: page.locale,
+  });
 
   updateSitecoreContext({
     page,
     api: config.api,
     componentMap: components,
+  });
+
+  updateSitecoreDictionary({
+    dictionary,
   });
 }
 
