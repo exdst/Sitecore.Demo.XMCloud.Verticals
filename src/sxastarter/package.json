@@ -21,8 +21,7 @@
     "sitecore-tools:build": "sitecore-tools project build"
   },
   "dependencies": {
-    "@astro-sitecore-jss/astro-content-sdk": "file:/./temp/astro-sdk2-0.0.3.tgz",
-    "@astro-sitecore-jss/astro-sitecore-jss": "^1.0.1",
+    "@astro-sitecore-jss/astro-content-sdk": "file:/./temp/astro-sdk2-0.0.72.tgz",
     "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.2.0",
     "@astrojs/vercel": "^8.0.5",
