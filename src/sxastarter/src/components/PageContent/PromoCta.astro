@@ -41,17 +41,8 @@ const variantName = props.params.FieldNames ?? "Default";
 </>
 
 <script>
-  import useVisibility from "lib/useVisibility";
-
+  import setVisibility from "components/scripts/SetVisibility";
+  
   const refs: NodeListOf<Element> = document.querySelectorAll(".promo-cta");
-  const setVisible = (x: boolean, dom: Element) => {
-    if (x) {
-      dom.querySelector("img.fade-section")?.classList.add("is-visible");
-    } else {
-      dom.querySelector("img.fade-section")?.classList.remove("is-visible");
-    }
-    return x;
-  };
-
-  refs.forEach((ref) => useVisibility(ref, setVisible));
+  setVisibility(refs);
 </script>

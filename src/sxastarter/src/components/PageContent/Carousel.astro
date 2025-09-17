@@ -1,20 +1,14 @@
 ---
-import {
-  AstroImage,
-  Text,
-  RichText,
-  Link,
-  Field,
-  ImageField,
-  RichTextField,
-  LinkField,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-
-import {
-  ComponentParams,
-  ComponentRendering,
-} from "@sitecore-jss/sitecore-jss/layout";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { ComponentProps } from "@/lib/component-props";
 
 interface Fields {
   Title: Field<string>;
@@ -24,34 +18,29 @@ interface Fields {
   Video: ImageField;
 }
 
-export type CarouselItemProps = {
+export interface CarouselItemProps {
   id: string;
   fields: Fields;
-};
+}
 
-interface CarouselComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
+interface CarouselProps extends ComponentProps {
   fields: {
     items: CarouselItemProps[];
   };
 }
 
-const props: CarouselComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const { params, fields, rendering } = Astro.props as CarouselProps;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
 ---
 
-<section
-  class={`component carousel ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<section class={`component carousel ${styles?.trimEnd()}`} id={id}>
   <div class="carousel-inner">
     {
-      props.fields.items.map((item, i) => {
+      fields.items.map((item, i) => {
         return (
-          <div class={'carousel-item ' + (i == 0 ? 'active' : '')}>
+          <div class={"carousel-item " + (i == 0 ? "active" : "")}>
             {!isPageEditing && item.fields?.Video?.value?.src ? (
               <video
                 class="object-fit-cover d-block w-100 h-100"
@@ -79,7 +68,10 @@ const isPageEditing = sitecoreContext.pageEditing;
                   </h1>
                   <RichText field={item.fields.Text} />
                   {!isPageEditing && item.fields?.Link?.value?.href && (
-                    <Link field={item.fields.Link} class="button button-accent" />
+                    <Link
+                      field={item.fields.Link}
+                      class="button button-accent"
+                    />
                   )}
                 </div>
               </div>
@@ -90,7 +82,7 @@ const isPageEditing = sitecoreContext.pageEditing;
     }
   </div>
   <ol class="carousel-indicators">
-    {props.fields.items.map((_item, i) => <li aria-label="Slide" />)}
+    {fields.items.map((_item, i) => <li aria-label="Slide" />)}
   </ol>
   <button
     class="carousel-control-prev"
@@ -156,13 +148,13 @@ const isPageEditing = sitecoreContext.pageEditing;
       item.addEventListener("click", () => {
         index = i;
         setActive();
-      }),
+      })
     );
 
     function setActive() {
       items.forEach((item, i) => item.classList.toggle("active", i === index));
       indicators.forEach((item, i) =>
-        item.classList.toggle("active", i === index),
+        item.classList.toggle("active", i === index)
       );
     }
 

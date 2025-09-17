@@ -8,7 +8,7 @@ import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astr
 import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
 import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
-export type ColumnProps = {
+export interface ColumnProps {
   image: ImageField;
   title: Field<string>;
   text: Field<string>;
