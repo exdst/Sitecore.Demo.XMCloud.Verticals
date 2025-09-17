@@ -1,11 +1,9 @@
 ---
-import {
-  AstroImage,
-  Text,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
 import { ProjectListItemProps } from "components/PageContent/ProjectList.astro";
 
-const item: ProjectListItemProps = Astro.props.item;
+const item = Astro.props.item as ProjectListItemProps;
 ---
 
 <div class="project-grid-item">

@@ -18,6 +18,7 @@ const selectedCategory: string | null = Astro.props.selectedCategory;
 
 const categories = getProjectsCategories(projectItems);
 ---
+
 <div class="project-filters">
   <button
     class={`button-clear-appearance ${!selectedCategory ? "active" : ""}`}
@@ -28,7 +29,7 @@ const categories = getProjectsCategories(projectItems);
     Object.entries(categories).map(([category, count]) => (
       <button
         class={`button-clear-appearance ${selectedCategory === category ? "active" : ""}`}
-        key={category}
+        data-key={category}
       >
         <span>{category}</span><sup>{count}</sup>
       </button>

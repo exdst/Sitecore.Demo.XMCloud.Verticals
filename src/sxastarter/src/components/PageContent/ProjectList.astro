@@ -1,12 +1,11 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import { ComponentProps } from "@/lib/component-props";
+
 import ProjectListDefault from "components/Variants/ProjectListVariants/ProjectListDefault.astro";
 import ProjectListMosaic from "components/Variants/ProjectListVariants/ProjectListMosaic.astro";
-import { ComponentParams, ComponentRendering } from "@sitecore-jss/sitecore-jss/types/layout";
 
 interface Fields {
   Title: Field<string>;
@@ -18,25 +17,23 @@ interface Fields {
   Client: ImageField;
 }
 
-export type ProjectListItemProps = {
+export interface ProjectListItemProps {
   fields: Fields;
   name: string;
   url: string;
-};
+}
 
-export interface ProjectListComponentProps {
-  rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
+export interface ProjectListProps extends ComponentProps {
   fields: {
     items: ProjectListItemProps[];
   };
-};
+}
 
-const props: ProjectListComponentProps = Astro.props.route;
-const variantName = props.params.FieldNames ?? 'Default';
+const props = Astro.props as ProjectListProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
 
 <>
-  {variantName === 'Default' && <ProjectListDefault route={props} />}
-  {variantName === 'Mosaic' && <ProjectListMosaic route={props} />}
+  {variantName === "Default" && <ProjectListDefault {...props} />}
+  {variantName === "Mosaic" && <ProjectListMosaic {...props} />}
 </>
