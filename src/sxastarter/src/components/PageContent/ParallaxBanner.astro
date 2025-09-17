@@ -1,13 +1,12 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-  LinkField,
-  AstroImage,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import { ComponentProps } from "@/lib/component-props";
 import BannerContentBlock from "components/NestedComponents/BannerContentBlock.astro";
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 
 interface Fields {
   Title: Field<string>;
@@ -17,17 +16,18 @@ interface Fields {
   Link: LinkField;
 }
 
-export type ParallaxBannerProps = {
-  params: { [key: string]: string };
+export interface ParallaxBannerProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: ParallaxBannerProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
-let foregroundImage = props.fields.ForegroundImage?.value?.src;
-let backgroundImage = props.fields.BackgroundImage?.value?.src;
+const props = Astro.props as ParallaxBannerProps;
+const { fields, params } = props;
+const { styles, RenderingIdentifier: id } = params;
+const { page } = useSitecore();
+const isPageEditing = page.mode.isEditing;
+
+let foregroundImage = fields.ForegroundImage?.value?.src;
+let backgroundImage = fields.BackgroundImage?.value?.src;
 foregroundImage = foregroundImage?.replaceAll("http://renderingastro:3000", "");
 backgroundImage = backgroundImage?.replaceAll("http://renderingastro:3000", "");
 ---
@@ -35,21 +35,21 @@ backgroundImage = backgroundImage?.replaceAll("http://renderingastro:3000", "");
 <div
   class={`component parallax-banner ${
     isPageEditing ? "edit-mode" : ""
-  } ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  } ${styles?.trimEnd()}`}
+  id={id}
 >
   {
     isPageEditing ? (
       <div class="parallax-banner-inner">
         <AstroImage
-          field={props.fields.BackgroundImage}
+          field={fields.BackgroundImage}
           class="parallax-banner-background"
         />
         <div class="parallax-banner-content">
-          {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
+          {<BannerContentBlock {...props} />}
         </div>
         <AstroImage
-          field={props.fields.ForegroundImage}
+          field={fields.ForegroundImage}
           class="parallax-banner-foreground"
         />
       </div>
@@ -60,7 +60,7 @@ backgroundImage = backgroundImage?.replaceAll("http://renderingastro:3000", "");
           class="parallax-banner-background"
         />
         <div class="parallax-banner-content">
-          {<BannerContentBlock route={props} isPageEditing={isPageEditing} />}
+          {<BannerContentBlock {...props} />}
         </div>
         <div
           style={`background-image: url(${foregroundImage});`}
@@ -118,9 +118,21 @@ backgroundImage = backgroundImage?.replaceAll("http://renderingastro:3000", "");
     };
 
     backgroundImages.forEach((el) => {
-      useParallax(el, backgroundImageOptions, ".parallax-banner-background");
-      useParallax(el, bannerContentOptions, ".parallax-banner-content");
-      useParallax(el, foregroundImageOptions, ".parallax-banner-foreground");
+      useParallax(
+        el as HTMLElement,
+        backgroundImageOptions,
+        ".parallax-banner-background"
+      );
+      useParallax(
+        el as HTMLElement,
+        bannerContentOptions,
+        ".parallax-banner-content"
+      );
+      useParallax(
+        el as HTMLElement,
+        foregroundImageOptions,
+        ".parallax-banner-foreground"
+      );
     });
   });
 </script>

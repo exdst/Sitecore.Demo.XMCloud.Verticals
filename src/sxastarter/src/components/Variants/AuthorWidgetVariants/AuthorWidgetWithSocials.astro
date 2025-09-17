@@ -1,41 +1,39 @@
 ---
-import {
-  AstroImage,
-  Text,
-  Link,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import { AuthorWidgetProps } from "components/PageContent/AuthorWidget.astro";
 
-const props: AuthorWidgetProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as AuthorWidgetProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
 <div
-  class={`component author-widget with-socials ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component author-widget with-socials ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="author-card row g-0">
     <div class="col-auto">
-      <AstroImage field={props.fields.Photo} class="author-img" />
+      <AstroImage field={fields.Photo} class="author-img" />
     </div>
     <div class="col">
       <h6 class="author-name">
-        <Text field={props.fields.Name} />
+        <Text field={fields.Name} />
       </h6>
       <p class="author-position">
-        <Text field={props.fields.Position} />
+        <Text field={fields.Position} />
       </p>
     </div>
     <div class="col-12 col-md-auto">
       <div class="social-links">
-        <Link field={props.fields?.SocialLink1}>
-          <AstroImage field={props.fields?.SocialIcon1} />
+        <Link field={fields.SocialLink1}>
+          <AstroImage field={fields.SocialIcon1} />
         </Link>
-        <Link field={props.fields?.SocialLink2}>
-          <AstroImage field={props.fields?.SocialIcon2} />
+        <Link field={fields.SocialLink2}>
+          <AstroImage field={fields.SocialIcon2} />
         </Link>
-        <Link field={props.fields?.SocialLink3}>
-          <AstroImage field={props.fields?.SocialIcon3} />
+        <Link field={fields.SocialLink3}>
+          <AstroImage field={fields.SocialIcon3} />
         </Link>
       </div>
     </div>
