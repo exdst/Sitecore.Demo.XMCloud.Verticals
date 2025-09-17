@@ -1,6 +1,9 @@
 ---
-import { SitecoreContextMap } from "@astro-sitecore-jss/astro-sitecore-jss";
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
+import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+
+const { page } = useSitecore();
+const currentLanguage = page.layout.sitecore.context.language;
+
 const availableLanguages = [
   { code: "en", label: "English" },
   { code: "fr-CA", label: "Français" },
@@ -28,7 +31,7 @@ const getLangPageUrl = (lang: string) => {
 ---
 
 <div class={`language-switcher`}>
-  <span class="selected-language">{ availableLanguages.find((lang) => lang.code === sitecoreContext.language)?.label }</span><svg
+  <span class="selected-language">{ availableLanguages.find((lang) => lang.code === currentLanguage)?.label }</span><svg
     xmlns="http://www.w3.org/2000/svg"
     class="chevron-icon"
     viewBox="0 0 512 512"
@@ -41,7 +44,7 @@ const getLangPageUrl = (lang: string) => {
   <div class="language-dropdown">
     {
       availableLanguages.map((lang) => {
-        return (<span key={lang.code} href={getLangPageUrl(lang.code)}>
+        return (<span data-href={getLangPageUrl(lang.code)}>
             {lang.label}
           </span>)
       })
@@ -65,7 +68,7 @@ const getLangPageUrl = (lang: string) => {
   languageSwitcherRoot?.addEventListener("click", setShowLanguageDropdown);
   languages?.forEach((lang) => {
     lang.addEventListener("click", (e) => {
-      let url = e.currentTarget.getAttribute("href");
+      let url = e.currentTarget?.getAttribute("data-href");
       window.location.replace(url);
     });
   });
