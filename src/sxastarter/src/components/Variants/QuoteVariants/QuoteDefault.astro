@@ -1,15 +1,12 @@
 ---
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import { QuoteProps } from "components/PageContent/Quote.astro";
-import { Text } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-const id = Astro.props.id;
-const props: QuoteProps = Astro.props.route;
+const { params, fields } = Astro.props as QuoteProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-  class={`component quote ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component quote ${styles?.trimEnd()}`} id={id}>
   <svg
     id="Layer_2"
     data-name="Layer 2"
@@ -31,12 +28,12 @@ const props: QuoteProps = Astro.props.route;
     </g>
   </svg>
   <blockquote class="fs-1 fw-bold">
-    <Text field={props.fields.Quote} />
+    <Text field={fields.Quote} />
   </blockquote>
   <p class="author-name fs-5 mb-1">
-    <Text field={props.fields.AuthorName} />
+    <Text field={fields.AuthorName} />
   </p>
   <p class="author-position">
-    <Text field={props.fields.AuthorPosition} />
+    <Text field={fields.AuthorPosition} />
   </p>
 </div>

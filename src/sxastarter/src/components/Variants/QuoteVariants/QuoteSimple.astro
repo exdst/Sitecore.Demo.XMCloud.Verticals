@@ -1,26 +1,24 @@
 ---
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import { QuoteProps } from "components/PageContent/Quote.astro";
-import { AstroImage, Text } from "@astro-sitecore-jss/astro-sitecore-jss";
 
-const id = Astro.props.id;
-const props: QuoteProps = Astro.props.route;
+const { params, fields } = Astro.props as QuoteProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
-<div
-	class={`component quote simple ${props.params.styles.trimEnd()}`}
-	id={id ? id : undefined}
->
-	<div class="row gx-0">
-		<div class="col-auto me-3">
-			<AstroImage field={props.fields.Image} class="author-image" />
-		</div>
-		<div class="col">
-			<blockquote class="mb-0">
-				<Text field={props.fields.Quote} />
-			</blockquote>
-			<p class="author-name mb-0">
-				<Text field={props.fields.AuthorName} />
-			</p>
-		</div>
-	</div>
+<div class={`component quote simple ${styles?.trimEnd()}`} id={id}>
+  <div class="row gx-0">
+    <div class="col-auto me-3">
+      <AstroImage field={fields.Image} class="author-image" />
+    </div>
+    <div class="col">
+      <blockquote class="mb-0">
+        <Text field={fields.Quote} />
+      </blockquote>
+      <p class="author-name mb-0">
+        <Text field={fields.AuthorName} />
+      </p>
+    </div>
+  </div>
 </div>

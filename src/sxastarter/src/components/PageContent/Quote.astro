@@ -1,6 +1,8 @@
 ---
-import { Field, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ComponentProps } from "lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { ComponentProps } from "@/lib/component-props";
+
 import QuoteDefault from "components/Variants/QuoteVariants/QuoteDefault.astro";
 import QuoteSimple from "components/Variants/QuoteVariants/QuoteSimple.astro";
 
@@ -11,16 +13,15 @@ interface Fields {
   Image: ImageField;
 }
 
-export type QuoteProps = ComponentProps & {
-  params: { [key: string]: string };
+export interface QuoteProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: QuoteProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const props = Astro.props as QuoteProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
 
 <>
-  {props.params.FieldNames === 'Default' && <QuoteDefault id={id} route={props} />}
-  {props.params.FieldNames === 'Simple' && <QuoteSimple id={id} route={props}/>}
+  {variantName === "Default" && <QuoteDefault {...props} />}
+  {variantName === "Simple" && <QuoteSimple {...props} />}
 </>
