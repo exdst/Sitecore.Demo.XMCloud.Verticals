@@ -1,13 +1,11 @@
 ---
-import {
-  AstroImage,
-  Text,
-  useTranslations
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ArticleListItemProps, ArticleListComponentProps } from "components/PageContent/ArticleList.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import { useDictionary } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { ArticleListItemProps, ArticleListProps } from "components/PageContent/ArticleList.astro";
 
-const props: ArticleListComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as ArticleListProps;
+const { styles, RenderingIdentifier: id } = params;
 
 const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
   return items
@@ -18,15 +16,15 @@ const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
 const getAllArticlesPageHref = (items: ArticleListItemProps[]) => {
   return items?.find((item) => item.name === 'Data')?.url.replace(/\/Data$/, '') || '#';
 };
-const allArticlesPageHref = getAllArticlesPageHref(props.fields?.items);
+const allArticlesPageHref = getAllArticlesPageHref(fields?.items);
 
-const t = useTranslations();
-const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
+const t = useDictionary();
+const newsItems = getNewsItems(fields?.items, parseInt(params?.NumberOfItems));
 ---
 
 <div
-  class={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component component-spaced article-list ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
     <div class="row align-items-center">

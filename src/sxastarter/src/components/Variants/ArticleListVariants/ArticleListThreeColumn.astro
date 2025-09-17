@@ -1,12 +1,13 @@
 ---
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
 import {
-  AstroImage,
-  Text
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ArticleListItemProps, ArticleListComponentProps } from "components/PageContent/ArticleList.astro";
+  ArticleListItemProps,
+  ArticleListProps,
+} from "components/PageContent/ArticleList.astro";
 
-const props: ArticleListComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields } = Astro.props as ArticleListProps;
+const { styles, RenderingIdentifier: id } = params;
 
 const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
   return items
@@ -14,28 +15,27 @@ const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
     .slice(0, numOfItems || undefined);
 };
 
-const newsItems = getNewsItems(
-  props.fields?.items,
-  parseInt(props.params?.NumberOfItems)
-);
+const newsItems = getNewsItems(fields?.items, parseInt(params?.NumberOfItems));
 ---
 
 <div
-  class={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component component-spaced article-list ${styles?.trimEnd()}`}
+  id={id}
 >
   <div class="container">
     <div class="row row-gap-3">
-      {newsItems?.map((item) => (
-        <div class="col-lg-4">
-          <a href={item.url} class="wrapper-link">
-            <AstroImage field={item.fields.Thumbnail} />
-            <h3 class="fs-4 mt-3">
-              <Text field={item.fields.Title}></Text>
-            </h3>
-          </a>
-        </div>
-      ))}
+      {
+        newsItems?.map((item) => (
+          <div class="col-lg-4">
+            <a href={item.url} class="wrapper-link">
+              <AstroImage field={item.fields.Thumbnail} />
+              <h3 class="fs-4 mt-3">
+                <Text field={item.fields.Title} />
+              </h3>
+            </a>
+          </div>
+        ))
+      }
     </div>
   </div>
 </div>
