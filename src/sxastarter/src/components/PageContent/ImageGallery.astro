@@ -1,31 +1,29 @@
 ---
-import { AstroImage, ImageField } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
+import { ComponentProps } from "@/lib/component-props";
 
-export type ImageItemProps = {
+export interface ImageItemProps {
   fields: {
     Image: ImageField;
   };
   name: string;
   url: string;
-};
+}
 
-export type ImageGalleryProps = {
-  params: { [key: string]: string };
+export interface ImageGalleryProps extends ComponentProps {
   fields: {
     items: ImageItemProps[];
   };
-};
+}
 
-const props: ImageGalleryProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const images = props.fields?.items;
+const { params, fields } = Astro.props as ImageGalleryProps;
+const { styles, RenderingIdentifier: id } = params;
+const images = fields?.items;
 ---
 
-<div
-  class={`component image-gallery ${props.params.styles.trimEnd()}`}
-  id={id ? id : undefined}
->
+<div class={`component image-gallery ${styles?.trimEnd()}`} id={id}>
   <div class="container">
     <DottedAccent class="dotted-accent-top" />
     <div class="image-gallery-grid">
