@@ -1,15 +1,13 @@
 ---
-import {
-  Field,
-  ImageField,
-  Text,
-  AstroImage,
-  RichTextField,
-  RichText, useTranslations
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-
-import { ComponentProps } from "lib/component-props";
-import Placeholder from "components/system/Placeholder.astro";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
+import { useDictionary } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { ComponentProps } from "@/lib/component-props";
 
 import {
   FacebookIcon,
@@ -18,7 +16,7 @@ import {
   LinkedinShareButton,
   TwitterIcon,
   TwitterShareButton,
-} from 'react-share';
+} from "react-share";
 
 interface Fields {
   Title: Field<string>;
@@ -30,67 +28,68 @@ interface Fields {
   Thumbnail: ImageField;
 }
 
-export type ProjectDetailsProps = ComponentProps & {
+export interface ProjectDetailsProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: ProjectDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const t = useTranslations();
+const { params, fields, rendering } = Astro.props as ProjectDetailsProps;
+const { styles, RenderingIdentifier: id } = params;
+const t = useDictionary();
 const currentUrl = Astro.url.href;
 ---
-<div
-  class={`component project-details mt-4 mb-5 ${props.params?.styles?.trimEnd()}`}
-  id={id ? id : undefined}
->
+
+<div class={`component project-details mt-4 mb-5 ${styles?.trimEnd()}`} id={id}>
   <div class="container container-wide">
     <div class="row gx-5">
       <div class="col-12 col-lg-6">
         <h1 class="display-1 fw-bold">
-          <Text field={props.fields?.Title} />
+          <Text field={fields?.Title} />
         </h1>
         <p class="mb-0">
-          <Text field={props.fields?.Abstract} />
+          <Text field={fields?.Abstract} />
         </p>
       </div>
       <div
         class="col-12 col-lg-6 d-flex flex-column align-items-end justify-content-end gap-3 mt-3"
       >
         <div>
-          <span class="eyebrow-accent me-2">{t("Client") || "Client"}:</span
-          >
-          <AstroImage field={props.fields.Client} class="client-logo" height={40} width={100}/>
+          <span class="eyebrow-accent me-2">{t("Client") || "Client"}:</span>
+          <AstroImage
+            field={fields.Client}
+            class="client-logo"
+            height={40}
+            width={100}
+          />
         </div>
         <div>
-          <span class="eyebrow-accent me-2"
-            >{t("Category") || "Category"}:</span
+          <span class="eyebrow-accent me-2">{t("Category") || "Category"}:</span
           >
-          <Text field={props.fields.Category} />
+          <Text field={fields.Category} />
         </div>
       </div>
     </div>
   </div>
 
   <div class="container container-widest-fluid">
-    <AstroImage field={props.fields.Thumbnail} class="project-img img-fluid" />
+    <AstroImage field={fields.Thumbnail} class="project-img img-fluid" />
   </div>
   <div class="container">
     <div class="article-content">
       <div class="row">
         <div class="col-12 col-lg-6 mx-auto">
           <div class="article-content-body rich-text mb-5">
-            <RichText field={props.fields.Problem} />
+            <RichText field={fields.Problem} />
           </div>
         </div>
         <div class="row">
           <Placeholder
             name="project-additional-content"
-            rendering={props.rendering}
+            rendering={rendering}
           />
         </div>
         <div class="col-12 col-lg-6 mx-auto">
           <div class="article-content-body rich-text my-5">
-            <RichText field={props.fields.Solution} />
+            <RichText field={fields.Solution} />
           </div>
         </div>
         <div

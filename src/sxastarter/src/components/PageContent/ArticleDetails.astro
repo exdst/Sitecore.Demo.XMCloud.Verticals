@@ -1,10 +1,9 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import { ComponentProps } from "lib/component-props";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import { ComponentProps } from "@/lib/component-props";
+
 import ArticleDetailsDefault from "components/Variants/ArticleDetailsVariants/ArticleDetailsDefault.astro";
 import ArticleDetailsSimple from "components/Variants/ArticleDetailsVariants/ArticleDetailsSimple.astro";
 
@@ -19,15 +18,15 @@ interface Fields {
   Position: Field<string>;
 }
 
-export type ArticleDetailsProps = ComponentProps & {
+export interface ArticleDetailsProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: ArticleDetailsProps = Astro.props.route;
-const variantName = props.params.FieldNames ?? 'Default';
+const props = Astro.props as ArticleDetailsProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
 
 <>
-  {variantName === 'Default' && <ArticleDetailsDefault route={props} />}
-  {variantName === 'Simple' && <ArticleDetailsSimple route={props} />}
+  {variantName === "Default" && <ArticleDetailsDefault {...props} />}
+  {variantName === "Simple" && <ArticleDetailsSimple {...props} />}
 </>

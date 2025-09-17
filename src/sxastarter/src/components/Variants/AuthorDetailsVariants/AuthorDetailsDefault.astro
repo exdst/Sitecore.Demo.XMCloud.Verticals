@@ -1,26 +1,23 @@
 ---
-import {
-  AstroImage,
-  Text,
-  RichText,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
-import Placeholder from "components/system/Placeholder.astro";
+import AstroImage from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
+import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder.astro";
 import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
 import { AuthorDetailsProps } from "components/PageContent/AuthorDetails.astro";
 
-
-const props: AuthorDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const { params, fields, rendering } = Astro.props as AuthorDetailsProps;
+const { styles, RenderingIdentifier: id } = params;
 ---
 
 <div
-  class={`component author-details page-background col-12 ${props.params?.styles?.trimEnd()}`}
-  id={id ? id : undefined}
+  class={`component author-details page-background col-12 ${styles?.trimEnd()}`}
+  id={id}
 >
-  <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />
+  <ParallaxBackgroundImage BackgroundImage={fields.BackgroundImage} />
 
   <div class="container">
-    <Placeholder name="page-navigation" rendering={props.rendering} />
+    <Placeholder name="page-navigation" rendering={rendering} />
   </div>
 
   <div>
@@ -29,30 +26,27 @@ const id = props.params.RenderingIdentifier;
         <div class="">
           <div class="row row-gap-4 gx-5">
             <div class="col-12 col-lg-5">
-              <AstroImage field={props.fields.Photo} class="author-img" />
+              <AstroImage field={fields.Photo} class="author-img" />
             </div>
             <div class="col-12 col-lg-7">
               <h1 class="author-name display-5 fw-bold">
-                <Text field={props.fields.Name} />
+                <Text field={fields.Name} />
               </h1>
               <p class="author-position fs-4">
-                <Text field={props.fields.Position} />
+                <Text field={fields.Position} />
               </p>
               <hr />
               <div class="author-bio">
-                <RichText field={props.fields.Bio} />
+                <RichText field={fields.Bio} />
               </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <Placeholder
-            name="background-page-content"
-            rendering={props.rendering}
-          />
+          <Placeholder name="background-page-content" rendering={rendering} />
         </div>
       </div>
     </div>
-    <Placeholder name="page-content" rendering={props.rendering} />
+    <Placeholder name="page-content" rendering={rendering} />
   </div>
 </div>
