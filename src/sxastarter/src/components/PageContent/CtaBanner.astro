@@ -1,13 +1,10 @@
 ---
-import {
-  Field,
-  ImageField,
-  RichTextField,
-  LinkField,
-  SitecoreContextMap,
-} from "@astro-sitecore-jss/astro-sitecore-jss";
+import { Field } from "@astro-sitecore-jss/astro-content-sdk";
+import { ImageField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Image.astro";
+import { LinkField } from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
+import { RichTextField } from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
+import { ComponentProps } from "@/lib/component-props";
 
-import { ComponentProps } from "lib/component-props";
 import CtaBannerDefault from "components/Variants/CtaBannerVariants/CtaBannerDefault.astro";
 import CtaBannerLargeImage from "components/Variants/CtaBannerVariants/CtaBannerLargeImage.astro";
 
@@ -20,37 +17,22 @@ interface Fields {
   Icon: ImageField;
 }
 
-export type CtaBannerProps = ComponentProps & {
-  params: { [key: string]: string };
+export interface CtaBannerProps extends ComponentProps {
   fields: Fields;
-};
+}
 
-const props: CtaBannerProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
-const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const isPageEditing = sitecoreContext.pageEditing;
+const props = Astro.props as CtaBannerProps;
+const variantName = props.params.FieldNames ?? "Default";
 ---
 
 <>
-  {
-    props.params.FieldNames === "Default" && (
-      <CtaBannerDefault id={id} route={props} isPageEditing={isPageEditing} />
-    )
-  }
-  {
-    props.params.FieldNames === "LargeImage" && (
-      <CtaBannerLargeImage
-        id={id}
-        route={props}
-        isPageEditing={isPageEditing}
-      />
-    )
-  }
+  {variantName === "Default" && <CtaBannerDefault {...props} />}
+  {variantName === "LargeImage" && <CtaBannerLargeImage {...props} />}
 </>
 
 <script>
   import setVisibility from "components/scripts/SetVisibility";
 
-  const refs: NodeListOf<Element> = document.querySelectorAll(".cta-banner img.fade-section");
+  const refs = document.querySelectorAll(".cta-banner img.fade-section");
   setVisibility(refs);
 </script>
