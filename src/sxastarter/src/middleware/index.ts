@@ -18,9 +18,10 @@ export const onRequest = defineMiddleware((context, next) => {
    * 3. /- (Sitecore media)
    * 4. /healthz (Health check)
    * 5. all root files inside /public
+   * 6. Astro files
    */
   const matcher = new RegExp(
-    "(api/|_next/|healthz|sitecore/api/|-/|favicon\.ico|sc_logo\.svg)"
+    "(api/|_next/|healthz|sitecore/api/|-/|_astro|_image|favicon.ico|sc_logo.svg)"
   );
 
   const requestUrl = new URL(context.request.url.toLowerCase());
