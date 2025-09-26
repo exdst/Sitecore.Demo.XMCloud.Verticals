@@ -10,24 +10,25 @@ const availableLanguages = [
   { code: "ja-JP", label: "日本語" },
 ];
 
-const pathName = Astro.url.pathname.toLowerCase();
+const pathName = Astro.originPathname.toLowerCase();
+const searchQuery = Astro.url.search;
 
 const pageWithoutLangCode = (url: string) => {
   for (let i = 0; i < availableLanguages.length; i++) {
-    if(pathName.startsWith('/' + availableLanguages[i].code.toLowerCase())){
+    if (pathName.startsWith("/" + availableLanguages[i].code.toLowerCase())) {
       return pathName.substring(availableLanguages[i].code.length + 1);
     }
   }
   return url;
-}
+};
 
 const getLangPageUrl = (lang: string) => {
   const pathWithoutLanguage = pageWithoutLangCode(pathName);
-  if(pathWithoutLanguage){
-    return "/" + lang + pathWithoutLanguage;
+  if (pathWithoutLanguage) {
+    return "/" + lang + pathWithoutLanguage + searchQuery;
   }
   return null;
-}
+};
 ---
 
 <div class={`language-switcher`}>
