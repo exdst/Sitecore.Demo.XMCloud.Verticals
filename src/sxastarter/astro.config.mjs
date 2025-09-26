@@ -4,6 +4,7 @@ import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
 import { cjsInterop } from "vite-plugin-cjs-interop";
 import dotenvFlow from "dotenv-flow";
+import { loadEnv } from 'vite';
 
 const adapter = process.env.VERCEL
   ? vercel({
@@ -23,7 +24,21 @@ dotenvFlow.config();
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(),
+    {
+      name: 'set-prerender',
+      hooks: {
+        'astro:route:setup': ({ route }) => {
+          // Load environment variables from .env files 
+          const { PRERENDER } = loadEnv(process.env.NODE_ENV, process.cwd(), '');
+          if (route.component.endsWith('/[...path].astro')) {
+            // Set the prerender value on routes (convert to boolean)
+            route.prerender = PRERENDER === 'true' ? true : false;
+          }
+        },
+      },
+    }
+  ],
   security: {
     checkOrigin: false,
   },

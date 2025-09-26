@@ -11,6 +11,11 @@ export const onRequest = defineMiddleware((context, next) => {
   //   return next();
   // }
 
+  // Skip the multisite middleware for SSG
+  if (context.isPrerendered) {
+    return next();
+  }
+
   /*
    * Match all paths except for:
    * 1. /api routes
@@ -21,7 +26,7 @@ export const onRequest = defineMiddleware((context, next) => {
    * 6. Astro files
    */
   const matcher = new RegExp(
-    "(api/|_next/|healthz|sitecore/api/|-/|_astro|_image|favicon.ico|sc_logo.svg)"
+    "(api/|_next/|healthz|sitecore/api/|-/|_astro|_image|favicon.ico|sc_logo.svg|_site_)"
   );
 
   const requestUrl = new URL(context.request.url.toLowerCase());
