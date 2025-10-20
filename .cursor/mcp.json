@@ -1,7 +1,10 @@
 {
   "mcpServers": {
-    "Sitecore": {
+    "Sitecore Local": {
       "url": "http://127.0.0.1:5001/mcp"
+    },
+    "Figma": {
+      "url": "http://127.0.0.1:3845/mcp"
     }
   }
 }
