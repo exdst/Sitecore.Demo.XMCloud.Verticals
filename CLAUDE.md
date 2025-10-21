@@ -3,6 +3,9 @@ When any changes in Sitecore data are required: try to make changes using Siteco
 Once all Sitecore changes(adding/removing/updating) are done, use `dotnet sitecore ser pull` command to get latest changes.
 Fallback to .yml files editing only if Sitecore MCP tools do not work. If you use approach on changing .yml files then `docker sitecore ser push` command should be called afterwards to sync local files with Sitecore.
 
+# Rules
+1. Do not configure icons on the items, leave default
+
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
 2. Financial Headless Astro website URL: https://financial.sxastarter.localhost.astro/
@@ -39,10 +42,11 @@ After template is created, remember the ID and path, it will be used later
 1. Select appropriate folder under /sitecore/layout/Renderings/Project/Verticals {6630C97B-F037-4F1F-87BC-907C43F167D1}
 2. Create item using 	/sitecore/templates/Foundation/JavaScript Services/Json Rendering - 
 {04646A89-996F-4EE7-878A-FFDBF1F0EF0D} template
-3. "Component Name" field is mandatory, it corresponds to file name without extension
+3. "Component Name" field is mandatory, it corresponds to file name without extension and without spaces
 4. "Datasource Template" field is mandatory, it contains path to template created before
 5. "Datasource Location" field is mandatory, it contains query:$site/*[@@name='Data']/*[@@templatename='VALUE']|query:$sharedSites/*[@@name='Data']/*[@@templatename='VALUE'], where VALUE is replace by proper template name
-6. Remember placeholder path and ID
+6. Placeholder filed should be empty
+7. Remember placeholder path and ID
 
 ## Placeholder settings update
 After rendering is created, it should be added to the list of available rendering
