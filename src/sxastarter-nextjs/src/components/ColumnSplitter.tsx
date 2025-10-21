@@ -11,7 +11,7 @@ interface ComponentProps {
 }
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const styles = `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd();
+  const styles = `${props.params.GridParameters ?? ''} ${props?.params?.styles ?? ''}`.trimEnd();
   const columnWidths = [
     props.params.ColumnWidth1,
     props.params.ColumnWidth2,
@@ -23,14 +23,14 @@ export const Default = (props: ComponentProps): JSX.Element => {
     props.params.ColumnWidth8,
   ];
   const columnStyles = [
-    props.params.Styles1,
-    props.params.Styles2,
-    props.params.Styles3,
-    props.params.Styles4,
-    props.params.Styles5,
-    props.params.Styles6,
-    props.params.Styles7,
-    props.params.Styles8,
+    props?.params?.styles1,
+    props?.params?.styles2,
+    props?.params?.styles3,
+    props?.params?.styles4,
+    props?.params?.styles5,
+    props?.params?.styles6,
+    props?.params?.styles7,
+    props?.params?.styles8,
   ];
   const enabledPlaceholders = props.params.EnabledPlaceholders.split(',');
   const id = props.params.RenderingIdentifier;

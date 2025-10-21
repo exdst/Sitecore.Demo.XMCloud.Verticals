@@ -25,7 +25,7 @@ export const Default = (props: RichTextProps): JSX.Element => {
 
   return (
     <div
-      className={`component comparison ${props.params.styles.trimEnd()}`}
+      className={`component comparison ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="title">

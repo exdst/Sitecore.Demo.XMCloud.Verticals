@@ -12,7 +12,7 @@ const props: FooterProps = Astro.props.route;
 ---
 
 <div
-  class={`component component-spaced footer with-socials ${props.params.styles.trimEnd()}`}
+  class={`component component-spaced footer with-socials ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

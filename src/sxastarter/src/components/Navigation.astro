@@ -22,7 +22,7 @@ export type NavigationProps = {
 const props: NavigationProps = Astro.props.route;
 const styles =
   props.params != null
-    ? `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd()
+    ? `${props.params.GridParameters ?? ""} ${props?.params?.styles ?? ""}`.trimEnd()
     : "";
 const id = props.params?.RenderingIdentifier;
 

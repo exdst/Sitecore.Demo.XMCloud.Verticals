@@ -24,7 +24,7 @@ const id = props.params.RenderingIdentifier;
 ---
 
 <div
-  class={`component contact-form component-spaced ${props.params.styles.trimEnd()}`}
+  class={`component contact-form component-spaced ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container container-widest-fluid">

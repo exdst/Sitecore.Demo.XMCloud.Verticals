@@ -42,7 +42,7 @@ export const Default = (props: FooterProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced footer ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced footer ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -103,7 +103,7 @@ export const WithSocials = (props: FooterProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced footer with-socials ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced footer with-socials ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

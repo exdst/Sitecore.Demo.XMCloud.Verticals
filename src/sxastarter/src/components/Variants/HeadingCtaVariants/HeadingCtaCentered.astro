@@ -11,7 +11,7 @@ const props: HeadingCtaProps = Astro.props.route;
 ---
 
 <div
-  class={`component heading-cta ${props.params.styles.trimEnd()}`}
+  class={`component heading-cta ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

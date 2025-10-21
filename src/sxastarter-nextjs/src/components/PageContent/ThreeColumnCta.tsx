@@ -78,7 +78,7 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced three-column-cta ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced three-column-cta ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -154,7 +154,7 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced three-column-cta with-icons ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced three-column-cta with-icons ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -232,7 +232,7 @@ export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced three-column-cta with-icons with-icons-compact ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced three-column-cta with-icons with-icons-compact ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

@@ -6,7 +6,7 @@ const props : ComponentProps = Astro.props.route;
 const id = props.params.RenderingIdentifier;
 
 ---
-<div class={`component eyebrow	${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+<div class={`component eyebrow	${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
   <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row">
       <div class="col col-placeholder">

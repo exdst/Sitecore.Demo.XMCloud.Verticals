@@ -18,7 +18,7 @@ const isPageEditing = sitecoreContext.pageEditing;
 const t = useTranslations();
 ---
 <div
-      class={`component author-list ${props.params.styles.trimEnd()}`}
+      class={`component author-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div class="container">

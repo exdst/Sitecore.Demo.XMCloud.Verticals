@@ -37,7 +37,7 @@ export const Default = (props: CtaBannerProps): JSX.Element => {
 
   return (
     <div
-      className={`component cta-banner component-spaced ${props.params.styles.trimEnd()}`}
+      className={`component cta-banner component-spaced ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
       ref={domRef}
     >
@@ -89,7 +89,7 @@ export const LargeImage = (props: CtaBannerProps): JSX.Element => {
 
   return (
     <div
-      className={`component cta-banner component-spaced with-large-image with-dotted-accents ${props.params.styles.trimEnd()}`}
+      className={`component cta-banner component-spaced with-large-image with-dotted-accents ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
       ref={domRef}
     >

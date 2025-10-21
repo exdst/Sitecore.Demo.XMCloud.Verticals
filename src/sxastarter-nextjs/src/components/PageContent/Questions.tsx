@@ -55,7 +55,7 @@ export const Default = (props: QuestionsProps): JSX.Element => {
 
   return (
     <div
-      className={`component questions ${props.params.styles.trimEnd()}`}
+      className={`component questions ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -86,7 +86,7 @@ export const SingleColumn = (props: QuestionsProps): JSX.Element => {
 
   return (
     <div
-      className={`component questions single-column ${props.params.styles.trimEnd()}`}
+      className={`component questions single-column ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

@@ -29,7 +29,7 @@ export const Default = (props: ApplicationFormProps): JSX.Element => {
 
   return (
     <div
-      className={`component application-form ${props.params.styles.trimEnd()}`}
+      className={`component application-form ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="application-form-inner">

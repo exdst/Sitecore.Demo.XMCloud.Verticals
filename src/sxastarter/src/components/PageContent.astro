@@ -33,7 +33,7 @@ const field = (
   {
     !hasContent && (
       <div
-        class={`component content ${props.params.styles}`}
+        class={`component content ${props?.params?.styles}`}
         id={id ? id : undefined}
       >
         <div class="component-content">
@@ -45,7 +45,7 @@ const field = (
   {
     hasContent && (
       <div
-        class={`component content ${props.params.styles}`}
+        class={`component content ${props?.params?.styles}`}
         id={id ? id : undefined}
       >
         <div class="component-content">

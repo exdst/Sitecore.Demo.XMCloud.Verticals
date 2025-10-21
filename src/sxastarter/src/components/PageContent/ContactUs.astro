@@ -1,0 +1,79 @@
+---
+import { Field, LinkField, Text, RichText, Link } from "@astro-sitecore-jss/astro-sitecore-jss";
+import { ComponentProps } from "lib/component-props";
+
+interface Fields {
+  "Left Title": Field<string>;
+  "Left Subtitle": Field<string>;
+  "Left Description": Field<string>;
+  "Left Button Text": Field<string>;
+  "Left Button Link": LinkField;
+  "Right Title": Field<string>;
+  "Right Description": Field<string>;
+  "Right Button Text": Field<string>;
+  "Right Button Link": LinkField;
+  "Phone Number": Field<string>;
+}
+
+export type ContactUsProps = ComponentProps & {
+  params: { [key: string]: string };
+  fields: Fields;
+};
+
+const props: ContactUsProps = Astro.props.route;
+const id = props.params.RenderingIdentifier;
+---
+
+<div class="fullwidth-wrapper">
+  <div
+    class={`component contact-us pb-5 ${props?.params?.styles.trimEnd()}`}
+    id={id ? id : undefined}
+  >
+    <div class="container">
+      <div class="row g-0">
+      <!-- Left Section -->
+      <div class="col-md-6">
+        <div class="contact-section-left h-100 p-4">
+          <div class="text-center text-white">
+             <h2 class="mb-3 left-title">
+               <Text field={props.fields["Left Title"]} tag="span" />
+             </h2>
+             <p class="mb-3 left-subtitle">
+               <Text field={props.fields["Left Subtitle"]} tag="span" />
+             </p>
+            <div class="mb-4 left-description">
+              <RichText field={props.fields["Left Description"]} />
+            </div>
+             <div class="btn btn-primary d-inline-block left-button">
+               <Link field={props.fields["Left Button Link"]}>
+                 <Text field={props.fields["Left Button Text"]} tag="span" />
+               </Link>
+             </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Section -->
+      <div class="col-md-6">
+        <div class="contact-section-right h-100 p-4">
+          <div class="text-center">
+             <h2 class="mb-3 right-title">
+               <Text field={props.fields["Right Title"]} tag="span" />
+             </h2>
+             <p class="mb-4 right-description">
+               <RichText field={props.fields["Right Description"]} />
+             </p>
+             <div class="btn btn-primary d-inline-block mb-4 right-button">
+               <Link field={props.fields["Right Button Link"]}>
+                 <Text field={props.fields["Right Button Text"]} tag="span" />
+               </Link>
+             </div>
+             <p class="mb-0 phone-number">
+               - or call us on <Text field={props.fields["Phone Number"]} tag="span" />
+             </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -52,7 +52,7 @@ export const Default = (props: NavigationProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const styles =
     props.params != null
-      ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
+      ? `${props.params.GridParameters ?? ''} ${props?.params?.styles ?? ''}`.trimEnd()
       : '';
   const id = props.params != null ? props.params.RenderingIdentifier : null;
 

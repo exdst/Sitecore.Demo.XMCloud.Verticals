@@ -75,7 +75,7 @@ export const Default = (props: ParallaxBannerProps) => {
     <div
       className={`component parallax-banner ${
         isPageEditing ? 'edit-mode' : ''
-      } ${props.params.styles.trimEnd()}`}
+      } ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       {isPageEditing ? (

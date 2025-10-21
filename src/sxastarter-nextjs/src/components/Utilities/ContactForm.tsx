@@ -20,7 +20,7 @@ export const Default = (props: ContactFormProps): JSX.Element => {
 
   return (
     <div
-      className={`component contact-form component-spaced ${props.params.styles.trimEnd()}`}
+      className={`component contact-form component-spaced ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-widest-fluid">

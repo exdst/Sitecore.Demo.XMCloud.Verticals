@@ -86,7 +86,7 @@ export const Default = (props: TestimonialsProps): JSX.Element => {
 
   return (
     <div
-      className={`component testimonials ${props.params.styles.trimEnd()}`}
+      className={`component testimonials ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="">

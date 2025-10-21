@@ -29,7 +29,7 @@ const id = props.params.RenderingIdentifier;
 ---
 
 <div
-  class={`component application-form ${props.params.styles.trimEnd()}`}
+  class={`component application-form ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="application-form-inner">

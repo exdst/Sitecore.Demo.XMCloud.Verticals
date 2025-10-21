@@ -83,7 +83,7 @@ export const Default = (props: TwoColumnCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component two-column-cta pb-5 ${props.params.styles.trimEnd()}`}
+      className={`component two-column-cta pb-5 ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

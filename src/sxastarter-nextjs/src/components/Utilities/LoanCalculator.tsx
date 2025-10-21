@@ -61,7 +61,7 @@ export const Default = (props: LoanCalculatorProps): JSX.Element => {
 
   return (
     <div
-      className={`component loan-calculator ${props.params.styles.trimEnd()}`}
+      className={`component loan-calculator ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="loan-calculator-input-group">

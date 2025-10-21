@@ -6,7 +6,7 @@ const id = Astro.props.id;
 const props: ComponentProps = Astro.props.route;
 ---
 
-<div class={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+<div class={`component header ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
   <div class={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
     <div class="row align-items-center">
       <div class="col-auto">

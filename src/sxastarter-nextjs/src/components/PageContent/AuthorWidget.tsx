@@ -34,7 +34,7 @@ const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
 
   return (
     <div
-      className={`component author-widget ${props.params.styles.trimEnd()}`}
+      className={`component author-widget ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="author-card row g-0">
@@ -59,7 +59,7 @@ const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
 
   return (
     <div
-      className={`component author-widget with-socials ${props.params.styles.trimEnd()}`}
+      className={`component author-widget with-socials ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="author-card row g-0">

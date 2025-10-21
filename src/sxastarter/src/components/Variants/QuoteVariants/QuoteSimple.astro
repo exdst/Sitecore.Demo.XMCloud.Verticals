@@ -7,7 +7,7 @@ const props: QuoteProps = Astro.props.route;
 ---
 
 <div
-	class={`component quote simple ${props.params.styles.trimEnd()}`}
+	class={`component quote simple ${props?.params?.styles.trimEnd()}`}
 	id={id ? id : undefined}
 >
 	<div class="row gx-0">

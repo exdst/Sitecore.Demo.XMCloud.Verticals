@@ -29,7 +29,7 @@ export const Default = (props: AppPromoProps): JSX.Element => {
   const isPageEditing = sitecoreContext.pageEditing;
 
   return (
-    <div className={`component hero ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+    <div className={`component hero ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
       <picture>
         <Image field={props.fields.Image} className=""></Image>
       </picture>

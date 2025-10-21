@@ -16,7 +16,7 @@ const isPageEditing = Astro.props.isPageEditing;
 ---
 
 <div
-  class={`component cta-banner component-spaced ${props.params.styles.trimEnd()}`}
+  class={`component cta-banner component-spaced ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container container-widest-fluid">

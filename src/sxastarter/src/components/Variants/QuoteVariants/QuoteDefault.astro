@@ -7,7 +7,7 @@ const props: QuoteProps = Astro.props.route;
 ---
 
 <div
-  class={`component quote ${props.params.styles.trimEnd()}`}
+  class={`component quote ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <svg

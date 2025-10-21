@@ -7,7 +7,7 @@ const id = Astro.props.id;
 ---
 
 <div
-  class={`component component-spaced three-column-cta with-icons with-icons-compact ${props.params.styles.trimEnd()}`}
+  class={`component component-spaced three-column-cta with-icons with-icons-compact ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

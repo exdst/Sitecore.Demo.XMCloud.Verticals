@@ -99,7 +99,7 @@ const ArticleListThreeColumn = (props: ArticleListComponentProps): JSX.Element =
 
   return (
     <div
-      className={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced article-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -128,7 +128,7 @@ const ArticleListSimplified = (props: ArticleListComponentProps): JSX.Element =>
 
   return (
     <div
-      className={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced article-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -178,7 +178,7 @@ const ArticleListGrid = (props: ArticleListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component component-spaced article-list ${props.params.styles.trimEnd()}`}
+      className={`component component-spaced article-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">

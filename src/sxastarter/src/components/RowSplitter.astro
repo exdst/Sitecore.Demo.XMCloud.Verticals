@@ -4,16 +4,16 @@ import Placeholder from "components/system/Placeholder.astro";
 
 const props: ComponentProps = Astro.props.route;
 const styles =
-  `${props.params.GridParameters ?? ""} ${props.params.Styles ?? ""}`.trimEnd();
+  `${props.params.GridParameters ?? ""} ${props?.params?.styles ?? ""}`.trimEnd();
 const rowStyles = [
-  props.params.Styles1,
-  props.params.Styles2,
-  props.params.Styles3,
-  props.params.Styles4,
-  props.params.Styles5,
-  props.params.Styles6,
-  props.params.Styles7,
-  props.params.Styles8,
+  props?.params?.styles1,
+  props?.params?.styles2,
+  props?.params?.styles3,
+  props?.params?.styles4,
+  props?.params?.styles5,
+  props?.params?.styles6,
+  props?.params?.styles7,
+  props?.params?.styles8,
 ];
 const enabledPlaceholders = props.params.EnabledPlaceholders.split(",");
 const id = props.params.RenderingIdentifier;

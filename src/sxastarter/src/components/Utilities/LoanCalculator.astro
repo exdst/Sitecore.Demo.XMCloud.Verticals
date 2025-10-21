@@ -50,7 +50,7 @@ const bgLoanTerm = `${
 ---
 
 <div
-  class={`component loan-calculator ${props.params.styles.trimEnd()}`}
+  class={`component loan-calculator ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
   data-interest-rate={props.fields.InterestRate.value}
   data-min-amount={props.fields.MinAmount.value}

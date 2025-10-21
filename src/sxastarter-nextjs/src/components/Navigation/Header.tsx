@@ -6,7 +6,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+    <div className={`component header ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
       <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
         <div className="row align-items-center">
           <div className="col-auto">
@@ -31,7 +31,7 @@ export const WithLogoImage = (props: WithImageProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div className={`component header ${props.params.styles.trimEnd()}`} id={id ? id : undefined}>
+    <div className={`component header ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
       <div className={`container container-${props.params?.ContainerWidth?.toLowerCase()}-fluid`}>
         <div className="row align-items-center">
           <div className="col-auto">

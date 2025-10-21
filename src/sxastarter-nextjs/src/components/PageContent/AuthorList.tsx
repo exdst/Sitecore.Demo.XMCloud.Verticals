@@ -46,7 +46,7 @@ const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component author-list ${props.params.styles.trimEnd()}`}
+      className={`component author-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -93,7 +93,7 @@ const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component author-list author-list-slider ${props.params.styles.trimEnd()}`}
+      className={`component author-list author-list-slider ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -146,7 +146,7 @@ const AuthorListSimple = (props: AuthorListComponentProps): JSX.Element => {
 
   return (
     <div
-      className={`component author-list author-list-simple ${props.params.styles.trimEnd()}`}
+      className={`component author-list author-list-simple ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

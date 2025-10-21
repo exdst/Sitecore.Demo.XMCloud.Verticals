@@ -31,7 +31,7 @@ export const Default = (props: FeaturesProps): JSX.Element => {
 
   return (
     <div
-      className={`component features component-spaced ${props.params.styles.trimEnd()}`}
+      className={`component features component-spaced ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

@@ -14,7 +14,7 @@ const id = props.params.RenderingIdentifier;
 <>
 {
   props.fields && (
-      <div class={`component image ${props.params.styles}`} id={id ? id : undefined}>
+      <div class={`component image ${props?.params?.styles}`} id={id ? id : undefined}>
         <div class="component-content">
           {sitecoreContext.pageState === 'edit' || !props.fields.TargetUrl?.value?.href ? (
             <AstroImage field={props.fields.Image} />
@@ -32,7 +32,7 @@ const id = props.params.RenderingIdentifier;
       </div>
     )
   }
-  {!props.fields && <div class={`component image ${props.params.styles}`.trimEnd()}>
+  {!props.fields && <div class={`component image ${props?.params?.styles}`.trimEnd()}>
     <div class="component-content">
       <span class="is-empty-hint">Image</span>
     </div>

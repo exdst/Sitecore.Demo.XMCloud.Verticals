@@ -39,7 +39,7 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component promo-cta ${props.params.styles.trimEnd()}`}
+      className={`component promo-cta ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
       ref={domRef}
     >
@@ -97,7 +97,7 @@ export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component promo-cta with-placeholder-column ${props.params.styles.trimEnd()}`}
+      className={`component promo-cta with-placeholder-column ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
       ref={domRef}
     >
@@ -161,7 +161,7 @@ export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
 
   return (
     <div
-      className={`component promo-cta with-background-image ${props.params.styles.trimEnd()}`}
+      className={`component promo-cta with-background-image ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <ParallaxBackgroundImage BackgroundImage={props.fields.Image} />

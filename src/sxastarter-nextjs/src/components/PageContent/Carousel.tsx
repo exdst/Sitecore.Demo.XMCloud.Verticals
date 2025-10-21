@@ -50,7 +50,7 @@ export const Default = (props: CarouselComponentProps): JSX.Element => {
 
   return (
     <section
-      className={`component carousel ${props.params.styles.trimEnd()}`}
+      className={`component carousel ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="carousel-inner">

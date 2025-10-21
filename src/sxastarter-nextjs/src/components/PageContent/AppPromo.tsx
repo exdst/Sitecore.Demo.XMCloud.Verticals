@@ -31,7 +31,7 @@ export const Default = (props: AppPromoProps): JSX.Element => {
 
   return (
     <div
-      className={`component app-promo ${props.params.styles.trimEnd()}`}
+      className={`component app-promo ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

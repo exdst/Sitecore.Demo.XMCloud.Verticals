@@ -11,7 +11,7 @@ const id = props.params.RenderingIdentifier;
 ---
 
 <div
-  class={`component author-widget with-socials ${props.params.styles.trimEnd()}`}
+  class={`component author-widget with-socials ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="author-card row g-0">

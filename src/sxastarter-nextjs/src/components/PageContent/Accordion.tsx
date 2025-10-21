@@ -65,7 +65,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   return (
     <div
-      className={`component accordion component-spaced ${props.params.styles.trimEnd()}`}
+      className={`component accordion component-spaced ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

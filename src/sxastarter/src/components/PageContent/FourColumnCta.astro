@@ -35,7 +35,7 @@ const id = props.params.RenderingIdentifier;
 ---
 
 <div
-  class={`component component-spaced four-column-cta ${props.params.styles.trimEnd()}`}
+  class={`component component-spaced four-column-cta ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

@@ -11,7 +11,7 @@ interface ComponentProps {
 }
 
 const DefaultContainer = (props: ComponentProps): JSX.Element => {
-  const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
+  const containerStyles = props.params && props?.params?.styles ? props?.params?.styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   const id = props.params.RenderingIdentifier;

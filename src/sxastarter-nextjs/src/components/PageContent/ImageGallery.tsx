@@ -23,7 +23,7 @@ export const Default = (props: ImageGalleryProps): JSX.Element => {
 
   return (
     <div
-      className={`component image-gallery ${props.params.styles.trimEnd()}`}
+      className={`component image-gallery ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

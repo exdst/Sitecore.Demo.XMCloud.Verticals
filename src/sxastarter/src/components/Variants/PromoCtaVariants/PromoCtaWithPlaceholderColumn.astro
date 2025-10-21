@@ -15,7 +15,7 @@ const isPageEditing = Astro.props.isPageEditing;
 ---
 
 <div
-  class={`component promo-cta with-placeholder-column ${props.params.styles.trimEnd()}`}
+  class={`component promo-cta with-placeholder-column ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

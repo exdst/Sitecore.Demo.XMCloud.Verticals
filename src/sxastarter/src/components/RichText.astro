@@ -15,7 +15,7 @@ const id = props.params.RenderingIdentifier;
 ---
 
 <div
-  class={`component rich-text ${props.params.styles.trimEnd()}`}
+  class={`component rich-text ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="component-content">

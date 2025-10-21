@@ -9,7 +9,7 @@ const isPageEditing = Astro.props.isPageEditing;
 ---
 
 <div
-  class={`component promo-cta with-background-image ${props.params.styles.trimEnd()}`}
+  class={`component promo-cta with-background-image ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <ParallaxBackgroundImage BackgroundImage={props.fields.Image} />
