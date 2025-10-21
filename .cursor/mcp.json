@@ -5,6 +5,10 @@
     },
     "Figma": {
       "url": "http://127.0.0.1:3845/mcp"
+    },
+    "Chrome DevTools": {
+      "command": "npx",
+      "args": ["chrome-devtools-mcp@latest"]
     }
   }
 }
