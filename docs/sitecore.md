@@ -1,3 +1,23 @@
+# Sitecore configuration
+1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
+2. Financial Headless Astro website URL: https://financial.sxastarter.localhost.astro/
+3. Services Headless Next.js website URL: https://services.sxastarter.localhost/
+4. Financial Headless Next.js website URL: https://financial.sxastarter.localhost/
+5. Placeholder: each page has main placeholder: headless-main
+6. Both Next.js and Astro websites shares the same Sitecore data
+7. Services root path in Sitecore: /sitecore/content/Verticals/Services
+8. Financial root path in Sitecore: /sitecore/content/Verticals/Financial
+
+# Page creation
+1. Use one of page templates, under: /sitecore/templates/Project/Verticals/Pages
+2. Default choice for page creation is /sitecore/templates/Project/Verticals/Pages/Content Page {1226C3C7-2D1F-48F5-87B4-C1DA459F05E5}
+
+# Adding rendering to page
+1. Firstly, figure out template ID for rendering datasource. You need to get rendering item and read Datasource template field
+2. If page doesn't have Data child item, it should be created. Use /sitecore/templates/Foundation/Experience Accelerator/Local Datasources/Page Data {1C82E550-EBCD-4E5D-8ABD-D50D0809541E} template fore it.
+3. Datasource item should be created under the local Data folder. (Step 2)
+4. Rendering should be configured using local datasource "local:/Data/{datasource item name}"
+
 # Rendering creation
 
 ## Datasource template creation
@@ -23,3 +43,6 @@ After template is created, remember the ID and path, it will be used later
 After rendering is created, it should be added to the list of available rendering
 1. Edit /sitecore/content/Verticals/Services/Presentation/Available Renderings/Page Content {86D8240D-04DB-4DAE-B147-A1D5955932E5} item, update Renderings field, add id of new rendering
 2. Edit /sitecore/content/Verticals/Financial/Presentation/Available Renderings/Page Content {0D181447-7CA1-4661-9F55-D752460957B4}, add id of new rendering
+
+# On any changes in Sitecore:
+1. Run `dotnet sitecore ser pull` in console to pull latest changes
