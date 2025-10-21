@@ -110,16 +110,16 @@ if ($LASTEXITCODE -ne 0) {
 
 # Populate Solr managed schemas to avoid errors during item deploy
 Write-Host "Populating Solr managed schema..." -ForegroundColor Green
-dotnet sitecore index schema-populate
+#dotnet sitecore index schema-populate
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Populating Solr managed schema failed, see errors above."
 }
 
-Write-Host "Pushing Sitecore items" -ForegroundColor Green
-dotnet sitecore ser push
+#Write-Host "Pushing Sitecore items" -ForegroundColor Green
+#dotnet sitecore ser push
 
-docker compose restart rendering
-docker compose restart renderingastro
+#docker compose restart rendering
+#docker compose restart renderingastro
 
 
 # Rebuild indexes

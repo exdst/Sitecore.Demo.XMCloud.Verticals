@@ -16,5 +16,8 @@
       "url": "./.sitecore/schemas/ModuleFile.schema.json"
     }
   ],
-  "dotnet.preferCSharpExtension": true
+  "dotnet.preferCSharpExtension": true,
+  "cSpell.words": [
+    "Sitecore"
+  ]
 }

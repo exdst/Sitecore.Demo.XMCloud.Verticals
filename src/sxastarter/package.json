@@ -9,14 +9,15 @@
     ]
   },
   "scripts": {
-    "dev": "npm-run-all --serial bootstrap astro:dev",
+    "dev": "npm-run-all --serial bootstrap --parallel watch astro:dev",
     "build": "npm-run-all --serial bootstrap astro:build",
     "preview": "npm-run-all --serial bootstrap astro:build astro:preview",
     "astro:dev": "astro dev",
     "astro:build": "astro build",
     "astro:preview": "astro preview",
     "astro": "astro",
-    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts"
+    "bootstrap": "ts-node --project tsconfig.scripts.json scripts/bootstrap.ts",
+    "watch": "ts-node --project tsconfig.scripts.json scripts/watch.ts"
   },
   "dependencies": {
     "@astro-sitecore-jss/astro-sitecore-jss": "^0.7.2",
@@ -45,6 +46,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
+    "chokidar": "^3.5.3",
     "debug": "^4.4.0",
     "npm-run-all": "^4.1.5",
     "ts-node": "^10.9.2"
