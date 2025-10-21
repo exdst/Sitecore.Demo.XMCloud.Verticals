@@ -4,7 +4,7 @@ Once all Sitecore changes(adding/removing/updating) are done, use `dotnet siteco
 Fallback to .yml files editing only if Sitecore MCP tools do not work. If you use approach on changing .yml files then `docker sitecore ser push` command should be called afterwards to sync local files with Sitecore.
 
 # Rules
-1. Do not configure icons on the items, leave default
+1. Use 	/~/icon/office/32x32/robot.png icon for all new and edited items
 
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
@@ -24,7 +24,9 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 1. Firstly, figure out template ID for rendering datasource. You need to get rendering item and read Datasource template field
 2. If page doesn't have Data child item, it should be created. Use /sitecore/templates/Foundation/Experience Accelerator/Local Datasources/Page Data {1C82E550-EBCD-4E5D-8ABD-D50D0809541E} template fore it.
 3. Datasource item should be created under the local Data folder. (Step 2)
-4. Rendering should be configured using local datasource "local:/Data/{datasource item name}"
+4. Datasource fields should be filled with test values (preferably from Figma)
+5. Rendering should be configured using local datasource "local:/Data/{datasource item name}"
+6. Rendering should be added to headless-main placeholder by editing __Renderings field of the page
 
 # Rendering creation
 
@@ -33,7 +35,9 @@ Before rendering creation, template should be created
 1. Template should be located under /sitecore/templates/Project/Verticals/Components path
 2. Template should use 	/sitecore/templates/System/Templates/Template -  {AB86861A-6030-46C5-B394-E8F99E8B87DB} template
 3. Template fields should be created as child items under Template sections
-4. Template section should use /sitecore/templates/System/Templates/Template section - 
+4. Template fields names should not use spaces
+5. Template field display name and Title should use spaces
+6. Template section should use /sitecore/templates/System/Templates/Template section - 
 {E269FBB5-3750-427A-9149-7AA950B49301} template
 
 After template is created, remember the ID and path, it will be used later
@@ -55,3 +59,14 @@ After rendering is created, it should be added to the list of available renderin
 
 # On any changes in Sitecore:
 1. Run `dotnet sitecore ser pull` in console to pull latest changes
+
+## Styling
+
+1. New components should use the same approach that exist in the project
+2. Styles should use SCSS and be located under the src/assets/sass/components/
+3. Component should be wrapped with a full-width div
+4. Component should be centered horizontally with auto margin
+
+## Rendering
+
+1. Rendering should use Text, RichText, Image field component. It allows inline editing.
