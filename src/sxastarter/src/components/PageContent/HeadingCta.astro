@@ -18,7 +18,7 @@ export type HeadingCtaProps = {
 };
 
 const props: HeadingCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 ---

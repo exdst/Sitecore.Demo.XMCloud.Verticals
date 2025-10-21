@@ -50,7 +50,7 @@ const Question = ({ item }: { item: QuestionItemProps }): JSX.Element => {
 };
 
 export const Default = (props: QuestionsProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const questions = props.fields?.items;
 
   return (
@@ -81,7 +81,7 @@ export const Default = (props: QuestionsProps): JSX.Element => {
 };
 
 export const SingleColumn = (props: QuestionsProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const questions = props.fields?.items;
 
   return (

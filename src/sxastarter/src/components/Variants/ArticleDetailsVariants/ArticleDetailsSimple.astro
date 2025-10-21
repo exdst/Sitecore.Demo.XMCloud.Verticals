@@ -8,11 +8,11 @@ import Placeholder from "components/system/Placeholder.astro";
 import { ArticleDetailsProps } from "components/PageContent/ArticleDetails.astro";
 
 const props: ArticleDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div
-  class={`component simple-article-details mt-4 ${props.params?.styles?.trimEnd()}`}
+  class={`component simple-article-details mt-4 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container container-wide">

@@ -23,7 +23,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
     props?.params?.styles8,
   ];
   const enabledPlaceholders = props.params.EnabledPlaceholders.split(',');
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div className={`component row-splitter ${styles}`} id={id ? id : undefined}>

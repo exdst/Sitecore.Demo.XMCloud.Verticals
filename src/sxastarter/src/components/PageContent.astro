@@ -15,7 +15,7 @@ type PageContentProps = {
 };
 
 const props: PageContentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 
 const hasContent =

@@ -17,7 +17,7 @@ export type QuoteProps = ComponentProps & {
 };
 
 const props: QuoteProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <>

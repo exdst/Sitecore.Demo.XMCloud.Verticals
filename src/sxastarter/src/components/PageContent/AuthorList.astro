@@ -31,7 +31,7 @@ export interface AuthorListComponentProps {
 }
 
 const props: AuthorListComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const variantName = props.params.FieldNames ?? 'Default';
 ---
 <>

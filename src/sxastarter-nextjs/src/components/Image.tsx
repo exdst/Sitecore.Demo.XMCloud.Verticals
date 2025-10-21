@@ -30,7 +30,7 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Banner = (props: ImageProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const isMetadataMode = sitecoreContext?.editMode === EditMode.Metadata;
@@ -73,7 +73,7 @@ export const Default = (props: ImageProps): JSX.Element => {
 
   if (props.fields) {
     const Image = () => <JssImage field={props.fields.Image} />;
-    const id = props.params.RenderingIdentifier;
+    const id = props?.params?.RenderingIdentifier;
 
     return (
       <div className={`component image ${props?.params?.styles}`} id={id ? id : undefined}>

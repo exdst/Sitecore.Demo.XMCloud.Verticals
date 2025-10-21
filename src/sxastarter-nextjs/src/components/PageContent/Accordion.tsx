@@ -60,7 +60,7 @@ const AccordionItem = ({ item }: { item: AccordionItemProps }): JSX.Element => {
 };
 
 export const Default = (props: AccordionProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const accordionItems = props.fields?.items;
 
   return (

@@ -24,10 +24,10 @@ export type PageBackgroundProps = ComponentProps & {
 };
 
 export const Default = (props: PageBackgroundProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   return (
     <div
-      className={`component author-details page-background col-12 ${props.params?.styles?.trimEnd()}`}
+      className={`component author-details page-background col-12 ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />
@@ -70,10 +70,10 @@ export const Default = (props: PageBackgroundProps): JSX.Element => {
 };
 
 export const Simple = (props: PageBackgroundProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   return (
     <div
-      className={`component author-details-simple col-12 ${props.params?.styles?.trimEnd()}`}
+      className={`component author-details-simple col-12 ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">

@@ -38,7 +38,7 @@ export type FooterProps = {
 };
 
 export const Default = (props: FooterProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div
@@ -99,7 +99,7 @@ export const Default = (props: FooterProps): JSX.Element => {
 };
 
 export const WithSocials = (props: FooterProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

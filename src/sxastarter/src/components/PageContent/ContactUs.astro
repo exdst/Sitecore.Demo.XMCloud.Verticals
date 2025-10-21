@@ -21,7 +21,7 @@ export type ContactUsProps = ComponentProps & {
 };
 
 const props: ContactUsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div class="fullwidth-wrapper">

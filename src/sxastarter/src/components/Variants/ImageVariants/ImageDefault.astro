@@ -9,7 +9,7 @@ import { ImageProps } from "components/Image.astro";
 
 const props: ImageProps = Astro.props.route;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 <>
 {

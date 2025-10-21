@@ -18,7 +18,7 @@ export type ImageGalleryProps = {
 };
 
 export const Default = (props: ImageGalleryProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const images = props.fields?.items;
 
   return (

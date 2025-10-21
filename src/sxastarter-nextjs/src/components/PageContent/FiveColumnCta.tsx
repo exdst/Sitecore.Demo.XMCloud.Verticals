@@ -34,7 +34,7 @@ export type FiveColumnCtaProps = {
 };
 
 export const Default = (props: FiveColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

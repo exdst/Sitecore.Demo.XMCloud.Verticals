@@ -31,7 +31,7 @@ export type HeroBannerProps = ComponentProps & {
 };
 
 export const Default = (props: HeroBannerProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

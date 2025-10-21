@@ -47,7 +47,7 @@ const props: BreadcrumbProps = Astro.props.route;
 const hasData = props?.fields?.data?.item !== null;
 
 const breadcrumbs = [];
-const sxaStyles = `${props.params?.styles || ""}`;
+const sxaStyles = `${props?.params?.styles || ""}`;
 
 if (hasData){
   const propItem = props.fields.data.item;

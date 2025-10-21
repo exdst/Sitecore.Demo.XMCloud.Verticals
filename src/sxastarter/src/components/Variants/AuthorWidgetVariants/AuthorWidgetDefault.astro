@@ -6,7 +6,7 @@ import {
 import { AuthorWidgetProps } from "components/PageContent/AuthorWidget.astro";
 
 const props: AuthorWidgetProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

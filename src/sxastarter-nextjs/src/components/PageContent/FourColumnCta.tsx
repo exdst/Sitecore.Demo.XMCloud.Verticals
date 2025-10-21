@@ -35,7 +35,7 @@ export type FourColumnCtaProps = {
 };
 
 export const Default = (props: FourColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

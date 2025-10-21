@@ -4,7 +4,7 @@ import HeaderDefault from "components/Variants/HeaderVariants/HeaderDefault.astr
 import HeaderWithLogoImage from "components/Variants/HeaderVariants/HeaderWithLogoImage.astro";
 
 const props: ComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <>

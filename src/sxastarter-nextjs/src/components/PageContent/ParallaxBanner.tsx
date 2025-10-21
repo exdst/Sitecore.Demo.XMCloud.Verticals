@@ -26,7 +26,7 @@ export type ParallaxBannerProps = {
 };
 
 export const Default = (props: ParallaxBannerProps) => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

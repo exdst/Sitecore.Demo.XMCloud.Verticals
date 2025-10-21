@@ -3,11 +3,11 @@ import { AstroImage, Text, RichText } from "@astro-sitecore-jss/astro-sitecore-j
 import { AuthorDetailsProps } from "components/PageContent/AuthorDetails.astro";
 
 const props: AuthorDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div
-  class={`component author-details-simple col-12 ${props.params?.styles?.trimEnd()}`}
+  class={`component author-details-simple col-12 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container container-wide">

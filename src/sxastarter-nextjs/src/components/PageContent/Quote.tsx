@@ -15,7 +15,7 @@ export type PromoCtaProps = ComponentProps & {
 };
 
 export const Default = (props: PromoCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div className={`component quote ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
@@ -53,7 +53,7 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
 };
 
 export const Simple = (props: PromoCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

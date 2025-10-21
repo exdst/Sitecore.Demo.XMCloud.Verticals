@@ -38,7 +38,7 @@ interface AuthorListComponentProps {
 }
 
 const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
@@ -88,7 +88,7 @@ const AuthorListDefault = (props: AuthorListComponentProps): JSX.Element => {
 };
 
 const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
 
   return (
@@ -138,7 +138,7 @@ const AuthorListSlider = (props: AuthorListComponentProps): JSX.Element => {
 };
 
 const AuthorListSimple = (props: AuthorListComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const authors = props.fields?.items?.filter((item) => item.name !== 'Data');
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;

@@ -30,7 +30,7 @@ export type AuthorWidgetProps = {
 };
 
 const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div
@@ -55,7 +55,7 @@ const AuthorWidgetDefault = (props: AuthorWidgetProps): JSX.Element => {
 };
 
 const AuthorWidgetWithSocials = (props: AuthorWidgetProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

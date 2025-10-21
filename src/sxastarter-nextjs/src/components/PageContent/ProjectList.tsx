@@ -115,13 +115,13 @@ const ProjectGridItem = ({ item }: { item: ProjectListItemProps }) => (
 const ProjectListDefault = (props: ProjectListComponentProps): JSX.Element => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
   const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
 
   return (
     <div
-      className={`component project-list ${props.params?.styles.trimEnd()}`}
+      className={`component project-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">
@@ -145,13 +145,13 @@ const ProjectListDefault = (props: ProjectListComponentProps): JSX.Element => {
 const ProjectListMosaic = (props: ProjectListComponentProps): JSX.Element => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
   const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
 
   return (
     <div
-      className={`component project-list ${props.params?.styles.trimEnd()}`}
+      className={`component project-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">

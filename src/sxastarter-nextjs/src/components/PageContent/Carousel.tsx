@@ -35,7 +35,7 @@ interface CarouselComponentProps {
 }
 
 export const Default = (props: CarouselComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const [index, setIndex] = useState(0);
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;

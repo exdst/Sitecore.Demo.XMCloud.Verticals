@@ -32,7 +32,7 @@ const ResultLine = ({ left, right }: { left: ReactNode; right: ReactNode }) => {
 };
 
 export const Default = (props: LoanCalculatorProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { t } = useI18n();
 
   const [loanAmount, setLoanAmount] = useState(

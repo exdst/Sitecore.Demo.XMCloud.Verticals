@@ -16,7 +16,7 @@ const rowStyles = [
   props?.params?.styles8,
 ];
 const enabledPlaceholders = props.params.EnabledPlaceholders.split(",");
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div class={`component row-splitter ${styles}`} id={id ? id : undefined}>

@@ -20,7 +20,7 @@ export type HeadingCtaProps = {
 };
 
 export const Default = (props: HeadingCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
@@ -56,7 +56,7 @@ export const Default = (props: HeadingCtaProps): JSX.Element => {
 };
 
 export const Compact = (props: HeadingCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
@@ -90,7 +90,7 @@ export const Compact = (props: HeadingCtaProps): JSX.Element => {
 };
 
 export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
@@ -126,7 +126,7 @@ export const PageHeading = (props: HeadingCtaProps): JSX.Element => {
 };
 
 export const Centered = (props: HeadingCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

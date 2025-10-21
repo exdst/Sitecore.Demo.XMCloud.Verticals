@@ -14,7 +14,7 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
   const containerStyles = props.params && props?.params?.styles ? props?.params?.styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const mediaUrlPattern = new RegExp(/mediaurl=\"([^"]*)\"/, 'i');
   const backgroundImage = props.params.BackgroundImage as string;
   let backgroundStyle: { [key: string]: string } = {};
@@ -39,7 +39,7 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
 };
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const splitStyles = props.params?.Styles?.split(' ');
+  const splitStyles = props?.params?.styles?.split(' ');
 
   if (splitStyles && splitStyles.includes('container')) {
     return (

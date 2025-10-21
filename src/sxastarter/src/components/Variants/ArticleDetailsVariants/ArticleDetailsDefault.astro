@@ -9,11 +9,11 @@ import ParallaxBackgroundImage from 'components/NonSitecore/ParallaxBackgroundIm
 import { ArticleDetailsProps } from "components/PageContent/ArticleDetails.astro";
 
 const props: ArticleDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div
-  class={`component article-details page-background spaced-top col-12 ${props.params?.styles?.trimEnd()}`}
+  class={`component article-details page-background spaced-top col-12 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />

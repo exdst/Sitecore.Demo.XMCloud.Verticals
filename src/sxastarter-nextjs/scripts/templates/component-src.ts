@@ -13,7 +13,7 @@ interface ${componentName}Props {
 }
 
 export const Default = (props: ${componentName}Props): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div className={\`component \${props?.params?.styles}\`} id={id ? id : undefined}>

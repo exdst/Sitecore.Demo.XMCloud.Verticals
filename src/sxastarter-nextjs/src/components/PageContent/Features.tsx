@@ -27,7 +27,7 @@ export type FeaturesProps = {
 };
 
 export const Default = (props: FeaturesProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

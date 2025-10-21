@@ -10,11 +10,11 @@ import { AuthorDetailsProps } from "components/PageContent/AuthorDetails.astro";
 
 
 const props: AuthorDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div
-  class={`component author-details page-background col-12 ${props.params?.styles?.trimEnd()}`}
+  class={`component author-details page-background col-12 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />

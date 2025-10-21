@@ -27,7 +27,7 @@ export type PromoCtaProps = ComponentProps & {
 };
 
 const props: PromoCtaProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 

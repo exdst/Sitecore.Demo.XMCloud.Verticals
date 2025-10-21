@@ -24,7 +24,7 @@ export type AppPromoProps = {
 };
 
 export const Default = (props: AppPromoProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

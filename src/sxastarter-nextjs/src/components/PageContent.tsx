@@ -33,7 +33,7 @@ const ComponentContent = (props: ComponentContentProps) => {
 
 export const Default = (props: PageContentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   if (!(props.fields && props.fields.Content) && !sitecoreContext?.route?.fields?.Content) {
     return (

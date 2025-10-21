@@ -20,7 +20,7 @@ const applyCategoryFilter = (
 
 let selectedCategory = '';
 const props: ProjectListComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const projectItems = getProjectItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
 const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
 ---
@@ -60,7 +60,7 @@ const filteredItems = applyCategoryFilter(projectItems, selectedCategory);
   });
 </script>
 <div
-  class={`component project-list ${props.params?.styles.trimEnd()}`}
+  class={`component project-list ${props?.params?.styles.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container">

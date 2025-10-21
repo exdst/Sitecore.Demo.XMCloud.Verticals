@@ -20,7 +20,7 @@ export type ContactFormProps = {
   fields: Fields;
 };
 const props: ContactFormProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

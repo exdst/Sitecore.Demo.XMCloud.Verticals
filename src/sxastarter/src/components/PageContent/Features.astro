@@ -27,7 +27,7 @@ export type FeaturesProps = {
 };
 
 const props: FeaturesProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

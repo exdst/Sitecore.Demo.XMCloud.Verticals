@@ -3,9 +3,9 @@ import { ComponentProps } from "lib/component-props";
 import DefaultContainer from "components/NestedComponents/DefaultContainer.astro";
 
 const props: ComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 
-const splitStyles = props.params?.Styles?.split(" ");
+const splitStyles = props?.params?.styles?.split(" ");
 const isContainer = splitStyles && splitStyles.includes("container");
 ---
 

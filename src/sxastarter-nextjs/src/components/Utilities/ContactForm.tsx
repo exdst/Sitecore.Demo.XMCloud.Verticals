@@ -16,7 +16,7 @@ export type ContactFormProps = {
 };
 
 export const Default = (props: ContactFormProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

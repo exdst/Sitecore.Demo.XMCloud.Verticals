@@ -27,7 +27,7 @@ export type AccordionProps = {
 };
 
 const props: AccordionProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const accordionItems = props.fields?.items;
 ---
 

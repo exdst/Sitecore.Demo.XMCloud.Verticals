@@ -32,7 +32,7 @@ export type DocumentsListProps = {
 };
 
 export const Default = (props: DocumentsListProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

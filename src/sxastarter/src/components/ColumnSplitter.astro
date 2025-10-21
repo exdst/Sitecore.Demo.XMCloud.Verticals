@@ -28,7 +28,7 @@ const columnStyles = [
 ];
 
 const enabledPlaceholders = props.params.EnabledPlaceholders.split(",");
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div class={`row component column-splitter ${styles}`} id={id ? id : undefined} >

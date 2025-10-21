@@ -25,7 +25,7 @@ export type ApplicationFormProps = {
 };
 
 const props: ApplicationFormProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

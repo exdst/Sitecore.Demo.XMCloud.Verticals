@@ -12,7 +12,7 @@ interface CSSProperties extends CSS.Properties<string | number> {
 
 const props: ImageProps = Astro.props.route;
 
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const sitecoreContext = SitecoreContextMap.get()["scContext"];
 const isPageEditing = sitecoreContext.pageEditing;
 const isMetadataMode = sitecoreContext?.editMode == EditMode.Metadata;

@@ -53,7 +53,7 @@ const LinkListItem = (props: LinkListItemProps) => {
 export const Default = (props: LinkListProps): JSX.Element => {
   const datasource = props.fields?.data?.datasource;
   const styles = `component link-list ${props?.params?.styles}`.trimEnd();
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   if (datasource) {
     const list = datasource.children.results

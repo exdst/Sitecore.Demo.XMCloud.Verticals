@@ -29,7 +29,7 @@ export type TwoColumnCtaProps = ComponentProps & {
 };
 
 export const Default = (props: TwoColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

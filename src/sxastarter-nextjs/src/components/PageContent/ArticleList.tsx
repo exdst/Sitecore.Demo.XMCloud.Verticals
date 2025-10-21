@@ -48,13 +48,13 @@ const getAllArticlesPageHref = (items: ArticleListItemProps[]) => {
 };
 
 const ArticleListDefault = (props: ArticleListComponentProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
   const { t } = useI18n();
 
   return (
     <div
-      className={`component article-list ${props.params?.styles.trimEnd()}`}
+      className={`component article-list ${props?.params?.styles.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container">
@@ -94,7 +94,7 @@ const ArticleListDefault = (props: ArticleListComponentProps): JSX.Element => {
 };
 
 const ArticleListThreeColumn = (props: ArticleListComponentProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
 
   return (
@@ -121,7 +121,7 @@ const ArticleListThreeColumn = (props: ArticleListComponentProps): JSX.Element =
 };
 
 const ArticleListSimplified = (props: ArticleListComponentProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
   const allArticlesPageHref = getAllArticlesPageHref(props.fields?.items);
   const { t } = useI18n();
@@ -173,7 +173,7 @@ const ArticleListSimplified = (props: ArticleListComponentProps): JSX.Element =>
 };
 
 const ArticleListGrid = (props: ArticleListComponentProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const newsItems = getNewsItems(props.fields?.items, parseInt(props.params?.NumberOfItems));
 
   return (

@@ -7,7 +7,7 @@ import {
 import { ArticleListItemProps, ArticleListComponentProps } from "components/PageContent/ArticleList.astro";
 
 const props: ArticleListComponentProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 
 const getNewsItems = (items: ArticleListItemProps[], numOfItems: number) => {
   return items

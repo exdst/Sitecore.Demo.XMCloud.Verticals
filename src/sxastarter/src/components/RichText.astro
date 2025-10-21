@@ -11,7 +11,7 @@ export type RichTextProps = {
 };
 
 const props: RichTextProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

@@ -31,7 +31,7 @@ export type ThreeColumnCtaProps = {
 };
 
 export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
@@ -110,7 +110,7 @@ export const Default = (props: ThreeColumnCtaProps): JSX.Element => {
 };
 
 export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 
@@ -186,7 +186,7 @@ export const WithIcons = (props: ThreeColumnCtaProps): JSX.Element => {
 };
 
 export const WithIconsCompact = (props: ThreeColumnCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

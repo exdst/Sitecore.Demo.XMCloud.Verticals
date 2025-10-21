@@ -3,7 +3,7 @@ import { ComponentProps } from 'lib/component-props';
 import React from 'react';
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div className={`component header ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>
@@ -28,7 +28,7 @@ export type WithImageProps = ComponentProps & {
 };
 
 export const WithLogoImage = (props: WithImageProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div className={`component header ${props?.params?.styles.trimEnd()}`} id={id ? id : undefined}>

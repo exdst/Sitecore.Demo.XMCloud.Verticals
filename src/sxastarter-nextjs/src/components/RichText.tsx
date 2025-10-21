@@ -16,7 +16,7 @@ export const Default = (props: RichTextProps): JSX.Element => {
   ) : (
     <span className="is-empty-hint">Rich text</span>
   );
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

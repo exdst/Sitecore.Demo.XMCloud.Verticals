@@ -19,7 +19,7 @@ export type LoanCalculatorProps = {
 };
 
 const props: LoanCalculatorProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 
 const t = useTranslations();
 

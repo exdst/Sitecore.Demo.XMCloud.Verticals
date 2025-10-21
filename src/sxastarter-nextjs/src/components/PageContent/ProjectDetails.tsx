@@ -35,7 +35,7 @@ export type ProjectDetailsProps = ComponentProps & {
 
 export const Default = (props: ProjectDetailsProps): JSX.Element => {
   const [currentUrl, setCurrentUrl] = useState('');
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { t } = useI18n();
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const Default = (props: ProjectDetailsProps): JSX.Element => {
 
   return (
     <div
-      className={`component project-details mt-4 mb-5 ${props.params?.styles?.trimEnd()}`}
+      className={`component project-details mt-4 mb-5 ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="container container-wide">

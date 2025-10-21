@@ -21,11 +21,11 @@ export type PageBackgroundProps = ComponentProps & {
 };
 
 export const Default = (props: PageBackgroundProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div
-      className={`component page-background col-12 ${props.params?.styles?.trimEnd()}`}
+      className={`component page-background col-12 ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />

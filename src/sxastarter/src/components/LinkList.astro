@@ -29,7 +29,7 @@ type LinkListProps = {
 const props: LinkListProps = Astro.props.route;
 const datasource = props.fields?.data?.datasource;
 const styles = `component link-list ${props?.params?.styles}`.trimEnd();
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <>

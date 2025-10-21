@@ -25,7 +25,7 @@ export type ApplicationFormProps = {
 };
 
 export const Default = (props: ApplicationFormProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
 
   return (
     <div

@@ -32,7 +32,7 @@ export type PromoCtaProps = ComponentProps & {
 };
 
 export const Default = (props: PromoCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
@@ -90,7 +90,7 @@ export const Default = (props: PromoCtaProps): JSX.Element => {
 };
 
 export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
   const [isVisible, domRef] = useVisibility();
@@ -155,7 +155,7 @@ export const WithPlaceholderColumn = (props: PromoCtaProps): JSX.Element => {
 };
 
 export const WithBackgroundImage = (props: PromoCtaProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const { sitecoreContext } = useSitecoreContext();
   const isPageEditing = sitecoreContext.pageEditing;
 

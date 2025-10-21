@@ -6,7 +6,7 @@ import {
 import { PromoProps } from "components/Promo.astro";
 
 const props: PromoProps = Astro.props.route;
-const id = props.params?.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div

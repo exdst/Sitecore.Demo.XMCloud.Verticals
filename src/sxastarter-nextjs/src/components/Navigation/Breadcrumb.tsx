@@ -51,7 +51,7 @@ const Breadcrumb = (props: BreadcrumbProps): JSX.Element => {
   const propItemAncestors = props.fields.data.item.ancestors;
   const breadcrumbs = [];
 
-  const sxaStyles = `${props.params?.styles || ''}`;
+  const sxaStyles = `${props?.params?.styles || ''}`;
 
   const pageItems = {
     title: getBreadcrumbTitle(propItem),

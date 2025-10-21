@@ -24,7 +24,7 @@ const styles =
   props.params != null
     ? `${props.params.GridParameters ?? ""} ${props?.params?.styles ?? ""}`.trimEnd()
     : "";
-const id = props.params?.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 
 const isEmpty = !Object.values(props.fields).length;
 

@@ -81,7 +81,7 @@ const Testimonial = ({ item }: { item: TestimonialItemProps }): JSX.Element => {
 };
 
 export const Default = (props: TestimonialsProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   const testimonials = props.fields?.items;
 
   return (

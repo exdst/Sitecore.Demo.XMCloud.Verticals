@@ -22,7 +22,7 @@ export type QuestionsProps = {
 };
 
 const props: QuestionsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <>

@@ -22,11 +22,11 @@ export type PageBackgroundProps = ComponentProps & {
 };
 
 const props: PageBackgroundProps = Astro.props.route;
-const id = props.params?.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 ---
 
 <div
-  class={`component page-background col-12 ${props.params?.styles?.trimEnd()}`}
+  class={`component page-background col-12 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <ParallaxBackgroundImage BackgroundImage={props.fields.BackgroundImage} />

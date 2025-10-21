@@ -35,12 +35,12 @@ export type ProjectDetailsProps = ComponentProps & {
 };
 
 const props: ProjectDetailsProps = Astro.props.route;
-const id = props.params.RenderingIdentifier;
+const id = props?.params?.RenderingIdentifier;
 const t = useTranslations();
 const currentUrl = Astro.url.href;
 ---
 <div
-  class={`component project-details mt-4 mb-5 ${props.params?.styles?.trimEnd()}`}
+  class={`component project-details mt-4 mb-5 ${props?.params?.styles?.trimEnd()}`}
   id={id ? id : undefined}
 >
   <div class="container container-wide">

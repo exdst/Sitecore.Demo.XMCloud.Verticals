@@ -29,7 +29,7 @@ const PromoDefaultComponent = (props: PromoProps): JSX.Element => (
 );
 
 export const Default = (props: PromoProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   if (props.fields) {
     return (
       <div className={`component promo ${props?.params?.styles}`} id={id ? id : undefined}>
@@ -56,7 +56,7 @@ export const Default = (props: PromoProps): JSX.Element => {
 };
 
 export const WithText = (props: PromoProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
+  const id = props?.params?.RenderingIdentifier;
   if (props.fields) {
     return (
       <div className={`component promo ${props?.params?.styles}`} id={id ? id : undefined}>
