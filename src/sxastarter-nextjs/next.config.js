@@ -7,6 +7,26 @@ const publicUrl = jssConfig.publicUrl;
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  experimental: {
+    serverActions: {
+      allowedOrigins: [
+        'https://financial.sxastarter.localhost',
+        'http://financial.sxastarter.localhost',
+        'https://services.sxastarter.localhost',
+        'http://services.sxastarter.localhost',
+        'https://basic.sxastarter.localhost',
+        'http://basic.sxastarter.localhost',
+      ],
+      allowedDevOrigins: [
+        'https://financial.sxastarter.localhost',
+        'http://financial.sxastarter.localhost',
+        'https://services.sxastarter.localhost',
+        'http://services.sxastarter.localhost',
+        'https://basic.sxastarter.localhost',
+        'http://basic.sxastarter.localhost',
+      ],
+    }
+  },
   outputFileTracing: false,
   // Set assetPrefix to our public URL
   // assetPrefix: publicUrl,

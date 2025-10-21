@@ -25,6 +25,11 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true,
+    allowedHosts: ['renderingastro',
+      'services.sxastarter.localhost.astro',
+      'financial.sxastarter.localhost.astro',
+      'basic.sxastarter.localhost.astro',
+    ],
   },
   output: "server",
   adapter: adapter,
