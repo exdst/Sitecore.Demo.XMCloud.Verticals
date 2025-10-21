@@ -1,3 +1,8 @@
+Important: 
+When any changes in Sitecore data are required: try to make changes using Sitecore MCP tools.
+Once all Sitecore changes(adding/removing/updating) are done, use `dotnet sitecore ser pull` command to get latest changes.
+Fallback to .yml files editing only if Sitecore MCP tools do not work. If you use approach on changing .yml files then `docker sitecore ser push` command should be called afterwards to sync local files with Sitecore.
+
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
 2. Financial Headless Astro website URL: https://financial.sxastarter.localhost.astro/
