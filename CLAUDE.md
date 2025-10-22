@@ -7,6 +7,7 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 1. Use 	/~/icon/office/32x32/robot.png icon for all new and edited items
 2. Astro is started in container in dev mode, no need to start it additionally or restart
 3. Next.js is started in container in dev mode, no need to start it additionally or restart
+4. Prefer Google Chrome DevTools MCP server to check results. Use curl or other options only as a fallback.
 
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
@@ -15,8 +16,8 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 4. Financial Headless Next.js website URL: https://financial.sxastarter.localhost/
 5. Placeholder: each page has main placeholder: headless-main
 6. Both Next.js and Astro websites shares the same Sitecore data
-7. Services root path in Sitecore: /sitecore/content/Verticals/Services
-8. Financial root path in Sitecore: /sitecore/content/Verticals/Financial
+7. Services website root path to Home item in Sitecore: /sitecore/content/Verticals/Services/Home
+8. Financial root path to Home item in Sitecore: /sitecore/content/Verticals/Financial/Home
 
 # Page creation
 1. Use one of page templates, under: /sitecore/templates/Project/Verticals/Pages
