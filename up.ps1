@@ -123,8 +123,8 @@ if ($LASTEXITCODE -ne 0) {
 
 
 # Rebuild indexes
-Write-Host "Rebuilding indexes ..." -ForegroundColor Green
-dotnet sitecore index rebuild
+#Write-Host "Rebuilding indexes ..." -ForegroundColor Green
+#dotnet sitecore index rebuild
 
 if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
