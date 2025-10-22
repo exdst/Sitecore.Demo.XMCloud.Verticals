@@ -70,6 +70,7 @@ services:
       PUBLIC_URL: "https://${RENDERING_HOST_6}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_API_KEY: "${SITECORE_API_KEY_xmcloudpreview}"
+      SITES: '[{"name":"Basic","language":"en","hostName":"basic.sxastarter.localhost.astro"}, {"name":"Financial","language":"en","hostName":"financial.sxastarter.localhost.astro"}, {"name":"Services","language":"en","hostName":"services.sxastarter.localhost.astro"}]'
     depends_on:
       - cm
       - nodejs
@@ -153,7 +154,9 @@ services:
       SITECORE_SPE_ELEVATION: "Allow"
     entrypoint: powershell -Command "& C:/tools/entrypoints/iis/XmCloudDevelopment.ps1"
   mcp-server:
-    image: antonytm/mcp-sitecore-windows:0.20.2
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-mcp-server:${VERSION:-latest}
+    build:
+      context: ./docker/build/mcp
     depends_on:
       - cm
     environment:

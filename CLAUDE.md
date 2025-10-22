@@ -26,7 +26,7 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 3. Datasource item should be created under the local Data folder. (Step 2)
 4. Datasource fields should be filled with test values (preferably from Figma)
 5. Rendering should be configured using local datasource "local:/Data/{datasource item name}"
-6. Rendering should be added to headless-main placeholder by editing __Renderings field of the page
+6. Rendering should be added to headless-main placeholder by running presentation-add-rendering-by-id MCP tool
 
 # Rendering creation
 
