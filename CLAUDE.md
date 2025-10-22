@@ -5,6 +5,8 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 
 # Rules
 1. Use 	/~/icon/office/32x32/robot.png icon for all new and edited items
+2. Astro is started in container in dev mode, no need to start it additionally or restart
+3. Next.js is started in container in dev mode, no need to start it additionally or restart
 
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
