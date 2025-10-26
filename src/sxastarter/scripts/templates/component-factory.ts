@@ -31,7 +31,7 @@ export interface Props  {
 
 <>
 ${componentFiles.map(
-    (component) => `{Astro.props.name === '${component.componentName}' && <${component.moduleName} route={Astro.props.route}/>}`
+    (component) => `{Astro.props.name.replaceAll(' ', '') === '${component.componentName}' && <${component.moduleName} route={Astro.props.route}/>}`
   ).join('\n')}
   {Astro.props.name === undefined && Astro.props.route.name === 'code' && <code {...Astro.props.route.attributes} set:html={Astro.props.route.contents}></code>}
 </>
