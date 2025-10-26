@@ -1,0 +1,13 @@
+﻿---
+ID: "a5419ba3-520f-447f-b461-e0cb63548534"
+Parent: "9630299a-f0c0-4b95-bb56-adb394885d48"
+Template: "fe5dd826-48c6-436d-b87a-7c4210c7413b"
+Path: /sitecore/media library/Project/Verticals/DemoStyled
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f3392230-02b5-44b7-aeb6-4366a572b638"

@@ -8,6 +8,7 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 2. Astro is started in container in dev mode, no need to start it additionally or restart
 3. Next.js is started in container in dev mode, no need to start it additionally or restart
 4. Prefer Google Chrome DevTools MCP server to check results. Use curl or other options only as a fallback.
+5. If there is present image field and you need test data, use images from /sitecore/media library/Project/Verticals/demo folder in media library. Get list of images and use the image that works.
 
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/

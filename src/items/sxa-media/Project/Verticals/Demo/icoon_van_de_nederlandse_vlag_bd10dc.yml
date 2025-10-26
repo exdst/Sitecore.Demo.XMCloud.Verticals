@@ -1,0 +1,42 @@
+﻿---
+ID: "5d179026-c575-457b-8794-3ef6c6df7448"
+Parent: "bd97c447-efa6-4d90-a20a-7d18f8e7fa40"
+Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
+Path: /sitecore/media library/Project/Verticals/Demo/icoon_van_de_nederlandse_vlag_bd10dc
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: "-/media/5D179026C575457B87943EF6C6DF7448.ashx?h=16&thn=1&w=16"
+- ID: "22eac599-f13b-4607-a89d-c091763a467d"
+  Hint: Width
+  Value: 32
+- ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
+  Hint: Blob
+  BlobID: "8c16d4bb-cb86-4710-b2c8-0f86eb4f3963"
+  Value: iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAAAXNSR0IArs4c6QAAA1xJREFUSEu1lUloVEEQhv+qfjOZ0ShjAsYVFwJCBBdU4k40buB59OpBBAURFMGTzE3wIioi4sGLF6MnwQ3EjKIeNCqIGVyiqMRDRINbJvNm+nVp93tvBjSHTNSGeQxNd9VXVX9VE0ZY98Yv+qogEz0FMLSADAAZ6ehf7Qnwkn63cGXBpvaW5wM3odCIBCCsBfg/AACd+wOgu3XDkRl9n/YNJyVdTgFaaQn4/wAw81YHkAXURSCw/x/P7Oxu7v+yspg0Sb9BpMIVCBmQq0D9ZTDGwo+8mrxJGYKA2giJAlB+1pZtbBwYfKt8P+MrzQEHoEAD0Y/r9w9mHtk74eHcYm+7y0AbkLQAD+ds2lhM4LrmgKzwWAw8AygBXBX+4SLCsfa+2wccQO6X2HOAkU8fT6FBdsPu2oIIWRUCxgNCRf47BJLV1DzuPiEHRs7JHCUZfOTDLLaZToLBsI6Vcy7wbLXGAFCrW3g7/KaJXDSEDnjIQ4sUp/uo9GsnNBYGgaoADPnFGV8eHYW1o0EulS4+qtlTN1JEW0KALBQuItAyvFPDnA2NW7nFDv8mcm1raUmIwGSzyS6j2JMkOl3LB4ChoW/X0qn0FmIWEZcFJwH7MXVkPk54qFlnyPqP0h3tEFobgDdEJJTNZlVXV9cEaLyAYHLc7E5/DgD1AUSwEXRIYOsXobCgsHnjuoX57u4AFmDJkl2Jnvtn5mnBAwCpqNDueBy5A6lzRXck6l4HYAtbLuP4+o6lBx/19GgHYO22rz15yC/5RyIfVdmOxXHMadwDBiEyQoYVGwaTj+aM6ezvf3q30NtVqQLM77z+YPDz4DLP88ROrlADUQnqjDw+7kY3BcKww0xz0thGHipP0UNNb4q3dN+rq2UHMGvNnallXXktQLo27Gtjj2gM+a9ODGPb0JAxCjqQCYnvl76+u7Ajk3mtC72FCghCLauubjdaziulPBH7cliPNQBjbCvZaOp9CEIbRimjkVDffNIzm37sf//y1NmO2Xmdz8MZppbll08IsDd0gqA6cSiEEXGPZDxMRl8QMk74FU6IzykulajUMu1Hx8Crw09y2wo6F01fmrzi8mMIFkeWLZWdv1ayDkYkiJtx9M5dMDFAEj43UGmYiq3zzNS+D0eLyOejtAI/Aa81fCH6InZ+AAAAAElFTkSuQmCC
+- ID: "6954b7c7-2487-423f-8600-436cb3b6dc0e"
+  Hint: Size
+  Value: 930
+- ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
+  Hint: Mime Type
+  Value: image/png
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: png
+- ID: "cb09946f-3218-4823-87d2-d5007c199a96"
+  Hint: Dimensions
+  Value: 32 x 19
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "4b37a032-f018-4d30-9e6d-03032a5f7508"
+- ID: "de2ca9e4-c117-4c8a-a139-1ff4b199d15a"
+  Hint: Height
+  Value: 19
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "98d148a4-ed84-4209-8217-d4e7ff85bfd8"
