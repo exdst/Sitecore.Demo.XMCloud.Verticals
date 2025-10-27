@@ -24,7 +24,11 @@
       "Bash(dotnet sitecore ser pull:*)",
       "mcp__chrome-dev-tools__evaluate_script",
       "mcp__sitecore__run-powershell-script",
-      "mcp__chrome-dev-tools__hover"
+      "mcp__chrome-dev-tools__hover",
+      "Bash(curl:*)",
+      "Read(//c/tmp/**)",
+      "Bash(docker logs:*)",
+      "Bash(/dev/null)"
     ],
     "deny": [],
     "ask": []
