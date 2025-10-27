@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "sitecore": {
+      "type": "http",
+      "url": "http://127.0.0.1:5001/mcp"
+    },
+    "figma": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "chrome-dev-tools": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "chrome-devtools-mcp@latest"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -1,9 +1,26 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(claude mcp list:*)",
+      "Bash(claude mcp add \"Chrome DevTools\" -s project -- npx -y chrome-devtools-mcp@latest)",
+      "Bash(claude mcp add:*)",
+      "mcp__chrome-dev-tools__navigate_page",
+      "mcp__chrome-dev-tools__list_pages",
+      "mcp__chrome-dev-tools__take_snapshot",
+      "mcp__chrome-dev-tools__take_screenshot",
+      "mcp__sitecore__item-service-get-item-by-path",
+      "mcp__sitecore__item-service-get-item-children",
+      "mcp__sitecore__presentation-get-rendering-by-id",
+      "mcp__sitecore__presentation-get-layout-by-id",
+      "mcp__chrome-dev-tools__wait_for"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "sitecore",
+    "figma",
+    "chrome-dev-tools"
+  ]
 }

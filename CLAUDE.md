@@ -9,7 +9,8 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 3. Next.js is started in container in dev mode, no need to start it additionally or restart
 4. Prefer Google Chrome DevTools MCP server to check results. Use curl or other options only as a fallback.
 5. If there is present image field and you need test data, use images from /sitecore/media library/Project/Verticals/demo folder in media library. Get list of images and use the image that works.
-6. Rendering context resolvers are located under /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers. Use default "Datasource Resolver" {3DF775BF-3F56-446F-9D81-43DE64DA4DDA} for renderings that has one item as datasource. Use "Datasource Item Children Resolver" {2F5C334E-5615-423C-8281-9FC180191302} if datasource has multiple items located under the main one.
+6. Rendering context resolvers are located under /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers. Use default "Datasource Resolver" {3DF775BF-3F56-446F-9D81-43DE64DA4DDA} for renderings that has one item as datasource. Use "Datasource Item And Children Resolver" {2401A891-9F1E-47A8-A0A3-3726059FEAFD} if datasource has multiple items located under the main one. Datasource Item And Children Resolver returns array of items. The zero-index item will be the datasource item. Other items will be children.
+7. Do not generate or manually change components factory. It is generated automatically.
 
 # Sitecore configuration
 1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
