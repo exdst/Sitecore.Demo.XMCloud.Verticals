@@ -7,6 +7,11 @@
                 "name": "Context Item Children Resolver",
                 "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Context Item Children Resolver",
                 "scope": "singleItem"
+            },
+            {
+                "name": "Datasource Item And Children Resolver",
+                "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Datasource Item And Children Resolver",
+                "scope": "singleItem"
             }
         ]
     }
