@@ -13,7 +13,13 @@
       "mcp__sitecore__item-service-get-item-children",
       "mcp__sitecore__presentation-get-rendering-by-id",
       "mcp__sitecore__presentation-get-layout-by-id",
-      "mcp__chrome-dev-tools__wait_for"
+      "mcp__chrome-dev-tools__wait_for",
+      "Read(//c/Users/Anton/**)",
+      "mcp__figma__get_design_context",
+      "mcp__figma__get_screenshot",
+      "mcp__sitecore__item-service-create-item",
+      "mcp__sitecore__item-service-get-item",
+      "mcp__sitecore__item-service-edit-item"
     ],
     "deny": [],
     "ask": []
