@@ -19,7 +19,12 @@
       "mcp__figma__get_screenshot",
       "mcp__sitecore__item-service-create-item",
       "mcp__sitecore__item-service-get-item",
-      "mcp__sitecore__item-service-edit-item"
+      "mcp__sitecore__item-service-edit-item",
+      "mcp__sitecore__presentation-add-rendering-by-id",
+      "Bash(dotnet sitecore ser pull:*)",
+      "mcp__chrome-dev-tools__evaluate_script",
+      "mcp__sitecore__run-powershell-script",
+      "mcp__chrome-dev-tools__hover"
     ],
     "deny": [],
     "ask": []
