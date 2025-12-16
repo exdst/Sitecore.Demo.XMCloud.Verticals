@@ -1,11 +1,10 @@
-import { defineMiddleware } from "astro/middleware";
-import { defineMiddleware as middleware } from "@astro-sitecore-jss/astro-content-sdk/middleware";
+import { defineMiddleware, sequence } from "astro/middleware";
 import { MultisiteMiddleware } from "@astro-sitecore-jss/astro-content-sdk/middleware";
 import sites from ".sitecore/sites.json";
 import scConfig from "sitecore.config";
 
-export const onRequest = defineMiddleware((context, next) => {
-  // If no Edge server contextId, skip Edge middlewares entirely.
+const requestFilterMiddleware = defineMiddleware(async (context, next) => {
+ // If no Edge server contextId, skip Edge middlewares entirely.
   //(SSR/API can still use Local creds; no crash in Edge runtime.)
   // if (!scConfig.api?.edge?.contextId) {
   //   return next();
@@ -13,6 +12,7 @@ export const onRequest = defineMiddleware((context, next) => {
 
   // Skip the multisite middleware for SSG
   if (context.isPrerendered) {
+    context.locals.skipMiddleware = true;
     return next();
   }
 
@@ -31,10 +31,14 @@ export const onRequest = defineMiddleware((context, next) => {
 
   const requestUrl = new URL(context.request.url.toLowerCase());
   if (matcher.test(requestUrl.pathname)) {
+    context.locals.skipMiddleware = true;
     return next();
   }
 
-  const multisite = new MultisiteMiddleware({
+  return next();
+});
+
+const multisite = new MultisiteMiddleware({
     /**
      * List of sites for site resolver to work with
      */
@@ -47,5 +51,4 @@ export const onRequest = defineMiddleware((context, next) => {
     skip: () => false,
   });
 
-  return middleware(multisite).exec(context, next);
-});
+export const onRequest = sequence(requestFilterMiddleware, multisite.handle);
