@@ -7,7 +7,7 @@ import {
   isDesignLibraryPreviewData,
   COOKIE_NAME_PRERENDER_DATA,
 } from "@astro-sitecore-jss/astro-content-sdk/editing";
-import { extractPath } from "@astro-sitecore-jss/astro-content-sdk/utils";
+import { extractPath, removeLanguageFromPath } from "@astro-sitecore-jss/astro-content-sdk/utils";
 import client from "@/lib/sitecore-client";
 import Layout from "@/Layout.astro";
 import components from ".sitecore/component-map";
@@ -24,13 +24,7 @@ let props = {};
 let path = extractPath(Astro.params);
 
 // Remove language segment from path
-const segments = path.split("/");
-if (segments.length > 1 && segments[0].indexOf(SITE_PREFIX) !== -1) {
-  segments.splice(1, 1);
-} else {
-  segments.splice(0, 1);
-}
-path = segments.join("/") || "/";
+path = removeLanguageFromPath(path, languages);
 
 // Re-add _site_ prefix that has been removed in GetStaticPaths
 if (Astro.isPrerendered) {
