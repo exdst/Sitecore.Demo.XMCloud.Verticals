@@ -27,7 +27,7 @@
     "@astrojs/vercel": "^9.0.2",
     "@sitecore-cloudsdk/core": "^0.5.1",
     "@sitecore-cloudsdk/events": "^0.5.1",
-    "@sitecore-content-sdk/core": "^1.0.0",
+    "@sitecore-content-sdk/core": "~1.1.0",
     "@sitecore/components": "^1.1.12",
     "astro": "^5.16.6",
     "bootstrap": "^5.3.3",
@@ -46,7 +46,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@sitecore-content-sdk/cli": "^1.0.0",
+    "@sitecore-content-sdk/cli": "~1.1.0",
     "debug": "^4.4.0",
     "npm-run-all": "^4.1.5",
     "ts-node": "^10.9.2",
