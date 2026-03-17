@@ -27,8 +27,8 @@
     "@astrojs/vercel": "^9.0.2",
     "@sitecore-cloudsdk/core": "^0.5.1",
     "@sitecore-cloudsdk/events": "^0.5.1",
-    "@sitecore-content-sdk/core": "~1.1.0",
-    "@sitecore/components": "^1.1.12",
+    "@sitecore-content-sdk/core": "1.2.1",
+    "@sitecore/components": "~2.1.0",
     "astro": "^5.16.6",
     "bootstrap": "^5.3.3",
     "dotenv-flow": "^4.1.0",
@@ -46,9 +46,10 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@sitecore-content-sdk/cli": "~1.1.0",
+    "@sitecore-content-sdk/cli": "1.2.1",
     "debug": "^4.4.0",
-    "npm-run-all": "^4.1.5",
+    "npm-run-all2": "~8.0.1",
+    "sass": "^1.98.0",
     "ts-node": "^10.9.2",
     "vite-plugin-cjs-interop": "^2.3.0"
   }

@@ -5,7 +5,7 @@ import {
 } from "@astro-sitecore-jss/astro-content-sdk/src/context";
 import {
   isDesignLibraryPreviewData,
-  COOKIE_NAME_PRERENDER_DATA,
+  PreviewCookies
 } from "@astro-sitecore-jss/astro-content-sdk/editing";
 import { extractPath, removeLanguageFromPath } from "@astro-sitecore-jss/astro-content-sdk/utils";
 import client from "@/lib/sitecore-client";
@@ -36,7 +36,7 @@ let page;
 let previewData;
 
 if (!Astro.isPrerendered) {
-  const previewDataCookies = Astro.cookies.get(COOKIE_NAME_PRERENDER_DATA);
+  const previewDataCookies = Astro.cookies.get(PreviewCookies.PREVIEW_DATA);
   previewData = previewDataCookies ? JSON.parse(previewDataCookies.value) : "";
 }
 
