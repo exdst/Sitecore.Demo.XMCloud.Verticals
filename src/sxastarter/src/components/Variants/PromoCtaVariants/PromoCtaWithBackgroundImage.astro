@@ -1,10 +1,10 @@
 ---
-import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
-import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
-import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
+import Link from "@exdst-sitecore-content-sdk/astro/components/Link.astro";
+import RichText from "@exdst-sitecore-content-sdk/astro/components/RichText.astro";
+import Text from "@exdst-sitecore-content-sdk/astro/components/Text.astro";
 import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
 import ParallaxBackgroundImage from "components/NonSitecore/ParallaxBackgroundImage.astro";
-import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { useSitecore } from "@exdst-sitecore-content-sdk/astro/context";
 
 const { fields, params } = Astro.props as PromoCtaProps;
 const { RenderingIdentifier: id, styles } = params;

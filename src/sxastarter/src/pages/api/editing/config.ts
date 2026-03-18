@@ -1,5 +1,5 @@
 import type { APIRoute, APIContext } from "astro";
-import { EditingConfigMiddleware } from "@astro-sitecore-jss/astro-content-sdk/editing";
+import { EditingConfigMiddleware } from "@exdst-sitecore-content-sdk/astro/editing";
 import components from ".sitecore/component-map";
 import metadata from ".sitecore/metadata.json";
 

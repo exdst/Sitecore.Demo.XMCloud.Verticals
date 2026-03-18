@@ -1,12 +1,12 @@
 ---
-import Image from "@astro-sitecore-jss/astro-content-sdk/src/components/AstroImage.astro";
-import Link from "@astro-sitecore-jss/astro-content-sdk/src/components/Link.astro";
-import RichText from "@astro-sitecore-jss/astro-content-sdk/src/components/RichText.astro";
-import Text from "@astro-sitecore-jss/astro-content-sdk/src/components/Text.astro";
-import Placeholder from "@astro-sitecore-jss/astro-content-sdk/src/components/Placeholder/Placeholder.astro";
+import Image from "@exdst-sitecore-content-sdk/astro/components/AstroImage.astro";
+import Link from "@exdst-sitecore-content-sdk/astro/components/Link.astro";
+import RichText from "@exdst-sitecore-content-sdk/astro/components/RichText.astro";
+import Text from "@exdst-sitecore-content-sdk/astro/components/Text.astro";
+import Placeholder from "@exdst-sitecore-content-sdk/astro/components/Placeholder/Placeholder.astro";
 import DottedAccent from "components/NonSitecore/DottedAccent.astro";
 import { PromoCtaProps } from "components/PageContent/PromoCta.astro";
-import { useSitecore } from "@astro-sitecore-jss/astro-content-sdk/src/context";
+import { useSitecore } from "@exdst-sitecore-content-sdk/astro/context";
 
 const { fields, params, rendering } = Astro.props as PromoCtaProps;
 const { RenderingIdentifier: id, styles } = params;

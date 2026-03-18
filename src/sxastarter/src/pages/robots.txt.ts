@@ -1,5 +1,5 @@
 import { APIContext, APIRoute } from "astro";
-import { RobotsMiddleware } from "@astro-sitecore-jss/astro-content-sdk/middleware";
+import { RobotsMiddleware } from "@exdst-sitecore-content-sdk/astro/middleware";
 import scClient from "lib/sitecore-client";
 import sites from ".sitecore/sites.json";
 

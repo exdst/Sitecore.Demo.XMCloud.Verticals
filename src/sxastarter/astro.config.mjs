@@ -2,9 +2,8 @@ import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
-import { cjsInterop } from "vite-plugin-cjs-interop";
 import dotenvFlow from "dotenv-flow";
-import { loadEnv } from 'vite';
+import { loadEnv } from "vite";
 
 const adapter = process.env.VERCEL
   ? vercel({
@@ -24,20 +23,25 @@ dotenvFlow.config();
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(),
+  integrations: [
+    react(),
     {
-      name: 'set-prerender',
+      name: "set-prerender",
       hooks: {
-        'astro:route:setup': ({ route }) => {
-          // Load environment variables from .env files 
-          const { PRERENDER } = loadEnv(process.env.NODE_ENV, process.cwd(), '');
-          if (route.component.endsWith('/[...path].astro')) {
+        "astro:route:setup": ({ route }) => {
+          // Load environment variables from .env files
+          const { PRERENDER } = loadEnv(
+            process.env.NODE_ENV,
+            process.cwd(),
+            ""
+          );
+          if (route.component.endsWith("/[...path].astro")) {
             // Set the prerender value on routes (convert to boolean)
-            route.prerender = PRERENDER === 'true' ? true : false;
+            route.prerender = PRERENDER === "true" ? true : false;
           }
         },
       },
-    }
+    },
   ],
   security: {
     checkOrigin: false,
@@ -59,7 +63,7 @@ export default defineConfig({
     domains: [
       "financial.sxastarter.localhost.astro",
       "services.sxastarter.localhost.astro",
-      'cm',
+      "cm",
       "renderingastro",
       //Images from Sitecore are already optimized. Enable this if you want to use the Astro image service with Sitecore images from Sitecore Experience Edge.
       //"edge.sitecorecloud.io",
@@ -71,16 +75,17 @@ export default defineConfig({
         preflightContinue: true,
       },
     },
-    plugins: [
-      cjsInterop({
-        // List of CJS dependencies that require interop
-        dependencies: [
-          "@sitecore-content-sdk/core",
-          "@sitecore-content-sdk/core/*",
-          "@astro-sitecore-jss/astro-content-sdk",
-          "@astro-sitecore-jss/astro-content-sdk/*",
-        ],
-      }),
-    ],
+    ssr: {
+      noExternal: [
+        "@sitecore-content-sdk/core",
+        "@sitecore-cloudsdk/events",
+        "@sitecore-cloudsdk/core",
+        "@sitecore-cloudsdk/utils",
+        "@exdst-sitecore-content-sdk/astro",
+      ],
+    },
+    resolve: {
+      extensions: [".mjs", ".js", ".mts", ".ts"],
+    },
   },
 });

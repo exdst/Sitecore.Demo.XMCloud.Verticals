@@ -1,9 +1,9 @@
-import { defineCliConfig } from "@astro-sitecore-jss/astro-content-sdk/config-cli";
+import { defineCliConfig } from "@exdst-sitecore-content-sdk/astro/config-cli";
 import config from "./sitecore.config";
 import {
   generateMetadata,
   generateSites,
-} from "@astro-sitecore-jss/astro-content-sdk/tools";
+} from "@exdst-sitecore-content-sdk/astro/tools";
 
 export default defineCliConfig({
   build: {

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { AstroContentSdkComponent } from '@astro-sitecore-jss/astro-content-sdk';
+import { AstroContentSdkComponent } from '@exdst-sitecore-content-sdk/astro';
 
 // Components imported from the app itself
 import Title from 'src/components/Title.astro';

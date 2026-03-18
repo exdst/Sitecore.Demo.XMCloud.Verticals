@@ -1,4 +1,7 @@
-import { ComponentParams, ComponentRendering } from '@astro-sitecore-jss/astro-content-sdk';
+import {
+  ComponentParams,
+  ComponentRendering,
+} from "@exdst-sitecore-content-sdk/astro";
 
 /**
  * Shared component props

@@ -1,5 +1,5 @@
-import { SitecoreClient } from '@astro-sitecore-jss/astro-content-sdk/client';
-import scConfig from 'sitecore.config';
+import { SitecoreClient } from "@exdst-sitecore-content-sdk/astro/client";
+import scConfig from "sitecore.config";
 
 const client = new SitecoreClient({
   ...scConfig,
