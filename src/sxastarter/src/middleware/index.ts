@@ -4,12 +4,6 @@ import sites from ".sitecore/sites.json";
 import scConfig from "sitecore.config";
 
 const requestFilterMiddleware = defineMiddleware(async (context, next) => {
-  // If no Edge server contextId, skip Edge middlewares entirely.
-  //(SSR/API can still use Local creds; no crash in Edge runtime.)
-  // if (!scConfig.api?.edge?.contextId) {
-  //   return next();
-  // }
-
   // Skip the multisite middleware for SSG
   if (context.isPrerendered) {
     context.locals.skipMiddleware = true;
@@ -26,7 +20,7 @@ const requestFilterMiddleware = defineMiddleware(async (context, next) => {
    * 6. Astro files
    */
   const matcher = new RegExp(
-    "(api/|_next/|healthz|sitecore/api/|-/|_astro|_image|favicon.ico|sc_logo.svg|_site_)"
+    "(api/|healthz|sitecore/api/|-/|_astro|_image|favicon.ico|sc_logo.svg|_site_)"
   );
 
   const requestUrl = new URL(context.request.url.toLowerCase());
@@ -38,6 +32,7 @@ const requestFilterMiddleware = defineMiddleware(async (context, next) => {
   return next();
 });
 
+// Instantiate middlewares - they will use Edge config if available, otherwise fall back to local config
 const multisite = new MultisiteMiddleware({
   /**
    * List of sites for site resolver to work with

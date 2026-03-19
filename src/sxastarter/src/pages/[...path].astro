@@ -122,14 +122,7 @@ export const getStaticPaths = (async () => {
   }
 
   return paths.map((p) => {
-    const pathSegments = p.params.path;
-
-    // Remove _site_ segment from the output folder structure as we don't support multisite SSG.
-    const path =
-      pathSegments.length > 1
-        ? pathSegments.slice(1, pathSegments.length).join("/")
-        : "";
-
+    const path = p.params.path.join("/");
     return {
       params: { path: `${p.locale}/${path}` },
       props: { locale: p.locale },
