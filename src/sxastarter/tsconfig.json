@@ -19,6 +19,7 @@
     "skipLibCheck": true,
     // Enable strict mode
     "strict": true,
+    "strictFunctionTypes": false,
     // Error when a value import is only used as a type
     "importsNotUsedAsValues": "error",
     // TypeScript 5.0 changed how `isolatedModules` and `importsNotUsedAsValues` works, deprecating the later

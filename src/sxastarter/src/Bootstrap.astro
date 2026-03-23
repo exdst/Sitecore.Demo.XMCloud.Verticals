@@ -44,8 +44,9 @@ if (!config.api.edge?.clientContextId) {
   //******************************************************//
   //***************Cloud SDK initialization***************//
   //******************************************************//
-  import { CloudSDK } from "@sitecore-cloudsdk/core/browser";
-  import "@sitecore-cloudsdk/events/browser";
+  import { initContentSdk } from '@exdst-sitecore-content-sdk/astro';
+  import { eventsPlugin } from '@sitecore-content-sdk/events'; 
+  import { analyticsBrowserAdapter, analyticsPlugin } from '@sitecore-content-sdk/analytics-core'; 
 
   class Bootstrap extends HTMLElement {
     connectedCallback() {
@@ -57,16 +58,23 @@ if (!config.api.edge?.clientContextId) {
       const sitecoreEdgeUrl = this.dataset.sitecoreEdgeUrl || "";
       const siteName = this.dataset.siteName || "";
 
-      CloudSDK({
-        sitecoreEdgeUrl,
-        sitecoreEdgeContextId,
-        siteName,
-        enableBrowserCookie: true,
-        // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-        cookieDomain: window.location.hostname.replace(/^www\./, ""),
-      })
-        .addEvents()
-        .initialize();
+      initContentSdk({ 
+        config: { 
+          contextId: sitecoreEdgeContextId, 
+          edgeUrl: sitecoreEdgeUrl, 
+          siteName: siteName, 
+        }, 
+        plugins: [ 
+          analyticsPlugin({ 
+            options: { 
+              enableCookie: true, 
+              cookieDomain: window.location.hostname.replace(/^www\./, ''), 
+            }, 
+            adapter: analyticsBrowserAdapter(), 
+          }), 
+          eventsPlugin(), 
+        ], 
+      });
     }
   }
 

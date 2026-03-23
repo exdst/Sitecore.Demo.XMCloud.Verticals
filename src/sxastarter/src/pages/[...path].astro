@@ -1,4 +1,5 @@
 ---
+import { StaticPath } from "@exdst-sitecore-content-sdk/astro";
 import {
   updateSitecoreContext,
   updateSitecoreDictionary,
@@ -7,6 +8,7 @@ import {
   isDesignLibraryPreviewData,
   PreviewCookies
 } from "@exdst-sitecore-content-sdk/astro/editing";
+import { SITE_PREFIX } from "@exdst-sitecore-content-sdk/astro/site";
 import { extractPath, removeLanguageFromPath } from "@exdst-sitecore-content-sdk/astro/utils";
 import client from "@/lib/sitecore-client";
 import Layout from "@/Layout.astro";
@@ -16,8 +18,6 @@ import sites from ".sitecore/sites.json";
 import languages from "lib/languages";
 import NotFound from "@/NotFound.astro";
 import { GetStaticPaths } from "astro";
-import { StaticPath } from "@sitecore-content-sdk/core";
-import { SITE_PREFIX } from "@sitecore-content-sdk/core/site";
 
 let props = {};
 

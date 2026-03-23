@@ -77,10 +77,10 @@ export default defineConfig({
     },
     ssr: {
       noExternal: [
+        "@sitecore-content-sdk/content",
         "@sitecore-content-sdk/core",
-        "@sitecore-cloudsdk/events",
-        "@sitecore-cloudsdk/core",
-        "@sitecore-cloudsdk/utils",
+        "@sitecore-content-sdk/events",
+        "@sitecore-content-sdk/analytics-core",
         "@exdst-sitecore-content-sdk/astro",
       ],
     },

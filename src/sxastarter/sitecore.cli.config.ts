@@ -6,15 +6,12 @@ import {
 } from "@exdst-sitecore-content-sdk/astro/tools";
 
 export default defineCliConfig({
+  config: config,
   build: {
     commands: [
       generateMetadata(),
-      generateSites({
-        scConfig: config,
-      }),
-      /*extractFiles({
-        scConfig: config,
-      }),*/
+      generateSites(),
+      /*extractFiles(),*/
     ],
   },
   componentMap: {

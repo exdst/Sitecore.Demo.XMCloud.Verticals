@@ -1,12 +1,11 @@
 ---
 /**
  * This is the CDP page view component.
- * It uses the Sitecore Cloud SDK to enable page view events on the client-side.
- * See Sitecore Cloud SDK documentation for details.
- * https://www.npmjs.com/package/@sitecore-cloudsdk/events
+ * See Sitecore Content SDK documentation for details.
+ * https://www.npmjs.com/package/@sitecore-content-sdk/events
  */
 
-import { CdpHelper } from "@sitecore-content-sdk/core/personalize";
+import { CdpHelper } from "@exdst-sitecore-content-sdk/astro";
 import { useSitecore } from "@exdst-sitecore-content-sdk/astro/context";
 import config from "sitecore.config";
 
@@ -57,17 +56,10 @@ const pageViewData = JSON.stringify({
   <astro-cdp-page-view data-page-view-data={pageViewData}></astro-cdp-page-view>
 
   <script>
-    import { getEnabledPackageBrowser } from "@sitecore-cloudsdk/core/internal";
-    import { pageView } from "@sitecore-cloudsdk/events/browser";
+    import { pageView } from '@sitecore-content-sdk/events';
 
     class CdpPageView extends HTMLElement {
       async connectedCallback() {
-        const isInitialized = getEnabledPackageBrowser(
-          "@sitecore-cloudsdk/events"
-        )?.initState;
-
-        if (!isInitialized) return;
-
         const pageViewData = this.dataset.pageViewData;
 
         if (pageViewData !== undefined) {
