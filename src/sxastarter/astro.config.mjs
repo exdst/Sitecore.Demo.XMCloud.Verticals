@@ -36,8 +36,12 @@ export default defineConfig({
             ""
           );
           if (route.component.endsWith("/[...path].astro")) {
-            // Set the prerender value on routes (convert to boolean)
-            route.prerender = PRERENDER === "true" ? true : false;
+            // Set the prerender value on routes
+            if (process.env.NODE_ENV === "development") {
+              route.prerender = false;
+            } else {
+              route.prerender = PRERENDER === "true";
+            }
           }
         },
       },
@@ -45,6 +49,12 @@ export default defineConfig({
   ],
   security: {
     checkOrigin: false,
+    allowedDomains: [
+      {
+        protocol: "https",
+        hostname: "*.sitecorecloud.io",
+      },
+    ],
   },
   server: {
     port: 3000,
@@ -70,12 +80,20 @@ export default defineConfig({
     ],
   },
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: ["."],
+        },
+      },
+    },
     server: {
       cors: {
         preflightContinue: true,
       },
     },
-    ssr: {
+    resolve: {
+      extensions: [".mjs", ".js", ".mts", ".ts"],
       noExternal: [
         "@sitecore-content-sdk/content",
         "@sitecore-content-sdk/core",
@@ -83,9 +101,6 @@ export default defineConfig({
         "@sitecore-content-sdk/analytics-core",
         "@exdst-sitecore-content-sdk/astro",
       ],
-    },
-    resolve: {
-      extensions: [".mjs", ".js", ".mts", ".ts"],
     },
   },
 });

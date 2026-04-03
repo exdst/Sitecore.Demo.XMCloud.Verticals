@@ -1,5 +1,5 @@
-//@ts-nocheck
-import { AstroContentSdkComponent } from '@exdst-sitecore-content-sdk/astro';
+
+import type { AstroContentSdkComponent } from '@exdst-sitecore-content-sdk/astro';
 
 // Components imported from the app itself
 import Title from 'src/components/Title.astro';
@@ -56,7 +56,6 @@ import Header from 'src/components/Navigation/Header.astro';
 import Footer from 'src/components/Navigation/Footer.astro';
 import Eyebrow from 'src/components/Navigation/Eyebrow.astro';
 import Breadcrumb from 'src/components/Navigation/Breadcrumb.astro';
-
 
 // Components must be registered within the map to match the string key with component name in Sitecore
 export const componentMap = new Map<string, AstroContentSdkComponent>([

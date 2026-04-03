@@ -19,8 +19,6 @@ import languages from "lib/languages";
 import NotFound from "@/NotFound.astro";
 import { GetStaticPaths } from "astro";
 
-let props = {};
-
 let path = extractPath(Astro.params);
 
 // Remove language segment from path
@@ -56,15 +54,6 @@ if (context.preview && isDesignLibraryPreviewData(context.previewData)) {
 }
 
 if (page) {
-  props = {
-    page,
-    // dictionary: await client.getDictionary({
-    //   site: page.siteName,
-    //   locale: page.locale,
-    // }),
-    //componentProps: await client.getComponentData(page.layout, context, components),
-  };
-
   const dictionary = await client.getDictionary({
     site: page.siteName,
     locale: page.locale,
@@ -117,8 +106,6 @@ export const getStaticPaths = (async () => {
       console.log("Error occurred while fetching static paths");
       console.log(error);
     }
-
-    console.log("Paths", JSON.stringify(paths));
   }
 
   return paths.map((p) => {
@@ -135,9 +122,3 @@ export const getStaticPaths = (async () => {
   {page && <Layout page={page} />}
   {!page && <NotFound />}
 </>
-
-<script is:inline>
-  // This is a workaround to fix the 'process is not defined' error in Bootstrap component.
-  // 'debug' library used in CloudSDK has a dependency on a variable from the node environment)
-  const process = {};
-</script>

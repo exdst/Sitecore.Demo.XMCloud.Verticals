@@ -8,11 +8,7 @@ import {
 export default defineCliConfig({
   config: config,
   build: {
-    commands: [
-      generateMetadata(),
-      generateSites(),
-      /*extractFiles(),*/
-    ],
+    commands: [generateMetadata(), generateSites()],
   },
   componentMap: {
     paths: ["src/components"],

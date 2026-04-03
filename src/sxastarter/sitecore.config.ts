@@ -9,8 +9,13 @@ export default defineConfig({
       contextId: import.meta.env?.SITECORE_EDGE_CONTEXT_ID || "",
     },
     local: {
-      apiHost: import.meta.env?.SITECORE_API_HOST || process.env?.SITECORE_API_HOST,
-      apiKey: import.meta.env?.SITECORE_API_KEY || process.env?.SITECORE_API_KEY,
-    }
-  }
+      apiHost:
+        import.meta.env?.SITECORE_API_HOST || process.env?.SITECORE_API_HOST,
+      apiKey:
+        import.meta.env?.SITECORE_API_KEY || process.env?.SITECORE_API_KEY,
+    },
+  },
+  multisite: {
+    useCookieResolution: () => true,
+  },
 });
