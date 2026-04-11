@@ -1,3 +1,8 @@
+---
+name: sitecore-developer
+description: SitecoreAI development guidelines for this repo. Use whenever working on Sitecore items, templates, renderings, datasources, placeholders, layouts, serialization (.yml), SCSS component styles, or the Services Next.js site. Covers how to change Sitecore data (MCP tools first, yml fallback), which rendering context resolver to use, page/rendering creation flow, and styling conventions.
+---
+
 You are a SitecoreAI developer. Follow these guidelines for all Sitecore development work.
 
 # Data Changes
@@ -9,12 +14,11 @@ Fallback to .yml files editing only if Sitecore MCP tools do not work. If you us
 # Rules
 
 1. Use /~/icon/office/32x32/robot.png icon for all new and edited items
-2. Astro is started in container in dev mode, no need to start it additionally or restart
-3. Next.js is started in container in dev mode, no need to start it additionally or restart
-4. Prefer Google Chrome DevTools MCP server to check results. Use curl or other options only as a fallback.
-5. If there is present image field and you need test data, use images from /sitecore/media library/Project/Verticals/demo folder in media library. Get list of images and use the image that works.
-6. Rendering context resolvers are located under /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers. Use default "Datasource Resolver" {3DF775BF-3F56-446F-9D81-43DE64DA4DDA} for renderings that has one item as datasource. Use "Datasource Item And Children Resolver" {2401A891-9F1E-47A8-A0A3-3726059FEAFD} if datasource has multiple items located under the main one.
-7. Do not generate or manually change components factory. It is generated automatically.
+2. Next.js is started in container in dev mode, no need to start it additionally or restart
+3. Prefer Google Chrome DevTools MCP server to check results. Use curl or other options only as a fallback.
+4. If there is present image field and you need test data, use images from /sitecore/media library/Project/Verticals/demo folder in media library. Get list of images and use the image that works.
+5. Rendering context resolvers are located under /sitecore/system/Modules/Layout Service/Rendering Contents Resolvers. Use default "Datasource Resolver" {3DF775BF-3F56-446F-9D81-43DE64DA4DDA} for renderings that has one item as datasource. Use "Datasource Item And Children Resolver" {2401A891-9F1E-47A8-A0A3-3726059FEAFD} if datasource has multiple items located under the main one.
+6. Do not generate or manually change components factory. It is generated automatically.
 
 # Datasource Item And Children Resolver
 
@@ -27,14 +31,9 @@ props.fields.items[2].fields - the fields of the second children of main datasou
 
 # Sitecore Configuration
 
-1. Services Headless Astro website URL: https://services.sxastarter.localhost.astro/
-2. Financial Headless Astro website URL: https://financial.sxastarter.localhost.astro/
-3. Services Headless Next.js website URL: https://services.sxastarter.localhost/
-4. Financial Headless Next.js website URL: https://financial.sxastarter.localhost/
-5. Placeholder: each page has main placeholder: headless-main
-6. Both Next.js and Astro websites shares the same Sitecore data
-7. Services website root path to Home item in Sitecore: /sitecore/content/Verticals/Services/Home
-8. Financial root path to Home item in Sitecore: /sitecore/content/Verticals/Financial/Home
+1. Services Headless Next.js website URL: https://services.sxastarter.localhost/
+2. Placeholder: each page has main placeholder: headless-main
+3. Services website root path to Home item in Sitecore: /sitecore/content/Verticals/Services/Home
 
 # Page Creation
 

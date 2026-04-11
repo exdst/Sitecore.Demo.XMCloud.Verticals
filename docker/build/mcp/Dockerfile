@@ -26,4 +26,4 @@ RUN C:\node\npm.cmd --version
 EXPOSE 3001
 
 # Start the MCP server using full path
-CMD ["C:\\node\\npx.cmd", "@antonytm/mcp-sitecore-server@1.3.5"]
+CMD ["C:\\node\\npx.cmd", "@antonytm/mcp-sitecore-server@1.3.12"]
